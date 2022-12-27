@@ -37,9 +37,9 @@ const SideBar = ({ children }) => {
           </button>
         </div>
       </div>
-      <div className="min-w-100% flex">
+      <div className="flex flex-col w-100%">
         <TextField label="Search" type="search" />
-        <div className="main bg-slate-400">{children}</div>
+        <div className="main bg-slate-400 h-screen">{children}</div>
       </div>
     </div>
   );

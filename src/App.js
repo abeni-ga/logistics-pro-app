@@ -9,7 +9,7 @@ import Setting from "./components/pages/Setting/Setting";
 import Supports from "./components/pages/Support/support";
 function App() {
   return (
-    <div className="min-h-screen">
+    <div className="h-screen w-100%">
       <BrowserRouter>
         <SideBar>
           <Routes>
