@@ -8,7 +8,7 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 
 export const MENUITEMS = [
   {
-    path: "/dashboard",
+    path: "/admin/dashboard",
     title: "Dashboard",
     icon: <DashboardIcon />,
     type: "link",
@@ -16,21 +16,23 @@ export const MENUITEMS = [
     active: false,
   },
   {
+    path: "/admin/riders",
     title: "Riders",
     icon: <PersonIcon />,
     type: "sub",
     active: false,
     children: [
-      { path: "", title: "Active Today", type: "link" },
+      { path: "/admin/riders/active", title: "Active Today", type: "link" },
       {
-        path: "",
+        path: "/admin/riders/create",
         title: "Create New",
         type: "link",
       },
-      { path: "", title: "All Riders", type: "link" },
+      { path: "/admin/riders", title: "All Riders", type: "link" },
     ],
   },
   {
+    path: "/admin/orders",
     title: "Orders",
     icon: <PersonIcon />,
     type: "link",
@@ -43,35 +45,35 @@ export const MENUITEMS = [
     ],
   },
   {
-    path: "/orders",
+    path: "/admin/order-history",
     title: "Order History",
     icon: <ListAltIcon />,
     type: "link",
     active: false,
   },
   {
-    path: "/earning",
+    path: "/admin/earning",
     title: "Earning",
     icon: <PaymentsIcon />,
     type: "link",
     active: false,
   },
   {
-    path: "/reports",
+    path: "/admin/report",
     title: "Reports",
     icon: <AssessmentIcon />,
     type: "link",
     active: false,
   },
   {
-    path: "/settings",
+    path: "/admin/setting",
     title: "Settings",
     icon: <SettingsIcon />,
     type: "link",
     active: false,
   },
   {
-    path: "/supports",
+    path: "/admin/support",
     title: "Supports",
     icon: <Person2Icon />,
     type: "link",
