@@ -1,4 +1,6 @@
 import { InputAdornment, TextField } from "@mui/material";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -11,30 +13,9 @@ const SideBar = ({ children }) => {
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-  // return (
-  //   <div className="containerflex flex-row">
-  //     <div className="sidebar flex flex-col w-40%">
-  //       <div className="flex flex-col">
-  // {MENUITEMS.map((items) => {
-  //   return (
-  //     <NavLink to={items.path}>
-  //       <NavButton
-  //         key={items.title}
-  //         isOpen
-  //         icon={items.icon}
-  //         title={items.title}
-  //       />
-  //     </NavLink>
-  //   );
-  // })}
-  //       </div>
-  //     </div>
-  //     <div>{children}</div>
-  //   </div>
-  // );
   return (
     <div className="container min-h-full flex">
-      <div className="sidebar h-full w-20% ml-6">
+      <div className="sidebar h-full ml-6 mr-6">
         <div className="top-sideBar">
           <UserPanel />
         </div>
@@ -44,13 +25,16 @@ const SideBar = ({ children }) => {
               <NavLink to={items.path}>
                 <NavButton
                   key={index}
-                  isOpen
+                  isOpen={isOpen}
                   icon={items.icon}
                   title={items.title}
                 />
               </NavLink>
             );
           })}
+          <button onClick={toggle}>
+            {isOpen ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
+          </button>
         </div>
       </div>
       <div className="min-w-100% flex">
