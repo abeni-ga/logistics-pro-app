@@ -4,8 +4,8 @@ import Person2Icon from "@mui/icons-material/Person2";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PaymentsIcon from "@mui/icons-material/Payments";
-import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import ListAltIcon from "@mui/icons-material/ListAlt";
+
 export const MENUITEMS = [
   {
     path: "/dashboard",

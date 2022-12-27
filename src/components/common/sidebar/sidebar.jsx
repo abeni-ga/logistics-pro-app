@@ -6,8 +6,8 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { MENUITEMS } from "../../../constants/menu.js";
 import NavButton from "../../Buttons/NavButton/NavButton.jsx";
-import TextFieldWrapper from "../../TextFieldWrapper/TextFieldWrapper";
 import UserPanel from "./userPanel.jsx";
+
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
@@ -22,7 +22,12 @@ const SideBar = ({ children }) => {
         <div className="sidebar flex flex-col">
           {MENUITEMS.map((items, index) => {
             return (
-              <NavLink to={items.path}>
+              <NavLink
+                to={items.path}
+                style={({ isActive }) =>
+                  isActive ? { border: "1px solid red" } : undefined
+                }
+              >
                 <NavButton
                   key={index}
                   isOpen={isOpen}

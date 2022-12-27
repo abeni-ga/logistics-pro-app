@@ -20,6 +20,8 @@ function App() {
             <Route path="/reports" element={<Report />} />
             <Route path="/settings" element={<Setting />} />
             <Route path="/supports" element={<Supports />} />
+            
+            
           </Routes>
         </SideBar>
       </BrowserRouter>
