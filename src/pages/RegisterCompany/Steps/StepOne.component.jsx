@@ -35,7 +35,11 @@ const StepOne = () => {
           validationSchema={FORM_VALIDATION}
         >
           <Form className="flex flex-col gap-4">
-            <TextFieldWrapper name="userType" label="Select User Type" size="medium" />
+            <TextFieldWrapper
+              name="userType"
+              label="Select User Type"
+              size="medium"
+            />
             <TextFieldWrapper name="Company Name" label="Company Name" />
             <div className="flex flex-row gap-4">
               <TextFieldWrapper
@@ -113,13 +117,24 @@ const StepOne = () => {
                 />
               </FormControl>
               <Typography>
-                By clicking "Next" you agree to our Terms of Service, Privacy
-                Policy, and to receive marketing communications from Envoy.
+                By clicking "Next" you agree to our
+                <a
+                  href="/#"
+                  className=" ml-1 text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                >
+                  Terms of Service,Privacy Policy,
+                </a>{" "}
+                and to receive marketing communications from Envoy.
               </Typography>
               <div className="flex justify-between">
                 <div className="flex items-center ml-8">
-                  <Typography>Got an account</Typography>
-                  <Button type="text">Sign In</Button>
+                  <Typography>Got an account?</Typography>
+                  <a
+                    href="/#"
+                    className="ml-2 text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                  >
+                    Sign In
+                  </a>
                 </div>
                 <Button color="primary" size="large" variant="contained">
                   Register
