@@ -52,7 +52,9 @@ const LogIn = () => {
             <h6>Just joining us here?</h6>
             <Button variant="text">Register Now</Button>
           </div>
-          <Button variant="contained">Login</Button>
+          <Button variant="contained" size="large">
+            Login
+          </Button>
         </div>
       </div>
     </div>
