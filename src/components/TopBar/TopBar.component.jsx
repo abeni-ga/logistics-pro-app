@@ -19,9 +19,9 @@ const TopBar = ({ image, name }) => {
         />
       </div>
 
-      <div className="flex flex-row p-2 mr-10 gap-3">
+      <div className="flex flex-row p-2 mr-10 gap-3 items-center">
         <Avatar src={image ?? ""} />
-        <h3>{name ?? "user"}</h3>
+        <h3>{name ?? "Lorem Ipsum"}</h3>
       </div>
     </div>
   );

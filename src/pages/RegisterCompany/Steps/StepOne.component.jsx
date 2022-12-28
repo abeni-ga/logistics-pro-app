@@ -11,9 +11,18 @@ import {
   InputAdornment,
   IconButton,
 } from "@mui/material";
+import * as Yup from "yup";
 
 const StepOne = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const INITIAL_VALUES = {
+    userType: "",
+  };
+
+  const FORM_VALIDATION = Yup.object().shape({
+    userType: Yup.string().required("*Required"),
+  });
+
   return (
     <div className="flex w-full h-full items-center justify-center pt-6">
       <div className="flex flex-col w-2/5 h-min rounded bg-white p-16 gap-4">
@@ -21,13 +30,12 @@ const StepOne = () => {
           <Typography variant="h4">Basic Information</Typography>
           <Typography>Enter the following information below</Typography>
         </div>
-        <Formik>
+        <Formik
+          initialValues={INITIAL_VALUES}
+          validationSchema={FORM_VALIDATION}
+        >
           <Form className="flex flex-col gap-4">
-            <TextFieldWrapper
-              name="User Type"
-              label="Select User Type"
-              size="medium"
-            />
+            <TextFieldWrapper name="userType" label="Select User Type" size="medium" />
             <TextFieldWrapper name="Company Name" label="Company Name" />
             <div className="flex flex-row gap-4">
               <TextFieldWrapper
