@@ -1,5 +1,11 @@
+import StepFour from "../RegisterCompany/Steps/StepFour.component";
+
 const OrderHistory = () => {
-  return <div className="bg-blue-50 w-full">Order History Page</div>;
+  return (
+    <div className="bg-blue-50 w-full h-full">
+      <StepFour />
+    </div>
+  );
 };
 
 export default OrderHistory;
