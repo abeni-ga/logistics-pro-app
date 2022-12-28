@@ -4,7 +4,7 @@ import CommonLayout from "../layouts/CommonLayout.component";
 import Loadable from "../components/Load/Loadable.component";
 
 const LogIn = Loadable(
-  lazy(() => import("../pages/Authentication/LogIn.page")),
+  lazy(() => import("../pages/Authentication/LogIn.page"))
 );
 
 const AuthenticationRoutes = {
@@ -12,7 +12,7 @@ const AuthenticationRoutes = {
   element: <CommonLayout />,
   children: [
     {
-      path: "login",
+      path: "/",
       element: <LogIn />,
     },
   ],

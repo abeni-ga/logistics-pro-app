@@ -5,6 +5,7 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import ListAltIcon from "@mui/icons-material/ListAlt";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
 export const MENUITEMS = [
   {
@@ -34,7 +35,7 @@ export const MENUITEMS = [
   {
     path: "/admin/orders",
     title: "Orders",
-    icon: <PersonIcon />,
+    icon: <ListAltIcon />,
     type: "link",
     badgeType: "Primary",
     active: false,
@@ -47,7 +48,7 @@ export const MENUITEMS = [
   {
     path: "/admin/order-history",
     title: "Order History",
-    icon: <ListAltIcon />,
+    icon: <FormatListBulletedIcon />,
     type: "link",
     active: false,
   },
