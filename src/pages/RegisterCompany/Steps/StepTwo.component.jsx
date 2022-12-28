@@ -28,12 +28,15 @@ const StepTwo = () => {
           </div>
           <Typography>Company Basic Information</Typography>
         </div>
-        <Formik>
+        <Formik
+          initialValues={INITIAL_VALUES}
+          validationSchema={FORM_VALIDATION}
+        >
           <Form className="flex flex-col gap-4">
             <InputLabel htmlFor="outlined-adornment-confirm-password">
               Company Name
             </InputLabel>
-            <TextFieldWrapper name="companyName" placeholder="Company Name" />
+            <TextFieldWrapper name="companyName" placeholder="Company Name"/>
             <InputLabel htmlFor="outlined-adornment-confirm-password">
               Company Description
             </InputLabel>
