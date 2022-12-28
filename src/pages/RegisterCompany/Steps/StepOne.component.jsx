@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Formik, Form } from "formik";
-import Typography from "@mui/material/Typography";
+import { Typography, Button } from "@mui/material";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -15,8 +15,8 @@ import {
 const StepOne = () => {
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <div className="flex w-full h-full items-center justify-center">
-      <div className="flex flex-col w-2/5 h-full rounded bg-white p-16 ">
+    <div className="flex w-full h-full items-center justify-center pt-6">
+      <div className="flex flex-col w-2/5 h-min rounded bg-white p-16 gap-4">
         <div>
           <Typography variant="h4">Basic Information</Typography>
           <Typography>Enter the following information below</Typography>
@@ -25,20 +25,20 @@ const StepOne = () => {
           <Form className="flex flex-col gap-4">
             <TextFieldWrapper
               name="User Type"
-              label="User Type"
+              label="Select User Type"
               size="medium"
             />
-            <TextFieldWrapper name="Company Name" label="Select User Type" />
-            <div className="flex flex-row justify-between">
+            <TextFieldWrapper name="Company Name" label="Company Name" />
+            <div className="flex flex-row gap-4">
               <TextFieldWrapper
                 name="first-name"
                 label="First Name"
-                className="w-45%"
+                className="w-2/5"
               />
               <TextFieldWrapper
                 name="last-name"
                 label="Last Name"
-                className="w-45%"
+                className="w-2/5"
               />
             </div>
             <TextFieldWrapper name="company-address" label="Company Address" />
@@ -108,6 +108,15 @@ const StepOne = () => {
                 By clicking "Next" you agree to our Terms of Service, Privacy
                 Policy, and to receive marketing communications from Envoy.
               </Typography>
+              <div className="flex justify-between">
+                <div className="flex items-center ml-8">
+                  <Typography>Got an account</Typography>
+                  <Button type="text">Sign In</Button>
+                </div>
+                <Button color="primary" size="large" variant="contained">
+                  Register
+                </Button>
+              </div>
             </div>
           </Form>
         </Formik>
