@@ -35,10 +35,11 @@ const TextFieldWrapper = ({ name, ...otherProps }) => {
 };
 
 TextFieldWrapper.propTypes = {
-  name: PropTypes.string.isRequired,
   /**The name of the field */
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  /**Array of options to be displayed if the field is select */
   options: PropTypes.array,
-  /**Array of options to be displyed if the field is select */
 };
 
 export default TextFieldWrapper;
