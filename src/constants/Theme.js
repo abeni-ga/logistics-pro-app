@@ -3,4 +3,5 @@ export const color = {
   bg: "#E5EFF4",
   bgWhiteSmoke: "#E5E5E5",
   indigo: "#053582",
+  darkIndigo: "#053079",
 };

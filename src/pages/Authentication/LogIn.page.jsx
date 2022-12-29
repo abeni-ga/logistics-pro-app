@@ -14,6 +14,7 @@ import { color } from "../../constants/Theme";
 import Logo from "../../assets/svg/Logo.svg";
 import Scooter from "../../assets/svg/Scooter.svg";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../routes/siteRoutes.routes";
 
 const LogIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -96,7 +97,7 @@ const LogIn = () => {
             variant="contained"
             size="large"
             style={{ backgroundColor: color.indigo }}
-            onClick={() => navigate("/admin/dashboard")}
+            onClick={() => navigate(routes.admin.dashboard)}
           >
             Login
           </Button>

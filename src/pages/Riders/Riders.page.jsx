@@ -1,11 +1,5 @@
-import StepTwo from "../RegisterCompany/Steps/StepTwo.component";
-
 const Riders = () => {
-  return (
-    <div className="bg-blue-50 w-full h-full">
-      <StepTwo />
-    </div>
-  );
+  return <div className="bg-blue-50 w-full h-full">Riders</div>;
 };
 
 export default Riders;

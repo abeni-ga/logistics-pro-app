@@ -1,10 +1,5 @@
-import LogisticsCompany from "../LogisticCompanies/LogisticCompanies";
 const Report = () => {
-  return (
-    <div className="bg-blue-50 w-full">
-      <LogisticsCompany />
-    </div>
-  );
+  return <div className="bg-blue-50 w-full"></div>;
 };
 
 export default Report;

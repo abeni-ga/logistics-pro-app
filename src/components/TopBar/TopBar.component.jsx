@@ -3,7 +3,7 @@ import { Avatar, InputAdornment, TextField } from "@mui/material";
 
 const TopBar = ({ image, name }) => {
   return (
-    <div className="bg-white flex flex-row w-full h-14 align-middle justify-between">
+    <div className="bg-white flex flex-row w-full h-14 align-middle justify-between sticky top-0 z-50">
       <div className="p-2 ml-12">
         <TextField
           placeholder="Search"

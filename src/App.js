@@ -3,7 +3,7 @@ import Routes from "./routes/index.routes";
 
 function App() {
   return (
-    <div className="h-screen w-full bg-blue-50">
+    <div className="h-screen w-full bg-blue-50 overflow-hidden">
       <BrowserRouter>
         <Routes />
       </BrowserRouter>

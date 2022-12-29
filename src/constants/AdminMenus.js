@@ -6,6 +6,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import { BusinessRounded } from "@mui/icons-material";
 
 export const MENUITEMS = [
   {
@@ -21,6 +22,22 @@ export const MENUITEMS = [
     title: "Riders",
     icon: <PersonIcon />,
     type: "sub",
+    active: false,
+    children: [
+      { path: "/admin/riders/active", title: "Active Today", type: "link" },
+      {
+        path: "/admin/riders/create",
+        title: "Create New",
+        type: "link",
+      },
+      { path: "/admin/riders", title: "All Riders", type: "link" },
+    ],
+  },
+  {
+    path: "/admin/retail-company",
+    title: "Retail Company",
+    icon: <BusinessRounded />,
+    type: "link",
     active: false,
     children: [
       { path: "/admin/riders/active", title: "Active Today", type: "link" },

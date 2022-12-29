@@ -8,13 +8,13 @@ import UserPanel from "./UserPanel.component.jsx";
 import { color } from "../../../constants/Theme.js";
 
 const SideBar = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
   return (
     <div
-      className={`bg-white h-screen flex justify-center ${
+      className={`bg-white sticky top-0 h-screen flex justify-center ${
         isOpen ? "w-1/6" : "w-20"
       }`}
     >
@@ -44,6 +44,8 @@ const SideBar = ({ children }) => {
                     isOpen={isOpen}
                     icon={items.icon}
                     title={items.title}
+                    type={items.type}
+                    children={items.children}
                   />
                 </NavLink>
               );

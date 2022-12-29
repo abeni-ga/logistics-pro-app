@@ -5,11 +5,11 @@ import TopBar from "../components/TopBar/TopBar.component";
 
 // Here you can add common things like same footer maybe same thing that can happen in all
 const MainLayout = () => (
-  <div className="flex flex-auto flex-row h-screen">
+  <div className="flex flex-auto flex-row h-screen overflow-hidden">
     <SideBar />
-    <div className="flex flex-col h-screen w-full">
+    <div className="flex flex-col h-screen w-full overflow-y-scroll">
       <TopBar />
-      <Outlet /> 
+      <Outlet />
     </div>
   </div>
 );

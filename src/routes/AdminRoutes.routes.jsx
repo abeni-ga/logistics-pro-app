@@ -3,6 +3,7 @@ import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout.component";
 import Loadable from "../components/Load/Loadable.component";
 import Dashboard from "../pages/Dashboard/Dashboard.page";
+import RetailCompany from "../pages/RetailCompany/RetailCompany.page";
 
 // const Dashboard = Loadable(
 //   lazy(() => import("../pages/Dashboard/Dashboard.page")),
@@ -29,6 +30,10 @@ const AdminRoutes = {
     {
       path: "riders",
       element: <Riders />,
+    },
+    {
+      path: "retail-company",
+      element: <RetailCompany />,
     },
     {
       path: "orders",
