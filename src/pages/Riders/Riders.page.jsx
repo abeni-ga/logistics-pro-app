@@ -1,6 +1,3 @@
-import { Button, FormControl, InputLabel, Typography } from "@mui/material";
-import { Formik, Form } from "formik";
-import TextFieldWrapper from "../../components/TextFieldWrapper/TextFieldWrapper";
 import StepTwo from "../RegisterCompany/Steps/StepTwo.component";
 
 const Riders = () => {

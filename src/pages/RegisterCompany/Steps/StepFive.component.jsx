@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import Like from "../../../assets/svg/Group.svg";
+import Like from "../../../assets/svg/Like.svg";
 const StepFive = () => {
   return (
     <div className="flex w-full h-full items-center justify-center">

@@ -2,10 +2,10 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { MENUITEMS } from "../../../constants/AdminMenus.jsx";
+import { MENUITEMS } from "../../../constants/AdminMenus.js";
 import NavButton from "../../Buttons/NavButton/NavButton.jsx";
 import UserPanel from "./UserPanel.component.jsx";
-import { color } from "../../../constants/Theme.jsx";
+import { color } from "../../../constants/Theme.js";
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,9 +14,13 @@ const SideBar = ({ children }) => {
   };
   return (
     <div
-      className={`bg-white h-screen flex justify-center ${isOpen ? "w-1/6" : "w-20"}`}
+      className={`bg-white h-screen flex justify-center ${
+        isOpen ? "w-1/6" : "w-20"
+      }`}
     >
-      <div className={`flex flex-col justify-between ${isOpen ? "w-full" : ""}`}>
+      <div
+        className={`flex flex-col justify-between ${isOpen ? "w-full" : ""}`}
+      >
         <div className={`flex flex-col gap-4 p-2 ${isOpen ? "w-full" : ""}`}>
           <div className="flex place-content-center">
             <UserPanel />

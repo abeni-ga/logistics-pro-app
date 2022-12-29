@@ -6,7 +6,7 @@ import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrap
 const StepThree = () => {
   return (
     <div className="flex w-full h-full items-center justify-center pt-6">
-      <div className="flex flex-col w-2/5 h-full rounded bg-white p-6 justify-evenly">
+      <div className="flex flex-col w-2/5 h-full rounded bg-white p-16 justify-evenly">
         <div className="flex items-center gap-3">
           <IconButton aria-label="back">
             <ArrowBackIcon />
