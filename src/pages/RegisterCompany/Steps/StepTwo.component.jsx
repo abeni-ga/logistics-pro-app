@@ -28,29 +28,41 @@ const StepTwo = () => {
           </div>
           <Typography>Company Basic Information</Typography>
         </div>
-        <Formik
-          initialValues={INITIAL_VALUES}
-          validationSchema={FORM_VALIDATION}
-        >
+        <Typography>Fill in the information below</Typography>
+        <Formik>
           <Form className="flex flex-col gap-4">
-            <InputLabel htmlFor="outlined-adornment-confirm-password">
-              Company Name
-            </InputLabel>
-            <TextFieldWrapper name="companyName" placeholder="Company Name"/>
-            <InputLabel htmlFor="outlined-adornment-confirm-password">
+            <InputLabel htmlFor="companyName">Company Name</InputLabel>
+            <TextFieldWrapper
+              id="companyName"
+              name="companyName"
+              label="Company Name"
+              placeholder="Company Name"
+            />
+            <InputLabel htmlFor="companyDescription">
               Company Description
             </InputLabel>
             <TextFieldWrapper
-              name="Company Description"
+              id="companyDescription"
+              multiline
+              rows={4}
+              name="companyDescription"
               label="Company Description"
             />
-            Company Address
-            <TextFieldWrapper name="Company Address" label="Company Address" />
+            <InputLabel htmlFor="companyAddress">Company Address</InputLabel>
             <TextFieldWrapper
-              name="Delivery Type Operated"
+              id="companyAddress"
+              name="companyAddress"
+              label="Company Address"
+            />
+            <InputLabel htmlFor="deliveryTypeOperated">
+              Delivery Type Operated
+            </InputLabel>
+            <TextFieldWrapper
+              id="deliveryTypeOperated"
+              name="deliveryTypeOperated"
               label="Delivery Type Operated"
             />
-            <div className="flex justify-end">
+            <div className="flex justify-end mt-2">
               <Button color="primary" size="large" variant="contained">
                 Next
               </Button>
