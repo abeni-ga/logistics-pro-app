@@ -6,6 +6,7 @@ import { MENUITEMS } from "../../../constants/AdminMenus.js";
 import NavButton from "../../Buttons/NavButton/NavButton.jsx";
 import UserPanel from "./UserPanel.component.jsx";
 import { color } from "../../../constants/Theme.js";
+import SubMenu from "../../SubMenu/SubMenu.component.jsx";
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -26,28 +27,13 @@ const SideBar = ({ children }) => {
             <UserPanel />
           </div>
           <div className="sidebar flex flex-col">
-            {MENUITEMS.map((items, index) => {
+            {MENUITEMS.map((item, index) => {
               return (
-                <NavLink
-                  key={index}
-                  to={items.path}
-                  style={({ isActive }) =>
-                    isActive
-                      ? {
-                          borderRadius: "20px",
-                          backgroundColor: color.lightBlue,
-                        }
-                      : undefined
-                  }
-                >
-                  <NavButton
-                    isOpen={isOpen}
-                    icon={items.icon}
-                    title={items.title}
-                    type={items.type}
-                    children={items.children}
-                  />
-                </NavLink>
+                <SubMenu
+                  item={item}
+                  isOpen={isOpen}
+                  toggle={item.children ? toggle : null}
+                />
               );
             })}
           </div>

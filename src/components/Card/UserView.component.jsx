@@ -3,7 +3,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Profile from "../../assets/svg/Profile.svg";
 const UserView = () => {
   return (
-    <div className="flex items-center p-4 bg-white w-full rounded-xl">
+    <div className="flex items-center p-4 bg-white w-full rounded-xl flex-wrap">
       <div className="w-1/12">
         <Avatar
           sx={{ width: "75px", height: "75px" }}
@@ -35,11 +35,9 @@ const UserView = () => {
           Vertified
         </Button>
       </div>
-      <Button>
-        <IconButton>
-          <MoreHorizIcon />
-        </IconButton>
-      </Button>
+      <IconButton>
+        <MoreHorizIcon />
+      </IconButton>
     </div>
   );
 };
