@@ -6,7 +6,7 @@ import NavButton from "../Buttons/NavButton/NavButton";
 const SubMenu = ({ item, isOpen, toggle }) => {
   const [subNav, setSubNav] = useState(false);
   const showSubNav = () => {
-    if (!isOpen) {
+    if (!isOpen && item.children) {
       toggle();
       setSubNav(!subNav);
     } else if (isOpen) {
@@ -14,10 +14,10 @@ const SubMenu = ({ item, isOpen, toggle }) => {
     }
   };
   return (
-    <div>
+    <>
       <NavLink
         onClick={showSubNav}
-        to={item.children ? null : item.path}
+        to={item.children ? item.children[0]?.path : item.path}
         style={({ isActive }) =>
           isActive
             ? {
@@ -28,7 +28,6 @@ const SubMenu = ({ item, isOpen, toggle }) => {
         }
       >
         <NavButton
-          onClick={() => {}}
           isOpen={isOpen}
           icon={item.icon}
           title={item.title}
@@ -42,12 +41,26 @@ const SubMenu = ({ item, isOpen, toggle }) => {
             ? null
             : item.children && subNav
             ? item.children.map((child, index) => {
-                return <NavLink to={child.path}>{child.title}</NavLink>;
+                return (
+                  <NavLink
+                    key={index}
+                    to={child.path}
+                    style={({ isActive }) =>
+                      isActive
+                        ? {
+                            color: "#5381c2",
+                          }
+                        : undefined
+                    }
+                  >
+                    {child.title}
+                  </NavLink>
+                );
               })
             : null}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

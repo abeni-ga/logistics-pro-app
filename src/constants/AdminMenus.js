@@ -26,11 +26,35 @@ export const MENUITEMS = [
     children: [
       { path: "/admin/riders/active", title: "Active Today", type: "link" },
       {
-        path: "/admin/riders/create",
+        path: "/admin/riders/register",
         title: "Create New",
         type: "link",
       },
-      { path: "/admin/riders", title: "All Riders", type: "link" },
+      { path: "/admin/riders/all", title: "All Riders", type: "link" },
+    ],
+  },
+  {
+    path: "/admin/logistics-company",
+    title: "Logistics Company",
+    icon: <BusinessRounded />,
+    type: "link",
+    active: false,
+    children: [
+      {
+        path: "/admin/logistics-company/active",
+        title: "Active Today",
+        type: "link",
+      },
+      {
+        path: "/admin/logistics-company/register",
+        title: "Create New",
+        type: "link",
+      },
+      {
+        path: "/admin/logistics-company/all",
+        title: "All Logistics Companies",
+        type: "link",
+      },
     ],
   },
   {
@@ -40,13 +64,21 @@ export const MENUITEMS = [
     type: "link",
     active: false,
     children: [
-      { path: "/admin/riders/active", title: "Active Today", type: "link" },
       {
-        path: "/admin/riders/create",
+        path: "/admin/retail-company/active",
+        title: "Active Today",
+        type: "link",
+      },
+      {
+        path: "/admin/retail-company/register",
         title: "Create New",
         type: "link",
       },
-      { path: "/admin/riders", title: "All Riders", type: "link" },
+      {
+        path: "/admin/retail-company/all",
+        title: "All Retail Companies",
+        type: "link",
+      },
     ],
   },
   {
@@ -57,9 +89,13 @@ export const MENUITEMS = [
     badgeType: "Primary",
     active: false,
     children: [
-      { path: "", title: "In Orders", type: "link" },
-      { path: "", title: "Order Each Pool", type: "link" },
-      { path: "", title: "Create Order", type: "link" },
+      { path: "/admin/orders/in-orders", title: "In Orders", type: "link" },
+      {
+        path: "/admin/orders/exch-pool",
+        title: "Order Exch Pool",
+        type: "link",
+      },
+      { path: "/admin/orders/order-now", title: "Create Order", type: "link" },
     ],
   },
   {

@@ -1,8 +1,9 @@
-import RegisterRiders from "./RegisterRiders.page";
+import { Outlet } from "react-router-dom";
+
 const Riders = () => {
   return (
     <div className="bg-blue-50 w-full h-full">
-      <RegisterRiders />
+      <Outlet />
     </div>
   );
 };

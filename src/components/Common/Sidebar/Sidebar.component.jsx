@@ -1,11 +1,8 @@
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Fragment, useState } from "react";
 import { MENUITEMS } from "../../../constants/AdminMenus.js";
-import NavButton from "../../Buttons/NavButton/NavButton.jsx";
 import UserPanel from "./UserPanel.component.jsx";
-import { color } from "../../../constants/Theme.js";
 import SubMenu from "../../SubMenu/SubMenu.component.jsx";
 
 const SideBar = ({ children }) => {
@@ -29,11 +26,13 @@ const SideBar = ({ children }) => {
           <div className="sidebar flex flex-col">
             {MENUITEMS.map((item, index) => {
               return (
-                <SubMenu
-                  item={item}
-                  isOpen={isOpen}
-                  toggle={item.children ? toggle : null}
-                />
+                <Fragment key={index}>
+                  <SubMenu
+                    item={item}
+                    isOpen={isOpen}
+                    toggle={item.children ? toggle : null}
+                  />
+                </Fragment>
               );
             })}
           </div>

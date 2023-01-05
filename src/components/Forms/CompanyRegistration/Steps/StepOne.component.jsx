@@ -1,21 +1,19 @@
 import { useState } from "react";
 import { Typography } from "@mui/material";
-import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
+import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import {
-  FormControl,
-  InputLabel,
-  OutlinedInput,
-  InputAdornment,
-  IconButton,
-} from "@mui/material";
+import { InputAdornment, IconButton } from "@mui/material";
 
 const StepOne = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="flex flex-col gap-4">
+      <div className="flex w-full">
+        <span className="h-2 w-1/2 bg-blue-900 rounded-md"></span>
+        <span className="h-2 w-1/2 bg-gray-300 rounded-md"></span>
+      </div>
       <div>
         <Typography variant="h4">Basic Information</Typography>
         <Typography>Enter the following information below</Typography>
@@ -26,38 +24,30 @@ const StepOne = () => {
         label="Select User Type"
         size="medium"
       />
-      <TextFieldWrapper name="Company Name" label="Company Name" />
+      <TextFieldWrapper name="companyName" label="Company Name" />
       <div className="flex flex-row gap-4">
         <TextFieldWrapper
-          name="first-name"
+          name="firstName"
           label="First Name"
           className="w-2/5"
         />
-        <TextFieldWrapper
-          name="last-name"
-          label="Last Name"
-          className="w-2/5"
-        />
+        <TextFieldWrapper name="lastName" label="Last Name" className="w-2/5" />
       </div>
-      <TextFieldWrapper name="company-address" label="Company Address" />
-      <TextFieldWrapper name="phone-number" label="Phone Number" />
+      <TextFieldWrapper name="companyAddress" label="Company Address" />
+      <TextFieldWrapper name="companyPhoneNumber" label="Phone Number" />
       <TextFieldWrapper
-        name="company-email-address"
+        name="companyEmailAddress"
         label="Company Email Address"
       />
       <div className="flex flex-col gap-4">
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">
-            Password
-          </InputLabel>
-          <OutlinedInput
-            label="Password"
-            id="outlined-adornment-password"
-            type={showPassword ? "text" : "password"}
-            endAdornment={
+        <TextFieldWrapper
+          name="password"
+          label="Password"
+          type={showPassword ? "text" : "password"}
+          InputProps={{
+            endAdornment: (
               <InputAdornment position="end">
                 <IconButton
-                  aria-label="toggle password visibility"
                   onClick={() => {
                     setShowPassword(!showPassword);
                   }}
@@ -67,21 +57,17 @@ const StepOne = () => {
                   {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
                 </IconButton>
               </InputAdornment>
-            }
-          />
-        </FormControl>
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-confirm-password">
-            Confirm Password
-          </InputLabel>
-          <OutlinedInput
-            label="Password"
-            id="outlined-adornment-confirm-password"
-            type={showPassword ? "text" : "password"}
-            endAdornment={
+            ),
+          }}
+        />
+        <TextFieldWrapper
+          name="confirmPassword"
+          label="Confirm Password"
+          type={showPassword ? "text" : "password"}
+          InputProps={{
+            endAdornment: (
               <InputAdornment position="end">
                 <IconButton
-                  aria-label="toggle password visibility"
                   onClick={() => {
                     setShowPassword(!showPassword);
                   }}
@@ -91,9 +77,9 @@ const StepOne = () => {
                   {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
                 </IconButton>
               </InputAdornment>
-            }
-          />
-        </FormControl>
+            ),
+          }}
+        />
         <Typography>
           By clicking "Next" you agree to our
           <a

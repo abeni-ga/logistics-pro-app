@@ -7,6 +7,8 @@ const StandardButton = styled(Button)(({ theme }) => ({
   "&:hover": {
     backgroundColor: color.darkIndigo,
   },
+  textTransform: "capitalize",
+  borderRadius: "10px",
 }));
 
 export default StandardButton;

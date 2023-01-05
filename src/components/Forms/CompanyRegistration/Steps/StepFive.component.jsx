@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import Like from "../../../assets/svg/Like.svg";
+import Like from "../../../../assets/svg/Like.svg";
 const StepFive = () => {
   return (
     <div className="flex flex-col rounded w-full h-min items-center justify-center gap-4 p-10">

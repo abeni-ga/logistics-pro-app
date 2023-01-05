@@ -1,15 +1,15 @@
 import { Form, Formik } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import StepOne from "./Steps/StepOne.component";
-import StepTwo from "./Steps/StepTwo.component";
-import StepThree from "./Steps/StepThree.component";
-import Complete from "./Steps/Complete.component";
-import StandardButton from "../../components/Buttons/StandardButton.component";
+import StepOne from "../Steps/StepOne.component";
+import StepTwo from "../Steps/StepTwo.component";
+import StepThree from "../Steps/StepThree.component";
+import Complete from "../Steps/Complete.component";
+import StandardButton from "../../../components/Buttons/StandardButton.component";
 import { useNavigate } from "react-router-dom";
-import { routes } from "../../routes/siteRoutes.routes";
+import { routes } from "../../../routes/siteRoutes.routes";
 
-const RegisterRiders = () => {
+const RegisterRider = () => {
   const [step, setStep] = useState(1);
   const navigate = useNavigate();
   const INITIAL_VALUES = {
@@ -72,4 +72,4 @@ const RegisterRiders = () => {
   );
 };
 
-export default RegisterRiders;
+export default RegisterRider;

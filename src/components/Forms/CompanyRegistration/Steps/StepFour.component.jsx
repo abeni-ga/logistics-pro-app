@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { IconButton, Typography, Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Vector from "../../../assets/svg/Vector.svg";
+import Vector from "../../../../assets/svg/Vector.svg";
 
 const StepFour = ({ handlePrev }) => {
   const [files, setFiles] = useState(null);

@@ -1,10 +1,14 @@
-import { InputLabel, Typography } from "@mui/material";
-import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
+import { IconButton, InputLabel, Typography } from "@mui/material";
+import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const StepTwo = () => {
+const StepTwo = ({ handlePrev }) => {
   return (
     <div className="flex flex-col gap-4">
-      <div>
+      <div className="flex items-center gap-3">
+        <IconButton aria-label="back" onClick={handlePrev}>
+          <ArrowBackIcon />
+        </IconButton>
         <Typography variant="h5">Account Registration</Typography>
       </div>
       <div className="flex flex-col gap-2 justify-center items-center">
