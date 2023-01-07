@@ -130,6 +130,27 @@ const RetailCompanyOrderSummary = Loadable(
     )
   )
 );
+const DirectCustomerOrderPool = Loadable(
+  lazy(() =>
+    import(
+      "../pages/Orders/ExchangePool/DirectCustomerOrderPool/DirectCusomerOrderPool.page.jsx"
+    )
+  )
+);
+const RetailCompanyOrderPool = Loadable(
+  lazy(() =>
+    import(
+      "../pages/Orders/ExchangePool/RetailCompanyOrderPool/RetailCompanyOrderPool.page.jsx"
+    )
+  )
+);
+const DirectCustomerOrderPoolSummary = Loadable(
+  lazy(() =>
+    import(
+      "../pages/Orders/ExchangePool/DirectCustomerOrderPool/DirectCustomerOrderPoolSummary.page"
+    )
+  )
+);
 const Earning = Loadable(lazy(() => import("../pages/Earning/Earning.page")));
 const Report = Loadable(lazy(() => import("../pages/Report/Report.page")));
 const Setting = Loadable(lazy(() => import("../pages/Setting/Setting.page")));
@@ -194,7 +215,16 @@ const AdminRoutes = {
       children: [
         { path: "order-now", element: <OrderNow /> },
         { path: "in-orders", element: <InternalOrders /> },
-        { path: "exch-pool", element: <ExchangePool /> },
+        {
+          path: "exch-pool",
+          element: <ExchangePool />,
+        },
+        { path: "direct-customer", element: <DirectCustomerOrderPool /> },
+        { path: "retail-company", element: <RetailCompanyOrderPool /> },
+        {
+          path: "direct-customer/summary",
+          element: <DirectCustomerOrderPoolSummary />,
+        },
       ],
     },
     {
