@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { color } from "../../constants/Theme.js";
-import CompaniesOrderPoolTableItem from "./CompaniesOrderPoolTableItem.component";
+import CompaniesOrderPoolTableItem from "./CompaniesOrderTableItem.component";
 
 const CompaniesOrderPoolTable = () => {
   return (

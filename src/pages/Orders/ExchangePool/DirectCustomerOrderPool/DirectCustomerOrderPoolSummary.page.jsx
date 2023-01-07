@@ -1,4 +1,4 @@
-import DirectCustomerOrderPoolSummaryInfo from "../../../../components/CompaniesOrderPool/CompaniesOrderPoolSummaryInfo.component";
+import DirectCustomerOrderPoolSummaryInfo from "../../../../components/CompaniesOrder/CompaniesOrderSummaryInfo.component";
 
 const DirectCustomerOrderPoolSummary = () => {
   return (
