@@ -50,6 +50,37 @@ const ListAllLogisticsCompanies = Loadable(
     )
   )
 );
+const RegisterDirectCustomer = Loadable(
+  lazy(() =>
+    import(
+      "../pages/DirectCustomer/RegisterDirectCustomer/RegisterDirectCustomer.page.jsx"
+    )
+  )
+);
+const DirectCustomerDetail = Loadable(
+  lazy(() =>
+    import(
+      "../pages/DirectCustomer/DirectCustomerDetail/DirectCustomerDetails.page.jsx"
+    )
+  )
+);
+const DirectCustomer = Loadable(
+  lazy(() => import("../pages/DirectCustomer/DirectCustomer.page.jsx"))
+);
+const ActiveDirectCustomer = Loadable(
+  lazy(() =>
+    import(
+      "../pages/DirectCustomer/ActiveDirectCustomers/ActivieDirectCustomers.page.jsx"
+    )
+  )
+);
+const ListAllDirectCustomer = Loadable(
+  lazy(() =>
+    import(
+      "../pages/DirectCustomer/ListAllDirectCustomers/ListAllDirectCustomers.page.jsx"
+    )
+  )
+);
 const RegisterLogisticsCompany = Loadable(
   lazy(() =>
     import(
@@ -89,6 +120,13 @@ const RetailCompanyDetail = Loadable(
   lazy(() =>
     import(
       "../pages/RetailCompany/RetailCompaniesDetail/RetailCompaniesDetails.page.jsx"
+    )
+  )
+);
+const RetailCompanyOrderSummary = Loadable(
+  lazy(() =>
+    import(
+      "../pages/RetailCompany/RetailCompanyOrderSummary/RetailCompanyOrderSummary.page.jsx"
     )
   )
 );
@@ -133,7 +171,21 @@ const AdminRoutes = {
         { path: "active", element: <ActiveRetailCompanies /> },
         { path: "register", element: <RegisterRetailCompany /> },
         { path: "all", element: <ListAllRetailCompanies /> },
-        { path: "detail", element: <RetailCompanyDetail /> },
+        {
+          path: "detail",
+          element: <RetailCompanyDetail />,
+        },
+        { path: "order-summary", element: <RetailCompanyOrderSummary /> },
+      ],
+    },
+    {
+      path: "direct-customer",
+      element: <DirectCustomer />,
+      children: [
+        { path: "active", element: <ActiveDirectCustomer /> },
+        { path: "register", element: <RegisterDirectCustomer /> },
+        { path: "all", element: <ListAllDirectCustomer /> },
+        { path: "detail", element: <DirectCustomerDetail /> },
       ],
     },
     {

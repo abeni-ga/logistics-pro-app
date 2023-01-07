@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { Avatar, Button, IconButton, Typography } from "@mui/material";
+import { Avatar, IconButton, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Profile from "../../assets/svg/Profile.svg";
+import { color } from "../../constants/Theme.js";
 const CompanyListItem = (prop) => {
   return (
     <NavLink to={prop.route}>
@@ -15,31 +16,44 @@ const CompanyListItem = (prop) => {
           />
         </div>
         <div className="w-1/5">
-          <Typography>FZ Deliveries</Typography>
-          <Typography sx={{ color: "#9CA3AF" }}>
+          <Typography sx={{ fontWeight: "bold" }}>FZ Deliveries</Typography>
+          <Typography sx={{ color: color.lightGray }}>
             46, Alade Road, Allen Avenue Lagos
           </Typography>
         </div>
         <Typography sx={{ width: "8.333333%" }}>#001234567</Typography>
         <div className="flex flex-col w-1/6">
-          <Typography>09162289232</Typography>
-          <Typography sx={{ color: "#9CA3AF" }}>Ibrahim Williams</Typography>
+          <Typography sx={{ fontWeight: "bold" }}>09162289232</Typography>
+          <Typography sx={{ color: color.lightGray }}>
+            Ibrahim Williams
+          </Typography>
         </div>
         <div className="w-1/6">
-          <Typography>Annual</Typography>
-          <Typography sx={{ color: "#9CA3AF" }}>
+          <Typography sx={{ fontWeight: "bold" }}>Annual</Typography>
+          <Typography sx={{ color: color.lightGray }}>
             21 Oct 2021 - 22 Oct 2022
           </Typography>
         </div>
-        <Typography sx={{ width: "8.333333%" }}>N390,000.00</Typography>
+        <Typography sx={{ width: "8.333333%", fontWeight: "bold" }}>
+          N390,000.00
+        </Typography>
         <div className="w-1/12">
-          <Typography>200</Typography>
-          <Typography sx={{ color: "#9CA3AF" }}>Active</Typography>
+          <Typography sx={{ fontWeight: "bold" }}>200</Typography>
+          <Typography sx={{ color: color.lightGray }}>Active</Typography>
         </div>
         <div className="w-1/12">
-          <Button variant="contained" color="success">
+          <Typography
+            sx={{
+              width: "fit-content",
+              backgroundColor: color.brightGreen,
+              borderRadius: "10px",
+              padding: "10px",
+              color: "white",
+              fontWeight: "bold",
+            }}
+          >
             Vertified
-          </Button>
+          </Typography>
         </div>
         <IconButton sx={{ marginLeft: "24px" }}>
           <MoreHorizIcon />

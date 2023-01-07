@@ -14,7 +14,7 @@ const ListViewHeader = () => {
             sx={{
               backgroundColor: "white",
               borderRadius: "12px",
-              padding: "20px",
+              padding: "11px",
             }}
           >
             <img src={Menu} alt="" />
@@ -25,7 +25,7 @@ const ListViewHeader = () => {
             sx={{
               backgroundColor: color.darkIndigo,
               borderRadius: "12px",
-              padding: "19px",
+              padding: "10px",
             }}
           >
             <img src={List} alt="" />

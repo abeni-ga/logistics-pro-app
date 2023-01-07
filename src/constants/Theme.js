@@ -4,4 +4,6 @@ export const color = {
   bgWhiteSmoke: "#E5E5E5",
   indigo: "#053582",
   darkIndigo: "#053079",
+  brightGreen: "#AAFF00	",
+  lightGray: "#9CA3AF",
 };

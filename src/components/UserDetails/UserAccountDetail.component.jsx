@@ -2,9 +2,9 @@ import { Avatar, Button, Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { useState } from "react";
 import { color } from "../../constants/Theme";
-import UserInfoDetail from "./CompanyInfoDetail.component";
+import UserInfoDetail from "./UserInfoDetail.component";
 
-const CompanyAccountDetail = () => {
+const UserAccountDetail = () => {
   const [doc, setDoc] = useState(false);
   return (
     <div className="flex flex-col w-11/12 items-center bg-white rounded-2xl gap-3">
@@ -175,4 +175,4 @@ const CompanyAccountDetail = () => {
   );
 };
 
-export default CompanyAccountDetail;
+export default UserAccountDetail;

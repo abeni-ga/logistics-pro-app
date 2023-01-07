@@ -1,31 +1,32 @@
 import { Typography } from "@mui/material";
 import { logisticsCompany } from "../../data/LogisticsCompany.js";
 import CompanyListItem from "./CompanyListItem.component";
+import { color } from "../../constants/Theme.js";
 
 const CompaniesListTable = ({ route }) => {
   return (
     <div className="w-full h-full">
       <div className="flex p-4 items-center w-full">
         <span className="w-1/12 h-1"></span>
-        <Typography sx={{ width: "20%", color: "#9CA3AF" }}>
+        <Typography sx={{ width: "20%", color: color.lightGray }}>
           Company Name
         </Typography>
-        <Typography sx={{ width: "8.333333%", color: "#9CA3AF" }}>
+        <Typography sx={{ width: "8.333333%", color: color.lightGray }}>
           Reg. No
         </Typography>
-        <Typography sx={{ width: "16.666667%", color: "#9CA3AF" }}>
+        <Typography sx={{ width: "16.666667%", color: color.lightGray }}>
           Reference Name
         </Typography>
-        <Typography sx={{ width: "16.666667%", color: "#9CA3AF" }}>
+        <Typography sx={{ width: "16.666667%", color: color.lightGray }}>
           Subscription
         </Typography>
-        <Typography sx={{ width: "8.333333%", color: "#9CA3AF" }}>
+        <Typography sx={{ width: "8.333333%", color: color.lightGray }}>
           Payment
         </Typography>
-        <Typography sx={{ width: "8.333333%", color: "#9CA3AF" }}>
+        <Typography sx={{ width: "8.333333%", color: color.lightGray }}>
           Riders
         </Typography>
-        <Typography sx={{ width: "8.333333%", color: "#9CA3AF" }}>
+        <Typography sx={{ width: "8.333333%", color: color.lightGray }}>
           Status
         </Typography>
       </div>

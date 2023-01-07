@@ -2,14 +2,13 @@ import { Avatar, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Profile from "../../assets/svg/Profile.svg";
 import { color } from "../../constants/Theme.js";
-const CompanyInfoDetail = () => {
+const UserInfoDetail = () => {
   return (
     <div className="flex h-56 gap-4 px-4 w-4/5 items-center rounded-xl drop-shadow-lg bg-white -mt-40">
       <Avatar
         src={Profile}
-        variant="rounded"
         sx={{
-          height: "80%",
+          height: "70%",
           width: "40%",
           alignItems: "center",
         }}
@@ -28,10 +27,6 @@ const CompanyInfoDetail = () => {
           >
             Vertified
           </Typography>
-          <div className="flex gap-4 items-center">
-            <Typography sx={{ color: color.lightGray }}>* Bike</Typography>
-            <Typography sx={{ color: color.lightGray }}>* Bus</Typography>
-          </div>
         </div>
         <div className="flex gap-8">
           <Typography sx={{ fontSize: "16px", color: color.lightGray }}>
@@ -44,4 +39,4 @@ const CompanyInfoDetail = () => {
   );
 };
 
-export default CompanyInfoDetail;
+export default UserInfoDetail;

@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { color } from "../../constants/Theme.js";
-const CompanyOrderItem = () => {
+const UserOrderItem = () => {
   return (
     <div className="flex w-full justify-center">
       <div className="flex w-[99%] items-center bg-white rounded-lg py-4 gap-2">
@@ -50,4 +50,4 @@ const CompanyOrderItem = () => {
   );
 };
 
-export default CompanyOrderItem;
+export default UserOrderItem;

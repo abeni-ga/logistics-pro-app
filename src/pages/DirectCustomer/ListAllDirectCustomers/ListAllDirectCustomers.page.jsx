@@ -1,13 +1,13 @@
 import ListAllCompanies from "../../../components/CompaniesList/CompaniesListAll.component";
-const ListAllRetailCompanies = () => {
+const ListAllDirectCustomer = () => {
   return (
     <div>
       <ListAllCompanies
-        route="/admin/retail-company/detail"
+        route="/admin/direct-customer/detail"
         title="Retail Outlet"
       />
     </div>
   );
 };
 
-export default ListAllRetailCompanies;
+export default ListAllDirectCustomer;
