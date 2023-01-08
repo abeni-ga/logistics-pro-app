@@ -29,7 +29,12 @@ const RegisterRider = Loadable(
 const ActiveRiders = Loadable(
   lazy(() => import("../pages/Riders/ActiveRiders/ActiveRiders.page"))
 );
-
+const RiderDetails = Loadable(
+  lazy(() => import("../pages/Riders/RiderDetails/RiderDetails.page.jsx"))
+);
+const RiderJobHistory = Loadable(
+  lazy(() => import("../pages/Riders/RiderJobHistory/RiderJobHistory.page.jsx"))
+);
 const LogisticsCompany = Loadable(
   lazy(() => import("../pages/LogisticsCompany/LogisticsCompany.page"))
 );
@@ -180,6 +185,8 @@ const AdminRoutes = {
         { path: "active", element: <ActiveRiders /> },
         { path: "register", element: <RegisterRider /> },
         { path: "all", element: <ListAllRider /> },
+        { path: "detail", element: <RiderDetails /> },
+        { path: "history", element: <RiderJobHistory /> },
       ],
     },
     {
