@@ -2,16 +2,19 @@ import CompanyAccountDetail from "../../../components/CompanyDetails/CompanyAcco
 import CompanyOrdersList from "../../../components/CompanyDetails/CompanyOrdersList.component";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { IconButton, Typography } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const LogisticsCompanyDetail = () => {
+  const history = useNavigate();
   return (
     <div className="flex flex-col w-full h-screen">
       <div className="h-[10%] flex items-center gap-2 ml-8">
-        <NavLink>
-          <IconButton>
-            <ArrowBackIcon />
-          </IconButton>
-        </NavLink>
+        <IconButton
+          onClick={() => {
+            history(-1);
+          }}
+        >
+          <ArrowBackIcon />
+        </IconButton>
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
           Logistic Companies
         </Typography>

@@ -1,12 +1,13 @@
 import { Avatar, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { color } from "../../constants/Theme.js";
+import PPic from "../../assets/svg/PPic.svg";
 
 const RiderListItem = () => {
   return (
-    <div className="flex w-full h-[10%] bg-white rounded-xl items-center">
-      <div className="w-[10%]">
-        <Avatar size="large" />
+    <div className="flex w-full h-24 bg-white rounded-xl items-center">
+      <div className="w-[10%] flex justify-center">
+        <Avatar size="large" sx={{ fontSize: "" }} src={PPic} />
       </div>
       <div className="flex flex-col w-[20%]">
         <Typography sx={{ fontWeight: "bold" }}>Bolade Davies</Typography>
@@ -23,11 +24,12 @@ const RiderListItem = () => {
       <div className="w-[15%]">
         <Typography
           sx={{
-            backgroundColor: color.lightBlue,
+            backgroundColor: color.lightGreen,
             color: color.brightGreen,
             width: "fit-content",
             padding: "4px",
             borderRadius: "5px",
+            fontWeight: "bold",
           }}
         >
           Active

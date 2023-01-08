@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Typography } from "@mui/material";
+import { MenuItem, Typography } from "@mui/material";
 import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -7,6 +7,8 @@ import { InputAdornment, IconButton } from "@mui/material";
 
 const StepOne = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [userType, setUserType] = useState(null);
 
   return (
     <div className="flex flex-col gap-4">
@@ -15,16 +17,30 @@ const StepOne = () => {
         <span className="h-2 w-1/2 bg-gray-300 rounded-md"></span>
       </div>
       <div>
-        <Typography variant="h4">Basic Information</Typography>
+        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+          Basic Information
+        </Typography>
         <Typography>Enter the following information below</Typography>
       </div>
-
       <TextFieldWrapper
-        name="userType"
+        value={userType}
+        name="user-type"
+        id="user-type"
+        select
+        placeholder="Select User Type"
         label="Select User Type"
-        size="medium"
+        defaultValue="Logistics"
+        onChange={(event) => {
+          setUserType(event.target.value);
+        }}
+      >
+        <MenuItem value={"Logistics"}>Logistics</MenuItem>
+      </TextFieldWrapper>
+      <TextFieldWrapper
+        name="companyName"
+        label="Company Name"
+        sx={{ borderRadius: "10px" }}
       />
-      <TextFieldWrapper name="companyName" label="Company Name" />
       <div className="flex flex-row gap-4">
         <TextFieldWrapper
           name="firstName"
@@ -63,18 +79,22 @@ const StepOne = () => {
         <TextFieldWrapper
           name="confirmPassword"
           label="Confirm Password"
-          type={showPassword ? "text" : "password"}
+          type={showConfirmPassword ? "text" : "password"}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton
                   onClick={() => {
-                    setShowPassword(!showPassword);
+                    setShowConfirmPassword(!showConfirmPassword);
                   }}
                   onMouseDown={() => {}}
                   edge="end"
                 >
-                  {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                  {showConfirmPassword ? (
+                    <VisibilityOffIcon />
+                  ) : (
+                    <VisibilityIcon />
+                  )}
                 </IconButton>
               </InputAdornment>
             ),
@@ -84,7 +104,7 @@ const StepOne = () => {
           By clicking "Next" you agree to our
           <a
             href="/#"
-            className=" ml-1 text-blue-600 hover:text-blue-800 visited:text-purple-600"
+            className=" ml-1 text-blue-800 hover:text-blue-600 visited:text-purple-600"
           >
             Terms of Service,Privacy Policy,
           </a>{" "}

@@ -7,7 +7,7 @@ const ListAllCompanies = (prop) => {
       <Typography variant="h5" sx={{ fontWeight: "bold" }}>
         {prop.title}
       </Typography>
-      <ListViewHeader />
+      <ListViewHeader btnName={prop.btnName} />
       <CompaniesListTable route={prop.route} />
     </div>
   );

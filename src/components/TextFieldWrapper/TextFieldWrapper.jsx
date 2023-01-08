@@ -1,7 +1,23 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { TextField, MenuItem } from "@mui/material";
+import { TextField, MenuItem, styled } from "@mui/material";
 import { useField } from "formik";
+import { color } from "../../constants/Theme.js";
+
+const TextBox = styled(TextField)(() => ({
+  "& fieldset": {
+    borderRadius: "10px",
+  },
+  "& .MuiFormLabel-root": {
+    color: color.lightGray,
+  },
+  "& input::placeholder": {
+    fontSize: "16px",
+  },
+  "& .MuiFormLabel-root.Mui-focused": {
+    color: color.lightGray,
+  },
+}));
 
 const TextFieldWrapper = ({ name, ...otherProps }) => {
   const [field, mata] = useField(name);
@@ -19,7 +35,7 @@ const TextFieldWrapper = ({ name, ...otherProps }) => {
 
   if (otherProps.options) {
     return (
-      <TextField {...textFieldConfig}>
+      <TextBox {...textFieldConfig}>
         {otherProps.options.map((option, index) => {
           return (
             <MenuItem key={index} value={index + 1}>
@@ -27,11 +43,11 @@ const TextFieldWrapper = ({ name, ...otherProps }) => {
             </MenuItem>
           );
         })}
-      </TextField>
+      </TextBox>
     );
   }
 
-  return <TextField {...textFieldConfig} />;
+  return <TextBox {...textFieldConfig} />;
 };
 
 TextFieldWrapper.propTypes = {

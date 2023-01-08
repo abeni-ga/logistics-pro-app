@@ -48,20 +48,20 @@ const RegisterRider = () => {
   return (
     <div className="bg-blue-50 w-full">
       <div className="flex w-full h-full items-center justify-center pt-6">
-        <div className="flex flex-col w-2/5 h-min rounded bg-white p-16 gap-4">
+        <div className="flex flex-col w-[45%] h-min rounded-2xl bg-white p-16 gap-4">
           <Formik
             initialValues={INITIAL_VALUES}
             validationSchema={FORM_VALIDATION}
           >
             <Form>
               {steps()}
-              <div className="w-full flex justify-end mt-6">
+              <div className="w-full h-full flex justify-end mt-6">
                 <StandardButton
                   size="large"
                   variant="contained"
                   onClick={handleNext}
                 >
-                  {step < 4 ? "Next" : "Finish"}
+                  {step < 3 ? "Next" : step === 3 ? "Finish" : "Continue"}
                 </StandardButton>
               </div>
             </Form>

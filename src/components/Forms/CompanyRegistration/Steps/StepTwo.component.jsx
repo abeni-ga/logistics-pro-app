@@ -1,15 +1,19 @@
-import { IconButton, InputLabel, Typography } from "@mui/material";
+import { IconButton, InputLabel, MenuItem, Typography } from "@mui/material";
 import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useState } from "react";
 
 const StepTwo = ({ handlePrev }) => {
+  const [deliveryType, setDeliveryType] = useState(null);
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 justify-start">
         <IconButton aria-label="back" onClick={handlePrev}>
           <ArrowBackIcon />
         </IconButton>
-        <Typography variant="h5">Account Registration</Typography>
+        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+          Account Registration
+        </Typography>
       </div>
       <div className="flex flex-col gap-2 justify-center items-center">
         <Typography>STEP 1 of 3</Typography>
@@ -23,12 +27,11 @@ const StepTwo = ({ handlePrev }) => {
       </div>
       <Typography>Fill in the information below</Typography>
       <div className="flex flex-col gap-4">
-        <InputLabel htmlFor="companyName">Company Name</InputLabel>
+        <InputLabel htmlFor=" companyName">Company Name</InputLabel>
         <TextFieldWrapper
           id="companyName"
           name="companyName"
-          label="Company Name"
-          placeholder="Company Name"
+          placeholder="Type Company Name"
         />
         <InputLabel htmlFor="companyDescription">
           Company Description
@@ -38,22 +41,30 @@ const StepTwo = ({ handlePrev }) => {
           multiline
           rows={4}
           name="companyDescription"
-          label="Company Description"
+          placeholder="Type in Company Description"
         />
         <InputLabel htmlFor="companyAddress">Company Address</InputLabel>
         <TextFieldWrapper
           id="companyAddress"
           name="companyAddress"
-          label="Company Address"
+          placeholder="Company Address"
         />
         <InputLabel htmlFor="deliveryTypeOperated">
           Delivery Type Operated
         </InputLabel>
         <TextFieldWrapper
-          id="deliveryTypeOperated"
-          name="deliveryTypeOperated"
-          label="Delivery Type Operated"
-        />
+          value={deliveryType}
+          name="user-type"
+          id="outlined-user-type"
+          label="Select Deliery Type"
+          select
+          defaultValue="logistics"
+          onChange={(event) => {
+            setDeliveryType(event.target.value);
+          }}
+        >
+          <MenuItem value={"Bike"}>Bike</MenuItem>
+        </TextFieldWrapper>
       </div>
     </div>
   );

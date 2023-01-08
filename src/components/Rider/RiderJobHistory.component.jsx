@@ -189,8 +189,8 @@ const RiderJobHistroyComp = () => {
         </div>
       </div>
       <div className="w-[58%] h-full bg-gray-300 flex flex-col justify-between items-center">
-        <div className="flex flex-col h-full w-full items-center">
-          <div className="border-b-2 h-[15%] flex flex-col bg-white justify-center px-10 gap-4 w-full">
+        <div className="flex flex-col h-[60%] w-full items-center bg-black">
+          <div className="border-b-2 h-[30%] flex flex-col bg-white justify-center px-10 gap-4 w-full">
             <div className="flex gap-8">
               <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
                 Order Tracking
@@ -210,7 +210,7 @@ const RiderJobHistroyComp = () => {
               </div>
             </div>
           </div>
-          <div className="flex border-b-2 items-center h-[30%] bg-white px-10 w-full">
+          <div className="flex border-b-2 items-center h-[50%] bg-white px-10 w-full">
             <div className="flex flex-col gap-4 w-[55%]">
               <div className="flex items-center gap-4">
                 <Avatar />
@@ -243,7 +243,7 @@ const RiderJobHistroyComp = () => {
             </div>
             <div className="flex w-[45%] bg-slate-300">2</div>
           </div>
-          <div className=" flex flex-col gap-2 px-10 justify-center border-b-2 h-[15%] bg-white w-full">
+          <div className=" flex flex-col gap-2 px-10 justify-center border-b-2 h-[20%] bg-white w-full">
             <Typography sx={{ fontWeight: "bold", fontSize: "14px" }}>
               RIde Information
             </Typography>
@@ -256,34 +256,36 @@ const RiderJobHistroyComp = () => {
             </div>
           </div>
         </div>
-        <div className="w-[90%] bg-white flex justify-between p-4 mb-4">
-          <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
-              Current Location
-            </Typography>
-            <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
-              Palm Groove
-            </Typography>
-          </div>
-          <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
-              Last Location
-            </Typography>
-            <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
-              15 Mins ago
-            </Typography>
-          </div>
-          <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>Speed</Typography>
-            <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
-              63 Km/hr
-            </Typography>
-          </div>
-          <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>Distance</Typography>
-            <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
-              103 Km
-            </Typography>
+        <div className="bg-[url('/src/assets/svg/Map1.svg')] h-[40%] w-full flex items-end justify-center">
+          <div className="w-[90%] bg-white flex justify-between p-4 mb-4">
+            <div className="flex flex-col">
+              <Typography sx={{ color: color.lightGray }}>
+                Current Location
+              </Typography>
+              <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                Palm Groove
+              </Typography>
+            </div>
+            <div className="flex flex-col">
+              <Typography sx={{ color: color.lightGray }}>
+                Last Location
+              </Typography>
+              <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                15 Mins ago
+              </Typography>
+            </div>
+            <div className="flex flex-col">
+              <Typography sx={{ color: color.lightGray }}>Speed</Typography>
+              <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                63 Km/hr
+              </Typography>
+            </div>
+            <div className="flex flex-col">
+              <Typography sx={{ color: color.lightGray }}>Distance</Typography>
+              <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                103 Km
+              </Typography>
+            </div>
           </div>
         </div>
       </div>

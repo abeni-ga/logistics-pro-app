@@ -54,7 +54,7 @@ const LogInForm = () => {
         </FormControl>
         <a
           href="/#"
-          className="text-center text-blue-600 hover:text-blue-800 visited:text-purple-600"
+          className="text-center text-blue-800 hover:text-blue-600 visited:text-purple-600 self-end"
         >
           Forgot Password?
         </a>
@@ -64,12 +64,13 @@ const LogInForm = () => {
           <h6>Just joining us here?</h6>
           <a
             href="/#"
-            className="ml-2 text-center text-blue-600 hover:text-blue-800 visited:text-purple-600"
+            className="ml-2 text-center text-blue-800 hover:text-blue-600 visited:text-purple-600"
           >
             Register Now
           </a>
         </div>
         <Button
+          sx={{ textTransform: "capitalize" }}
           variant="contained"
           size="large"
           style={{ backgroundColor: color.indigo }}

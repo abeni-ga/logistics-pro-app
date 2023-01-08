@@ -9,6 +9,7 @@ import StepFive from "../../../components/Forms/CompanyRegistration/Steps/StepFi
 import StandardButton from "../../../components/Buttons/StandardButton.component";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../routes/siteRoutes.routes";
+import { Typography } from "@mui/material";
 
 const RegisterRetailCompany = () => {
   const [step, setStep] = useState(1);
@@ -50,7 +51,18 @@ const RegisterRetailCompany = () => {
 
   return (
     <div className="bg-blue-50 w-full">
-      <div className="flex w-full h-full items-center justify-center pt-6">
+      <div className="flex flex-col w-full h-full items-center justify-center pt-6">
+        <div className="py-12">
+          {step === 1 ? (
+            <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+              Create a company account
+            </Typography>
+          ) : step === 5 ? null : (
+            <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+              Company Registration
+            </Typography>
+          )}
+        </div>
         <div className="flex flex-col w-2/5 h-min rounded bg-white p-16 gap-4">
           <Formik
             initialValues={INITIAL_VALUES}
@@ -64,7 +76,7 @@ const RegisterRetailCompany = () => {
                   variant="contained"
                   onClick={handleNext}
                 >
-                  {step < 5 ? "Next" : "Finish"}
+                  {step === 1 ? "Register" : step < 5 ? "Next" : "Finish"}
                 </StandardButton>
               </div>
             </Form>

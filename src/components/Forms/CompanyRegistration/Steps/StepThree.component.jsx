@@ -5,11 +5,13 @@ import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
 const StepThree = ({ handlePrev }) => {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 justify-start">
         <IconButton aria-label="back" onClick={handlePrev}>
           <ArrowBackIcon />
         </IconButton>
-        <Typography variant="h5">Account Registration</Typography>
+        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+          Account Registration
+        </Typography>
       </div>
       <div className="flex flex-col gap-1 justify-center items-center">
         <Typography>STEP 2 of 3</Typography>
@@ -46,25 +48,27 @@ const StepThree = ({ handlePrev }) => {
           label="Contact Person"
           placeholder="Type in name of Contact Person for company"
         />
-        <div className="flex gap-2">
-          <InputLabel htmlFor="contactPersonPosition">
-            Contact Person Position
-          </InputLabel>
-          <TextFieldWrapper
-            id="contactPersonPosition"
-            name="contactPersonPosition"
-            label="Contact Person Position"
-            placeholder="Type in position of contact person"
-          />
-          <InputLabel htmlFor="contactPersonPhoneNumber">
-            Phone Number
-          </InputLabel>
-          <TextFieldWrapper
-            id="contactPersonPhoneNumber"
-            name="contactPersonPhoneNumber"
-            label="Phone Number"
-            placeholder="Contact Person's Phone Number"
-          />
+        <div className="flex justify-between">
+          <div className="flex flex-col gap-2">
+            <InputLabel htmlFor="contactPersonPosition">
+              Contact Person Position
+            </InputLabel>
+            <TextFieldWrapper
+              id="contactPersonPosition"
+              name="contactPersonPosition"
+              placeholder="Type in position of contact person"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <InputLabel htmlFor="contactPersonPhoneNumber">
+              Phone Number
+            </InputLabel>
+            <TextFieldWrapper
+              id="contactPersonPhoneNumber"
+              name="contactPersonPhoneNumber"
+              placeholder="Contact Person's Phone Number"
+            />
+          </div>
         </div>
         <InputLabel htmlFor="deliveryTypeOperated">
           Delivery Type Operated

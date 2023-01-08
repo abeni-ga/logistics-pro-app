@@ -5,6 +5,7 @@ const ListAllLogisticsCompanies = () => {
       <ListAllCompanies
         route="/admin/logistics-company/detail"
         title={"Logistic Companies"}
+        btnName="Register Company"
       />
     </div>
   );

@@ -1,8 +1,8 @@
 import { Avatar, Button, Typography } from "@mui/material";
-import CheckIcon from "@mui/icons-material/Check";
 import { useState } from "react";
 import { color } from "../../constants/Theme";
 import UserInfoDetail from "./CompanyInfoDetail.component";
+import RegistrationDocument from "./RegistrationDocument/RegistrationDocument.component";
 
 const CompanyAccountDetail = () => {
   const [doc, setDoc] = useState(false);
@@ -81,15 +81,44 @@ const CompanyAccountDetail = () => {
         <Button
           size="small"
           variant="contained"
-          sx={{ backgroundColor: color.bgWhiteSmoke, color: "#2d5287" }}
+          sx={{
+            backgroundColor: color.lightBlue,
+            color: color.darkIndigo,
+            textTransform: "capitalize",
+            fontWeight: "bold",
+            ":hover": {
+              backgroundColor: color.lightBlue,
+            },
+          }}
         >
           view payment
         </Button>
         <div className="flex gap-4">
-          <Button variant="outlined" sx={{ textTransform: "capitalize" }}>
+          <Button
+            variant="outlined"
+            sx={{
+              textTransform: "capitalize",
+              color: color.darkIndigo,
+              borderColor: color.darkIndigo,
+              borderRadius: "10px",
+            }}
+          >
             View Riders
           </Button>
-          <Button variant="contained" sx={{ textTransform: "capitalize" }}>
+          <Button
+            variant="outlined"
+            sx={{
+              textTransform: "capitalize",
+              backgroundColor: "white",
+              borderRadius: "10px",
+              borderColor: color.darkIndigo,
+              color: color.darkIndigo,
+              ":focus": {
+                backgroundColor: color.darkIndigo,
+                color: "white",
+              },
+            }}
+          >
             View Orders
           </Button>
         </div>
@@ -106,69 +135,20 @@ const CompanyAccountDetail = () => {
           backgroundColor: "white",
           borderRadius: "8px",
           color: color.lightGray,
+          boxShadow:
+            "3px 3px 3px 3px rgb(0 0 0 / 0.3), 3px 4px 6px 4px rgb(0 0 0 / 0.3)",
+          ":hover": {
+            color: color.lightGray,
+            backgroundColor: "white",
+          },
         }}
       >
         Registration Documents
       </Button>
       {doc ? (
-        <div className="w-full flex  flex-col gap-4 pb-4 items-center justify-center">
-          <div className="flex w-[70%] justify-center items-center">
-            <Typography sx={{ width: "50%" }}>
-              Business Registration Slip
-            </Typography>
-            <Typography
-              sx={{
-                color: "green",
-                width: "25%",
-                textAlign: "center",
-              }}
-            >
-              <CheckIcon />
-            </Typography>
-            <div className="w-[25%]">
-              <Button sx={{ textTransform: "capitalize" }} variant="outlined">
-                View
-              </Button>
-            </div>
-          </div>
-          <div className="flex w-[70%] justify-center items-center">
-            <Typography sx={{ width: "50%" }}>
-              Business Registration Slip
-            </Typography>
-            <Typography
-              sx={{
-                color: "green",
-                width: "25%",
-                textAlign: "center",
-              }}
-            >
-              <CheckIcon />
-            </Typography>
-            <div className="w-[25%]">
-              <Button sx={{ textTransform: "capitalize" }} variant="outlined">
-                View
-              </Button>
-            </div>
-          </div>
-          <div className="flex w-[70%] justify-center items-center">
-            <Typography sx={{ width: "50%" }}>
-              Business Registration Slip
-            </Typography>
-            <Typography
-              sx={{
-                color: "green",
-                width: "25%",
-                textAlign: "center",
-              }}
-            >
-              <CheckIcon />
-            </Typography>
-            <div className="w-[25%]">
-              <Button sx={{ textTransform: "capitalize" }} variant="outlined">
-                View
-              </Button>
-            </div>
-          </div>
+        <div className="w-full flex  flex-col gap-4 pb-4 items-center justify-center bg-slate-50">
+          <RegistrationDocument />
+          <RegistrationDocument />
         </div>
       ) : null}
     </div>

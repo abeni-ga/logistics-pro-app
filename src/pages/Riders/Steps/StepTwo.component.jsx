@@ -9,7 +9,9 @@ const StepTwo = ({ handlePrev }) => {
         <IconButton aria-label="back" onClick={handlePrev}>
           <ArrowBackIcon />
         </IconButton>
-        <Typography variant="h5">Account Registration</Typography>
+        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+          Add Rider
+        </Typography>
       </div>
       <div className="flex flex-col gap-1 justify-center items-center">
         <Typography>STEP 2 of 3</Typography>
@@ -41,8 +43,8 @@ const StepTwo = ({ handlePrev }) => {
           name="contactPerson"
           placeholder="Type in name of Contact Person for company"
         />
-        <div className="flex justify-between">
-          <div className="flex flex-col gap-2">
+        <div className="flex w-full justify-between">
+          <div className="flex flex-col gap-2 w-[48%]">
             <InputLabel htmlFor="contactPersonPosition">
               Contact Person Position
             </InputLabel>
@@ -52,7 +54,7 @@ const StepTwo = ({ handlePrev }) => {
               placeholder="Type in position of contact person"
             />
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 w-[48%]">
             <InputLabel htmlFor="contactPersonPhoneNumber">
               Phone Number
             </InputLabel>
@@ -64,7 +66,11 @@ const StepTwo = ({ handlePrev }) => {
           </div>
         </div>
         <InputLabel htmlFor="postalAddress">Postal Address</InputLabel>
-        <TextFieldWrapper id="postalAddress" name="postalAddress" />
+        <TextFieldWrapper
+          id="postalAddress"
+          name="postalAddress"
+          placeholder="24, Gbolahan Street..."
+        />
         <InputLabel htmlFor="postalNumber">P O Box Number</InputLabel>
         <TextFieldWrapper
           id="postalNumber"

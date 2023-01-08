@@ -18,11 +18,13 @@ const StepFour = ({ handlePrev }) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 justify-start">
         <IconButton aria-label="back" onClick={handlePrev}>
           <ArrowBackIcon />
         </IconButton>
-        <Typography variant="h5">Account Registration</Typography>
+        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+          Account Registration
+        </Typography>
       </div>
       <div className="flex flex-col gap-1 justify-center items-center">
         <Typography>STEP 3 of 3</Typography>

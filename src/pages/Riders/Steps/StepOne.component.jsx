@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  Typography,
-} from "@mui/material";
+import { InputLabel, MenuItem, Typography } from "@mui/material";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
 
 const StepOne = () => {
@@ -13,7 +7,9 @@ const StepOne = () => {
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <Typography variant="h5">Add Rider</Typography>
+        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+          Add Rider
+        </Typography>
       </div>
       <div className="flex flex-col gap-2 justify-center items-center">
         <Typography>STEP 1 of 3</Typography>
@@ -44,25 +40,23 @@ const StepOne = () => {
         <TextFieldWrapper
           id="riderAddress"
           name="riderAddress"
-          label="Address"
+          placeholder="24, Gbolahan Street..."
         />
         <InputLabel htmlFor="preferredAsset">Preferred Asset</InputLabel>
-        <FormControl sx={{ m: 1, minWidth: 80, backgroundColor: "white" }}>
-          <Select
-            id="type"
-            size="large"
-            value={asset}
-            onChange={(e) => {
-              setAsset(e.target.value);
-            }}
-          >
-            <MenuItem default value={"Bike"}>
-              Bike
-            </MenuItem>
-            <MenuItem value={"Motor Bicycle"}>Motor Bicycle</MenuItem>
-            <MenuItem value={"Vehicle"}>Vehicle</MenuItem>
-          </Select>
-        </FormControl>
+        <TextFieldWrapper
+          value={asset}
+          name="asset"
+          id="asset"
+          select
+          placeholder="Select Preferred Asset"
+          label="Select Preferred Asset"
+          defaultValue="Bike"
+          onChange={(event) => {
+            setAsset(event.target.value);
+          }}
+        >
+          <MenuItem value={"Bike"}>Bike</MenuItem>
+        </TextFieldWrapper>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ const FilterAndActionButton = ({ btnName }) => {
         }}
       >
         <Select
-          id="type"
+          id="size"
           value={size}
           sx={{ backgroundColor: "white", borderRadius: "10px" }}
           onChange={(e) => {

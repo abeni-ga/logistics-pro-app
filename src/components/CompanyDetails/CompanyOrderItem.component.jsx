@@ -6,8 +6,10 @@ const CompanyOrderItem = () => {
     <div className="flex w-full justify-center">
       <div className="flex w-[99%] items-center bg-white rounded-lg py-4 gap-2">
         <div className=" w-[5%]">
-          <div className="w-fit h-fit bg-violet-400 rounded ml-4">
-            <CheckIcon />
+          <div className="w-fit h-fit bg-indigo-500 rounded-md ml-4">
+            <Typography sx={{ color: "white" }}>
+              <CheckIcon />
+            </Typography>
           </div>
         </div>
         <Typography sx={{ width: "10%", color: color.lightGray }}>

@@ -34,7 +34,13 @@ const CompanyListItem = (prop) => {
             21 Oct 2021 - 22 Oct 2022
           </Typography>
         </div>
-        <Typography sx={{ width: "8.333333%", fontWeight: "bold" }}>
+        <Typography
+          sx={{
+            width: "8.333333%",
+            fontWeight: "bold",
+            color: color.darkIndigo,
+          }}
+        >
           N390,000.00
         </Typography>
         <div className="w-1/12">

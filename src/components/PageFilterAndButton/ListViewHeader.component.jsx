@@ -5,7 +5,7 @@ import { IconButton } from "@mui/material";
 import Menu from "../../assets/svg/Menu.svg";
 import List from "../../assets/svg/List.svg";
 
-const ListViewHeader = () => {
+const ListViewHeader = (props) => {
   return (
     <div>
       <div className="flex items-center w-full">
@@ -31,7 +31,7 @@ const ListViewHeader = () => {
             <img src={List} alt="" />
           </IconButton>
         </div>
-        <OrderViewHeader btnName="Add New Company" />
+        <OrderViewHeader btnName={props.btnName} />
       </div>
     </div>
   );

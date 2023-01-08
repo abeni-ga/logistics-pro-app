@@ -5,10 +5,13 @@ const RiderOrderTableItem = () => {
   return (
     <div className="flex w-full justify-center">
       <div className="flex w-[99%] items-center bg-white rounded-lg py-4 gap-2">
-        <div className=" w-[5%]">
-          <div className="w-fit h-fit bg-violet-400 rounded ml-4">
+        <div className=" w-[5%] flex justify-center">
+          <Typography
+            sx={{ color: "white" }}
+            className="w-fit h-fit bg-indigo-500 rounded ml-4"
+          >
             <CheckIcon />
-          </div>
+          </Typography>
         </div>
         <Typography sx={{ width: "10%", color: color.lightGray }}>
           #003232
