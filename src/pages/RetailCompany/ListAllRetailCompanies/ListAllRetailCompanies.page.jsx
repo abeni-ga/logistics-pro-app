@@ -5,6 +5,7 @@ const ListAllRetailCompanies = () => {
       <ListAllCompanies
         route="/admin/retail-company/detail"
         title="Retail Outlet"
+        btnName="New Company"
       />
     </div>
   );

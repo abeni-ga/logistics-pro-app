@@ -163,6 +163,13 @@ const DirectCustomerOrderHistory = Loadable(
     )
   )
 );
+const DirectCustomerOrderSummary = Loadable(
+  lazy(() =>
+    import(
+      "../pages/DirectCustomer/DirectCustomerOrderSummary/DirectCustomerOrderSummary.page.jsx"
+    )
+  )
+);
 const Earning = Loadable(lazy(() => import("../pages/Earning/Earning.page")));
 const Report = Loadable(lazy(() => import("../pages/Report/Report.page")));
 const Setting = Loadable(lazy(() => import("../pages/Setting/Setting.page")));
@@ -221,6 +228,7 @@ const AdminRoutes = {
         { path: "register", element: <RegisterDirectCustomer /> },
         { path: "all", element: <ListAllDirectCustomer /> },
         { path: "detail", element: <DirectCustomerDetail /> },
+        { path: "order-summary", element: <DirectCustomerOrderSummary /> },
       ],
     },
     {

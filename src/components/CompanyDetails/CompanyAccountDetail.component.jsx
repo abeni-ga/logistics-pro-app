@@ -1,14 +1,12 @@
 import { Avatar, Button, Typography } from "@mui/material";
 import { useState } from "react";
 import { color } from "../../constants/Theme";
-import UserInfoDetail from "./CompanyInfoDetail.component";
 import RegistrationDocument from "./RegistrationDocument/RegistrationDocument.component";
 
 const CompanyAccountDetail = () => {
   const [doc, setDoc] = useState(false);
   return (
-    <div className="flex flex-col w-11/12 items-center bg-white rounded-2xl gap-3">
-      <UserInfoDetail />
+    <div className="flex flex-col w-11/12 items-center bg-white rounded-2xl gap-3 -mt-10 pt-10">
       <div className="flex flex-col w-4/5">
         <div className="bg-gray-50 p-4">
           <Typography sx={{ color: color.lightGray }}>

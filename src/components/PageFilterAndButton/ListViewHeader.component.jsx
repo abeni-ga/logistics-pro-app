@@ -21,11 +21,14 @@ const ListViewHeader = (props) => {
           </IconButton>
           <IconButton
             variant="contained"
-            color="primary"
             sx={{
               backgroundColor: color.darkIndigo,
               borderRadius: "12px",
               padding: "10px",
+              color: "white",
+              ":hover": {
+                backgroundColor: color.darkIndigo,
+              },
             }}
           >
             <img src={List} alt="" />

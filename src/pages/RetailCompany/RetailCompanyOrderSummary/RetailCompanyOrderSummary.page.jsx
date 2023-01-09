@@ -8,6 +8,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import PPic from "../../../assets/svg/PPic.svg";
 import SearchIcon from "@mui/icons-material/Search";
 
 import { color } from "../../../constants/Theme.js";
@@ -35,8 +36,13 @@ const RetailCompanyOrderSummary = () => {
           </Typography>
         </div>
         <div>
-          <Typography>Order No:</Typography>
-          <Typography sx={{ fontWeight: "bold" }}>#00112233</Typography>
+          <Typography sx={{ color: color.darkGray }}>Order No:</Typography>
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: "bold", color: color.darkGray }}
+          >
+            #00112233
+          </Typography>
         </div>
       </div>
 
@@ -44,34 +50,45 @@ const RetailCompanyOrderSummary = () => {
         <div className="flex flex-col w-[48%] py-4 gap-1">
           <div className="flex flex-col justify-center px-4 bg-white rounded-xl w-full h-[15%]">
             <div className="flex gap-4">
-              <Typography>Picked by:</Typography>
+              <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                Picked by:
+              </Typography>
               <div className="flex gap-2">
                 <Avatar />
                 <div className="">
-                  <Typography>Olaniyi Ojo David</Typography>
+                  <Typography
+                    sx={{ fontWeight: "bold", color: color.darkGray }}
+                  >
+                    Olaniyi Ojo David
+                  </Typography>
                   <Typography sx={{ color: color.lightGray }}>
                     091612891010
                   </Typography>
                 </div>
               </div>
-              <Typography sx={{ color: color.lightGray }}>
-                10/10/2021{" "}
+              <Typography>10/10/2021 </Typography>
+              <Typography>01:37PM</Typography>
+              <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                {" "}
+                ₦2,500
               </Typography>
-              <Typography sx={{ color: color.lightGray }}>01:37PM</Typography>
-              <Typography> ₦2,500</Typography>
             </div>
             <div className="flex justify-between w-[75%]">
               <div className="flex">
                 <Typography>
                   <RoomIcon />
                 </Typography>
-                <Typography>14, Kumolu Street. Ikeja, Lagos</Typography>
+                <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                  14, Kumolu Street. Ikeja, Lagos
+                </Typography>
               </div>
               <div className="flex gap-4">
                 <Typography sx={{ color: color.lightGray }}>
                   Pickup Type :
                 </Typography>
-                <Typography>BIKE</Typography>
+                <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                  BIKE
+                </Typography>
               </div>
             </div>
           </div>
@@ -79,45 +96,64 @@ const RetailCompanyOrderSummary = () => {
           <div className="flex flex-col justify-center px-4 bg-white rounded-lg w-full h-[15%]">
             <div className="flex gap-8">
               <Typography>Item:</Typography>
-              <Typography sx={{ fontWeight: "bold" }}>Book</Typography>
+              <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                Book
+              </Typography>
             </div>
             <div className="flex gap-8">
               <Typography>Note:</Typography>
-              <Typography sx={{ fontWeight: "bold" }}>
+              <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
                 The books are about 36 in number
               </Typography>
             </div>
           </div>
           <div className="w-full h-[35%] mb-4 bg-white rounded-xl bg-[url('/src/assets/svg/Map1.svg')]"></div>
           <div className="w-full h-[35%] bg-white rounded-xl flex flex-col items-center justify-center gap-2">
-            <Typography>Delivery Estimate</Typography>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: "bold", color: color.darkGray }}
+            >
+              Delivery Estimate
+            </Typography>
             <div className="h-0.5 bg-gray-200 w-[90%]"></div>
             <div className="flex flex-col w-[90%] gap-2">
               <div className="flex justify-between">
-                <Typography>Basic fair/Km</Typography>
+                <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                  Basic fair/Km
+                </Typography>
                 <Typography sx={{ color: color.lightGray }}>N420.00</Typography>
               </div>
               <div className="flex justify-between">
-                <Typography>Est. Distance to pick-up</Typography>
+                <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                  Est. Distance to pick-up
+                </Typography>
                 <Typography sx={{ color: color.lightGray }}>4.2Km</Typography>
               </div>
               <div className="flex justify-between">
-                <Typography>Est. Distance to delivery</Typography>
+                <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                  Est. Distance to delivery
+                </Typography>
                 <Typography sx={{ color: color.lightGray }}>4.2Km</Typography>
               </div>
               <div className="flex justify-between">
-                <Typography>Est. Fair Total</Typography>
+                <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                  Est. Fair Total
+                </Typography>
                 <Typography sx={{ color: color.lightGray }}>
                   N14,320.00
                 </Typography>
               </div>
               <div className="flex justify-between">
-                <Typography>Tax</Typography>
+                <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                  Tax
+                </Typography>
                 <Typography sx={{ color: color.lightGray }}>N250</Typography>
               </div>
               <div className="h-0.5 bg-gray-200 w-full"></div>
               <div className="flex justify-between">
-                <Typography>Total</Typography>
+                <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                  Total
+                </Typography>
                 <Typography sx={{ color: color.lightGray }}>
                   N14,150.00
                 </Typography>
@@ -128,11 +164,17 @@ const RetailCompanyOrderSummary = () => {
         <div className="flex flex-col gap-4 w-[48%] py-4">
           <div className="flex flex-col justify-center px-4 bg-white rounded-xl w-full h-[15%]">
             <div className="flex gap-4">
-              <Typography>Receiving:</Typography>
+              <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                Receiving:
+              </Typography>
               <div className="flex gap-2">
                 <Avatar />
                 <div className="">
-                  <Typography>Olaniyi Ojo David</Typography>
+                  <Typography
+                    sx={{ fontWeight: "bold", color: color.darkGray }}
+                  >
+                    Olaniyi Ojo David
+                  </Typography>
                   <Typography sx={{ color: color.lightGray }}>
                     091612891010
                   </Typography>
@@ -144,14 +186,24 @@ const RetailCompanyOrderSummary = () => {
                 <Typography>
                   <RoomIcon />
                 </Typography>
-                <Typography>14, Kumolu Street. Ikeja, Lagos</Typography>
+                <Typography sx={{ fontWeight: "bold", color: color.darkGray }}>
+                  14, Kumolu Street. Ikeja, Lagos
+                </Typography>
               </div>
             </div>
           </div>
           <div className="w-full h-[35%] mb-4 bg-white rounded-xl bg-[url('/src/assets/svg/Map2.svg')]"></div>
           <div className="flex flex-col gap-3 w-full h-[20%]  bg-white rounded-xl items-center justify-center">
             <div className="flex w-[90%] justify-between items-center">
-              <Typography>Rider</Typography>
+              <Typography
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  color: color.darkGray,
+                }}
+              >
+                Rider
+              </Typography>
               <SearchBox
                 sx={{
                   width: "60%",
@@ -172,7 +224,7 @@ const RetailCompanyOrderSummary = () => {
             <span className="h-0.5 w-[90%] bg-gray-300"></span>
             <div className="border-y-2 border-gray-200 w-[90%] py-2 flex items-center justify-between">
               <div className="flex gap-4">
-                <Avatar />
+                <Avatar src={PPic} />
                 <div className="">
                   <Typography sx={{ fontWeight: "bold" }}>
                     Bolade Davies

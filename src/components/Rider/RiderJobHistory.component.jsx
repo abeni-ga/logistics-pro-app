@@ -108,7 +108,7 @@ const RiderJobHistroyComp = () => {
             </div>
           </div>
         </div>
-        <div className="h-[10%] bg-white flex items-center rounded-lg">
+        <div className="h-[10%] flex items-center rounded-lg">
           <FormControl
             sx={{
               m: 1,

@@ -2,14 +2,14 @@ import CompanyAccountDetail from "../../../components/CompanyDetails/CompanyAcco
 import CompanyOrdersList from "../../../components/CompanyDetails/CompanyOrdersList.component";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Button, IconButton, Typography } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
 import { NavLink } from "react-router-dom";
 import Pulse from "../../../assets/svg/Pulse.svg";
 import PulseRed from "../../../assets/svg/PulseRed.svg";
 import { color } from "../../../constants/Theme.js";
+import AddIcon from "@mui/icons-material/Add";
+
 import FilterAndActionButton from "../../../components/PageFilterAndButton/OrderViewHeader";
-import UserInfoDetail from "../../../components/UserDetails/UserInfoDetail.component";
-const RetailCompanyDetail = () => {
+const DirectCustomerDetail = () => {
   return (
     <div className="flex flex-col w-full h-screen">
       <div className="h-[10%] flex items-center gap-2 ml-8">
@@ -23,11 +23,10 @@ const RetailCompanyDetail = () => {
         </Typography>
       </div>
       <div className="flex w-full h-screen pt-4">
-        <div className="flex flex-col w-[35%] h-full justify-center items-center">
-          <UserInfoDetail />
-          <CompanyAccountDetail />
+        <div className="flex w-[35%] h-full justify-center items-center">
+          <CompanyAccountDetail />;
         </div>
-        <div className=" flex flex-col w-[65%] h-full justify-center items-center gap-10">
+        <div className=" flex w-[65%] h-full justify-center items-center">
           <div className="flex justify-end gap-20 pl-10 w-full mr-5 items-center">
             <Button
               startIcon={<AddIcon />}
@@ -68,14 +67,11 @@ const RetailCompanyDetail = () => {
               </div>
             </div>
           </div>
-          <div className="w-full">
-            <FilterAndActionButton btnName="New Company" />
-            <CompanyOrdersList />
-          </div>
+          <CompanyOrdersList />
         </div>
       </div>
     </div>
   );
 };
 
-export default RetailCompanyDetail;
+export default DirectCustomerDetail;
