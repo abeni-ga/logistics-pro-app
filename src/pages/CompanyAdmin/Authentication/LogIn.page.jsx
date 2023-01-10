@@ -4,7 +4,6 @@ import { color } from "../../../constants/Theme";
 import Logo from "../../../assets/svg/Logo.svg";
 import Scooter from "../../../assets/svg/Scooter.svg";
 import LogInForm from "../../../components/Authentication/LogInForm.component";
-import { Form, Formik } from "formik";
 import SignUpForm from "../../../components/Authentication/SignUpForm.component";
 
 const LogIn = (props) => {
@@ -13,7 +12,7 @@ const LogIn = (props) => {
       className="w-full h-full flex items-center justify-center"
       style={{ backgroundColor: color.bgWhiteSmoke }}
     >
-      <div className="flex flex-col h-screen w-1/2">
+      <div className="flex flex-col h-screen w-1/2 py-10">
         <div className="flex flex-row items-center gap-2 ml-4">
           <img className="rounded-sm w-8" src={Logo} alt="POOL" />
           <h1 className="font-semibold">Pool</h1>
@@ -30,13 +29,7 @@ const LogIn = (props) => {
           </h4>
         </div>
       </div>
-      <div className="flex w-1/2 bg-black justify-center items-center">
-        <Formik>
-          <Form className="flex items-center">
-            {props.signup ? <SignUpForm /> : <LogInForm />}
-          </Form>
-        </Formik>
-      </div>
+      {props.signup ? <SignUpForm /> : <LogInForm />}
     </div>
   );
 };

@@ -19,7 +19,7 @@ const LogInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col w-full h-min  rounded-xl	bg-white p-16 justify-around gap-10">
+    <div className="flex flex-col w-2/6 h-3/5  rounded-xl	bg-white p-16 justify-around gap-10">
       <div>
         <h1 className="text-4xl mb-2 font-semibold text-gray-700">
           You're Welcome Back!
