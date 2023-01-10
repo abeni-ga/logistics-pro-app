@@ -36,7 +36,7 @@ const SubMenu = ({ item, isOpen, toggle }) => {
           children={item.children}
         />
       </NavLink>
-      <div className="flex w-full ml-12">
+      <div className="flex w-full pl-12">
         <div className="flex flex-col gap-1">
           {!isOpen
             ? null
@@ -49,9 +49,9 @@ const SubMenu = ({ item, isOpen, toggle }) => {
                     style={({ isActive }) =>
                       isActive
                         ? {
-                            color: "#5381c2",
+                            color: color.darkIndigo,
                           }
-                        : undefined
+                        : null
                     }
                   >
                     {child.title}
