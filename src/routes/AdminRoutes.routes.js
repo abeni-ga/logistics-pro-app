@@ -10,16 +10,16 @@ const Dashboard = Loadable(
 const OrderNow = Loadable(
   lazy(() => import("../pages/SuperAdmin/Orders/OrderNow/OrderNow.page"))
 );
-const ExchangePool = Loadable(
-  lazy(() =>
-    import("../pages/SuperAdmin/Orders/ExchangePool/ExchangePool.page")
-  )
-);
-const InternalOrders = Loadable(
-  lazy(() =>
-    import("../pages/SuperAdmin/Orders/InternalOrders/InternalOrders.page")
-  )
-);
+// const ExchangePool = Loadable(
+//   lazy(() =>
+//     import("../pages/SuperAdmin/Orders/ExchangePool/ExchangePool.page")
+//   )
+// );
+// const InternalOrders = Loadable(
+//   lazy(() =>
+//     import("../pages/SuperAdmin/Orders/InternalOrders/InternalOrders.page")
+//   )
+// );
 const OrderHistory = Loadable(
   lazy(() => import("../pages/SuperAdmin/OrderHistory/OrderHistory.page"))
 );

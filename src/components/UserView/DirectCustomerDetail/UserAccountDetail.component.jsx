@@ -109,7 +109,9 @@ const UserAccountDetail = () => {
         Registration Documents
       </Button>
       {doc ? (
-        <div className="w-full flex  flex-col gap-4 pb-4 items-center justify-center">
+        <div
+          className={`w-full flex  flex-col gap-4  pb-4 items-center justify-center bg-[${color.bgWhiteSmoke}]`}
+        >
           <div className="flex w-[70%] justify-center items-center">
             <Typography sx={{ width: "50%" }}>
               Business Registration Slip

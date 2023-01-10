@@ -133,8 +133,6 @@ const CompanyAccountDetail = () => {
           backgroundColor: "white",
           borderRadius: "8px",
           color: color.lightGray,
-          boxShadow:
-            "3px 3px 3px 3px rgb(0 0 0 / 0.3), 3px 4px 6px 4px rgb(0 0 0 / 0.3)",
           ":hover": {
             color: color.lightGray,
             backgroundColor: "white",
@@ -144,7 +142,9 @@ const CompanyAccountDetail = () => {
         Registration Documents
       </Button>
       {doc ? (
-        <div className="w-full flex  flex-col gap-4 pb-4 items-center justify-center bg-slate-50">
+        <div
+          className={`w-full flex  flex-col gap-4  pb-4 items-center justify-center bg-[${color.bgWhiteSmoke}]`}
+        >
           <RegistrationDocument />
           <RegistrationDocument />
         </div>
