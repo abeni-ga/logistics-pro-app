@@ -267,10 +267,10 @@ const AdminRoutes = {
       element: <Orders />,
       children: [
         { path: "order-now", element: <OrderNow /> },
-        { path: "in-orders", element: <InternalOrders /> },
+        { path: "in-orders", element: <RetailCompanyOrderPool /> },
         {
           path: "exch-pool",
-          element: <ExchangePool />,
+          element: <DirectCustomerOrderPool />,
         },
         { path: "direct-customer", element: <DirectCustomerOrderPool /> },
         { path: "retail-company", element: <RetailCompanyOrderPool /> },

@@ -9,9 +9,11 @@ const CompaniesOrderPoolTableItem = () => {
       >
         01
       </Typography>
-      <div className="flex flex-col w-[8%]">
-        <Typography sx={{ color: color.darkIndigo }}>#00112244</Typography>
-        <Typography sx={{ color: color.darkIndigo }}>
+      <div className="flex flex-col w-[7%]">
+        <Typography sx={{ color: color.darkIndigo, fontWeight: "bold" }}>
+          #00112244
+        </Typography>
+        <Typography sx={{ color: color.darkIndigo, textAlign: "center" }}>
           TC Riders pushed this
         </Typography>
       </div>
@@ -55,6 +57,7 @@ const CompaniesOrderPoolTableItem = () => {
             borderRadius: "4px",
             backgroundColor: color.lightGray,
             fontWeight: "bold",
+            color: color.darkIndigo,
           }}
         >
           N5,900
