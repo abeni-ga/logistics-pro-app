@@ -21,10 +21,11 @@ const SubMenu = ({ item, isOpen, toggle }) => {
         style={({ isActive }) =>
           isActive
             ? {
+                color: color.darkIndigo,
                 borderRadius: "20px",
                 backgroundColor: color.lightBlue,
               }
-            : undefined
+            : null
         }
       >
         <NavButton
@@ -36,7 +37,7 @@ const SubMenu = ({ item, isOpen, toggle }) => {
         />
       </NavLink>
       <div className="flex w-full ml-12">
-        <div className="flex flex-col bg-white gap-1">
+        <div className="flex flex-col gap-1">
           {!isOpen
             ? null
             : item.children && subNav

@@ -1,11 +1,10 @@
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Fragment, useState } from "react";
-import { MENUITEMS } from "../../../constants/AdminMenus.js";
 import UserPanel from "./UserPanel.component.jsx";
 import SubMenu from "../../SubMenu/SubMenu.component.jsx";
 
-const SideBar = ({ children }) => {
+const SideBar = (props) => {
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -13,8 +12,8 @@ const SideBar = ({ children }) => {
   return (
     <div
       className={`bg-white sticky top-0 h-screen flex justify-center ${
-        isOpen ? "w-1/6" : "w-20"
-      }`}
+        isOpen ? "w-[15%]" : "w-20"
+      } `}
     >
       <div
         className={`flex flex-col justify-between ${isOpen ? "w-full" : ""}`}
@@ -24,7 +23,7 @@ const SideBar = ({ children }) => {
             <UserPanel />
           </div>
           <div className="sidebar flex flex-col">
-            {MENUITEMS.map((item, index) => {
+            {props.menuItems.map((item, index) => {
               return (
                 <Fragment key={index}>
                   <SubMenu

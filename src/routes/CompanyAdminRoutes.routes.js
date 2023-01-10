@@ -2,7 +2,7 @@ import { lazy } from "react";
 
 import MainLayout from "../layouts/MainLayout.component";
 import Loadable from "../components/Load/Loadable.component";
-import { ADMINMENUITEMS } from "../constants/AdminMenus";
+import { COMPANYADMINMENUITEMS } from "../constants/CompanyAdminMenu.js";
 const Dashboard = Loadable(
   lazy(() => import("../pages/SuperAdmin/Dashboard/Dashboard.page"))
 );
@@ -208,9 +208,9 @@ const Orders = Loadable(
   lazy(() => import("../pages/SuperAdmin/Orders/Orders.page"))
 );
 
-const AdminRoutes = {
-  path: "/admin",
-  element: <MainLayout menuItems={ADMINMENUITEMS} />,
+const CompanyAdminRoutes = {
+  path: "/company-admin",
+  element: <MainLayout menuItems={COMPANYADMINMENUITEMS} />,
   children: [
     {
       path: "dashboard",
@@ -307,4 +307,4 @@ const AdminRoutes = {
   ],
 };
 
-export default AdminRoutes;
+export default CompanyAdminRoutes;

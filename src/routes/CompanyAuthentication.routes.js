@@ -4,18 +4,22 @@ import CommonLayout from "../layouts/CommonLayout.component";
 import Loadable from "../components/Load/Loadable.component";
 
 const LogIn = Loadable(
-  lazy(() => import("../pages/SuperAdmin/Authentication/LogIn.page"))
+  lazy(() => import("../pages/CompanyAdmin/Authentication/LogIn.page.jsx"))
 );
 
-const AuthenticationRoutes = {
-  path: "/",
+const CompanyAuthenticationRoutes = {
+  path: "/company",
   element: <CommonLayout />,
   children: [
     {
-      path: "/",
+      path: "signin",
       element: <LogIn />,
+    },
+    {
+      path: "signup",
+      element: <LogIn signup />,
     },
   ],
 };
 
-export default AuthenticationRoutes;
+export default CompanyAuthenticationRoutes;

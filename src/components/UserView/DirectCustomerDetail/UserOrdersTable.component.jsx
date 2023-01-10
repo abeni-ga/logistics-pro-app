@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 
-import CompanyOrderItem from "./UserOrderItem.component";
+import UserOrderItem from "./UserOrderItem.component";
 
 const UserOrdersTable = () => {
   return (
@@ -22,13 +22,13 @@ const UserOrdersTable = () => {
           <Typography sx={{ width: "10%" }}>Earning</Typography>
         </div>
       </div>
-      <CompanyOrderItem />
-      <CompanyOrderItem />
-      <CompanyOrderItem />
-      <CompanyOrderItem />
-      <CompanyOrderItem />
-      <CompanyOrderItem />
-      <CompanyOrderItem />
+      <UserOrderItem />
+      <UserOrderItem />
+      <UserOrderItem />
+      <UserOrderItem />
+      <UserOrderItem />
+      <UserOrderItem />
+      <UserOrderItem />
     </div>
   );
 };

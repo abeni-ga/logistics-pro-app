@@ -8,7 +8,7 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import { BusinessRounded } from "@mui/icons-material";
 
-export const MENUITEMS = [
+export const ADMINMENUITEMS = [
   {
     path: "/admin/dashboard",
     title: "Dashboard",
