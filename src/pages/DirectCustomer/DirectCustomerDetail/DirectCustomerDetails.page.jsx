@@ -1,5 +1,5 @@
-import UserAccountDetail from "../../../components/UserDetails/UserAccountDetail.component";
-import UserOrdersList from "../../../components/UserDetails/UserOrdersList.component";
+import UserAccountDetail from "../../../components/DirectCustomerDetail/UserAccountDetail.component";
+import UserOrdersList from "../../../components/DirectCustomerDetail/UserOrdersList.component";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { IconButton, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";

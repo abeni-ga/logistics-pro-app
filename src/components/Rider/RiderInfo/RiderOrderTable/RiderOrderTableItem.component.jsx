@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
-import { color } from "../../constants/Theme.js";
+import { color } from "../../../../constants/Theme.js";
 const RiderOrderTableItem = () => {
   return (
     <div className="flex w-full justify-center">

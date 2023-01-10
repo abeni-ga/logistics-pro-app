@@ -5,6 +5,13 @@ import { ThemeProvider, createTheme } from "@mui/material";
 const theme = createTheme({
   typography: {
     fontFamily: "DM Sans",
+    body1: {
+      fontSize: "14px",
+    },
+    h6: { fontSize: "20px" },
+    button: {
+      textTransform: "capitalize",
+    },
   },
 });
 

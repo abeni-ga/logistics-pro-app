@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
 import RiderViewHeader from "../../../components/PageFilterAndButton/RiderViewHeader.component";
-import RiderAccountDetail from "../../../components/Rider/RiderAccountDetail.component";
-import RiderListTable from "../../../components/Rider/RiderListTable.component";
-
+import RiderAccountDetail from "../../../components/Rider/RiderInfo/RiderAccountDetail.component";
+import RiderListTable from "../../../components/Rider/RIderListView/RiderListTable.component";
+import RiderInfoDetail from "../../../components/Rider/RiderInfo/RiderInfoDetail.component";
 const ListAllRider = () => {
   return (
     <div className="flex flex-col w-full h-full items-center">
@@ -24,7 +24,8 @@ const ListAllRider = () => {
               <RiderListTable />
             </div>
           </div>
-          <div className="w-[35%] h-full flex items-center justify-center">
+          <div className="w-[35%] h-full flex flex-col items-center pt-8">
+            <RiderInfoDetail />
             <RiderAccountDetail review />
           </div>
         </div>

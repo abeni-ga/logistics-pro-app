@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import RiderListItem from "./RiderListItem.component";
-import { color } from "../../constants/Theme.js";
+import { color } from "../../../constants/Theme.js";
 const RiderListTable = () => {
   return (
     <div className="flex flex-col h-full w-full">

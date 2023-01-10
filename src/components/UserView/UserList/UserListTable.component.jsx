@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
-import { logisticsCompany } from "../../data/LogisticsCompany.js";
-import CompanyListItem from "./CompanyListItem.component";
-import { color } from "../../constants/Theme.js";
+import { logisticsCompany } from "../../../data/LogisticsCompany.js";
+import UserListItem from "./UserListItem.component";
+import { color } from "../../../constants/Theme.js";
 
-const CompaniesListTable = ({ route }) => {
+const UserListTable = ({ route }) => {
   return (
     <div className="w-full h-full">
       <div className="flex p-4 items-center w-full">
@@ -32,11 +32,11 @@ const CompaniesListTable = ({ route }) => {
       </div>
       <div className="flex flex-col gap-4">
         {logisticsCompany.map((comp, index) => {
-          return <CompanyListItem key={index} route={route} />;
+          return <UserListItem key={index} route={route} />;
         })}
       </div>
     </div>
   );
 };
 
-export default CompaniesListTable;
+export default UserListTable;

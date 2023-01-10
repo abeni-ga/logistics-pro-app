@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { Avatar, IconButton, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import Profile from "../../assets/svg/Profile.svg";
-import { color } from "../../constants/Theme.js";
-const CompanyListItem = (prop) => {
+import Profile from "../../../assets/svg/Profile.svg";
+import { color } from "../../../constants/Theme.js";
+const UserListItem = (prop) => {
   return (
     <NavLink to={prop.route}>
       <div className="flex items-center p-4 bg-white w-full rounded-xl flex-wrap">
@@ -69,4 +69,4 @@ const CompanyListItem = (prop) => {
   );
 };
 
-export default CompanyListItem;
+export default UserListItem;

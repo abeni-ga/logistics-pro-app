@@ -1,6 +1,6 @@
 import { Avatar, Button, Typography } from "@mui/material";
 import { useState } from "react";
-import { color } from "../../constants/Theme";
+import { color } from "../../../constants/Theme";
 import RegistrationDocument from "./RegistrationDocument/RegistrationDocument.component";
 
 const CompanyAccountDetail = () => {

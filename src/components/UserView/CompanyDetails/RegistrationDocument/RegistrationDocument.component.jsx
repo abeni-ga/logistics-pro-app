@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import { color } from "../../../constants/Theme.js";
+import { color } from "../../../../constants/Theme.js";
 import CheckIcon from "@mui/icons-material/Check";
 
 const RegistrationDocument = () => {

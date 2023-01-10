@@ -1,10 +1,10 @@
 import { Form, Formik } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import StepOne from "../Steps/StepOne.component";
-import StepTwo from "../Steps/StepTwo.component";
-import StepThree from "../Steps/StepThree.component";
-import Complete from "../Steps/Complete.component";
+import StepOne from "../../../components/Forms/RiderRegistration/Steps/StepOne.component";
+import StepTwo from "../../../components/Forms/RiderRegistration/Steps/StepTwo.component";
+import StepThree from "../../../components/Forms/RiderRegistration/Steps/StepThree.component";
+import Complete from "../../../components/Forms/RiderRegistration/Steps/Complete.component";
 import StandardButton from "../../../components/Buttons/StandardButton.component";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../routes/siteRoutes.routes";

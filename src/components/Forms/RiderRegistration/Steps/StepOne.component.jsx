@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { InputLabel, MenuItem, Typography } from "@mui/material";
-import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
+import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
 
 const StepOne = () => {
   const [asset, setAsset] = useState(null);

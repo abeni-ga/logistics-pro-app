@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import FormCompleted from "../../../assets/svg/Form_Complete.svg";
+import FormCompleted from "../../../../assets/svg/Form_Complete.svg";
 const Complete = () => {
   return (
     <div className="flex flex-col rounded w-full h-full items-center gap-4">

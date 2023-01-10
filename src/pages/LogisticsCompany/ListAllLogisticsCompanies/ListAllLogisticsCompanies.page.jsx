@@ -1,4 +1,4 @@
-import ListAllCompanies from "../../../components/CompaniesList/CompaniesListAll.component";
+import ListAllCompanies from "../../../components/UserView/UserList/UserListAll.component";
 const ListAllLogisticsCompanies = () => {
   return (
     <div>

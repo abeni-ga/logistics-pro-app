@@ -1,4 +1,4 @@
-import RiderJobHistroyComp from "../../../components/Rider/RiderJobHistory.component";
+import RiderJobHistroyComp from "../../../components/Rider/RiderInfo/RiderOrderTable/RiderJobHistory.component";
 
 const RiderJobHistory = () => {
   return (

@@ -1,7 +1,7 @@
 import { Avatar, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import Profile from "../../assets/svg/Profile.svg";
-import { color } from "../../constants/Theme.js";
+import Profile from "../../../assets/svg/Profile.svg";
+import { color } from "../../../constants/Theme.js";
 const CompanyInfoDetail = () => {
   return (
     <div className="flex h-56 gap-4 px-4 w-4/5 items-center rounded-xl drop-shadow-lg bg-white">

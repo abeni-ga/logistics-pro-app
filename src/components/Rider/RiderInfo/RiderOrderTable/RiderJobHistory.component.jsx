@@ -12,9 +12,9 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
-import HistoryTrackerCard from "./HistoryTrackerCard/HistoryTrackerCard.component.jsx";
-import Current from "../../assets/svg/Current.svg";
-import { color } from "../../constants/Theme.js";
+import HistoryTrackerCard from "../../HistoryTrackerCard/HistoryTrackerCard.component.jsx";
+import Current from "../../../../assets/svg/Current.svg";
+import { color } from "../../../../constants/Theme.js";
 
 const RiderJobHistroyComp = () => {
   const [selectedValue, setSelectedValue] = useState("current");

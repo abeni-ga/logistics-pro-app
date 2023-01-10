@@ -1,7 +1,7 @@
 import { Avatar, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { color } from "../../constants/Theme.js";
-import PPic from "../../assets/svg/PPic.svg";
+import { color } from "../../../constants/Theme.js";
+import PPic from "../../../assets/svg/PPic.svg";
 
 const RiderListItem = () => {
   return (

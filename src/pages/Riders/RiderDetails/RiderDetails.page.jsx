@@ -1,7 +1,7 @@
 import { IconButton, Typography } from "@mui/material";
 import FilterAndActionButton from "../../../components/PageFilterAndButton/OrderViewHeader";
-import RiderAccountDetail from "../../../components/Rider/RiderAccountDetail.component";
-import RiderOrderTable from "../../../components/Rider/RiderOrderTable.compnent";
+import RiderAccountDetail from "../../../components/Rider/RiderInfo/RiderAccountDetail.component";
+import RiderOrderTable from "../../../components/Rider/RiderInfo/RiderOrderTable/RiderOrderTable.compnent";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import Pulse from "../../../assets/svg/Pulse.svg";

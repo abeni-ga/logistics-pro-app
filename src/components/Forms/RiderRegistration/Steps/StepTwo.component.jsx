@@ -1,6 +1,6 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { InputLabel, Typography, IconButton } from "@mui/material";
-import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
+import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
 
 const StepTwo = ({ handlePrev }) => {
   return (

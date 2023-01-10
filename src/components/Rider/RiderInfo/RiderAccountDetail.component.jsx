@@ -1,18 +1,13 @@
 import { Button, Typography } from "@mui/material";
-import RegistrationDocument from "./RegistrationDocument/RegistrationDocument.component";
+import RegistrationDocument from "../RegistrationDocument/RegistrationDocument.component";
 import { useState } from "react";
-import { color } from "../../constants/Theme";
-import RiderInfoDetail from "./RiderInfoDetail.component";
+import { color } from "../../../constants/Theme";
 
 const RiderAccountDetail = (props) => {
   const [doc, setDoc] = useState(false);
   return (
-    <div className="flex flex-col w-11/12 items-center bg-white rounded-2xl gap-3">
-      <RiderInfoDetail />
-      <div
-        className="flex w-4/5 justify-between
-      "
-      >
+    <div className="flex flex-col w-[90%] items-center bg-white h-min rounded-2xl gap-3 pt-12 -mt-10">
+      <div className="flex w-4/5 justify-between">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col">
             <Typography sx={{ color: color.lightGray }}>Reg No</Typography>

@@ -1,10 +1,10 @@
 import { Avatar, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import PPic from "../../assets/svg/PPic.svg";
-import { color } from "../../constants/Theme.js";
+import PPic from "../../../assets/svg/PPic.svg";
+import { color } from "../../../constants/Theme.js";
 const RiderInfoDetail = () => {
   return (
-    <div className="flex h-56 gap-4 px-4 w-4/5 items-center rounded-xl drop-shadow-lg bg-white -mt-40 z-10">
+    <div className="flex h-56 gap-4 px-4 w-4/5 items-center rounded-xl drop-shadow-lg bg-white z-10">
       <Avatar
         src={PPic}
         sx={{

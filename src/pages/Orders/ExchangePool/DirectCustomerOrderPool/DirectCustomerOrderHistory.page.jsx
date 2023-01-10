@@ -1,4 +1,4 @@
-import CompaniesOrderHistroyComp from "../../../../components/CompaniesOrder/CompaniesOrderHistoryComp.component";
+import CompaniesOrderHistroyComp from "../../../../components/OrderPool/CompaniesOrderHistoryComp.component";
 
 const DirectCustomerOrderHistory = () => {
   return (
