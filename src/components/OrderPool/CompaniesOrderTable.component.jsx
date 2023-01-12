@@ -12,7 +12,7 @@ const CompaniesOrderPoolTable = () => {
         >
           S/N
         </Typography>
-        <Typography sx={{ color: color.lightGray, width: "8%" }}>
+        <Typography sx={{ color: color.lightGray, width: "7%" }}>
           Order ID
         </Typography>
         <Typography sx={{ color: color.lightGray, width: "8%" }}>

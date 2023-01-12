@@ -6,6 +6,7 @@ import PaymentsIcon from "@mui/icons-material/Payments";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import { BusinessRounded } from "@mui/icons-material";
+import DirectionsBikeIcon from "@mui/icons-material/DirectionsBike";
 
 export const COMPANYADMINMENUITEMS = [
   {
@@ -36,6 +37,25 @@ export const COMPANYADMINMENUITEMS = [
     ],
   },
   {
+    path: "/company-admin/riders",
+    title: "Riders",
+    icon: <DirectionsBikeIcon />,
+    type: "link",
+    active: false,
+    children: [
+      {
+        path: "/company-admin/riders/new",
+        title: "Create New",
+        type: "link",
+      },
+      {
+        path: "/company-admin/riders/view",
+        title: "View Riders",
+        type: "link",
+      },
+    ],
+  },
+  {
     path: "/company-admin/orders",
     title: "Orders",
     icon: <ListAltIcon />,
@@ -44,13 +64,18 @@ export const COMPANYADMINMENUITEMS = [
     active: false,
     children: [
       {
-        path: "/company-admin/orders/new",
-        title: "Create",
+        path: "/company-admin/orders/in",
+        title: "In-Orders",
         type: "link",
       },
       {
-        path: "/company-admin/orders/view",
-        title: "View Order Pool",
+        path: "/company-admin/orders/pool",
+        title: "Order Exch. Pool",
+        type: "link",
+      },
+      {
+        path: "/company-admin/orders/new",
+        title: "Create",
         type: "link",
       },
     ],

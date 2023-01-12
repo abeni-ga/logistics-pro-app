@@ -9,18 +9,18 @@ const CompaniesOrderPoolTableItem = () => {
       >
         01
       </Typography>
-      <div className="flex flex-col w-[7%]">
+      <div className="flex flex-col w-[7%] items-start">
         <Typography sx={{ color: color.darkIndigo, fontWeight: "bold" }}>
           #00112244
         </Typography>
-        <Typography sx={{ color: color.darkIndigo, textAlign: "center" }}>
+        <Typography sx={{ color: color.darkIndigo }}>
           TC Riders pushed this
         </Typography>
       </div>
       <Typography sx={{ color: color.lightGray, width: "8%" }}>
         Book Delivery
       </Typography>
-      <div className="flex gap-2 w-[14%] flex-wrap">
+      <div className="flex gap-2 w-[14%]">
         <Avatar />
         <div className="flex flex-col">
           <Typography>Olaniyi Ojo David</Typography>
@@ -33,7 +33,7 @@ const CompaniesOrderPoolTableItem = () => {
         </Typography>
         <Typography>14, Kumolu Street. Ikeja, Lagos</Typography>
       </div>
-      <div className="flex gap-2 w-[14%] flex-wrap">
+      <div className="flex gap-2 w-[14%]q1  ">
         <Avatar />
         <div className="flex flex-col">
           <Typography>Olaniyi Ojo David</Typography>

@@ -3,8 +3,10 @@ import StepFive from "../../../components/Forms/CompanyRegistration/Steps/StepFi
 import { color } from "../../../constants/Theme";
 import Logo from "../../../assets/svg/Logo.svg";
 import { Button, Typography } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 const RegistrationConfirmation = (props) => {
+  const navigate = useNavigate();
   return (
     <div
       className="w-full h-full flex items-center justify-center"
@@ -33,12 +35,19 @@ const RegistrationConfirmation = (props) => {
                 on the below to get on
               </Typography>
               <Button
+                onClick={() => {
+                  navigate(routes.company.recovery);
+                }}
                 size="large"
                 sx={{
                   backgroundColor: color.darkIndigo,
                   color: "white",
                   fontWeight: "700",
                   borderRadius: "10px",
+                  ":hover": {
+                    backgroundColor: color.darkIndigo,
+                    color: "white",
+                  },
                 }}
               >
                 Continue Registration

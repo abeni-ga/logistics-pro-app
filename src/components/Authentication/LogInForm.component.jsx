@@ -53,7 +53,7 @@ const LogInForm = () => {
           />
         </FormControl>
         <a
-          href="/#"
+          href="/company/forgot"
           className="text-center text-blue-800 hover:text-blue-600 visited:text-purple-600 self-end"
         >
           Forgot Password?
@@ -63,7 +63,7 @@ const LogInForm = () => {
         <div className="flex items-center">
           <h6>Just joining us here?</h6>
           <a
-            href="/#"
+            href="/company/signup"
             className="ml-2 text-center text-blue-800 hover:text-blue-600 visited:text-purple-600"
           >
             Register Now

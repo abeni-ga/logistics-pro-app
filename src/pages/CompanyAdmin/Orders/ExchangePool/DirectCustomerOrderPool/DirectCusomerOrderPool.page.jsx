@@ -1,4 +1,4 @@
-import CompaniesOrderPoolTable from "../../../../../components/OrderPool/CompaniesOrderTable.compnent";
+import CompaniesOrderPoolTable from "../../../../../components/OrderPool/CompaniesOrderTable.component";
 
 const DirectCustomerOrderPool = () => {
   return (

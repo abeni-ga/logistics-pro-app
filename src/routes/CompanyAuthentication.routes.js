@@ -23,7 +23,7 @@ const CompanyAuthenticationRoutes = {
     { path: "confirm", element: <RegistrationConfirmation confirm /> },
     { path: "vertify", element: <RegistrationConfirmation /> },
     { path: "forgot", element: <LogIn forgot /> },
-    { path: "create", element: <LogIn create /> },
+    { path: "new", element: <LogIn create /> },
     { path: "recovery", element: <LogIn recovery /> },
   ],
 };

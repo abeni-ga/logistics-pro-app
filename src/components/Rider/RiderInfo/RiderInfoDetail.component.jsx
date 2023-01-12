@@ -2,9 +2,17 @@ import { Avatar, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import PPic from "../../../assets/svg/PPic.svg";
 import { color } from "../../../constants/Theme.js";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes";
 const RiderInfoDetail = () => {
+  const navigate = useNavigate();
   return (
-    <div className="flex h-56 gap-4 px-4 w-4/5 items-center rounded-xl drop-shadow-lg bg-white z-10">
+    <div
+      className="flex h-56 gap-4 px-4 w-4/5 items-center rounded-xl drop-shadow-lg bg-white z-10"
+      onClick={() => {
+        navigate(routes.company.riderHistory);
+      }}
+    >
       <Avatar
         src={PPic}
         sx={{

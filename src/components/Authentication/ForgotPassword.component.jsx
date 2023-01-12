@@ -23,7 +23,7 @@ const ForgotPassword = () => {
         <Typography
           sx={{ fontWeight: "600", lineHeight: "18px", color: color.darkGray }}
         >
-          <a href="http://localhost:3000/company/login">
+          <a href="/company/signin">
             <ArrowBackIosIcon /> Back to Login
           </a>
         </Typography>
@@ -36,7 +36,7 @@ const ForgotPassword = () => {
           }}
           variant="contained"
           size="large"
-          onClick={() => navigate(routes.admin.dashboard)}
+          onClick={() => navigate(routes.company.createPassword)}
         >
           Reset Password
         </Button>

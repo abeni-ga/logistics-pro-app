@@ -12,7 +12,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import { useState } from "react";
 import Current from "../../../../../assets/svg/Current.svg";
-import CompaniesOrderPoolTable from "../../../../../components/OrderPool/CompaniesOrderTable.compnent";
+import CompaniesOrderPoolTable from "../../../../../components/OrderPool/CompaniesOrderTable.component";
 
 const RetailCompanyOrderPool = () => {
   const [selectedValue, setSelectedValue] = useState("current");

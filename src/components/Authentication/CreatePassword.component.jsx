@@ -5,7 +5,6 @@ import {
   InputAdornment,
   InputLabel,
   OutlinedInput,
-  TextField,
   Typography,
 } from "@mui/material";
 import { useState } from "react";
@@ -15,7 +14,6 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../routes/siteRoutes.routes";
 import { color } from "../../constants/Theme";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 const CreatePassword = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -62,7 +60,7 @@ const CreatePassword = () => {
         }}
         variant="contained"
         size="large"
-        onClick={() => navigate(routes.admin.dashboard)}
+        onClick={() => navigate(routes.company.vertify)}
       >
         Create
       </Button>
