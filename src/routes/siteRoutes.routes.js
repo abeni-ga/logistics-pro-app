@@ -3,9 +3,12 @@ export const routes = {
   admin: {
     dashboard: "/admin/dashboard",
     riders: "/admin/riders",
+    riderDetail: "/admin/riders/detail",
+    riderHistory: "/admin/riders/history",
     retailCompany: "/admin/retail-company",
     orders: "/admin/orders",
     orderHistory: "/admin/order-history",
+
     earning: "/admin/earning",
     report: "/admin/report",
     setting: "/admin/setting",
@@ -25,7 +28,7 @@ export const routes = {
     report: "/company-admin/report",
     setting: "/company-admin/setting",
     support: "/company-admin/support",
-    riderHistory: "/company-admin/riders/detail",
+    riderDetail: "/company-admin/riders/detail",
     internalSummary: "/company-admin/orders/in-summary",
   },
 };

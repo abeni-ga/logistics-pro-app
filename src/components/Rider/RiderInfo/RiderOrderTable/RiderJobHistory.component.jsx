@@ -10,6 +10,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import PPic from "../../../../assets/svg/PPic.svg";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import HistoryTrackerCard from "../../HistoryTrackerCard/HistoryTrackerCard.component.jsx";
@@ -37,8 +39,8 @@ const RiderJobHistroyComp = () => {
   return (
     <div className=" px-12 w-[95%] h-full flex justify-between">
       <div className="w-[38%] h-full flex flex-col gap-4">
-        <div className=" flex h-[10%] rounded-lg items-center justify-between">
-          <div className="flex items-center w-[35%] rounded-lg">
+        <div className="flex gap-4">
+          <div className="flex items-center rounded-lg">
             <Radio
               checked={dateSelector === "today"}
               onChange={handleDateSelection}
@@ -48,7 +50,7 @@ const RiderJobHistroyComp = () => {
             />
             <Typography sx={{ fontWeight: "bold" }}>Today</Typography>
           </div>
-          <div className="flex items-center w-[65%] bg-white border-2 rounded-lg">
+          <div className="flex items-center rounded-lg bg-gray-200 px-2">
             <Radio
               checked={dateSelector === "other"}
               onChange={handleDateSelection}
@@ -56,12 +58,37 @@ const RiderJobHistroyComp = () => {
               name="date-radio-buttons"
               inputProps={{ "aria-label": "other" }}
             />
-            <div className="flex">
+            <div className="flex flex-col gap-1">
               <Typography>Change period</Typography>
+              <div className="flex gap-2">
+                <TextField
+                  variant="standard"
+                  size="small"
+                  type="date"
+                  inputProps={{
+                    style: {
+                      height: "15px",
+                    },
+                    disableUnderline: true,
+                  }}
+                />
+                <TextField
+                  variant="standard"
+                  type="date"
+                  size="small"
+                  inputProps={{
+                    style: {
+                      height: "15px",
+                    },
+                    disableUnderline: true,
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
-        <div className="h-[15%] bg-white rounded-lg p-2">
+
+        <div className=" bg-white rounded-lg p-2">
           <div className="flex items-center gap-2">
             <div className="flex items-center w-[40%] pr-1 bg-slate-100 rounded-lg justify-between">
               <div className="flex items-center">
@@ -150,14 +177,13 @@ const RiderJobHistroyComp = () => {
             <div className=" flex h-[40%] border-b-2 px-4 justify-between items-center">
               <div className=" flex flex-col h-full justify-center  ">
                 <div className="flex  w-full items-center gap-4">
-                  <Typography sx={{ color: "white", fontSize: "14px" }}>
-                    #00112233
-                  </Typography>
+                  <Typography sx={{ color: "white" }}>#00112233</Typography>
                   <Typography
                     sx={{
-                      fontSize: "14px",
+                      fontWeight: "700",
                       backgroundColor: color.brightGreen,
                       padding: "4px",
+                      fontSize: "12px",
                       borderRadius: "5px",
                       color: "white",
                     }}
@@ -165,22 +191,66 @@ const RiderJobHistroyComp = () => {
                     In Transit
                   </Typography>
                 </div>
-                <Typography
-                  sx={{ fontWeight: "bold", fontSize: "16px", color: "white" }}
-                >
+                <Typography sx={{ fontWeight: "700", color: "white" }}>
                   DELIVERY OF BOOKS
                 </Typography>
               </div>
               <Typography
-                variant="h6"
-                sx={{ color: "white", fontWeight: "bold" }}
+                sx={{ color: "white", fontWeight: "700", fontSize: "20px" }}
               >
                 N36,899.00
               </Typography>
             </div>
-            <div className="h-[60%]">5</div>
+            <div className="h-[60%] flex p-4 items-center gap-16 w-full">
+              <div className="flex flex-col gap-1">
+                <div className="flex gap-1">
+                  <div>
+                    <FiberManualRecordIcon
+                      sx={{
+                        fontSize: "small",
+                        color: "white",
+                      }}
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <Typography sx={{ color: "white" }}>From</Typography>
+                    <Typography sx={{ color: "white", fontWeight: "700" }}>
+                      14, Kumolu Street. Ikeja, Lagos
+                    </Typography>
+                  </div>
+                </div>
+                <div className="flex gap-1">
+                  <div>
+                    <FiberManualRecordIcon
+                      sx={{
+                        fontSize: "small",
+                        color: "white",
+                      }}
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <Typography sx={{ color: "white" }}>To</Typography>
+                    <Typography sx={{ color: "white", fontWeight: "700" }}>
+                      14, Kumolu Street. Ikeja, Lagos
+                    </Typography>
+                  </div>
+                </div>
+              </div>
+              <div className="self-end">
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "white",
+                    color: color.darkIndigo,
+                    alignSelf: "end",
+                  }}
+                >
+                  View Tracking
+                </Button>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col h-full gap-2">
+          <div className="flex flex-col h-full gap-4 pt-4">
             <HistoryTrackerCard />
             <HistoryTrackerCard />
             <HistoryTrackerCard />
@@ -191,69 +261,81 @@ const RiderJobHistroyComp = () => {
       <div className="w-[58%] h-full bg-gray-300 flex flex-col justify-between items-center">
         <div className="flex flex-col h-[60%] w-full items-center bg-black">
           <div className="border-b-2 h-[30%] flex flex-col bg-white justify-center px-10 gap-4 w-full">
+            <Typography>Order Track History</Typography>
             <div className="flex gap-8">
-              <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
-                Order Tracking
-              </Typography>
-              <Typography>#00112233</Typography>
-            </div>
-            <div className="flex gap-2">
-              <Avatar variant="rounded" />
               <div>
-                <Typography sx={{ fontWeight: "bold" }}>
-                  {" "}
-                  FZ Deliveries
-                </Typography>
                 <Typography sx={{ color: color.lightGray }}>
-                  46, Alade Road, Allen Avenue Lagos
+                  Order No
+                </Typography>
+                <Typography sx={{ color: color.darkIndigo }}>
+                  #00112233
+                </Typography>
+              </div>
+              <div>
+                <Typography sx={{ color: color.lightGray }}>Status:</Typography>
+                <Typography
+                  sx={{
+                    color: color.darkIndigo,
+                    backgroundColor: color.lightBlue,
+                    padding: "4px",
+                    borderRadius: "5px",
+                  }}
+                >
+                  Delivered
                 </Typography>
               </div>
             </div>
           </div>
-          <div className="flex border-b-2 items-center h-[50%] bg-white px-10 w-full">
-            <div className="flex flex-col gap-4 w-[55%]">
-              <div className="flex items-center gap-4">
-                <Avatar />
-                <div>
-                  <Typography>Assigned Rider</Typography>
-                  <Typography>Ibrahim Downey</Typography>
+          <div className="flex  items-center h-[70%] bg-white px-10 w-full">
+            <div className="flex flex-col h-full border-r-2 w-full gap-8 justify-center">
+              <div className="flex flex-col h-[60%] border-b-2">
+                <div className="flex items-center gap-4">
+                  <Avatar src={PPic} />
+                  <div>
+                    <Typography sx={{ fontWeight: "700" }}>
+                      Bola Davies
+                    </Typography>
+                    <Typography sx={{ color: color.lightGray }}>
+                      08121212122 | boladavies@gmail.com
+                    </Typography>
+                  </div>
+                </div>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    width: "fit-content",
+                    marginLeft: "24px",
+                    textTransform: "capitalize",
+                    color: color.lightGray,
+                    borderColor: color.lightGray,
+                    borderRadius: "5px",
+                    ":hover": {
+                      color: color.lightGray,
+                      borderColor: color.lightGray,
+                    },
+                  }}
+                >
+                  View Rider
+                </Button>
+              </div>
+              <div className=" flex flex-col gap-2 px-10 justify-center h-[20%] bg-white w-full">
+                <Typography sx={{ fontWeight: "bold", fontSize: "14px" }}>
+                  RIde Information
+                </Typography>
+                <div className="flex">
+                  <Avatar />
+                  <div>
+                    <Typography sx={{ color: color.lightGray }}>
+                      BAJAJ (White)
+                    </Typography>
+                    <Typography sx={{ color: color.lightGray }}>
+                      4323AB LAGOS
+                    </Typography>
+                  </div>
                 </div>
               </div>
-              <div className="flex border-2 rounded-lg py-3 items-center justify-center gap-6">
-                <div className="flex flex-col">
-                  <Typography>Phone Number:</Typography>
-                  <Typography>080808080809</Typography>
-                </div>
-                <div className="flex flex-col">
-                  <Typography>Email Address:</Typography>
-                  <Typography>Emailaddress@gmail.com</Typography>
-                </div>
-              </div>
-              <Button
-                variant="contained"
-                sx={{
-                  width: "fit-content",
-                  marginLeft: "24px",
-                  textTransform: "capitalize",
-                  backgroundColor: color.lightGray,
-                }}
-              >
-                View Rider
-              </Button>
             </div>
             <div className="flex w-[45%] bg-slate-300">2</div>
-          </div>
-          <div className=" flex flex-col gap-2 px-10 justify-center border-b-2 h-[20%] bg-white w-full">
-            <Typography sx={{ fontWeight: "bold", fontSize: "14px" }}>
-              RIde Information
-            </Typography>
-            <div className="flex">
-              <Avatar />
-              <div>
-                <Typography sx={{ fontSize: "14px" }}>BAJAJ (White)</Typography>
-                <Typography sx={{ fontSize: "14px" }}>4323AB LAGOS</Typography>
-              </div>
-            </div>
           </div>
         </div>
         <div className="bg-[url('/src/assets/svg/Map1.svg')] h-[40%] w-full flex items-end justify-center">

@@ -3,7 +3,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { color } from "../../constants/Theme.js";
 const CompaniesOrderPoolTableItem = () => {
   return (
-    <div className="flex w-full h-24 items-center bg-white rounded-lg">
+    <div className="flex w-full h-24 items-center bg-white rounded-lg justify-between">
       <Typography
         sx={{ color: color.lightGray, width: "4%", textAlign: "center" }}
       >
@@ -17,36 +17,36 @@ const CompaniesOrderPoolTableItem = () => {
           TC Riders pushed this
         </Typography>
       </div>
-      <Typography sx={{ color: color.lightGray, width: "8%" }}>
+      <Typography sx={{ color: color.lightGray, width: "7%" }}>
         Book Delivery
       </Typography>
-      <div className="flex gap-2 w-[14%]">
+      <div className="flex gap-2 w-[13%]">
         <Avatar />
         <div className="flex flex-col">
           <Typography>Olaniyi Ojo David</Typography>
           <Typography sx={{ color: color.lightGray }}>091612891010</Typography>
         </div>
       </div>
-      <div className="w-[16%]">
+      <div className="w-[15%]">
         <Typography sx={{ color: color.lightGray }}>
           10/10/2021 01:37PM
         </Typography>
         <Typography>14, Kumolu Street. Ikeja, Lagos</Typography>
       </div>
-      <div className="flex gap-2 w-[14%]q1  ">
+      <div className="flex gap-2 w-[13%]  ">
         <Avatar />
         <div className="flex flex-col">
           <Typography>Olaniyi Ojo David</Typography>
           <Typography sx={{ color: color.lightGray }}>091612891010</Typography>
         </div>
       </div>
-      <div className="w-[16%]">
+      <div className="w-[15%]">
         <Typography sx={{ color: color.lightGray }}>
           10/10/2021 01:37PM
         </Typography>
         <Typography>14, Kumolu Street. Ikeja, Lagos</Typography>
       </div>
-      <Typography sx={{ color: color.lightGray, width: "10%" }}>
+      <Typography sx={{ color: color.lightGray, width: "9%" }}>
         Books (2 Dozens)
       </Typography>
       <div className="flex flex-col gap-2 w-[6%]">

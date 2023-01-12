@@ -20,10 +20,24 @@ const FilterAndActionButton = ({ btnName }) => {
   }));
   return (
     <div className="flex items-center w-full gap-4">
+      <FormControl sx={{ m: 1, width: "15%" }}>
+        <Select
+          sx={{ backgroundColor: "white", borderRadius: "10px" }}
+          id="quantity"
+          value={action}
+          placeholder="show"
+          label=""
+          onChange={(e) => {
+            setAction(e.target.value);
+          }}
+        >
+          <MenuItem value={"export"}>Export</MenuItem>
+        </Select>
+      </FormControl>
       <FormControl
         sx={{
           m: 1,
-          width: "15%",
+          width: "20%",
         }}
       >
         <Select
@@ -39,20 +53,6 @@ const FilterAndActionButton = ({ btnName }) => {
           </MenuItem>
           <MenuItem value={8}>9</MenuItem>
           <MenuItem value={9}>9</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl sx={{ m: 1, width: "20%" }}>
-        <Select
-          sx={{ backgroundColor: "white", borderRadius: "10px" }}
-          id="quantity"
-          value={action}
-          placeholder="show"
-          label=""
-          onChange={(e) => {
-            setAction(e.target.value);
-          }}
-        >
-          <MenuItem value={"export"}>Export</MenuItem>
         </Select>
       </FormControl>
       <SearchBox

@@ -65,8 +65,12 @@ const DirectCustomerOrderPool = () => {
               name="date-radio-buttons"
               inputProps={{ "aria-label": "other" }}
             />
-            <div className="flex">
+            <div className="flex flex-col">
               <Typography>Change period</Typography>
+              <div className="flex flex-wrap">
+                <TextField type="date" />
+                <TextField type="date" />
+              </div>
             </div>
           </div>
         </div>

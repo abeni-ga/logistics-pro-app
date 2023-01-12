@@ -1,6 +1,6 @@
 import { color } from "../../constants/Theme.js";
 import OrderViewHeader from "../PageFilterAndButton/OrderViewHeader.jsx";
-import { IconButton, Radio, Typography } from "@mui/material";
+import { IconButton, Radio, TextField, Typography } from "@mui/material";
 
 import Menu from "../../assets/svg/Menu.svg";
 import List from "../../assets/svg/List.svg";
@@ -36,7 +36,7 @@ const RiderViewHeader = (props) => {
             <img src={List} alt="" />
           </IconButton>
         </div>
-        <div className="flex w-full">
+        <div className="flex">
           <div className="flex items-center rounded-lg w-[35%]">
             <Radio
               checked={dateSelector === "all-time"}
@@ -47,7 +47,7 @@ const RiderViewHeader = (props) => {
             />
             <Typography sx={{ fontWeight: "bold" }}>All Time</Typography>
           </div>
-          <div className="flex items-center bg-white border-2 w-[65%] rounded-lg">
+          <div className="flex items-center w-[70%] rounded-lg px-4">
             <Radio
               checked={dateSelector === "other"}
               onChange={handleDateSelection}
@@ -55,8 +55,32 @@ const RiderViewHeader = (props) => {
               name="date-radio-buttons"
               inputProps={{ "aria-label": "other" }}
             />
-            <div className="flex">
+            <div className="flex flex-col gap-1">
               <Typography>Change period</Typography>
+              <div className="flex gap-2 bg-blue-100 p-1 rounded-lg">
+                <TextField
+                  variant="standard"
+                  size="small"
+                  type="date"
+                  inputProps={{
+                    style: {
+                      height: "15px",
+                    },
+                    disableUnderline: true,
+                  }}
+                />
+                <TextField
+                  variant="standard"
+                  type="date"
+                  size="small"
+                  inputProps={{
+                    style: {
+                      height: "15px",
+                    },
+                    disableUnderline: true,
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

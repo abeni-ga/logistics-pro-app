@@ -15,7 +15,7 @@ const CompanyInfoDetail = () => {
         }}
       />
       <div className="flex flex-col justify-around h-4/5 ">
-        <Typography variant="h5" sx={{ fontWeight: "bold", fontSize: "32px" }}>
+        <Typography variant="h1" sx={{ fontWeight: "700", fontSize: "38px" }}>
           FZ Deliveries
         </Typography>
         <div className="flex gap-4 items-center">
@@ -24,13 +24,18 @@ const CompanyInfoDetail = () => {
               borderRadius: "10px",
               backgroundColor: color.brightGreen,
               padding: "10px",
+              color: "white",
             }}
           >
             Vertified
           </Typography>
           <div className="flex gap-4 items-center">
-            <Typography sx={{ color: color.lightGray }}>* Bike</Typography>
-            <Typography sx={{ color: color.lightGray }}>* Bus</Typography>
+            <Typography sx={{ color: color.lightGray, fontSize: "16px" }}>
+              * Bike
+            </Typography>
+            <Typography sx={{ color: color.lightGray, fontSize: "16px" }}>
+              * Bus
+            </Typography>
           </div>
         </div>
         <div className="flex gap-8">

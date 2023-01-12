@@ -3,7 +3,9 @@ import Like from "../../../../assets/svg/Like.svg";
 const StepFive = () => {
   return (
     <div className="flex flex-col rounded w-full h-min items-center justify-center gap-4 p-10">
-      <Typography variant="h5">Registration was successful</Typography>
+      <Typography variant="h2" sx={{ fontWeight: "700", fontSize: "28px" }}>
+        Registration was successful
+      </Typography>
       <img className="w-40" src={Like} alt="" />
       <Typography>
         Thank you registration has been completed. We will vet your application

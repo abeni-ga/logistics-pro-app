@@ -1,6 +1,5 @@
-import { IconButton, InputLabel, MenuItem, Typography } from "@mui/material";
+import { InputLabel, MenuItem, Typography } from "@mui/material";
 import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useState } from "react";
 
 const StepTwo = ({ handlePrev }) => {
@@ -8,10 +7,7 @@ const StepTwo = ({ handlePrev }) => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-3 justify-start">
-        <IconButton aria-label="back" onClick={handlePrev}>
-          <ArrowBackIcon />
-        </IconButton>
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h5" sx={{ fontWeight: "700", fontSize: "28px" }}>
           Account Registration
         </Typography>
       </div>

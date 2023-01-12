@@ -1,16 +1,24 @@
 import { Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import CheckIcon from "@mui/icons-material/Check";
+import { routes } from "../../../../routes/siteRoutes.routes";
 import { color } from "../../../../constants/Theme.js";
 const RiderOrderTableItem = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex w-full justify-center">
-      <div className="flex w-[99%] items-center bg-white rounded-lg py-4 gap-2">
+      <div
+        className="flex w-[99%] items-center bg-white rounded-lg py-4 gap-2"
+        onClick={() => {
+          navigate(routes.admin.riderHistory);
+        }}
+      >
         <div className=" w-[5%] flex justify-center">
           <Typography
             sx={{ color: "white" }}
-            className="w-fit h-fit bg-indigo-500 rounded ml-4"
+            className="w-fit h-fit bg-[#4339F2] rounded ml-4 px-1"
           >
-            <CheckIcon />
+            <CheckIcon sx={{ fontSize: "small" }} />
           </Typography>
         </div>
         <Typography sx={{ width: "10%", color: color.lightGray }}>
@@ -40,7 +48,7 @@ const RiderOrderTableItem = () => {
               padding: "4px",
               borderRadius: "4px",
               width: "fit-content",
-              backgroundColor: "#2d5287",
+              backgroundColor: color.darkIndigo,
               alignItems: "center",
               color: "white",
             }}

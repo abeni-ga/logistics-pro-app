@@ -32,7 +32,7 @@ const RetailCompanyOrderPool = () => {
   }));
   return (
     <div className="flex flex-col gap-4 w-full h-screen items-center justify-center ">
-      <div className="h-[20%] w-[95%] flex flex-col">
+      <div className=" w-[95%] flex flex-col">
         <div className="flex">
           <Typography
             variant="h5"
@@ -57,7 +57,7 @@ const RetailCompanyOrderPool = () => {
             />
             <Typography sx={{ fontWeight: "bold" }}>All Time</Typography>
           </div>
-          <div className="flex items-center bg-white border-2 w-[65%] rounded-lg">
+          <div className="flex items-center bg-white border-2 w-[70%] rounded-lg px-4">
             <Radio
               checked={dateSelector === "other"}
               onChange={handleDateSelection}
@@ -65,8 +65,32 @@ const RetailCompanyOrderPool = () => {
               name="date-radio-buttons"
               inputProps={{ "aria-label": "other" }}
             />
-            <div className="flex">
+            <div className="flex flex-col gap-1">
               <Typography>Change period</Typography>
+              <div className="flex gap-2">
+                <TextField
+                  variant="standard"
+                  size="small"
+                  type="date"
+                  inputProps={{
+                    style: {
+                      height: "15px",
+                    },
+                    disableUnderline: true,
+                  }}
+                />
+                <TextField
+                  variant="standard"
+                  type="date"
+                  size="small"
+                  inputProps={{
+                    style: {
+                      height: "15px",
+                    },
+                    disableUnderline: true,
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -152,7 +176,7 @@ const RetailCompanyOrderPool = () => {
           </div>
         </div>
       </div>
-      <div className="w-[95%] h-[80%]">
+      <div className="w-[95%]">
         <CompaniesOrderPoolTable />
       </div>
     </div>

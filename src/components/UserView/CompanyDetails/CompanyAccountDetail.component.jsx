@@ -6,35 +6,32 @@ import RegistrationDocument from "./RegistrationDocument/RegistrationDocument.co
 const CompanyAccountDetail = () => {
   const [doc, setDoc] = useState(false);
   return (
-    <div className="flex flex-col w-11/12 items-center bg-white rounded-2xl gap-3 -mt-10 pt-10">
-      <div className="flex flex-col w-4/5">
-        <div className="bg-gray-50 p-4">
+    <div className="flex flex-col w-11/12 items-center bg-white rounded-2xl -mt-10 pt-14">
+      <div className="flex flex-col w-4/5 mb-3">
+        <div className="bg-gray-50 p-4 rounded-lg">
           <Typography sx={{ color: color.lightGray }}>
             FZ Deliveries is a company focused on pickup and deliveries of goods
             of customers within Lagos, Ibadan, Kano, Abuja and Port Harcourt
           </Typography>
         </div>
       </div>
-      <div
-        className="flex w-4/5 justify-between
-      "
-      >
+      <div className="flex w-4/5 justify-between mb-3">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col">
             <Typography sx={{ color: color.lightGray }}>Reg No</Typography>
-            <Typography>#012345678</Typography>
+            <Typography sx={{ fontSize: "16px" }}>#012345678</Typography>
           </div>
           <div className="flex flex-col">
             <Typography sx={{ color: color.lightGray }}>
               Date Registered
             </Typography>
-            <Typography>07 Nov.2019 </Typography>
+            <Typography sx={{ fontSize: "16px" }}>07 Nov.2019 </Typography>
           </div>
           <div className="flex flex-col">
             <Typography sx={{ color: color.lightGray }}>
               Subscription
             </Typography>
-            <Typography>Annual Package</Typography>
+            <Typography sx={{ fontSize: "16px" }}>Annual Package</Typography>
           </div>
         </div>
         <div className="flex flex-col justify-between">
@@ -44,14 +41,14 @@ const CompanyAccountDetail = () => {
               sx={{
                 padding: "6px 12px",
                 color: "white",
-                backgroundColor: "#2d5287",
+                backgroundColor: color.darkIndigo,
                 borderRadius: "12px",
                 fontWeight: "bold",
               }}
             >
               540
             </Typography>
-            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+            <Typography sx={{ fontWeight: "700", fontSize: "20px" }}>
               Pool <br />
               Orders Picked
             </Typography>
@@ -75,7 +72,7 @@ const CompanyAccountDetail = () => {
           </div>
         </div>
       </div>
-      <div className="w-4/5 flex justify-between">
+      <div className="w-4/5 flex justify-between mb-3">
         <Button
           size="small"
           variant="contained"
@@ -143,7 +140,9 @@ const CompanyAccountDetail = () => {
       </Button>
       {doc ? (
         <div
-          className={`w-full flex  flex-col gap-4  pb-4 items-center justify-center bg-[${color.bgWhiteSmoke}]`}
+          className={
+            "w-full flex  flex-col gap-4  pb-4 items-center bg-[#E5E5E5]"
+          }
         >
           <RegistrationDocument />
           <RegistrationDocument />

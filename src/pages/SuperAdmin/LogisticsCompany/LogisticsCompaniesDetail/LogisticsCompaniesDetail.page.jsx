@@ -31,14 +31,26 @@ const LogisticsCompanyDetail = () => {
         <div className=" flex flex-col w-[65%] h-full items-center">
           <FilterAndActionButton btnName="New Company" />
           <div className="flex justify-between pl-10 w-full">
-            <Typography sx={{ alignSelf: "end" }}>Pool Order Taken</Typography>
-            <div className="flex bg-indigo-500 items-center rounded-2xl px-4 py-2 gap-2">
+            <Typography
+              sx={{ alignSelf: "end", fontSize: "20px", fontWight: "700" }}
+            >
+              Pool Order Taken
+            </Typography>
+            <div className="flex bg-[#4339F2] items-center rounded-2xl px-4 py-2 gap-2">
               <img src={Pulse} alt="" />
               <div>
-                <Typography sx={{ color: color.bgWhiteSmoke }}>
+                <Typography
+                  sx={{
+                    color: color.bgWhiteSmoke,
+                    fontSize: "12px",
+                    fontWeight: "700",
+                  }}
+                >
                   Total
                 </Typography>
-                <Typography sx={{ color: "white" }}>N234,500:00</Typography>
+                <Typography sx={{ color: "white", fontWeight: "700" }}>
+                  N234,500:00
+                </Typography>
               </div>
             </div>
           </div>

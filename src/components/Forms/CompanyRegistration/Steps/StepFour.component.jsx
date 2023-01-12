@@ -22,7 +22,7 @@ const StepFour = ({ handlePrev }) => {
         <IconButton aria-label="back" onClick={handlePrev}>
           <ArrowBackIcon />
         </IconButton>
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h3" sx={{ fontWeight: "700", fontSize: "28px" }}>
           Account Registration
         </Typography>
       </div>

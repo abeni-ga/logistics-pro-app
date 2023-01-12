@@ -5,7 +5,7 @@ import RegistrationDocument from "../RegistrationDocument/RegistrationDocument.c
 import { useState } from "react";
 import { color } from "../../../constants/Theme";
 
-const RiderAccountDetail = (props) => {
+const ViewRiderAccountDetail = (props) => {
   const [doc, setDoc] = useState(false);
   const [current, setCurrent] = useState(0);
 
@@ -52,14 +52,17 @@ const RiderAccountDetail = (props) => {
             <Typography>07 Nov.2019 </Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>Reviews</Typography>
-            <Typography>60</Typography>
+            <Typography sx={{ color: color.lightGray }}>Asset</Typography>
+            <Typography sx={{ fontWeight: "700" }}>Bike | BAJAJ</Typography>
+            <Typography sx={{ color: color.lightGray }}>
+              4323AB LAGOS
+            </Typography>
           </div>
           <div className="flex flex-col">
             <Typography sx={{ color: color.lightGray }}>
-              Orders Delivered
+              Email Address
             </Typography>
-            <Typography>250</Typography>
+            <Typography sx={{ fontWeight: "700" }}>abcd@gmail.com</Typography>
           </div>
         </div>
         <div className="flex flex-col gap-4">
@@ -226,4 +229,4 @@ const RiderAccountDetail = (props) => {
   );
 };
 
-export default RiderAccountDetail;
+export default ViewRiderAccountDetail;

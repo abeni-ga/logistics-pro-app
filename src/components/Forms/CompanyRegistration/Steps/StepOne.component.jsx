@@ -17,10 +17,12 @@ const StepOne = () => {
         <span className="h-2 w-1/2 bg-gray-300 rounded-md"></span>
       </div>
       <div>
-        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h2" sx={{ fontSize: "28px", fontWeight: "700" }}>
           Basic Information
         </Typography>
-        <Typography>Enter the following information below</Typography>
+        <Typography sx={{ fontSize: "12px" }}>
+          Enter the following information below
+        </Typography>
       </div>
       <TextFieldWrapper
         value={userType}
@@ -100,7 +102,7 @@ const StepOne = () => {
             ),
           }}
         />
-        <Typography>
+        <Typography sx={{ fontSize: "14px" }}>
           By clicking "Next" you agree to our
           <a
             href="/#"
@@ -110,20 +112,6 @@ const StepOne = () => {
           </a>{" "}
           and to receive marketing communications from Envoy.
         </Typography>
-        {/* <div className="flex justify-between">
-            <div className="flex items-center ml-8">
-              <Typography>Got an account?</Typography>
-              <a
-                href="/#"
-                className="ml-2 text-blue-600 hover:text-blue-800 visited:text-purple-600"
-              >
-                Sign In
-              </a>
-            </div>
-            <Button color="primary" size="large" variant="contained">
-              Register
-            </Button>
-          </div> */}
       </div>
     </div>
   );

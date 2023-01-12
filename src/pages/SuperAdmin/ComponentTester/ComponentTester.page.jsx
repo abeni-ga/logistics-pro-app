@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import { color } from "../../../constants/Theme.js";
 import SearchIcon from "@mui/icons-material/Search";
 import EarningTable from "../../../components/Earning/EarningTable.component";
 const ComponentTester = () => {
@@ -24,100 +25,105 @@ const ComponentTester = () => {
     },
   }));
   return (
-    <div className="flex flex-col items-center w-full h-full">
-      <div className="flex w-full h-[20%] justify-center">
-        <div className="flex  items-center gap-4 w-[45%]">
-          <div className="flex w-[85%]">
-            <div className="flex items-center rounded-lg">
-              <Radio
-                checked={dateSelector === "today"}
-                onChange={handleDateSelection}
-                value="today"
-                name="date-radio-buttons"
-                inputProps={{ "aria-label": "Today" }}
-              />
-              <Typography sx={{ fontWeight: "bold" }}>All Time</Typography>
-            </div>
-            <div className="flex items-center bg-white border-2 rounded-lg">
-              <Radio
-                checked={dateSelector === "other"}
-                onChange={handleDateSelection}
-                value="other"
-                name="date-radio-buttons"
-                inputProps={{ "aria-label": "other" }}
-              />
-              <div className="flex">
-                <Typography>Change period</Typography>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center gap-4 w-[45%]">
+    <div className="flex flex-col items-end w-full h-full">
+      <div className="flex w-[90%] h-[20%]">
+        <div className="w-[20%] flex flex-col gap-4">
+          <Typography
+            sx={{
+              fontFamily: "Roboto",
+              fontWeight: "700",
+              fontSize: "36px",
+              color: color.darkGray,
+            }}
+          >
+            Reports
+          </Typography>
           <FormControl
             sx={{
-              m: 1,
-              width: "15%",
+              width: "90%",
+              border: "0",
             }}
           >
             <Select
               id="size"
               value={size}
-              sx={{ backgroundColor: "white", borderRadius: "10px" }}
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "10px",
+                borderColor: "white",
+              }}
               onChange={(e) => {
                 setSize(e.target.value);
               }}
             >
-              <MenuItem default value={7}>
-                7
+              <MenuItem default value="transaction">
+                Transaction
               </MenuItem>
-              <MenuItem value={8}>9</MenuItem>
-              <MenuItem value={9}>9</MenuItem>
             </Select>
           </FormControl>
-          <FormControl sx={{ m: 1, width: "20%" }}>
-            <Select
-              sx={{ backgroundColor: "white", borderRadius: "10px" }}
-              id="quantity"
-              value={action}
-              placeholder="show"
-              label=""
-              onChange={(e) => {
-                setAction(e.target.value);
-              }}
-            >
-              <MenuItem value={"export"}>Export</MenuItem>
-            </Select>
-          </FormControl>
-          <SearchBox
-            sx={{
-              backgroundColor: "white",
-              width: "40%",
-              borderRadius: "10px",
-            }}
-            variant="outlined"
-            placeholder="search company here"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-          />
         </div>
-      </div>
-      <div className="flex w-[90%] h-full justify-between">
-        <div className="w-[49%]">
-          <EarningTable />
-        </div>
-        <div className="w-[49%] h-full">
-          <div className="bg-white w-full p-4 rounded-xl h-[50%]">
-            Order Details
+        <div className="w-[50%]">
+          <div className="flex">
+            <div></div>
+            <div>
+              <Typography></Typography>
+              <Typography></Typography>
+            </div>
+          </div>
+          <div>
+            <div></div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+            <div></div>
           </div>
         </div>
+      </div>
+      <div className="flex w-[90%] h-full">
+        <div className="w-[70%] bg-slate-200"></div>
+        <div className="w-[30%] h-full bg-slate-400"></div>
       </div>
     </div>
   );
 };
 
 export default ComponentTester;
+
+// <div className="flex items-center gap-4 w-[45%]">
+
+//   <FormControl sx={{ m: 1, width: "20%" }}>
+//     <Select
+//       sx={{ backgroundColor: "white", borderRadius: "10px" }}
+//       id="quantity"
+//       value={action}
+//       placeholder="show"
+//       label=""
+//       onChange={(e) => {
+//         setAction(e.target.value);
+//       }}
+//     >
+//       <MenuItem value={"export"}>Export</MenuItem>
+//     </Select>
+//   </FormControl>
+//   <SearchBox
+//     sx={{
+//       backgroundColor: "white",
+//       width: "40%",
+//       borderRadius: "10px",
+//     }}
+//     variant="outlined"
+//     placeholder="search company here"
+//     InputProps={{
+//       startAdornment: (
+//         <InputAdornment position="start">
+//           <SearchIcon />
+//         </InputAdornment>
+//       ),
+//     }}
+//   />
+// </div>;

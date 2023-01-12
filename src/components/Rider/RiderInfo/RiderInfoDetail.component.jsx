@@ -4,24 +4,27 @@ import PPic from "../../../assets/svg/PPic.svg";
 import { color } from "../../../constants/Theme.js";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../routes/siteRoutes.routes";
-const RiderInfoDetail = () => {
+const RiderInfoDetail = (props) => {
   const navigate = useNavigate();
   return (
     <div
       className="flex h-56 gap-4 px-4 w-4/5 items-center rounded-xl drop-shadow-lg bg-white z-10"
       onClick={() => {
-        navigate(routes.company.riderHistory);
+        navigate(routes.admin.riderDetail);
       }}
     >
-      <Avatar
-        src={PPic}
-        sx={{
-          height: "50%",
-          width: "30%",
-          alignSelf: "start",
-          marginTop: "30px",
-        }}
-      />
+      <div className="flex flex-col w-[25%] h-full items-center gap-2">
+        <Avatar
+          src={PPic}
+          sx={{
+            height: "50%",
+            width: "100%",
+            alignSelf: "start",
+            marginTop: "30px",
+          }}
+        />
+        {props.phone ? <Typography>+2340101010110</Typography> : null}
+      </div>
       <div className="flex flex-col justify-around h-4/5 ">
         <Typography variant="h5" sx={{ fontWeight: "bold", fontSize: "32px" }}>
           Bolade Davies
@@ -32,7 +35,7 @@ const RiderInfoDetail = () => {
               borderRadius: "10px",
               backgroundColor: color.brightGreen,
               color: "white",
-              padding: "10px",
+              padding: "6px",
             }}
           >
             Vertified
