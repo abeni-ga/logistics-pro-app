@@ -1,9 +1,17 @@
 import { Button, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { color } from "../../../constants/Theme.js";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 const InternalOrderPoolTableItem = () => {
+  const navigate = useNavigate();
   return (
-    <div className="flex w-full h-24 items-center bg-white rounded-lg">
+    <div
+      className="flex w-full h-24 items-center bg-white rounded-lg"
+      onClick={() => {
+        navigate(routes.company.internalSummary);
+      }}
+    >
       <Typography
         sx={{
           color: color.lightGray,

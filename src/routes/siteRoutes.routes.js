@@ -26,5 +26,6 @@ export const routes = {
     setting: "/company-admin/setting",
     support: "/company-admin/support",
     riderHistory: "/company-admin/riders/detail",
+    internalSummary: "/company-admin/orders/in-summary",
   },
 };

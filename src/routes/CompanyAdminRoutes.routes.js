@@ -22,6 +22,13 @@ const InternalOrders = Loadable(
     )
   )
 );
+const InternalOrderSummary = Loadable(
+  lazy(() =>
+    import(
+      "../pages/CompanyAdmin/Orders/InternalOrders/InternalOrderPoolSummary.page"
+    )
+  )
+);
 const OrderHistory = Loadable(
   lazy(() => import("../pages/CompanyAdmin/OrderHistory/OrderHistory.page"))
 );
@@ -109,6 +116,7 @@ const CompanyAdminRoutes = {
         { path: "new", element: <OrderNow /> },
         { path: "in", element: <InternalOrders /> },
         { path: "pool", element: <ExchangePool /> },
+        { path: "in-summary", element: <InternalOrderSummary /> },
       ],
     },
     {
