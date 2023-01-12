@@ -16,7 +16,7 @@ export const color = {
   bg: "#E5EFF4",
   bgWhiteSmoke: "#E5E5E5",
   indigo: "#053582",
-  lightGreen: "#dcfce7",
+  lightGreen: "rgba(0, 206, 45, 0.1)",
   lightGray: "#9CA3AF",
   darkGray: "#374151",
 };

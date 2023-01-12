@@ -12,10 +12,9 @@ import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { routes } from "../../routes/siteRoutes.routes";
 import { color } from "../../constants/Theme";
 
-const LogInForm = () => {
+const LogInForm = (props) => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   return (
@@ -74,7 +73,7 @@ const LogInForm = () => {
           variant="contained"
           size="large"
           style={{ backgroundColor: color.indigo }}
-          onClick={() => navigate(routes.admin.dashboard)}
+          onClick={() => navigate(props.route)}
         >
           Login
         </Button>

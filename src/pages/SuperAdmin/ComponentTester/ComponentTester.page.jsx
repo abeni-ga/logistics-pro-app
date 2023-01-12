@@ -11,7 +11,7 @@ import {
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import EarningTable from "../../../components/Earning/EarningTable.component";
-const Earning = () => {
+const ComponentTester = () => {
   const [action, setAction] = useState("export");
   const [size, setSize] = useState(7);
   const [dateSelector, setDateSelector] = useState("today");
@@ -120,4 +120,4 @@ const Earning = () => {
   );
 };
 
-export default Earning;
+export default ComponentTester;

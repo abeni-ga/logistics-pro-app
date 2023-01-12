@@ -3,6 +3,12 @@ import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout.component";
 import Loadable from "../components/Load/Loadable.component";
 import { ADMINMENUITEMS } from "../constants/AdminMenus";
+const ComponentTester = Loadable(
+  lazy(() =>
+    import("../pages/SuperAdmin/ComponentTester/ComponentTester.page.jsx")
+  )
+);
+
 const Dashboard = Loadable(
   lazy(() => import("../pages/SuperAdmin/Dashboard/Dashboard.page"))
 );
@@ -212,6 +218,7 @@ const AdminRoutes = {
   path: "/admin",
   element: <MainLayout menuItems={ADMINMENUITEMS} />,
   children: [
+    { path: "component", element: <ComponentTester /> },
     {
       path: "dashboard",
       element: <Dashboard />,

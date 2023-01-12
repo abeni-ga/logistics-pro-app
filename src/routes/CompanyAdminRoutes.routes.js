@@ -88,6 +88,7 @@ const CompanyAdminRoutes = {
   path: "/company-admin",
   element: <MainLayout menuItems={COMPANYADMINMENUITEMS} />,
   children: [
+    { path: "component", element: "" },
     {
       path: "dashboard",
       element: <Dashboard />,

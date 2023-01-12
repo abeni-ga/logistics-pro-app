@@ -8,6 +8,7 @@ import SignUpForm from "../../../components/Authentication/SignUpForm.component"
 import ForgotPassword from "../../../components/Authentication/ForgotPassword.component";
 import CreatePassword from "../../../components/Authentication/CreatePassword.component";
 import RecoveryMail from "../../../components/Authentication/RecoveryMail.component";
+import { routes } from "../../../routes/siteRoutes.routes";
 
 const LogIn = (props) => {
   return (
@@ -41,7 +42,7 @@ const LogIn = (props) => {
       ) : props.recovery ? (
         <RecoveryMail />
       ) : (
-        <LogInForm />
+        <LogInForm route={routes.company.dashboard} />
       )}
     </div>
   );

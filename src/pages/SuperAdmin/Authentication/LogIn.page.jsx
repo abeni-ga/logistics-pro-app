@@ -4,6 +4,7 @@ import { color } from "../../../constants/Theme";
 import Logo from "../../../assets/svg/Logo.svg";
 import Scooter from "../../../assets/svg/Scooter.svg";
 import LogInForm from "../../../components/Authentication/LogInForm.component";
+import { routes } from "../../../routes/siteRoutes.routes";
 
 const LogIn = () => {
   return (
@@ -28,7 +29,7 @@ const LogIn = () => {
           </h4>
         </div>
       </div>
-      <LogInForm />
+      <LogInForm route={routes.admin.dashboard} />
     </div>
   );
 };
