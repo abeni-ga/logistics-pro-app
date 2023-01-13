@@ -1,4 +1,5 @@
 import {
+  Button,
   FormControl,
   InputAdornment,
   MenuItem,
@@ -8,8 +9,11 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 import SearchIcon from "@mui/icons-material/Search";
-
+import PulseRed from "../../../../../assets/svg/PulseRed.svg";
+import Pulse from "../../../../../assets/svg/Pulse.svg";
+import { color } from "../../../../../constants/Theme.js";
 import { useState } from "react";
 import Current from "../../../../../assets/svg/Current.svg";
 import CompaniesOrderPoolTable from "../../../../../components/OrderPool/CompaniesOrderTable.component";
@@ -46,50 +50,109 @@ const RetailCompanyOrderPool = () => {
             Order Exchange Pool
           </Typography>
         </div>
-        <div className="flex w-[35%]">
-          <div className="flex items-center rounded-lg w-[35%]">
-            <Radio
-              checked={dateSelector === "all-time"}
-              onChange={handleDateSelection}
-              value="all-time"
-              name="date-radio-buttons"
-              inputProps={{ "aria-label": "All Time" }}
-            />
-            <Typography sx={{ fontWeight: "bold" }}>All Time</Typography>
+        <div className="flex w-full justify-between">
+          <div className="flex w-[35%]">
+            <div className="flex items-center rounded-lg w-[35%]">
+              <Radio
+                checked={dateSelector === "all-time"}
+                onChange={handleDateSelection}
+                value="all-time"
+                name="date-radio-buttons"
+                inputProps={{ "aria-label": "All Time" }}
+              />
+              <Typography sx={{ fontWeight: "bold" }}>All Time</Typography>
+            </div>
+            <div className="flex items-center  bg-violet-500 w-[70%] rounded-lg px-4">
+              <Radio
+                checked={dateSelector === "other"}
+                onChange={handleDateSelection}
+                value="other"
+                name="date-radio-buttons"
+                inputProps={{
+                  style: {
+                    color: "white",
+                  },
+                }}
+              />
+              <div className="flex flex-col gap-1">
+                <Typography sx={{ color: "white" }}>Change period</Typography>
+                <div className="flex gap-2">
+                  <TextField
+                    variant="standard"
+                    size="small"
+                    type="date"
+                    InputProps={{
+                      disableUnderline: true,
+                      style: {
+                        height: "15px",
+                        color: "white",
+                      },
+                    }}
+                  />
+                  <TextField
+                    variant="standard"
+                    type="date"
+                    size="small"
+                    InputProps={{
+                      style: {
+                        color: "white",
+                        height: "15px",
+                      },
+                      disableUnderline: true,
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center bg-white border-2 w-[70%] rounded-lg px-4">
-            <Radio
-              checked={dateSelector === "other"}
-              onChange={handleDateSelection}
-              value="other"
-              name="date-radio-buttons"
-              inputProps={{ "aria-label": "other" }}
-            />
-            <div className="flex flex-col gap-1">
-              <Typography>Change period</Typography>
-              <div className="flex gap-2">
-                <TextField
-                  variant="standard"
-                  size="small"
-                  type="date"
-                  inputProps={{
-                    style: {
-                      height: "15px",
-                    },
-                    disableUnderline: true,
-                  }}
-                />
-                <TextField
-                  variant="standard"
-                  type="date"
-                  size="small"
-                  inputProps={{
-                    style: {
-                      height: "15px",
-                    },
-                    disableUnderline: true,
-                  }}
-                />
+          <div className="flex self-end items-center gap-8">
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: color.darkIndigo,
+                color: "white",
+                borderRadius: "10px",
+              }}
+              startIcon={<AddIcon />}
+            >
+              Create Order
+            </Button>
+            <div className="flex">
+              <div className="flex bg-[#053079] items-center rounded-l-2xl px-4 py-2 gap-2">
+                <img src={Pulse} alt="" />
+                <div>
+                  <Typography
+                    sx={{
+                      color: color.bgWhiteSmoke,
+                      fontSize: "12px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    Total
+                  </Typography>
+                  <Typography sx={{ color: "white", fontWeight: "700" }}>
+                    N234,500:00
+                  </Typography>
+                </div>
+              </div>
+              <div className="flex bg-white items-center rounded-r-2xl px-4 py-2 gap-2">
+                <img src={PulseRed} alt="" />
+                <div>
+                  <Typography
+                    sx={{
+                      color: color.lightGray,
+                      fontSize: "12px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    Total
+                  </Typography>
+                  <Typography
+                    sx={{ color: color.lightGray, fontWeight: "700" }}
+                  >
+                    N234,500:00
+                  </Typography>
+                </div>
               </div>
             </div>
           </div>

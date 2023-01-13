@@ -277,7 +277,7 @@ const AdminRoutes = {
         { path: "in-orders", element: <RetailCompanyOrderPool /> },
         {
           path: "exch-pool",
-          element: <DirectCustomerOrderPool />,
+          element: <RetailCompanyOrderPool />,
         },
         { path: "direct-customer", element: <DirectCustomerOrderPool /> },
         { path: "retail-company", element: <RetailCompanyOrderPool /> },
