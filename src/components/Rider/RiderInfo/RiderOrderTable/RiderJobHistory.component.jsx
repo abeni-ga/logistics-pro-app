@@ -14,8 +14,10 @@ import PPic from "../../../../assets/svg/PPic.svg";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
+import Check from "../../../../assets/svg/Check.svg";
 import HistoryTrackerCard from "../../HistoryTrackerCard/HistoryTrackerCard.component.jsx";
 import Current from "../../../../assets/svg/Current.svg";
+import Bajaj from "../../../../assets/svg/Bajaj.svg";
 import { color } from "../../../../constants/Theme.js";
 
 const RiderJobHistroyComp = () => {
@@ -65,7 +67,7 @@ const RiderJobHistroyComp = () => {
                   variant="standard"
                   size="small"
                   type="date"
-                  inputProps={{
+                  InputProps={{
                     style: {
                       height: "15px",
                     },
@@ -76,7 +78,7 @@ const RiderJobHistroyComp = () => {
                   variant="standard"
                   type="date"
                   size="small"
-                  inputProps={{
+                  InputProps={{
                     style: {
                       height: "15px",
                     },
@@ -286,12 +288,13 @@ const RiderJobHistroyComp = () => {
               </div>
             </div>
           </div>
-          <div className="flex  items-center h-[70%] bg-white px-10 w-full">
-            <div className="flex flex-col h-full border-r-2 w-full gap-8 justify-center">
-              <div className="flex flex-col h-[60%] border-b-2">
+          <div className="flex  items-center h-[70%] bg-white w-full">
+            <div className="flex flex-col h-full border-r-2 w-[60%] justify-center">
+              <div className="flex flex-col h-[60%] px-10 justify-center gap-4">
+                <Typography>Order Assigned to:</Typography>
                 <div className="flex items-center gap-4">
                   <Avatar src={PPic} />
-                  <div>
+                  <div className="flex flex-col gap-1">
                     <Typography sx={{ fontWeight: "700" }}>
                       Bola Davies
                     </Typography>
@@ -308,7 +311,7 @@ const RiderJobHistroyComp = () => {
                     textTransform: "capitalize",
                     color: color.lightGray,
                     borderColor: color.lightGray,
-                    borderRadius: "5px",
+                    borderRadius: "10px",
                     ":hover": {
                       color: color.lightGray,
                       borderColor: color.lightGray,
@@ -318,12 +321,13 @@ const RiderJobHistroyComp = () => {
                   View Rider
                 </Button>
               </div>
-              <div className=" flex flex-col gap-2 px-10 justify-center h-[20%] bg-white w-full">
+              <div className="w-full h-0.5 bg-gray-200"></div>
+              <div className=" flex flex-col gap-2 px-10 h-[39%] justify-center w-full">
                 <Typography sx={{ fontWeight: "bold", fontSize: "14px" }}>
                   RIde Information
                 </Typography>
-                <div className="flex">
-                  <Avatar />
+                <div className="flex gap-2">
+                  <Avatar src={Bajaj} />
                   <div>
                     <Typography sx={{ color: color.lightGray }}>
                       BAJAJ (White)
@@ -335,7 +339,76 @@ const RiderJobHistroyComp = () => {
                 </div>
               </div>
             </div>
-            <div className="flex w-[45%] bg-slate-300">2</div>
+            <div className="flex flex-col  w-[45%] h-full pl-10">
+              <div className="flex flex-col gap-4 pt-10 h-[80%]">
+                <div className="flex items-center">
+                  <FiberManualRecordIcon
+                    sx={{
+                      fontSize: "small",
+                      color: color.lightGray,
+                    }}
+                  />
+                  <Typography sx={{ color: color.lightGray }}>
+                    14, Kumolu Street. Ikeja, Lagos
+                  </Typography>
+                </div>
+                <div className="flex items-center">
+                  <FiberManualRecordIcon
+                    sx={{
+                      fontSize: "small",
+                      color: color.lightGray,
+                    }}
+                  />
+                  <Typography sx={{ color: color.lightGray }}>
+                    14, Kumolu Street. Ikeja, Lagos
+                  </Typography>
+                </div>
+                <div className="flex items-center">
+                  <FiberManualRecordIcon
+                    sx={{
+                      fontSize: "small",
+                      color: color.lightGray,
+                    }}
+                  />
+                  <Typography sx={{ color: color.lightGray }}>
+                    14, Kumolu Street. Ikeja, Lagos
+                  </Typography>
+                </div>
+                <div className="flex items-center">
+                  <FiberManualRecordIcon
+                    sx={{
+                      fontSize: "small",
+                      color: color.lightGray,
+                    }}
+                  />
+                  <Typography sx={{ color: color.lightGray }}>
+                    14, Kumolu Street. Ikeja, Lagos
+                  </Typography>
+                </div>
+                <div className="flex items-center">
+                  <FiberManualRecordIcon
+                    sx={{
+                      fontSize: "small",
+                      color: color.lightGray,
+                    }}
+                  />
+                  <Typography sx={{ color: color.lightGray }}>
+                    14, Kumolu Street. Ikeja, Lagos
+                  </Typography>
+                </div>
+              </div>
+              <Button
+                size="small"
+                variant="contained"
+                sx={{
+                  color: color.darkIndigo,
+                  backgroundColor: color.lightGray,
+                  width: "25%",
+                }}
+              >
+                Delivered
+              </Button>
+            </div>
           </div>
         </div>
         <div className="bg-[url('/src/assets/svg/Map1.svg')] h-[40%] w-full flex items-end justify-center">
@@ -344,29 +417,41 @@ const RiderJobHistroyComp = () => {
               <Typography sx={{ color: color.lightGray }}>
                 Current Location
               </Typography>
-              <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
-                Palm Groove
-              </Typography>
+              <div className="flex gap-1">
+                <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                  Palm Groove
+                </Typography>
+                <img src={Check} alt="" />
+              </div>
             </div>
             <div className="flex flex-col">
               <Typography sx={{ color: color.lightGray }}>
                 Last Location
               </Typography>
-              <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
-                15 Mins ago
-              </Typography>
+              <div className="flex gap-1">
+                <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                  15 Mins ago
+                </Typography>
+                <img src={Check} alt="" />
+              </div>
             </div>
             <div className="flex flex-col">
               <Typography sx={{ color: color.lightGray }}>Speed</Typography>
-              <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
-                63 Km/hr
-              </Typography>
+              <div className="flex gap-1">
+                <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                  63 Km/hr
+                </Typography>
+                <img src={Check} alt="" />
+              </div>
             </div>
             <div className="flex flex-col">
               <Typography sx={{ color: color.lightGray }}>Distance</Typography>
-              <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
-                103 Km
-              </Typography>
+              <div className="flex gap-1">
+                <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                  103 Km
+                </Typography>
+                <img src={Check} alt="" />
+              </div>
             </div>
           </div>
         </div>

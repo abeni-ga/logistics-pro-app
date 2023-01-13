@@ -62,7 +62,7 @@ const RiderViewHeader = (props) => {
                   variant="standard"
                   size="small"
                   type="date"
-                  inputProps={{
+                  InputProps={{
                     style: {
                       height: "15px",
                     },
@@ -73,7 +73,7 @@ const RiderViewHeader = (props) => {
                   variant="standard"
                   type="date"
                   size="small"
-                  inputProps={{
+                  InputProps={{
                     style: {
                       height: "15px",
                     },
