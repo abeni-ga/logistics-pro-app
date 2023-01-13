@@ -49,17 +49,17 @@ const RiderAccountDetail = (props) => {
             <Typography sx={{ color: color.lightGray }}>
               Date Registered
             </Typography>
-            <Typography>07 Nov.2019 </Typography>
+            <Typography sx={{ fontWeight: "700" }}>07 Nov.2019 </Typography>
           </div>
           <div className="flex flex-col">
             <Typography sx={{ color: color.lightGray }}>Reviews</Typography>
-            <Typography>60</Typography>
+            <Typography sx={{ fontWeight: "700" }}>60</Typography>
           </div>
           <div className="flex flex-col">
             <Typography sx={{ color: color.lightGray }}>
               Orders Delivered
             </Typography>
-            <Typography>250</Typography>
+            <Typography sx={{ fontWeight: "700" }}>250</Typography>
           </div>
         </div>
         <div className="flex flex-col gap-4">
@@ -85,7 +85,7 @@ const RiderAccountDetail = (props) => {
             <Typography sx={{ color: color.lightGray }}>
               Total Earnings
             </Typography>
-            <Typography sx={{ color: color.darkIndigo }}>
+            <Typography sx={{ color: color.darkIndigo, fontWeight: "700" }}>
               N390,000.00{" "}
             </Typography>
           </div>
@@ -93,13 +93,13 @@ const RiderAccountDetail = (props) => {
             <Typography sx={{ color: color.lightGray }}>
               Order Delivered
             </Typography>
-            <Typography>200 </Typography>
+            <Typography sx={{ fontWeight: "700" }}>200 </Typography>
           </div>
           <div className="flex flex-col">
             <Typography sx={{ color: color.lightGray }}>
               Orders Cancelled
             </Typography>
-            <Typography>686 </Typography>
+            <Typography sx={{ fontWeight: "700" }}>686 </Typography>
           </div>
         </div>
       </div>

@@ -28,13 +28,17 @@ const RiderOrderTableItem = () => {
           <Typography sx={{ color: color.lightGray }}>
             10 Mar. 2021 01:37PM
           </Typography>
-          <Typography>14, Kumolu. Ikeja, Lagos</Typography>
+          <Typography sx={{ fontWeight: "700" }}>
+            14, Kumolu. Ikeja, Lagos
+          </Typography>
         </div>
         <div className="flex flex-col w-[20%]">
           <Typography sx={{ color: color.lightGray }}>
             10 Mar. 2021 01:37PM
           </Typography>
-          <Typography>14, Kumolu. Ikeja, Lagos</Typography>
+          <Typography sx={{ fontWeight: "700" }}>
+            14, Kumolu. Ikeja, Lagos
+          </Typography>
         </div>
         <Typography sx={{ width: "20%", color: color.lightGray }}>
           Mark Geofrey

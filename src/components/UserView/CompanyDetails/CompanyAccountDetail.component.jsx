@@ -3,7 +3,7 @@ import { useState } from "react";
 import { color } from "../../../constants/Theme";
 import RegistrationDocument from "./RegistrationDocument/RegistrationDocument.component";
 
-const CompanyAccountDetail = () => {
+const CompanyAccountDetail = (props) => {
   const [doc, setDoc] = useState(false);
   return (
     <div className="flex flex-col w-11/12 items-center bg-white rounded-2xl -mt-10 pt-14">
@@ -37,9 +37,10 @@ const CompanyAccountDetail = () => {
         <div className="flex flex-col justify-between">
           <div className="flex items-center gap-4">
             <Typography
-              variant="h4"
+              variant="h2"
               sx={{
                 padding: "6px 12px",
+                fontSize: "28px",
                 color: "white",
                 backgroundColor: color.darkIndigo,
                 borderRadius: "12px",
@@ -48,10 +49,16 @@ const CompanyAccountDetail = () => {
             >
               540
             </Typography>
-            <Typography sx={{ fontWeight: "700", fontSize: "20px" }}>
-              Pool <br />
-              Orders Picked
-            </Typography>
+            {props.retail ? (
+              <Typography sx={{ fontWeight: "700", fontSize: "20px" }}>
+                Orders Requests
+              </Typography>
+            ) : (
+              <Typography sx={{ fontWeight: "700", fontSize: "20px" }}>
+                Pool <br />
+                Orders Picked
+              </Typography>
+            )}
           </div>
           <div className="flex flex-col">
             <Typography sx={{ color: color.lightGray }}>
@@ -60,7 +67,7 @@ const CompanyAccountDetail = () => {
             <div className="flex gap-4 mb-2">
               <Avatar />
               <div>
-                <Typography>09162289232</Typography>
+                <Typography sx={{ fontWeight: "700" }}>09162289232</Typography>
                 <Typography sx={{ color: color.lightGray }}>
                   Ibrahim Williams
                 </Typography>

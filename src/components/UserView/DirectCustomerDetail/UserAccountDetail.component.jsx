@@ -6,17 +6,17 @@ import { color } from "../../../constants/Theme";
 const UserAccountDetail = () => {
   const [doc, setDoc] = useState(false);
   return (
-    <div className="flex flex-col w-11/12 items-center bg-white rounded-2xl gap-3">
+    <div className="flex flex-col w-11/12 items-center bg-white rounded-2xl -mt-10 pt-12">
       <div className="flex flex-col w-4/5">
-        <div className="bg-gray-50 p-4">
-          <Typography sx={{ color: color.lightGray }}>
+        <div className="bg-gray-50 p-4  mb-3">
+          <Typography sx={{ color: color.lightGray, borderRadius: "10px" }}>
             FZ Deliveries is a company focused on pickup and deliveries of goods
             of customers within Lagos, Ibadan, Kano, Abuja and Port Harcourt
           </Typography>
         </div>
       </div>
       <div
-        className="flex w-4/5 justify-between
+        className="flex w-4/5 justify-between mb-3
       "
       >
         <div className="flex flex-col gap-4">
@@ -37,23 +37,23 @@ const UserAccountDetail = () => {
             <Typography>Annual Package</Typography>
           </div>
         </div>
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col justify-between mb-3">
           <div className="flex items-center gap-4">
             <Typography
-              variant="h4"
+              variant="h2"
               sx={{
                 padding: "6px 12px",
                 color: "white",
-                backgroundColor: "#2d5287",
+                fontSize: "28px",
+                backgroundColor: color.darkIndigo,
                 borderRadius: "12px",
                 fontWeight: "bold",
               }}
             >
               540
             </Typography>
-            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-              Pool <br />
-              Orders Picked
+            <Typography variant="" sx={{ fontWeight: "bold" }}>
+              Orders Requests
             </Typography>
           </div>
           <div className="flex flex-col">
@@ -75,19 +75,41 @@ const UserAccountDetail = () => {
           </div>
         </div>
       </div>
-      <div className="w-4/5 flex justify-between">
+      <div className="w-4/5 flex justify-between mb-3">
         <Button
           size="small"
           variant="contained"
-          sx={{ backgroundColor: color.bgWhiteSmoke, color: "#2d5287" }}
+          sx={{
+            backgroundColor: color.bgWhiteSmoke,
+            color: "#2d5287",
+            borderRadius: "10px",
+            ":hover": {
+              backgroundColor: color.bgWhiteSmoke,
+            },
+          }}
         >
           view payment
         </Button>
         <div className="flex gap-4">
-          <Button variant="outlined" sx={{ textTransform: "capitalize" }}>
+          <Button
+            variant="outlined"
+            sx={{
+              textTransform: "capitalize",
+              borderRadius: "10px",
+              borderColor: color.darkIndigo,
+              color: color.darkIndigo,
+            }}
+          >
             View Riders
           </Button>
-          <Button variant="contained" sx={{ textTransform: "capitalize" }}>
+          <Button
+            variant="contained"
+            sx={{
+              textTransform: "capitalize",
+              borderRadius: "10px",
+              backgroundColor: color.darkIndigo,
+            }}
+          >
             View Orders
           </Button>
         </div>
@@ -104,6 +126,9 @@ const UserAccountDetail = () => {
           backgroundColor: "white",
           borderRadius: "8px",
           color: color.lightGray,
+          ":hover": {
+            backgroundColor: "white",
+          },
         }}
       >
         Registration Documents

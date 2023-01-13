@@ -3,6 +3,7 @@ import UserOrdersList from "../../../../components/UserView/DirectCustomerDetail
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { IconButton, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import UserInfoDetail from "../../../../components/UserView/DirectCustomerDetail/UserInfoDetail.component.jsx";
 const DirectCustomerDetail = () => {
   return (
     <div className="flex flex-col w-full h-screen">
@@ -13,14 +14,15 @@ const DirectCustomerDetail = () => {
           </IconButton>
         </NavLink>
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-          Direct Customer
+          View Customer
         </Typography>
       </div>
-      <div className="flex w-full h-screen pt-4">
-        <div className="flex w-[35%] h-full justify-center items-center">
-          <UserAccountDetail />;
+      <div className="flex w-full h-full">
+        <div className="flex flex-col w-[35%] h-full items-center">
+          <UserInfoDetail />
+          <UserAccountDetail />
         </div>
-        <div className=" flex w-[65%] h-full justify-center items-center">
+        <div className=" flex w-[65%] h-full justify-center">
           <UserOrdersList />
         </div>
       </div>

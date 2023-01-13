@@ -1,10 +1,17 @@
 import { Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { color } from "../../../../constants/Theme.js";
+import { useNavigate } from "react-router-dom";
 const CompanyOrderItem = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex w-full justify-center">
-      <div className="flex w-[99%] items-center bg-white rounded-lg py-4 gap-2">
+      <div
+        className="flex w-[99%] items-center bg-white rounded-lg py-4 gap-2"
+        onClick={() => {
+          navigate("/admin/retail-company/order-summary");
+        }}
+      >
         <div className=" w-[5%]">
           <div className="w-fit px-1 rounded-md ml-4 bg-[#4339F2]">
             <CheckIcon sx={{ fontSize: "small", color: "white" }} />

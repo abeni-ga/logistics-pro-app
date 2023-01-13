@@ -18,8 +18,12 @@ const RiderListItem = () => {
         <Typography>Boladavies@gmail.com</Typography>
       </div>
       <div className="flex flex-col w-[25%]">
-        <Typography sx={{ fontWeight: "bold" }}>N390,000.00</Typography>
-        <Typography>200 Deliveries</Typography>
+        <Typography sx={{ fontWeight: "700", color: color.darkIndigo }}>
+          N390,000.00
+        </Typography>
+        <Typography sx={{ fontWeight: "700", color: color.lightGray }}>
+          200 Deliveries
+        </Typography>
       </div>
       <div className="w-[15%]">
         <Typography
