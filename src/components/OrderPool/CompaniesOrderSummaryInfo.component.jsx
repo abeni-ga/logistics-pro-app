@@ -44,7 +44,7 @@ const CompaniesOrderPoolSummary = () => {
 
       <div className="flex w-full h-full justify-around ">
         <div className="flex flex-col w-[48%] py-4">
-          <div className="flex flex-col justify-center px-4 mb-0 bg-white rounded-xl w-full h-[15%]">
+          <div className="flex justify-between items-center pl-4 mb-0 bg-white rounded-xl w-full h-[15%]">
             <div className="flex gap-4">
               <Typography>Picked by:</Typography>
               <div className="flex gap-2">
@@ -60,7 +60,21 @@ const CompaniesOrderPoolSummary = () => {
                 10/10/2021{" "}
               </Typography>
               <Typography sx={{ color: color.lightGray }}>01:37PM</Typography>
-              <Typography> ₦2,500</Typography>
+            </div>
+            <div className="flex flex-col justify-center bg-red-500 px-4 h-full w-[30%] rounded-xl">
+              <div className="flex">
+                <Typography sx={{ color: "white" }}>Items:</Typography>
+                <Typography sx={{ color: "white", fontWeight: "700" }}>
+                  Books
+                </Typography>
+              </div>
+              <div className="flex">
+                <Typography sx={{ color: "white" }}>Notes:</Typography>
+                <Typography sx={{ color: "white", fontWeight: "700" }}>
+                  The books are about 36 in numbers
+                </Typography>
+              </div>
+              <div></div>
             </div>
           </div>
           <div className="flex w-full items-center justify-center my-0">
@@ -73,7 +87,17 @@ const CompaniesOrderPoolSummary = () => {
           </div>
           <div className="w-full h-[35%] mb-4 bg-white rounded-xl bg-[url('/src/assets/svg/Map1.svg')]"></div>
           <div className="w-full h-[35%] bg-white rounded-xl flex flex-col items-center justify-center gap-2">
-            <Typography>Delivery Estimate</Typography>
+            <Typography
+              variant="h3"
+              sx={{
+                textAlign: "start",
+                fontSize: "20px",
+                fontWeight: "700",
+                width: "100%",
+              }}
+            >
+              Delivery Estimate
+            </Typography>
             <div className="h-0.5 bg-gray-200 w-[90%]"></div>
             <div className="flex flex-col w-[90%] gap-2">
               <div className="flex justify-between">

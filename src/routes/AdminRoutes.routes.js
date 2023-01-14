@@ -282,11 +282,11 @@ const AdminRoutes = {
         { path: "direct-customer", element: <DirectCustomerOrderPool /> },
         { path: "retail-company", element: <RetailCompanyOrderPool /> },
         {
-          path: "direct-customer/summary",
+          path: "order-summary",
           element: <DirectCustomerOrderPoolSummary />,
         },
         {
-          path: "direct-customer/order-history",
+          path: "order-history",
           element: <DirectCustomerOrderHistory />,
         },
       ],

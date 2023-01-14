@@ -1,5 +1,5 @@
 import React from "react";
-import StepFive from "../../../components/Forms/CompanyRegistration/Steps/StepFive.component";
+import Like from "../../../assets/svg/Like.svg";
 import { color } from "../../../constants/Theme";
 import Logo from "../../../assets/svg/Logo.svg";
 import { Button, Typography } from "@mui/material";
@@ -19,8 +19,18 @@ const RegistrationConfirmation = (props) => {
         </div>
         <div className="flex w-full h-full items-center justify-center">
           {props.confirm ? (
-            <div className="flex rounded-2xl w-[30%] h-[40%] items-center bg-white">
-              <StepFive />
+            <div className="flex flex-col rounded-2xl w-[30%] h-[40%] items-center justify-center bg-white p-20 gap-4">
+              <Typography
+                variant="h2"
+                sx={{ fontWeight: "700", fontSize: "28px" }}
+              >
+                Thanks for your registration
+              </Typography>
+              <img className="w-40" src={Like} alt="" />
+              <Typography sx={{ textAlign: "center" }}>
+                A verification mail has been sent to your email address, kindly
+                click on the link therein to complete your registration.
+              </Typography>
             </div>
           ) : (
             <div className="flex flex-col rounded-2xl p-20 w-[30%] h-[40%] gap-10 justify-center items-center bg-white">

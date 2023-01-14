@@ -19,4 +19,5 @@ export const color = {
   lightGreen: "rgba(0, 206, 45, 0.1)",
   lightGray: "#9CA3AF",
   darkGray: "#374151",
+  bgLightRed: "rgba(255, 45, 0,0.1)",
 };

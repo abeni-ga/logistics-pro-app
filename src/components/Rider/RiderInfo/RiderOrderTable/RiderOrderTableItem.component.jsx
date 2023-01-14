@@ -21,10 +21,10 @@ const RiderOrderTableItem = () => {
             <CheckIcon sx={{ fontSize: "small" }} />
           </Typography>
         </div>
-        <Typography sx={{ width: "10%", color: color.lightGray }}>
+        <Typography sx={{ width: "15%", color: color.lightGray }}>
           #003232
         </Typography>
-        <div className="flex flex-col w-[20%]">
+        <div className="flex flex-col w-[30%]">
           <Typography sx={{ color: color.lightGray }}>
             10 Mar. 2021 01:37PM
           </Typography>
@@ -32,7 +32,7 @@ const RiderOrderTableItem = () => {
             14, Kumolu. Ikeja, Lagos
           </Typography>
         </div>
-        <div className="flex flex-col w-[20%]">
+        <div className="flex flex-col w-[30%]">
           <Typography sx={{ color: color.lightGray }}>
             10 Mar. 2021 01:37PM
           </Typography>
@@ -40,9 +40,7 @@ const RiderOrderTableItem = () => {
             14, Kumolu. Ikeja, Lagos
           </Typography>
         </div>
-        <Typography sx={{ width: "20%", color: color.lightGray }}>
-          Mark Geofrey
-        </Typography>
+
         <Typography sx={{ width: "10%", color: color.lightGray }}>
           No
         </Typography>
@@ -50,11 +48,12 @@ const RiderOrderTableItem = () => {
           <Typography
             sx={{
               padding: "4px",
-              borderRadius: "4px",
+              borderRadius: "8px",
               width: "fit-content",
               backgroundColor: color.darkIndigo,
               alignItems: "center",
               color: "white",
+              fontWeight: "700",
             }}
           >
             N5,900
