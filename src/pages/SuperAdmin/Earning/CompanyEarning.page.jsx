@@ -10,9 +10,10 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import EarningTable from "../../../components/Earning/EarningTable.component";
+import EarningCompanyTable from "../../../components/Earning/EarningCompanyTable.component";
+import ProfileCard from "../../../components/OrderPool/ProfileCard.component.jsx/ProfileCard.component";
 
-const Earning = () => {
+const CompanyEarning = () => {
   const [action, setAction] = useState("export");
   const [size, setSize] = useState(7);
   const [dateSelector, setDateSelector] = useState("today");
@@ -140,17 +141,46 @@ const Earning = () => {
         </div>
       </div>
       <div className="flex w-[90%] h-full justify-between">
-        <div className="w-[49%]">
-          <EarningTable />
-        </div>
-        <div className="w-[49%] h-full">
-          <div className="bg-white w-full p-4 rounded-xl h-[50%]">
-            Order Details
+        <div className="w-[35%] h-full">
+          <div className="flex flex-col gap-3 w-full h-[35%] pt-2 bg-white rounded-xl items-center">
+            <div className="flex w-[90%] items-center justify-center h-[15%]">
+              <Typography
+                sx={{
+                  fontWeight: "bold",
+                  width: "40%",
+                }}
+              >
+                Select Company
+              </Typography>
+              <SearchBox
+                sx={{
+                  width: "60%",
+                  borderRadius: "10px",
+                }}
+                variant="outlined"
+                size="small"
+                placeholder="search company here"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+            <span className="h-0.5 w-[90%] bg-gray-300"></span>
+            <ProfileCard />
+            <ProfileCard />
+            <ProfileCard />
           </div>
+        </div>
+        <div className="w-[60%]">
+          <EarningCompanyTable />
         </div>
       </div>
     </div>
   );
 };
 
-export default Earning;
+export default CompanyEarning;

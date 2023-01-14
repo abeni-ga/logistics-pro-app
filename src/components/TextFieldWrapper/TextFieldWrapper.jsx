@@ -4,22 +4,21 @@ import { TextField, MenuItem, styled } from "@mui/material";
 import { useField } from "formik";
 import { color } from "../../constants/Theme.js";
 
-const TextBox = styled(TextField)(() => ({
-  "& fieldset": {
-    borderRadius: "10px",
-  },
-  "& .MuiFormLabel-root": {
-    color: color.lightGray,
-  },
-  "& input::placeholder": {
-    fontSize: "16px",
-  },
-  "& .MuiFormLabel-root.Mui-focused": {
-    color: color.lightGray,
-  },
-}));
-
 const TextFieldWrapper = ({ name, ...otherProps }) => {
+  const TextBox = styled(TextField)(() => ({
+    "& fieldset": {
+      borderRadius: otherProps.normal ? "0px" : "10px",
+    },
+    "& .MuiFormLabel-root": {
+      color: color.lightGray,
+    },
+    "& input::placeholder": {
+      fontSize: "16px",
+    },
+    "& .MuiFormLabel-root.Mui-focused": {
+      color: color.lightGray,
+    },
+  }));
   const [field, mata] = useField(name);
 
   const textFieldConfig = {
@@ -53,7 +52,7 @@ const TextFieldWrapper = ({ name, ...otherProps }) => {
 TextFieldWrapper.propTypes = {
   /**The name of the field */
   name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  // label: PropTypes.string.isRequired,
   /**Array of options to be displayed if the field is select */
   options: PropTypes.array,
 };
