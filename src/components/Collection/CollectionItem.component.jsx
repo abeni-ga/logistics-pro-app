@@ -1,8 +1,8 @@
-import { color } from "../../../constants/Theme.js";
+import { color } from "../../constants/Theme.js";
 import { Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import CollectionCenter from "../../../assets/svg/CollectionCenter.svg";
+import CollectionCenter from "../../assets/svg/CollectionCenter.svg";
 const CollectionItem = () => {
   return (
     <div className="flex flex-col w-full h-[80%]">

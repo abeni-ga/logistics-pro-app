@@ -5,7 +5,7 @@ import UserPanel from "./UserPanel.component.jsx";
 import SubMenu from "../../SubMenu/SubMenu.component.jsx";
 
 const SideBar = (props) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
   };

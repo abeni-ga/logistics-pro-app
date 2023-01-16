@@ -1,21 +1,11 @@
 import AddIcon from "@mui/icons-material/Add";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { color } from "../../../constants/Theme.js";
-import CollectionCenter from "../../../assets/svg/CollectionCenter.svg";
-import {
-  Button,
-  Checkbox,
-  FormControlLabel,
-  FormGroup,
-  IconButton,
-  InputLabel,
-  Typography,
-} from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Formik, Form } from "formik";
-import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
+import { Button, Typography } from "@mui/material";
 import DeliveryPlan from "../../../components/Delivery/DeliveryPlanItem.component.jsx";
+import { useNavigate } from "react-router-dom";
 const AddCollectionCenter = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col w-full h-full items-center px-10 pt-5">
       <div className="flex h-[20%] w-full">
@@ -24,6 +14,9 @@ const AddCollectionCenter = () => {
             Delivery Plans
           </Typography>
           <Button
+            onClick={() => {
+              navigate("/admin/delivery/add");
+            }}
             sx={{ color: color.darkIndigo, borderColor: color.darkIndigo }}
             variant="outlined"
             size="large"

@@ -2,7 +2,9 @@ import { Button, Typography } from "@mui/material";
 import { color } from "../../../constants/Theme.js";
 import AddIcon from "@mui/icons-material/Add";
 import CouponItem from "./CouponItem.pagecomp.jsx";
+import { useNavigate } from "react-router-dom";
 const Coupon = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col w-full h-full px-5">
       <div className="flex h-[10%]  w-[75%] py-5 justify-between">
@@ -10,6 +12,9 @@ const Coupon = () => {
           Coupons
         </Typography>
         <Button
+          onClick={() => {
+            navigate("/admin/setting/coupon/add");
+          }}
           variant="outlined"
           sx={{
             color: color.mainRed,

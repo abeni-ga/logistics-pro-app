@@ -11,7 +11,7 @@ import {
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import EarningTable from "../../../components/Earning/EarningTable.component";
-const Transaction = () => {
+const Transaction = (props) => {
   const [action, setAction] = useState("export");
   const [size, setSize] = useState(7);
   const [dateSelector, setDateSelector] = useState("today");
@@ -31,7 +31,7 @@ const Transaction = () => {
             varaint="h2"
             sx={{ fontSize: "28px", fontWeight: "bold" }}
           >
-            Transaction
+            {props.Earning ? "Earning" : "Transaction"}
           </Typography>
         </div>
         <div className="flex w-full justify-center">

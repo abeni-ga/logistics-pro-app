@@ -7,7 +7,10 @@ import PaymentsIcon from "@mui/icons-material/Payments";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import { BusinessRounded } from "@mui/icons-material";
-
+import WarehouseIcon from "@mui/icons-material/Warehouse";
+import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
+import ReceiptIcon from "@mui/icons-material/Receipt";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 export const ADMINMENUITEMS = [
   {
     path: "/admin/dashboard",
@@ -98,6 +101,7 @@ export const ADMINMENUITEMS = [
       { path: "/admin/orders/order-now", title: "Create Order", type: "link" },
     ],
   },
+
   {
     path: "/admin/order-history",
     title: "Order History",
@@ -113,6 +117,59 @@ export const ADMINMENUITEMS = [
     active: false,
   },
   {
+    path: "/admin/transaction",
+    title: "Transaction",
+    icon: <ReceiptIcon />,
+    type: "link",
+    active: false,
+  },
+  {
+    path: "/admin/collection-center",
+    title: "Collection Center",
+    icon: <WarehouseIcon />,
+    type: "link",
+    active: false,
+  },
+  {
+    path: "/admin/subscription",
+    title: "Subscription",
+    icon: <SubscriptionsIcon />,
+    type: "link",
+    active: false,
+    children: [
+      {
+        path: "/admin/subscription",
+        title: "Subscription Plan",
+        type: "link",
+      },
+      {
+        path: "/admin/subscription/add-new",
+        title: "Add New",
+        type: "link",
+      },
+    ],
+  },
+  {
+    path: "/admin/delivery",
+    title: "Delivery",
+    icon: <LocalShippingIcon />,
+    type: "link",
+    active: false,
+    children: [
+      {
+        path: "/admin/delivery/all",
+        title: "Delivery Plan",
+        type: "link",
+      },
+      {
+        path: "/admin/delivery/add",
+        title: "Add New",
+        type: "link",
+      },
+    ],
+  },
+
+  {
     path: "/admin/report",
     title: "Reports",
     icon: <AssessmentIcon />,
@@ -125,6 +182,11 @@ export const ADMINMENUITEMS = [
     icon: <SettingsIcon />,
     type: "link",
     active: false,
+    children: [
+      { path: "/admin/setting/coupon", title: "Coupon", type: "link" },
+      { path: "/admin/setting/markup", title: "Markup", type: "link" },
+      { path: "/admin/setting/staff", title: "staff", type: "link" },
+    ],
   },
   {
     path: "/admin/support",

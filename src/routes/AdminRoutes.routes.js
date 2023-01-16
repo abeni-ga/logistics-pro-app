@@ -195,6 +195,39 @@ const DirectCustomerOrderSummary = Loadable(
     )
   )
 );
+const CollectionCenter = Loadable(
+  lazy(() =>
+    import("../pages/SuperAdmin/CollectionCenter/CollectionCenter.page.jsx")
+  )
+);
+const AddCollectionCenter = Loadable(
+  lazy(() =>
+    import("../pages/SuperAdmin/CollectionCenter/AddCollectionCenter.page.jsx")
+  )
+);
+const Subscription = Loadable(
+  lazy(() =>
+    import("../pages/SuperAdmin/Subscription/SubscriptionPlans.page.jsx")
+  )
+);
+const AddSubscription = Loadable(
+  lazy(() =>
+    import("../pages/SuperAdmin/Subscription/AddSubscriptionPlan.page.jsx")
+  )
+);
+const Delivery = Loadable(
+  lazy(() => import("../pages/SuperAdmin/Delivery/DeliveryPlan.page.jsx"))
+);
+const AddDelivery = Loadable(
+  lazy(() => import("../pages/SuperAdmin/Delivery/EditDeliveryPlan.page.jsx"))
+);
+const Coupon = Loadable(
+  lazy(() => import("../pages/SuperAdmin/Coupon/Coupon.page.jsx"))
+);
+const AddCoupon = Loadable(
+  lazy(() => import("../pages/SuperAdmin/Coupon/AddCoupon.page.jsx"))
+);
+
 const Earning = Loadable(
   lazy(() => import("../pages/SuperAdmin/Earning/Earning.page"))
 );
@@ -296,7 +329,48 @@ const AdminRoutes = {
       element: <OrderHistory />,
     },
     {
+      path: "collection-center",
+      element: <CollectionCenter />,
+    },
+    {
+      path: "collection-center/add",
+      element: <AddCollectionCenter />,
+    },
+    {
+      path: "subscription",
+      element: <Subscription />,
+    },
+    {
+      path: "subscription/add",
+      element: <AddSubscription />,
+    },
+    {
+      path: "delivery/all",
+      element: <Delivery />,
+    },
+    {
+      path: "delivery/add",
+      element: <AddDelivery />,
+    },
+    {
+      path: "delivery/edit",
+      element: <AddDelivery />,
+    },
+    {
+      path: "setting/coupon",
+      element: <Coupon />,
+    },
+    {
+      path: "setting/coupon/add",
+      element: <AddCoupon />,
+    },
+
+    {
       path: "earning",
+      element: <Earning Earning />,
+    },
+    {
+      path: "transaction",
       element: <Earning />,
     },
     {

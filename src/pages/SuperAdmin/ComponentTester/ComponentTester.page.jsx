@@ -1,111 +1,222 @@
-import { Avatar, Button, Typography } from "@mui/material";
+import { Avatar, Button, MenuItem, TextField, Typography } from "@mui/material";
 import { color } from "../../../constants/Theme.js";
 import AddIcon from "@mui/icons-material/Add";
 import StaffItem from "../Staff/StaffItem.pagecomp.jsx";
 const Staff = () => {
+  const user = [
+    {
+      value: "customer",
+      label: "Customer",
+    },
+  ];
   return (
     <div className="flex flex-col w-full h-full px-5">
-      <div className="flex h-[10%]  w-full py-5 justify-between">
-        <Typography variant="h2" sx={{ fontSize: "28px", fontWeight: "700" }}>
-          Staff
-        </Typography>
-        <Button
-          variant="outlined"
-          sx={{
-            color: color.mainRed,
-            borderColor: color.lightGray,
-            ":hover": {
-              borderColor: color.lightGray,
-            },
-          }}
-          startIcon={<AddIcon />}
-          size="large"
-        >
-          Add New
-        </Button>
-      </div>
-      <div className="flex w-full h-[90%] justify-between">
-        <div className="flex flex-col w-[78%] gap-5">
-          <div className="flex min-h-[10%] bg-blue-100 rounded-xl items-center">
-            <div className="flex w-[10%] h-2"></div>
-            <Typography
-              sx={{
-                fontSize: "24px",
-                fontWeight: "700",
-                color: color.darkGray,
-                width: "80%",
-              }}
+      <div className="flex h-[20%]  w-full py-5 "></div>
+      <div className="flex w-full h-[90%] gap-5 justify-end">
+        <div className="flex flex-col w-[65%] gap-2 bg-blue-200">
+          <div className="flex h-[10%] w-full bg-white rounded-lg items-center">
+            <TextField
+              id="outlined-select-report-data"
+              select
+              defaultValue="transaction"
             >
-              Company
+              {user.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </div>
+          <div className="flex  h-[10%] w-full bg-white rounded-lg"></div>
+          <Typography>Showing 124 Results</Typography>
+          <div className="flex h-[10%] w-full bg-slate-100 rounded-lg px-5 items-center">
+            <Typography sx={{ width: "20%", color: color.darkGray }}>
+              ID
             </Typography>
-            <Typography
-              sx={{
-                width: "15%",
-                fontSize: "24px",
-                fontWeight: "700",
-                color: color.darkGray,
-              }}
-            >
-              Manage
+            <Typography sx={{ width: "30%", color: color.darkGray }}>
+              Customer
+            </Typography>
+            <div className="w-[30%]"></div>
+            <Typography sx={{ width: "20%", color: color.darkGray }}>
+              Amount
             </Typography>
           </div>
-
-          <div className="flex flex-col w-full h-full">
-            <StaffItem />
+          <div className="flex h-[10%] w-full bg-slate-100 px-5 items-center">
+            <div className="flex flex-col w-[20%]">
+              <Typography>P01923</Typography>
+              <Typography>12/12/21 02:35pm</Typography>
+            </div>
+            <div className="flex flex-col w-[30%]">
+              <Typography>Chinedu Joseph</Typography>
+              <Typography>Pay on drop-off</Typography>
+            </div>
+            <div className="flex w-[30%]">
+              <Typography
+                sx={{
+                  backgroundColor: color.lightGreen,
+                  paddingX: "50px",
+                  borderRadius: "20px",
+                }}
+              >
+                Paid
+              </Typography>
+            </div>
+            <Typography sx={{ width: "20%" }}>₦1,500</Typography>
           </div>
         </div>
-        <div className="flex flex-col w-[20%] bg-white h-full rounded-t-lg px-10 gap-20 items-center pt-10">
-          <div className="flex flex-col gap-5">
-            <Avatar sx={{ width: "100px", height: "100px" }} />
-            <Typography
-              sx={{
-                fontSize: "19px",
-                color: color.darkGray,
-                fontWeight: "700",
-              }}
-            >
-              User Name
-            </Typography>
+        <div className="flex flex-col w-[25%] bg-white h-full rounded-t-lg px-10">
+          <Typography
+            sx={{
+              fontSize: "30px",
+              fontColor: color.darkGray,
+              fontWeight: "700",
+            }}
+          >
+            Order Ref No
+          </Typography>
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                }}
+              >
+                Sender
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: color.darkGray,
+                }}
+              >
+                Chinedu Joseph
+              </Typography>
+            </div>
+            <div className="flex flex-col">
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                }}
+              >
+                Pick up address
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: color.darkGray,
+                }}
+              >
+                14b wole ariyo street, Lekki Phase 1
+              </Typography>
+            </div>
+            <div className="flex flex-col">
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                }}
+              >
+                Phone
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: color.darkGray,
+                }}
+              >
+                08170000560
+              </Typography>
+            </div>
+            <div className="flex flex-col">
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                }}
+              >
+                Package type
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: color.darkGray,
+                }}
+              >
+                Parcel
+              </Typography>
+            </div>
+            <div className="flex flex-col">
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                }}
+              >
+                Receiver
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: color.darkGray,
+                }}
+              >
+                Chinedu Joseph
+              </Typography>
+            </div>
+            <div className="flex flex-col">
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                }}
+              >
+                Pick up address
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: color.darkGray,
+                }}
+              >
+                14b wole ariyo street, Lekki Phase 1
+              </Typography>
+            </div>
+            <div className="flex flex-col">
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                }}
+              >
+                Phone
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: color.darkGray,
+                }}
+              >
+                08170000560
+              </Typography>
+            </div>
           </div>
-
-          <div className="flex flex-col gap-2 w-full">
-            <Typography
-              sx={{
-                fontSize: "18px",
-                color: color.darkGray,
-                fontWeight: "700",
-              }}
-            >
-              First Name: Sodiq
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "18px",
-                color: color.darkGray,
-                fontWeight: "700",
-              }}
-            >
-              Last Name: Alase
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "18px",
-                color: color.darkGray,
-                fontWeight: "700",
-              }}
-            >
-              Email: sodiq@touchcore.com.ng
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "18px",
-                color: color.darkGray,
-                fontWeight: "700",
-              }}
-            >
-              Phone: 0903000000
-            </Typography>
-          </div>
+          <Button
+            variant="outlined"
+            size="large"
+            sx={{
+              fontSize: "22px",
+              color: color.darkIndigo,
+              borderColor: color.darkIndigo,
+              ":hover": {
+                color: color.darkIndigo,
+                borderColor: color.darkIndigo,
+              },
+            }}
+          >
+            Manage Request
+          </Button>
         </div>
       </div>
     </div>
