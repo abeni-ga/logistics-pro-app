@@ -1,12 +1,15 @@
 import FormOne from "../../../../components/Forms/CreateOrder/FormOne.component";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import FormTwo from "../../../../components/Forms/CreateOrder/FormTwo.component";
-import { Button } from "@mui/material";
+import { Button, IconButton, Typography } from "@mui/material";
 import { color } from "../../../../constants/Theme.js";
 import { useState } from "react";
 import OrderPayment from "../../../../components/Forms/CreateOrder/OrderPayment.componenet";
+import { useNavigate } from "react-router-dom";
 const OrderNow = () => {
+  const history = useNavigate();
   const INITIAL_VALUES = {
     userType: "",
   };
@@ -17,7 +20,18 @@ const OrderNow = () => {
   const [step, setStep] = useState(1);
   return (
     <div className="flex flex-col h-full w-full">
-      <div className="flex h-[15%] ">header</div>
+      <div className="flex h-[15%] items-center">
+        <IconButton
+          onClick={() => {
+            history(-1);
+          }}
+        >
+          <ArrowBackIcon />
+        </IconButton>
+        <Typography variant="h2" sx={{ fontSize: "28px", fontWeight: "700" }}>
+          Create Pool Order
+        </Typography>
+      </div>
       <Formik initialValues={INITIAL_VALUES} validationSchema={FORM_VALIDATION}>
         <Form className="h-full">
           {step === 1 ? (

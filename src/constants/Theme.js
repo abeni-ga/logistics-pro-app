@@ -18,6 +18,7 @@ export const color = {
   indigo: "#053582",
   lightGreen: "rgba(0, 206, 45, 0.1)",
   lightGray: "#9CA3AF",
+  gray: "#707070",
   darkGray: "#374151",
   bgLightRed: "rgba(255, 45, 0,0.1)",
 };

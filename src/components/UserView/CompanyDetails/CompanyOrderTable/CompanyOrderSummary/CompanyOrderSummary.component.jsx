@@ -8,6 +8,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import PPic from "../../../../../assets/svg/PPic.svg";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -22,12 +23,17 @@ const CompanyOrderSummary = () => {
       backgroundColor: "rgba(220,220,220,0.5)",
     },
   }));
+  const history = useNavigate();
   return (
     <div className="flex m-8 flex-col h-screen">
       <div className="h-[15%]">
         <div className="flex items-center gap-2">
           <NavLink>
-            <IconButton>
+            <IconButton
+              onClick={() => {
+                history(-1);
+              }}
+            >
               <ArrowBackIcon />
             </IconButton>
           </NavLink>

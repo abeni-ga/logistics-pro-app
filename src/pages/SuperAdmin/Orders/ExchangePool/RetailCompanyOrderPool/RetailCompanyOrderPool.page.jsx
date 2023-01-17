@@ -17,12 +17,13 @@ import { color } from "../../../../../constants/Theme.js";
 import { useState } from "react";
 import Current from "../../../../../assets/svg/Current.svg";
 import CompaniesOrderPoolTable from "../../../../../components/OrderPool/CompaniesOrderTable.component";
+import { useNavigate } from "react-router-dom";
 
 const RetailCompanyOrderPool = () => {
   const [selectedValue, setSelectedValue] = useState("current");
   const [dateSelector, setDateSelector] = useState("today");
   const [size, setSize] = useState(7);
-
+  const navigate = useNavigate();
   const handleDateSelection = (event) => {
     setDateSelector(event.target.value);
   };
@@ -107,6 +108,9 @@ const RetailCompanyOrderPool = () => {
           </div>
           <div className="flex self-end items-center gap-8">
             <Button
+              onClick={() => {
+                navigate("/admin/orders/order-now");
+              }}
               variant="contained"
               sx={{
                 backgroundColor: color.darkIndigo,

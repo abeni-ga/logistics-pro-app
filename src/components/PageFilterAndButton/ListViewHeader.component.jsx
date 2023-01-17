@@ -4,8 +4,10 @@ import { IconButton } from "@mui/material";
 
 import Menu from "../../assets/svg/Menu.svg";
 import List from "../../assets/svg/List.svg";
+import { useNavigate } from "react-router-dom";
 
 const ListViewHeader = (props) => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="flex items-center w-full">
@@ -34,7 +36,7 @@ const ListViewHeader = (props) => {
             <img src={List} alt="" />
           </IconButton>
         </div>
-        <OrderViewHeader btnName={props.btnName} />
+        <OrderViewHeader action={props.action} btnName={props.btnName} />
       </div>
     </div>
   );

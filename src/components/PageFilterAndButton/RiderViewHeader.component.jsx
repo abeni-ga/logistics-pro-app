@@ -5,11 +5,16 @@ import { IconButton, Radio, TextField, Typography } from "@mui/material";
 import Menu from "../../assets/svg/Menu.svg";
 import List from "../../assets/svg/List.svg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RiderViewHeader = (props) => {
+  const navigate = useNavigate();
   const [dateSelector, setDateSelector] = useState("today");
   const handleDateSelection = (e) => {
     setDateSelector(e.target.value);
+  };
+  const handleAction = () => {
+    navigate("/admin/riders/register");
   };
   return (
     <div className="flex items-center w-full h-full gap-10">
@@ -86,7 +91,7 @@ const RiderViewHeader = (props) => {
         </div>
       </div>
       <div className="w-[50%] flex items-center">
-        <OrderViewHeader btnName={props.btnName} />
+        <OrderViewHeader btnName={props.btnName} action={handleAction} />
       </div>
     </div>
   );

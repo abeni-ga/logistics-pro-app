@@ -2,13 +2,22 @@ import { Button, MenuItem, Radio, Select, Typography } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { color } from "../../../constants/Theme.js";
 import { useState } from "react";
+import SuccessDialog from "../../Dialog/SuccessDialog.component.jsx";
+import { useNavigate } from "react-router-dom";
 
 const OrderPayment = () => {
+  const [open, setOpen] = useState(false);
   const [paymentType, setpaymentType] = useState("cash");
   const [deliveryDate, setdeliveryDate] = useState("same-day");
+  const navigate = useNavigate();
 
   const handleDateSelection = (e) => {
     setpaymentType(e.target.value);
+  };
+  const handleClose = () => {
+    setOpen(false);
+    navigate("/admin/dashboard");
+    console.log("closed");
   };
   return (
     <div className="flex w-[90%] h-[80%] justify-center">
@@ -177,6 +186,9 @@ const OrderPayment = () => {
               Cancel
             </Button>
             <Button
+              onClick={() => {
+                setOpen(true);
+              }}
               variant="outlined"
               sx={{
                 color: "white",
@@ -189,6 +201,7 @@ const OrderPayment = () => {
           </div>
         </div>
       </div>
+      <SuccessDialog open={open} handleClose={handleClose} />
     </div>
   );
 };

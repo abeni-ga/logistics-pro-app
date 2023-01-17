@@ -10,7 +10,7 @@ import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import StandardButton from "../Buttons/StandardButton.component";
 
-const FilterAndActionButton = ({ btnName }) => {
+const FilterAndActionButton = (props) => {
   const [action, setAction] = useState("export");
   const [size, setSize] = useState(7);
   const SearchBox = styled(TextField)(() => ({
@@ -68,7 +68,9 @@ const FilterAndActionButton = ({ btnName }) => {
         }}
       />
 
-      <StandardButton variant="contained">{btnName}</StandardButton>
+      <StandardButton variant="contained" onClick={props.action}>
+        {props.btnName}
+      </StandardButton>
     </div>
   );
 };

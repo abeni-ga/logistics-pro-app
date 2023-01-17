@@ -227,6 +227,18 @@ const Coupon = Loadable(
 const AddCoupon = Loadable(
   lazy(() => import("../pages/SuperAdmin/Coupon/AddCoupon.page.jsx"))
 );
+const Markup = Loadable(
+  lazy(() => import("../pages/SuperAdmin/Markup/Markup.page.jsx"))
+);
+const AddMarkup = Loadable(
+  lazy(() => import("../pages/SuperAdmin/Markup/AddMarkup.page.jsx"))
+);
+const Staff = Loadable(
+  lazy(() => import("../pages/SuperAdmin/Staff/Staff.page.jsx"))
+);
+const AddStaff = Loadable(
+  lazy(() => import("../pages/SuperAdmin/Staff/AddStaff.page.jsx"))
+);
 
 const Earning = Loadable(
   lazy(() => import("../pages/SuperAdmin/Earning/Earning.page"))
@@ -363,6 +375,22 @@ const AdminRoutes = {
     {
       path: "setting/coupon/add",
       element: <AddCoupon />,
+    },
+    {
+      path: "setting/markup",
+      element: <Markup />,
+    },
+    {
+      path: "setting/markup/add",
+      element: <AddMarkup />,
+    },
+    {
+      path: "setting/staff",
+      element: <Staff />,
+    },
+    {
+      path: "setting/staff/add",
+      element: <AddStaff />,
     },
 
     {

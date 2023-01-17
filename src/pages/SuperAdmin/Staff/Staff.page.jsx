@@ -2,7 +2,10 @@ import { Avatar, Button, Typography } from "@mui/material";
 import { color } from "../../../constants/Theme.js";
 import AddIcon from "@mui/icons-material/Add";
 import StaffItem from "../Staff/StaffItem.pagecomp.jsx";
+import { useNavigate } from "react-router-dom";
 const Staff = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col w-full h-full px-5">
       <div className="flex h-[10%]  w-full py-5 justify-between">
@@ -10,6 +13,9 @@ const Staff = () => {
           Staff
         </Typography>
         <Button
+          onClick={() => {
+            navigate("/admin/setting/staff/add");
+          }}
           variant="outlined"
           sx={{
             color: color.mainRed,

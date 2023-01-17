@@ -5,14 +5,19 @@ import MarkUp from "../../../assets/svg/Markup.svg";
 import MarkupItem from "../Markup/MarkupItem.pagecomp.jsx";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
 import { Form, Formik } from "formik";
+import { useNavigate } from "react-router-dom";
 const Markup = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col w-full h-full px-5">
       <div className="flex h-[10%]  w-full py-5 justify-between">
         <Typography variant="h2" sx={{ fontSize: "28px", fontWeight: "700" }}>
-          Coupons
+          Markup
         </Typography>
         <Button
+          onClick={() => {
+            navigate("/admin/setting/markup/add");
+          }}
           variant="outlined"
           sx={{
             color: color.mainRed,
