@@ -11,7 +11,7 @@ const LogisticsCompanyDetail = () => {
   const history = useNavigate();
   return (
     <div className="flex flex-col w-full h-screen">
-      <div className="h-[10%] flex items-center gap-2 ml-8">
+      <div className="h-[20%] flex items-center gap-2 ml-8">
         <IconButton
           onClick={() => {
             history(-1);

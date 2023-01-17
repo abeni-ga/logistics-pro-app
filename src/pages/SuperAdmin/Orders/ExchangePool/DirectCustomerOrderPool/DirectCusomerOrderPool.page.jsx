@@ -13,6 +13,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import Current from "../../../../../assets/svg/Current.svg";
 import CompaniesOrderPoolTable from "../../../../../components/OrderPool/CompaniesOrderTable.component";
+import TablePagination from "../../../../../components/Pagination/TablePagination.component";
 
 const DirectCustomerOrderPool = () => {
   const [selectedValue, setSelectedValue] = useState("current");
@@ -156,8 +157,11 @@ const DirectCustomerOrderPool = () => {
           </div>
         </div>
       </div>
-      <div className="w-[95%] h-[80%]">
+      <div className="w-[95%] h-[70%]">
         <CompaniesOrderPoolTable />
+      </div>
+      <div className="w-[95%] h-[10%]">
+        <TablePagination />
       </div>
     </div>
   );

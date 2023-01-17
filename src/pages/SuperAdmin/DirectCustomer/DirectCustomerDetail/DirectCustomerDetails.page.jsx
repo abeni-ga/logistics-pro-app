@@ -8,6 +8,7 @@ import PulseRed from "../../../../assets/svg/PulseRed.svg";
 import Pulse from "../../../../assets/svg/Pulse.svg";
 import { color } from "../../../../constants/Theme.js";
 import UserInfoDetail from "../../../../components/UserView/DirectCustomerDetail/UserInfoDetail.component.jsx";
+import TablePagination from "../../../../components/Pagination/TablePagination.component.jsx";
 const DirectCustomerDetail = () => {
   return (
     <div className="flex flex-col w-full h-screen">
@@ -26,7 +27,7 @@ const DirectCustomerDetail = () => {
           <UserInfoDetail />
           <UserAccountDetail />
         </div>
-        <div className=" flex flex-col gap-10 w-[65%] h-full items-center">
+        <div className=" flex flex-col gap-5 w-[65%] h-full items-center">
           <div className="flex self-end items-center gap-8">
             <Button
               variant="contained"
@@ -79,6 +80,7 @@ const DirectCustomerDetail = () => {
             </div>
           </div>
           <UserOrdersList />
+          <TablePagination />
         </div>
       </div>
     </div>

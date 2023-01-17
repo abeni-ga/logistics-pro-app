@@ -8,6 +8,7 @@ import Pulse from "../../../../assets/svg/Pulse.svg";
 import RiderInfoDetail from "../../../../components/Rider/RiderInfo/RiderInfoDetail.component";
 import ViewRiderAccountDetail from "../../../../components/Rider/RiderInfo/ViewRiderAccountDetail.component";
 import RiderPersonalInfo from "../../../../components/Rider/RiderInfo/RiderPersonalInfo.component";
+import TablePagination from "../../../../components/Pagination/TablePagination.component";
 
 const RiderDetails = () => {
   const [display, setDisplay] = useState("order-history");
@@ -97,6 +98,7 @@ const RiderDetails = () => {
                 </div>
               </div>
               <RiderOrderTable />
+              <TablePagination />
             </div>
           </div>
         </div>

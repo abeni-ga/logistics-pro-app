@@ -9,7 +9,7 @@ const UserInfoDetail = () => {
         src={PPic}
         sx={{
           height: "70%",
-          width: "40%",
+          width: "30%",
           alignItems: "center",
         }}
       />

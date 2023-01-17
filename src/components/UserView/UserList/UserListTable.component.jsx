@@ -6,7 +6,7 @@ import { color } from "../../../constants/Theme.js";
 const UserListTable = ({ route }) => {
   return (
     <div className="w-full h-full">
-      <div className="flex p-4 items-center w-full">
+      <div className="flex p-4 items-center w-full sticky top-0">
         <span className="w-1/12 h-1"></span>
         <Typography sx={{ width: "20%", color: color.lightGray }}>
           Company Name
