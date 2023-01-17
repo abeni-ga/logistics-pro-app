@@ -1,11 +1,13 @@
-import AddIcon from "@mui/icons-material/Add";
 import { color } from "../../../constants/Theme.js";
 import { Button, IconButton, InputLabel, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
 import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-const EditDeliveryPlan = () => {
+import SuccessDialogWithAction from "../../../components/Dialog/SuccessDialogWithButton.component.jsx";
+import { useState } from "react";
+const AddDeliveryPlan = () => {
+  const [open, setOpen] = useState();
   const navigate = useNavigate();
   return (
     <div className="flex flex-col w-full h-full px-10 pt-5">
@@ -23,20 +25,9 @@ const EditDeliveryPlan = () => {
               variant="h2"
               sx={{ fontSize: "28px", fontWeight: "700" }}
             >
-              Edit Delivery Plans
+              Add Delivery Plans
             </Typography>
           </div>
-          <Button
-            onClick={() => {
-              navigate("/admin/delivery/add");
-            }}
-            sx={{ color: color.darkIndigo, borderColor: color.darkIndigo }}
-            variant="outlined"
-            size="large"
-            startIcon={<AddIcon />}
-          >
-            Add New
-          </Button>
         </div>
       </div>
       <div className="flex flex-col w-full h-[80%] gap-3">
@@ -70,7 +61,7 @@ const EditDeliveryPlan = () => {
                       fontSize: "21px",
                     }}
                   >
-                    Service name
+                    Base Fare
                   </InputLabel>
                   <TextFieldWrapper
                     normal
@@ -87,7 +78,7 @@ const EditDeliveryPlan = () => {
                       fontSize: "21px",
                     }}
                   >
-                    Service name
+                    Fare per Km
                   </InputLabel>
                   <TextFieldWrapper
                     normal
@@ -105,7 +96,7 @@ const EditDeliveryPlan = () => {
                     fontSize: "21px",
                   }}
                 >
-                  Service name
+                  Flat Rate
                 </InputLabel>
                 <TextFieldWrapper
                   normal
@@ -122,7 +113,7 @@ const EditDeliveryPlan = () => {
                     fontSize: "21px",
                   }}
                 >
-                  Service name
+                  Description
                 </InputLabel>
                 <TextFieldWrapper
                   normal
@@ -135,10 +126,10 @@ const EditDeliveryPlan = () => {
                 />
               </div>
               <Button
-                onClick={() => {
-                  navigate("/admin/delivery/all");
-                }}
                 variant="contained"
+                onClick={() => {
+                  setOpen(true);
+                }}
                 sx={{
                   marginTop: "10px",
                   color: "white",
@@ -148,14 +139,20 @@ const EditDeliveryPlan = () => {
                   borderRadius: "8px",
                 }}
               >
-                Update plan
+                Add plan
               </Button>
             </div>
           </Form>
         </Formik>
+        <SuccessDialogWithAction
+          open={open}
+          handleClose={() => {
+            setOpen(false);
+          }}
+        />
       </div>
     </div>
   );
 };
 
-export default EditDeliveryPlan;
+export default AddDeliveryPlan;

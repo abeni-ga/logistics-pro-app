@@ -219,6 +219,9 @@ const Delivery = Loadable(
   lazy(() => import("../pages/SuperAdmin/Delivery/DeliveryPlan.page.jsx"))
 );
 const AddDelivery = Loadable(
+  lazy(() => import("../pages/SuperAdmin/Delivery/AddDeliveryPlan.page.jsx"))
+);
+const EditDelivery = Loadable(
   lazy(() => import("../pages/SuperAdmin/Delivery/EditDeliveryPlan.page.jsx"))
 );
 const Coupon = Loadable(
@@ -366,7 +369,7 @@ const AdminRoutes = {
     },
     {
       path: "delivery/edit",
-      element: <AddDelivery />,
+      element: <EditDelivery />,
     },
     {
       path: "setting/coupon",

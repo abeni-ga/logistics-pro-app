@@ -11,7 +11,10 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Formik, Form } from "formik";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
+import SuccessDialogWithAction from "../../../components/Dialog/SuccessDialogWithButton.component.jsx";
+import { useState } from "react";
 const AddCollectionCenter = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div className="flex flex-col w-full h-full items-center px-10 pt-5">
       <div className="flex h-[20%] w-full">
@@ -20,7 +23,7 @@ const AddCollectionCenter = () => {
             <ArrowBackIcon />
           </IconButton>
           <Typography variant="h2" sx={{ fontSize: "28px", fontWeight: "700" }}>
-            Add Collection Centers
+            Add Subscription plan
           </Typography>
         </div>
       </div>
@@ -170,6 +173,9 @@ const AddCollectionCenter = () => {
                     Cancel
                   </Button>
                   <Button
+                    onClick={() => {
+                      setOpen(true);
+                    }}
                     sx={{
                       color: "white",
                       backgroundColor: color.darkIndigo,
@@ -184,6 +190,12 @@ const AddCollectionCenter = () => {
             </div>
           </Form>
         </Formik>
+        <SuccessDialogWithAction
+          open={open}
+          handleClose={() => {
+            setOpen(false);
+          }}
+        />
       </div>
     </div>
   );

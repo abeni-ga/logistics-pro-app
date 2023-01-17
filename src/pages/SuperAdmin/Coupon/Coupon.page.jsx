@@ -80,7 +80,8 @@ const Coupon = () => {
           </div>
 
           <div className="flex flex-col w-full h-full">
-            <CouponItem />
+            <CouponItem status="active" />
+            <CouponItem status="expired" />
           </div>
         </div>
         <div className="flex flex-col w-[20%] bg-white rounded-xl h-full pl-10 pr-5 gap-10 justify-center">

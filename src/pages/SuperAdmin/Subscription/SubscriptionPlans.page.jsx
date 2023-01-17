@@ -20,7 +20,11 @@ const SubscriptionPlan = () => {
           Add New
         </Button>
       </div>
-      <div className="flex flex-col w-full h-[80%]">
+      <div className="flex flex-col w-full h-[80%] gap-2">
+        <SubscriptionPlanItem />
+        <SubscriptionPlanItem />
+        <SubscriptionPlanItem />
+        <SubscriptionPlanItem />
         <SubscriptionPlanItem />
       </div>
     </div>
