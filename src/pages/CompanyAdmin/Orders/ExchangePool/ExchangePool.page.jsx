@@ -11,6 +11,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 
 import { useState } from "react";
+import Reload from "../../../../assets/svg/Reload.svg";
 import Current from "../../../../assets/svg/Current.svg";
 import CompaniesOrderPoolTable from "../../../../components/OrderPool/CompaniesOrderTable.component";
 
@@ -33,18 +34,18 @@ const ExchangePool = () => {
   return (
     <div className="flex flex-col gap-4 w-full h-screen items-center justify-center ">
       <div className="h-[20%] w-[95%] flex flex-col">
-        <div className="flex">
+        <div className="flex gap-2 w-full">
           <Typography
             variant="h5"
             sx={{
               fontWeight: "bold",
               paddingY: "20px",
               textAlign: "start",
-              width: "100%",
             }}
           >
             Order Exchange Pool
           </Typography>
+          <img src={Reload} alt="" />
         </div>
         <div className="flex w-[35%]">
           <div className="flex items-center rounded-lg w-[35%]">
@@ -55,18 +56,48 @@ const ExchangePool = () => {
               name="date-radio-buttons"
               inputProps={{ "aria-label": "All Time" }}
             />
-            <Typography sx={{ fontWeight: "bold" }}>All Time</Typography>
+            <Typography sx={{ fontWeight: "bold" }}>Today</Typography>
           </div>
-          <div className="flex items-center bg-white border-2 w-[65%] rounded-lg">
+          <div className="flex items-center  bg-violet-500 w-[70%] rounded-lg px-4">
             <Radio
               checked={dateSelector === "other"}
               onChange={handleDateSelection}
               value="other"
               name="date-radio-buttons"
-              inputProps={{ "aria-label": "other" }}
+              inputProps={{
+                style: {
+                  color: "white",
+                },
+              }}
             />
-            <div className="flex">
-              <Typography>Change period</Typography>
+            <div className="flex flex-col gap-1">
+              <Typography sx={{ color: "white" }}>Change period</Typography>
+              <div className="flex gap-2">
+                <TextField
+                  variant="standard"
+                  size="small"
+                  type="date"
+                  InputProps={{
+                    disableUnderline: true,
+                    style: {
+                      height: "15px",
+                      color: "white",
+                    },
+                  }}
+                />
+                <TextField
+                  variant="standard"
+                  type="date"
+                  size="small"
+                  InputProps={{
+                    style: {
+                      color: "white",
+                      height: "15px",
+                    },
+                    disableUnderline: true,
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -11,6 +11,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 
 import { useState } from "react";
+import Cargo from "../../../../../assets/svg/Cargo.svg";
 import Current from "../../../../../assets/svg/Current.svg";
 import CompaniesOrderPoolTable from "../../../../../components/OrderPool/CompaniesOrderTable.component";
 
@@ -33,14 +34,13 @@ const DirectCustomerOrderPool = () => {
   return (
     <div className="flex flex-col gap-4 w-full h-screen items-center justify-center ">
       <div className="h-[20%] w-[95%] flex flex-col">
-        <div className="flex">
+        <div className="flex w-full">
           <Typography
             variant="h5"
             sx={{
               fontWeight: "bold",
               paddingY: "20px",
               textAlign: "start",
-              width: "100%",
             }}
           >
             Order Exchange Pool

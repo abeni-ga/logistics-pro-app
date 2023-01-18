@@ -8,13 +8,14 @@ import {
   Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-
+import Cargo from "../../assets/svg/Cargo.svg";
 import { color } from "../../constants/Theme.js";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ProfileCard from "./ProfileCard.component.jsx/ProfileCard.component.jsx";
 
 const CompaniesOrderPoolSummary = () => {
+  const navigate = useNavigate();
   const SearchBox = styled(TextField)(() => ({
     "& fieldset": {
       borderRadius: "10px",
@@ -27,14 +28,17 @@ const CompaniesOrderPoolSummary = () => {
     <div className="flex m-8 flex-col h-screen">
       <div className="h-[15%]">
         <div className="flex items-center gap-2">
-          <NavLink>
-            <IconButton>
-              <ArrowBackIcon />
-            </IconButton>
-          </NavLink>
+          <IconButton
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            <ArrowBackIcon />
+          </IconButton>
           <Typography variant="h6" sx={{ fontWeight: "bold" }}>
             Order Summary
           </Typography>
+          <img src={Cargo} alt="" />
         </div>
         <div>
           <Typography>Order No:</Typography>
