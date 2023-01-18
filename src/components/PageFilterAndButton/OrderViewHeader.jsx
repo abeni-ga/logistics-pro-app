@@ -68,7 +68,11 @@ const FilterAndActionButton = (props) => {
         }}
       />
 
-      <StandardButton variant="contained" onClick={props.action}>
+      <StandardButton
+        sx={{ width: "20%" }}
+        variant="contained"
+        onClick={props.action}
+      >
         {props.btnName}
       </StandardButton>
     </div>

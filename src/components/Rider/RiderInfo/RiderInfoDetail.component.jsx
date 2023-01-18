@@ -13,14 +13,14 @@ const RiderInfoDetail = (props) => {
         navigate(routes.admin.riderDetail);
       }}
     >
-      <div className="flex flex-col w-[25%] h-full items-center gap-2">
+      <div className="flex flex-col w-[30%] h-full pt-7">
         <Avatar
+          rounded
           src={PPic}
           sx={{
-            height: "50%",
-            width: "100%",
-            alignSelf: "start",
-            marginTop: "30px",
+            height: 120,
+            width: 120,
+            alignSelf: "center",
           }}
         />
         {props.phone ? <Typography>+2340101010110</Typography> : null}

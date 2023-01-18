@@ -17,14 +17,14 @@ const RiderViewHeader = (props) => {
     navigate("/admin/riders/register");
   };
   return (
-    <div className="flex items-center w-full h-full gap-10">
-      <div className="flex w-[40%]">
-        <div className="flex gap-4 w-[30%]">
+    <div className="flex items-center w-full h-full gap-2 2xl:gap-10">
+      <div className="flex w-[50%]">
+        <div className="flex gap-4 w-[20%]">
           <IconButton
             sx={{
               backgroundColor: "white",
               borderRadius: "12px",
-              paddingX: "20px",
+              paddingX: "15px",
             }}
           >
             <img src={Menu} alt="" />
@@ -35,14 +35,14 @@ const RiderViewHeader = (props) => {
             sx={{
               backgroundColor: color.darkIndigo,
               borderRadius: "12px",
-              paddingX: "20px",
+              paddingX: "15px",
             }}
           >
             <img src={List} alt="" />
           </IconButton>
         </div>
-        <div className="flex">
-          <div className="flex items-center rounded-lg w-[35%]">
+        <div className="flex gap-10">
+          <div className="flex items-center rounded-lg ">
             <Radio
               checked={dateSelector === "all-time"}
               onChange={handleDateSelection}
@@ -52,7 +52,7 @@ const RiderViewHeader = (props) => {
             />
             <Typography sx={{ fontWeight: "bold" }}>All Time</Typography>
           </div>
-          <div className="flex items-center w-[70%] rounded-lg px-4">
+          <div className="flex items-center rounded-lg px-4">
             <Radio
               checked={dateSelector === "other"}
               onChange={handleDateSelection}
@@ -61,7 +61,7 @@ const RiderViewHeader = (props) => {
               inputProps={{ "aria-label": "other" }}
             />
             <div className="flex flex-col gap-1">
-              <Typography>Change period</Typography>
+              <Typography sx={{ fontWeight: "700" }}>Change period</Typography>
               <div className="flex gap-2 bg-blue-100 p-1 rounded-lg">
                 <TextField
                   variant="standard"

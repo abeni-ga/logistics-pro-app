@@ -27,27 +27,57 @@ const Earning = () => {
     <div className="flex flex-col items-center w-full h-full">
       <div className="flex w-full h-[20%] justify-center">
         <div className="flex  items-center gap-4 w-[45%]">
-          <div className="flex w-[85%]">
-            <div className="flex items-center rounded-lg">
+          <div className="flex w-[35%]">
+            <div className="flex items-center rounded-lg w-[35%]">
               <Radio
-                checked={dateSelector === "today"}
+                checked={dateSelector === "all-time"}
                 onChange={handleDateSelection}
-                value="today"
+                value="all-time"
                 name="date-radio-buttons"
-                inputProps={{ "aria-label": "Today" }}
+                inputProps={{ "aria-label": "All Time" }}
               />
-              <Typography sx={{ fontWeight: "bold" }}>All Time</Typography>
+              <Typography sx={{ fontWeight: "bold" }}>Today</Typography>
             </div>
-            <div className="flex items-center bg-white border-2 rounded-lg">
+            <div className="flex items-center  bg-gray-400 w-[70%] rounded-lg px-4">
               <Radio
                 checked={dateSelector === "other"}
                 onChange={handleDateSelection}
                 value="other"
                 name="date-radio-buttons"
-                inputProps={{ "aria-label": "other" }}
+                inputProps={{
+                  style: {
+                    color: "white",
+                  },
+                }}
               />
-              <div className="flex">
-                <Typography>Change period</Typography>
+              <div className="flex flex-col gap-1">
+                <Typography sx={{ color: "white" }}>Change period</Typography>
+                <div className="flex gap-2">
+                  <TextField
+                    variant="standard"
+                    size="small"
+                    type="date"
+                    InputProps={{
+                      disableUnderline: true,
+                      style: {
+                        height: "15px",
+                        color: "white",
+                      },
+                    }}
+                  />
+                  <TextField
+                    variant="standard"
+                    type="date"
+                    size="small"
+                    InputProps={{
+                      style: {
+                        color: "white",
+                        height: "15px",
+                      },
+                      disableUnderline: true,
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>

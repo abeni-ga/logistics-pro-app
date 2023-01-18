@@ -3,8 +3,12 @@ module.exports = {
   content: ["./src/**/*.{html, js, ts, vue}", "./src/**/*"],
   theme: {
     extend: {
-      backgroundImage: {
-        "map-1": "url('./src/assets/Map.jpg)",
+      screens: {
+        sm: "750px",
+        // => @media (min-width: 640px) { ... }
+
+        md: "870px",
+        // => @media (min-width: 768px) { ... }
       },
     },
   },

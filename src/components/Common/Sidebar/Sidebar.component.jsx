@@ -12,7 +12,9 @@ const SideBar = (props) => {
   return (
     <div
       className={`bg-white sticky top-0 h-screen flex justify-center ${
-        isOpen ? "min-w-[15%]" : "min-w-20"
+        isOpen
+          ? "min-w-[30%] md:min-w-[28%] lg:min-w-[25%] xl:min-w-[20%] 2xl:min-w-[17%]"
+          : "min-w-20"
       } `}
     >
       <div

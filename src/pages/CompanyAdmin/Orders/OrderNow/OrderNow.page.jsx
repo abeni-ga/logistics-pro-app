@@ -2,8 +2,10 @@ import FormOne from "../../../../components/Forms/CreateOrder/FormOne.component"
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import FormTwo from "../../../../components/Forms/CreateOrder/FormTwo.component";
-import { Button } from "@mui/material";
+import { Button, IconButton, Typography } from "@mui/material";
 import { color } from "../../../../constants/Theme.js";
+import { ArrowBack } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 const OrderNow = () => {
   const INITIAL_VALUES = {
     userType: "",
@@ -12,9 +14,21 @@ const OrderNow = () => {
   const FORM_VALIDATION = Yup.object().shape({
     userType: Yup.string().required("*Required"),
   });
+  const history = useNavigate();
   return (
     <div className="flex flex-col h-full w-full">
-      <div className="flex h-[15%] ">header</div>
+      <div className="flex h-[15%] items-center">
+        <IconButton
+          onClick={() => {
+            history(-1);
+          }}
+        >
+          <ArrowBack />
+        </IconButton>
+        <Typography variant="h2" sx={{ fontSize: "28px", fontWeight: "700" }}>
+          Create Pool Order
+        </Typography>
+      </div>{" "}
       <Formik initialValues={INITIAL_VALUES} validationSchema={FORM_VALIDATION}>
         <Form className="h-full">
           <div className="flex w-full h-full">
