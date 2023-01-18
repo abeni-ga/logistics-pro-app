@@ -18,8 +18,8 @@ const RiderInfoDetail = (props) => {
           rounded
           src={PPic}
           sx={{
-            height: 120,
-            width: 120,
+            height: 90,
+            width: 90,
             alignSelf: "center",
           }}
         />

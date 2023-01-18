@@ -18,13 +18,14 @@ const RiderViewHeader = (props) => {
   };
   return (
     <div className="flex items-center w-full h-full gap-2 2xl:gap-10">
-      <div className="flex w-[50%]">
-        <div className="flex gap-4 w-[20%]">
+      <div className="flex w-[50%] md:w-[50%] lg:w-[41%] xl:w-[50%] gap-2 items-center">
+        <div className="flex h-full items-center gap-2 xl:gap-4 w-[20%]">
           <IconButton
             sx={{
               backgroundColor: "white",
               borderRadius: "12px",
-              paddingX: "15px",
+              width: "40px",
+              height: "40px",
             }}
           >
             <img src={Menu} alt="" />
@@ -35,14 +36,15 @@ const RiderViewHeader = (props) => {
             sx={{
               backgroundColor: color.darkIndigo,
               borderRadius: "12px",
-              paddingX: "15px",
+              width: "40px",
+              height: "40px",
             }}
           >
             <img src={List} alt="" />
           </IconButton>
         </div>
-        <div className="flex gap-10">
-          <div className="flex items-center rounded-lg ">
+        <div className="flex w-[80%] flex-col xl:flex-row items-start">
+          <div className="flex  items-center ">
             <Radio
               checked={dateSelector === "all-time"}
               onChange={handleDateSelection}
@@ -50,9 +52,9 @@ const RiderViewHeader = (props) => {
               name="date-radio-buttons"
               inputProps={{ "aria-label": "All Time" }}
             />
-            <Typography sx={{ fontWeight: "bold" }}>All Time</Typography>
+            <Typography sx={{ fontWeight: "700" }}>All Time</Typography>
           </div>
-          <div className="flex items-center rounded-lg px-4">
+          <div className="flex items-center rounded-lg">
             <Radio
               checked={dateSelector === "other"}
               onChange={handleDateSelection}
@@ -62,7 +64,7 @@ const RiderViewHeader = (props) => {
             />
             <div className="flex flex-col gap-1">
               <Typography sx={{ fontWeight: "700" }}>Change period</Typography>
-              <div className="flex gap-2 bg-blue-100 p-1 rounded-lg">
+              <div className="flex gap-1 bg-blue-100 p-1 rounded-lg">
                 <TextField
                   variant="standard"
                   size="small"
@@ -90,7 +92,7 @@ const RiderViewHeader = (props) => {
           </div>
         </div>
       </div>
-      <div className="w-[50%] flex items-center">
+      <div className="md:w-[50%] lg:w-[58%] xl:w-[50%] flex items-center">
         <OrderViewHeader btnName={props.btnName} action={handleAction} />
       </div>
     </div>

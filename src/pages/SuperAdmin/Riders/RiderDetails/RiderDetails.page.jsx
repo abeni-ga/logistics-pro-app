@@ -28,9 +28,9 @@ const RiderDetails = () => {
             View Rider
           </Typography>
         </div>
-        <div className="flex">
+        <div className="flex gap-1">
           <div
-            className="w-[10%] flex justify-center font-bold"
+            className="w-[22%] lg:w-[18%] xl:w-[12%] bg-white flex justify-center font-bold"
             onClick={() => {
               setDisplay("order-history");
             }}
@@ -38,7 +38,7 @@ const RiderDetails = () => {
             Order History
           </div>
           <div
-            className="w-[10%] flex justify-center font-bold"
+            className="w-[22%] lg:w-[18%] xl:w-[13%] flex justify-center font-bold"
             onClick={() => {
               setDisplay("personal-detail");
             }}
@@ -48,12 +48,12 @@ const RiderDetails = () => {
         </div>
         <div className="flex">
           <div
-            className={`w-[10%] h-1 ${
+            className={`w-[22%] lg:w-[18%] xl:w-[12%] h-1 ${
               display === "order-history" ? "bg-indigo-700" : "bg-gray-300"
             }`}
           ></div>
           <div
-            className={`w-[10%] h-1 ${
+            className={`w-[22%] lg:w-[18%] xl:w-[13%] h-1 ${
               display === "personal-detail" ? "bg-indigo-700" : "bg-gray-300"
             }`}
           ></div>
