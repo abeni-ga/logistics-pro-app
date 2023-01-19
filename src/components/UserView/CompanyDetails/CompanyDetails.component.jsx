@@ -1,6 +1,6 @@
-import CompanyAccountDetail from "../../../components/UserView/CompanyDetails/CompanyAccountDetail.component";
-import CompanyInfoDetail from "../../../components/UserView/CompanyDetails/CompanyInfoDetail.component";
-import CompanyOrdersList from "../../../components/UserView/CompanyDetails/CompanyOrderTable/CompanyOrdersList.component";
+import CompanyAccountDetail from "./CompanyAccountDetail.component";
+import CompanyInfoDetail from "./CompanyInfoDetail.component";
+import CompanyOrdersList from "./CompanyOrderTable/CompanyOrdersList.component";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { IconButton, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";

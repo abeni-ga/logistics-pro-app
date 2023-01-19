@@ -1,12 +1,11 @@
-import UserListAll from "../../../../components/UserView/UserList/UserListAll.component";
+import ListAllUser from "../../../../components/UserView/UserList/UserListAll.component";
 const ListAllDirectCustomer = () => {
   return (
-    <div>
-      <UserListAll
-        route="/admin/direct-customer/detail"
-        title="Retail Outlet"
-      />
-    </div>
+    <ListAllUser
+      route="/admin/direct-customer/detail"
+      title="Direct Customer"
+      btnName="Search"
+    />
   );
 };
 

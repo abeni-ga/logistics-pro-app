@@ -2,12 +2,12 @@ import { Avatar, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Profile from "../../../assets/svg/Profile.svg";
 import { color } from "../../../constants/Theme.js";
-const CompanyInfoDetail = () => {
+const CompanyInfoDetail = (props) => {
   return (
     <div className="flex h-56 gap-4 px-4 w-4/5 items-center rounded-xl drop-shadow-lg bg-white">
       <Avatar
+        variant={!props.user ? "rounded" : undefined}
         src={Profile}
-        variant="rounded"
         sx={{
           height: "80%",
           width: "40%",

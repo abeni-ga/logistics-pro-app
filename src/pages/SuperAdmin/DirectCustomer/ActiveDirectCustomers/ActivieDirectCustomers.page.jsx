@@ -1,5 +1,12 @@
+import ListAllUser from "../../../../components/UserView/UserList/UserListAll.component";
 const ActiveDirectCustomer = () => {
-  return <div>Active Direct Customer</div>;
+  return (
+    <ListAllUser
+      route="/admin/direct-customer/detail"
+      title="Active Direct Customer"
+      btnName="Search"
+    />
+  );
 };
 
 export default ActiveDirectCustomer;
