@@ -39,8 +39,8 @@ const ViewRiderAccountDetail = (props) => {
   };
   return (
     <div className="flex flex-col w-[90%] items-center bg-white h-min rounded-2xl gap-3 pt-12 -mt-10">
-      <div className="flex w-4/5 justify-between">
-        <div className="flex flex-col gap-4">
+      <div className="flex w-[85%] justify-between">
+        <div className="flex flex-col xl:gap-4">
           <div className="flex flex-col">
             <Typography sx={{ color: color.lightGray }}>Reg No</Typography>
             <Typography>#012345678</Typography>
@@ -142,58 +142,33 @@ const ViewRiderAccountDetail = (props) => {
                   {comments[current].userName}
                 </Typography>
                 <Typography sx={{ color: color.lightGray }}>
-                  {comments[current].userType}
+                  {comments[current]}
                 </Typography>
               </div>
             </div>
           </div>
         </div>
       ) : null}
-      <div className="w-4/5 flex justify-between">
+      <div className="w-[85%]   flex flex-row justify-between items-center">
         <Button
           size="small"
+          className="xl:h-auto  bg-bgWhiteSmoke text-darkIndigo hover:bg-bgWhiteSmoke hover:text-darkIndigo   capitalize rounded-md text-xs 2xl:text-sm"
           variant="contained"
-          sx={{
-            ":hover": {
-              backgroundColor: color.bgWhiteSmoke,
-              color: color.darkIndigo,
-            },
-            backgroundColor: color.bgWhiteSmoke,
-            color: color.darkIndigo,
-            textTransform: "capitalize",
-            borderRadius: "10px",
-          }}
         >
           view payment
         </Button>
-        <div className="flex gap-4">
+        <div className="flex gap-1 xl:gap-4 items-center">
           <Button
+            size="small"
+            className=" xl:h-auto bg-bgWhiteSmoke text-darkIndigo hover:bg-bgWhiteSmoke hover:text-darkIndigo   capitalize rounded-md text-xs 2xl:text-sm"
             variant="contained"
-            sx={{
-              ":hover": {
-                backgroundColor: color.bgWhiteSmoke,
-                color: color.darkIndigo,
-              },
-              backgroundColor: color.bgWhiteSmoke,
-              color: color.darkIndigo,
-              textTransform: "capitalize",
-              borderRadius: "10px",
-            }}
           >
             View Riders
           </Button>
           <Button
+            size="small"
+            className=" bg-bgWhiteSmoke text-darkIndigo hover:bg-bgWhiteSmoke hover:text-darkIndigo   capitalize rounded-md text-xs 2xl:text-sm"
             variant="contained"
-            sx={{
-              ":hover": {
-                backgroundColor: color.bgWhiteSmoke,
-                color: color.darkIndigo,
-              },
-              backgroundColor: color.bgWhiteSmoke,
-              color: color.darkIndigo,
-              textTransform: "capitalize",
-              borderRadius: "10px",
-            }}
           >
             View Orders
           </Button>

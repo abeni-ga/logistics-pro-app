@@ -11,20 +11,24 @@ const SideBar = (props) => {
   };
   return (
     <div
-      className={`bg-white sticky top-0 h-screen flex justify-center ${
+      className={`bg-white sticky top-0 h-screen flex justify-center${
         isOpen
-          ? "min-w-[30%] md:min-w-[28%] lg:min-w-[24%] xl:min-w-[20%] 2xl:min-w-[17%]"
+          ? "min-w-[30%] md:min-w-[29%] lg:min-w-[25%] xl:min-w-[20%] 2xl:min-w-[17%]"
           : "min-w-20"
       } `}
     >
       <div
         className={`flex flex-col justify-between ${isOpen ? "w-full" : ""}`}
       >
-        <div className={`flex flex-col gap-4 p-2 ${isOpen ? "w-full" : ""}`}>
+        <div
+          className={`flex flex-col gap-4 items-center p-2 ${
+            isOpen ? "w-full" : ""
+          }`}
+        >
           <div className="flex place-content-center">
             <UserPanel />
           </div>
-          <div className="sidebar flex flex-col">
+          <div className="sidebar flex flex-col w-[95%]">
             {props.menuItems.map((item, index) => {
               return (
                 <Fragment key={index}>
