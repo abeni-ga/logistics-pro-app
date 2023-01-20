@@ -12,7 +12,6 @@ import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { color } from "../../constants/Theme";
 
 const LogInForm = (props) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -69,10 +68,9 @@ const LogInForm = (props) => {
           </a>
         </div>
         <Button
-          sx={{ textTransform: "capitalize" }}
+          className="bg-darkIndigo"
           variant="contained"
           size="large"
-          style={{ backgroundColor: color.indigo }}
           onClick={() => navigate(props.route)}
         >
           Login

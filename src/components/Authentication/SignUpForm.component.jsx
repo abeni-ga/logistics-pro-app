@@ -1,7 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
 import StepOne from "../Forms/CompanyRegistration/Steps/StepOne.component";
-import { color } from "../../constants/Theme.js";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../routes/siteRoutes.routes";
 
@@ -20,19 +19,11 @@ const SignUpForm = () => {
               </a>
             </Typography>
             <Button
+              className="bg-darkIndigo text-white rounded-lg hover:bg-darkIndigo text-white"
               onClick={() => {
                 navigate(routes.company.confirm);
               }}
               size="large"
-              sx={{
-                backgroundColor: color.darkIndigo,
-                color: "white",
-                borderRadius: "10px",
-                ":hover": {
-                  backgroundColor: color.darkIndigo,
-                  color: "white",
-                },
-              }}
             >
               Register
             </Button>

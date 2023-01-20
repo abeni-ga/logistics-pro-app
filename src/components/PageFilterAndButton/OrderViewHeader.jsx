@@ -21,9 +21,9 @@ const FilterAndActionButton = (props) => {
   return (
     <div className="flex flex-col md:flex-row items-center w-full gap-1 2xl:gap-4 ">
       <div className="flex w-full md:w-[35%] gap-1 items-center">
-        <FormControl sx={{ width: "40%" }}>
+        <FormControl className="w-[40%]">
           <Select
-            sx={{ backgroundColor: "white", borderRadius: "10px" }}
+            className="bg-white rounded-lg"
             id="quantity"
             value={action}
             placeholder="show"
@@ -35,15 +35,11 @@ const FilterAndActionButton = (props) => {
             <MenuItem value={"export"}>Export</MenuItem>
           </Select>
         </FormControl>
-        <FormControl
-          sx={{
-            width: "60%",
-          }}
-        >
+        <FormControl className="w-[60%]">
           <Select
             id="size"
             value={size}
-            sx={{ backgroundColor: "white", borderRadius: "10px" }}
+            className="bg-white rounded-lg"
             onChange={(e) => {
               setSize(e.target.value);
             }}
@@ -58,7 +54,7 @@ const FilterAndActionButton = (props) => {
       </div>
       <div className="flex w-full md:w-[64%] items-center gap-1">
         <SearchBox
-          sx={{ backgroundColor: "white", width: "69%", borderRadius: "10px" }}
+          className="bg-white w-[69%] rounded-lg"
           variant="outlined"
           placeholder="search company here"
           InputProps={{
@@ -71,7 +67,7 @@ const FilterAndActionButton = (props) => {
         />
 
         <StandardButton
-          sx={{ width: "30%" }}
+          className="w-[30%]"
           variant="contained"
           onClick={props.action}
         >

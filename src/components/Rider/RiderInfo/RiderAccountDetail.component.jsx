@@ -3,7 +3,6 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import RegistrationDocument from "../RegistrationDocument/RegistrationDocument.component";
 import { useState } from "react";
-import { color } from "../../../constants/Theme";
 
 const RiderAccountDetail = (props) => {
   const [doc, setDoc] = useState(false);
@@ -42,64 +41,48 @@ const RiderAccountDetail = (props) => {
       <div className="flex w-4/5 justify-between">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>Reg No</Typography>
+            <Typography className="text-lightGray">Reg No</Typography>
             <Typography>#012345678</Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
-              Date Registered
-            </Typography>
-            <Typography sx={{ fontWeight: "700" }}>07 Nov.2019 </Typography>
+            <Typography className="text-lightGray">Date Registered</Typography>
+            <Typography className="font-bold">07 Nov.2019 </Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>Reviews</Typography>
-            <Typography sx={{ fontWeight: "700" }}>60</Typography>
+            <Typography className="text-lightGray">Reviews</Typography>
+            <Typography className="font-bold">60</Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
-              Orders Delivered
-            </Typography>
-            <Typography sx={{ fontWeight: "700" }}>250</Typography>
+            <Typography className="text-lightGray">Orders Delivered</Typography>
+            <Typography className="font-bold">250</Typography>
           </div>
         </div>
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3">
             <Typography
+              className="px-3 py-1 bg-lightGray text-darkIndigo rounded-xl font-bold"
               variant="h6"
-              sx={{
-                padding: "6px 12px",
-                color: color.darkIndigo,
-                backgroundColor: color.lightGray,
-                borderRadius: "12px",
-                fontWeight: "bold",
-              }}
             >
               540
             </Typography>
-            <Typography sx={{ fontWeight: "bold" }}>
+            <Typography className="font-bold">
               Total <br />
               Orders Picked
             </Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
-              Total Earnings
-            </Typography>
-            <Typography sx={{ color: color.darkIndigo, fontWeight: "700" }}>
+            <Typography className="text-lightGray">Total Earnings</Typography>
+            <Typography className="text-darkIndigo font-bold">
               N390,000.00{" "}
             </Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
-              Order Delivered
-            </Typography>
-            <Typography sx={{ fontWeight: "700" }}>200 </Typography>
+            <Typography className="text-lightGray">Order Delivered</Typography>
+            <Typography className="font-bold">200 </Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
-              Orders Cancelled
-            </Typography>
-            <Typography sx={{ fontWeight: "700" }}>686 </Typography>
+            <Typography className="text-lightGray">Orders Cancelled</Typography>
+            <Typography className="font-bold">686 </Typography>
           </div>
         </div>
       </div>
@@ -107,38 +90,28 @@ const RiderAccountDetail = (props) => {
         <div className="h-30 w-full flex justify-center">
           <div className="relative h-full flex items-center justify-center w-[80%]">
             <IconButton
-              sx={{
-                position: "absolute",
-                top: "45%",
-                left: "10px",
-                color: color.darkGray,
-              }}
+              className="absolute top-[45%] left-2 text-darkGray"
               onClick={handlePrevComment}
             >
-              <ArrowBackIosIcon sx={{ fontSize: "small" }} />
+              <ArrowBackIosIcon className="text-sm" />
             </IconButton>
             <IconButton
-              sx={{
-                position: "absolute",
-                top: "45%",
-                right: "10px",
-                color: color.darkGray,
-              }}
+              className="absolute top-[45%] left-2 text-darkGray"
               onClick={handleNextComment}
             >
-              <ArrowForwardIosIcon sx={{ fontSize: "small" }} />
+              <ArrowForwardIosIcon className="text-sm" />
             </IconButton>
             <div className="flex flex-col gap-4 w-[70%]">
               <div>
-                <Typography sx={{ color: color.darkGray }}>
+                <Typography className="text-darkGray">
                   {comments[current].comment}
                 </Typography>
               </div>
               <div className="flex flex-col">
-                <Typography sx={{ fontWeight: "700", color: color.darkIndigo }}>
+                <Typography className="text-darkIndigo font-bold">
                   {comments[current].userName}
                 </Typography>
-                <Typography sx={{ color: color.lightGray }}>
+                <Typography className="text-lightGray">
                   {comments[current].userType}
                 </Typography>
               </div>
@@ -148,71 +121,34 @@ const RiderAccountDetail = (props) => {
       ) : null}
       <div className="w-4/5 flex justify-between">
         <Button
+          className="bg-bgWhiteSmoke text-darkIndigo capitalize rounded-lg hover:bg-bgWhiteSmoke hover:text-darkIndigo"
           size="small"
           variant="contained"
-          sx={{
-            ":hover": {
-              backgroundColor: color.bgWhiteSmoke,
-              color: color.darkIndigo,
-            },
-            backgroundColor: color.bgWhiteSmoke,
-            color: color.darkIndigo,
-            textTransform: "capitalize",
-            borderRadius: "10px",
-          }}
         >
           view payment
         </Button>
         <div className="flex gap-4">
           <Button
             variant="contained"
-            sx={{
-              ":hover": {
-                backgroundColor: color.bgWhiteSmoke,
-                color: color.darkIndigo,
-              },
-              backgroundColor: color.bgWhiteSmoke,
-              color: color.darkIndigo,
-              textTransform: "capitalize",
-              borderRadius: "10px",
-            }}
+            className="bg-bgWhiteSmoke text-darkIndigo capitalize rounded-lg hover:bg-bgWhiteSmoke hover:text-darkIndigo"
           >
             View Riders
           </Button>
           <Button
             variant="contained"
-            sx={{
-              ":hover": {
-                backgroundColor: color.bgWhiteSmoke,
-                color: color.darkIndigo,
-              },
-              backgroundColor: color.bgWhiteSmoke,
-              color: color.darkIndigo,
-              textTransform: "capitalize",
-              borderRadius: "10px",
-            }}
+            className="bg-bgWhiteSmoke text-darkIndigo capitalize rounded-lg hover:bg-bgWhiteSmoke hover:text-darkIndigo"
           >
             View Orders
           </Button>
         </div>
       </div>
       <Button
+        className="bg-white text-lightGray w-full capitalize rounded-lg hover:bg-bgWhiteSmoke hover:text-darkIndigo"
         onClick={() => {
           setDoc(!doc);
         }}
         size="large"
         variant="contained"
-        sx={{
-          ":hover": {
-            backgroundColor: color.bgWhiteSmoke,
-            color: color.darkIndigo,
-          },
-          width: "100%",
-          textTransform: "capitalize",
-          backgroundColor: "white",
-          borderRadius: "8px",
-          color: color.lightGray,
-        }}
       >
         Registration Documents
       </Button>

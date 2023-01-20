@@ -1,42 +1,39 @@
 import { Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { color } from "../../constants/Theme.js";
 import CompaniesOrderPoolTableItem from "./CompaniesOrderTableItem.component";
 
 const CompaniesOrderPoolTable = () => {
   return (
-    <div className="flex flex-col gap-2 w-full h-full">
-      <div className="flex w-full h-[5%] items-center justify-between">
-        <Typography
-          sx={{ color: color.lightGray, width: "4%", textAlign: "center" }}
-        >
+    <div className=" flex flex-col gap-2 w-full h-full">
+      <div className=" flex w-full h-[5%] items-center justify-between">
+        <Typography className=" text-xs xl:text-sm text-lightGray w-[4%] text-center ">
           S/N
         </Typography>
-        <Typography sx={{ color: color.lightGray, width: "7%" }}>
+        <Typography className=" text-xs xl:text-sm text-lightGray w-[7%] ">
           Order ID
         </Typography>
-        <Typography sx={{ color: color.lightGray, width: "7%" }}>
+        <Typography className=" text-xs xl:text-sm text-lightGray w-[7%] ">
           Order Title
         </Typography>
-        <Typography sx={{ color: color.lightGray, width: "13%" }}>
+        <Typography className=" text-xs xl:text-sm text-lightGray w-[13%] ">
           Pick Up Customer
         </Typography>
-        <Typography sx={{ color: color.lightGray, width: "15%" }}>
+        <Typography className=" text-xs xl:text-sm text-lightGray w-[15%] ">
           Pick UP Address
         </Typography>
-        <Typography sx={{ color: color.lightGray, width: "13%" }}>
+        <Typography className=" text-xs xl:text-sm text-lightGray w-[13%] ">
           Delivery Contact
         </Typography>
-        <Typography sx={{ color: color.lightGray, width: "15%" }}>
+        <Typography className=" text-xs xl:text-sm text-lightGray w-[15%]">
           Delivery Address
         </Typography>
-        <Typography sx={{ color: color.lightGray, width: "9%" }}>
+        <Typography className=" text-xs xl:text-sm text-lightGray w-[9%] ">
           Item Type
         </Typography>
-        <Typography sx={{ color: color.lightGray, width: "6%" }}>
+        <Typography className=" text-xs xl:text-sm text-lightGray w-[6%] ">
           Charge
         </Typography>
-        <Typography sx={{ color: color.lightGray, width: "4%" }}>
+        <Typography className=" text-xs xl:text-sm text-lightGray w-[4%] ">
           <MoreHorizIcon />
         </Typography>
       </div>

@@ -14,7 +14,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import HistoryTrackerCard from "./HistoryTrackerCard/HistoryTrackerCard.component.jsx";
 import Current from "../../assets/svg/Current.svg";
-import { color } from "../../constants/Theme.js";
 
 const CompaniesOrderHistroyComp = () => {
   const [selectedValue, setSelectedValue] = useState("current");
@@ -46,7 +45,7 @@ const CompaniesOrderHistroyComp = () => {
               name="date-radio-buttons"
               inputProps={{ "aria-label": "Today" }}
             />
-            <Typography sx={{ fontWeight: "bold" }}>Today</Typography>
+            <Typography className="font-bold">Today</Typography>
           </div>
           <div className="flex items-center w-[65%] bg-white border-2 rounded-lg">
             <Radio
@@ -109,16 +108,11 @@ const CompaniesOrderHistroyComp = () => {
           </div>
         </div>
         <div className="h-[10%] bg-white flex items-center rounded-lg">
-          <FormControl
-            sx={{
-              m: 1,
-              width: "40%",
-            }}
-          >
+          <FormControl className="w-[40%]">
             <Select
               id="company"
               value={company}
-              sx={{ backgroundColor: "white", borderRadius: "10px" }}
+              className="bg-white rounded-lg"
               onChange={(e) => {
                 setCompany(e.target.value);
               }}
@@ -129,11 +123,7 @@ const CompaniesOrderHistroyComp = () => {
             </Select>
           </FormControl>
           <SearchBox
-            sx={{
-              backgroundColor: "white",
-              width: "55%",
-              borderRadius: "10px",
-            }}
+            className="bg-white w-[55%] rounded-lg"
             variant="outlined"
             placeholder="search company here"
             InputProps={{
@@ -150,31 +140,16 @@ const CompaniesOrderHistroyComp = () => {
             <div className=" flex h-[40%] border-b-2 px-4 justify-between items-center">
               <div className=" flex flex-col h-full justify-center  ">
                 <div className="flex  w-full items-center gap-4">
-                  <Typography sx={{ color: "white", fontSize: "14px" }}>
-                    #00112233
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: "14px",
-                      backgroundColor: color.brightGreen,
-                      padding: "4px",
-                      borderRadius: "5px",
-                      color: "white",
-                    }}
-                  >
+                  <Typography className="text-white">#00112233</Typography>
+                  <Typography className="bg-brightGreen p-1 rounded-md text-white">
                     In Transit
                   </Typography>
                 </div>
-                <Typography
-                  sx={{ fontWeight: "bold", fontSize: "16px", color: "white" }}
-                >
+                <Typography className="text-white text-base font-bold">
                   DELIVERY OF BOOKS
                 </Typography>
               </div>
-              <Typography
-                variant="h6"
-                sx={{ color: "white", fontWeight: "bold" }}
-              >
+              <Typography variant="h6" className="text-white font-bold">
                 N36,899.00
               </Typography>
             </div>
@@ -192,7 +167,7 @@ const CompaniesOrderHistroyComp = () => {
         <div className="flex flex-col h-full w-full items-center">
           <div className="border-b-2 h-[15%] flex flex-col bg-white justify-center px-10 gap-4 w-full">
             <div className="flex gap-8">
-              <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+              <Typography className="text-lightGray font-bold">
                 Order Tracking
               </Typography>
               <Typography>#00112233</Typography>
@@ -200,11 +175,8 @@ const CompaniesOrderHistroyComp = () => {
             <div className="flex gap-2">
               <Avatar variant="rounded" />
               <div>
-                <Typography sx={{ fontWeight: "bold" }}>
-                  {" "}
-                  FZ Deliveries
-                </Typography>
-                <Typography sx={{ color: color.lightGray }}>
+                <Typography className="font-bold"> FZ Deliveries</Typography>
+                <Typography className="text-lightGray">
                   46, Alade Road, Allen Avenue Lagos
                 </Typography>
               </div>
@@ -231,12 +203,7 @@ const CompaniesOrderHistroyComp = () => {
               </div>
               <Button
                 variant="contained"
-                sx={{
-                  width: "fit-content",
-                  marginLeft: "24px",
-                  textTransform: "capitalize",
-                  backgroundColor: color.lightGray,
-                }}
+                className="w-min ml-6 capitalize bg-lightGray"
               >
                 View Rider
               </Button>
@@ -244,46 +211,38 @@ const CompaniesOrderHistroyComp = () => {
             <div className="flex w-[45%] bg-slate-300">2</div>
           </div>
           <div className=" flex flex-col gap-2 px-10 justify-center border-b-2 h-[15%] bg-white w-full">
-            <Typography sx={{ fontWeight: "bold", fontSize: "14px" }}>
-              RIde Information
-            </Typography>
+            <Typography className="font-bold">RIde Information</Typography>
             <div className="flex">
               <Avatar />
               <div>
-                <Typography sx={{ fontSize: "14px" }}>BAJAJ (White)</Typography>
-                <Typography sx={{ fontSize: "14px" }}>4323AB LAGOS</Typography>
+                <Typography>BAJAJ (White)</Typography>
+                <Typography>4323AB LAGOS</Typography>
               </div>
             </div>
           </div>
         </div>
         <div className="w-[90%] bg-white flex justify-between p-4 mb-4">
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
-              Current Location
-            </Typography>
-            <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+            <Typography className="text-lightGray">Current Location</Typography>
+            <Typography className="text-lightGray font-bold">
               Palm Groove
             </Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
-              Last Location
-            </Typography>
-            <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+            <Typography className="text-lightGray">Last Location</Typography>
+            <Typography className="text-lightGray font-bold">
               15 Mins ago
             </Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>Speed</Typography>
-            <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+            <Typography className="text-lightGray">Speed</Typography>
+            <Typography className="text-lightGray font-bold">
               63 Km/hr
             </Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>Distance</Typography>
-            <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
-              103 Km
-            </Typography>
+            <Typography className="text-lightGray">Distance</Typography>
+            <Typography className="text-lightGray font-bold">103 Km</Typography>
           </div>
         </div>
       </div>

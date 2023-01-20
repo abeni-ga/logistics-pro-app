@@ -1,7 +1,6 @@
 import { Avatar, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { color } from "../../constants/Theme.js";
 const CompaniesOrderPoolTableItem = () => {
   const navigate = useNavigate();
   return (
@@ -11,67 +10,77 @@ const CompaniesOrderPoolTableItem = () => {
         navigate("/admin/orders/order-summary");
       }}
     >
-      <Typography
-        sx={{ color: color.lightGray, width: "4%", textAlign: "center" }}
-      >
+      <Typography className=" text-xs xl:text-sm text-lightGray w-[3%] text-center ">
         01
       </Typography>
       <div className="flex flex-col w-[7%] items-start">
-        <Typography sx={{ color: color.darkIndigo, fontWeight: "bold" }}>
+        <Typography className=" text-xs xl:text-sm text-darkIndigo font-bold ">
           #00112244
         </Typography>
-        <Typography sx={{ color: color.darkIndigo }}>
+        <Typography className=" text-xs xl:text-sm text-darkIndigo ">
           TC Riders pushed this
         </Typography>
       </div>
-      <Typography sx={{ color: color.lightGray, width: "7%" }}>
+      <Typography className=" text-xs xl:text-sm text-lightGray w-[7%] ">
         Book Delivery
       </Typography>
-      <div className="flex gap-2 w-[13%]">
-        <Avatar />
+      <div className="flex gap-2 w-[14%]">
+        <Avatar size="small" />
         <div className="flex flex-col">
-          <Typography>Olaniyi Ojo David</Typography>
-          <Typography sx={{ color: color.lightGray }}>091612891010</Typography>
+          <Typography className="text-xs xl:text-sm">
+            Olaniyi Ojo David
+          </Typography>
+          <Typography className=" text-xs xl:text-sm text-lightGray ">
+            091612891010
+          </Typography>
         </div>
       </div>
       <div className="w-[15%]">
-        <Typography sx={{ color: color.lightGray }}>
+        <Typography className=" text-xs xl:text-sm text-lightGray ">
           10/10/2021 01:37PM
         </Typography>
-        <Typography>14, Kumolu Street. Ikeja, Lagos</Typography>
+        <Typography className="text-xs xl:text-sm">
+          14 Kumolu Street. Ikeja Lagos
+        </Typography>
       </div>
-      <div className="flex gap-2 w-[13%]  ">
+      <div className="flex gap-2 w-[14%]  ">
         <Avatar />
         <div className="flex flex-col">
-          <Typography>Olaniyi Ojo David</Typography>
-          <Typography sx={{ color: color.lightGray }}>091612891010</Typography>
+          <Typography className="text-xs xl:text-sm">
+            Olaniyi Ojo David
+          </Typography>
+          <Typography className=" text-xs xl:text-sm text-lightGray ">
+            091612891010
+          </Typography>
         </div>
       </div>
       <div className="w-[15%]">
-        <Typography sx={{ color: color.lightGray }}>
+        <Typography className=" text-xs xl:text-sm text-lightGray ">
           10/10/2021 01:37PM
         </Typography>
-        <Typography>14, Kumolu Street. Ikeja, Lagos</Typography>
+        <Typography className="text-xs xl:text-sm">
+          14 Kumolu Street. Ikeja Lagos
+        </Typography>
       </div>
-      <Typography sx={{ color: color.lightGray, width: "9%" }}>
+      <Typography className=" text-xs xl:text-sm text-lightGray w-[9%] ">
         Books (2 Dozens)
       </Typography>
       <div className="flex flex-col gap-2 w-[6%]">
         <Typography
-          sx={{
-            width: "fit-content",
-            padding: "2px",
-            borderRadius: "4px",
-            backgroundColor: color.lightGray,
-            fontWeight: "bold",
-            color: color.darkIndigo,
-          }}
+          className="
+            w-min
+            p-1
+            rounded-sm
+            bg-bgWhiteSmoke
+            font-bold
+            text-darkIndigo
+          "
         >
-          N5,900
+          N5900
         </Typography>
-        <Typography sx={{ fontWeight: "bold" }}>Cash</Typography>
+        <Typography className=" text-xs xl:text-sm font-bold ">Cash</Typography>
       </div>
-      <Typography sx={{ width: "4%" }}>
+      <Typography className=" text-xs xl:text-sm w-[3%] ">
         <MoreHorizIcon />
       </Typography>
     </div>

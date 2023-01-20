@@ -1,4 +1,3 @@
-import { color } from "../../constants/Theme.js";
 import { Button, IconButton, Popover, Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
@@ -27,49 +26,25 @@ const SubscriptionPlanItem = () => {
     <div className="flex flex-col w-full">
       <div className="flex w-full min-h-[10%] bg-white rounded-lg items-center">
         <div className="w-[4%] flex justify-center">
-          <CheckIcon
-            sx={{
-              backgroundColor: color.bolow,
-              fontSize: "small",
-              paddingX: "2px",
-              color: "white",
-              borderRadius: "4px",
-            }}
-          />
+          <CheckIcon className="bg-bolow text-sm px-0.5 text-white rounded-sm" />
         </div>
         <div className="flex items-center gap-2 w-[30%]">
           <img src={CollectionCenter} alt="" />
-          <Typography sx={{ fontWeight: "700", color: color.darkGray }}>
+          <Typography className="font-bold text-darkGray">
             Plane name
           </Typography>
         </div>
-        <Typography
-          sx={{ width: "10%", fontWeight: "700", color: color.darkGray }}
-        >
+        <Typography className="w-[10%] font-bold text-darkGray">
           ₦390,000
         </Typography>
         <div className="flex w-[10%]">
-          <Typography
-            sx={{
-              fontWeight: "700",
-              paddingX: "6px",
-              color: color.darkIndigo,
-              backgroundColor: color.bgWhiteSmoke,
-              textAlign: "center",
-              borderRadius: "4px",
-            }}
-          >
+          <Typography className="font-bold px-1 text-darkIndigo bg-bgWhiteSmoke text-center rounded-sm">
             Active
           </Typography>
         </div>
         <IconButton
+          className="w-[5%] hover:bg-white"
           aria-describedby={id}
-          sx={{
-            width: "5%",
-            ":hover": {
-              backgroundColor: "white",
-            },
-          }}
           onClick={handleClick}
         >
           <MoreHorizIcon />
@@ -85,14 +60,11 @@ const SubscriptionPlanItem = () => {
           }}
         >
           <div className="flex flex-col">
-            <Button
-              onClick={handleDelete}
-              sx={{ width: "150px", color: color.darkGray }}
-            >
+            <Button onClick={handleDelete} className="w-[150px] text-darkGray">
               Delete
             </Button>
             <div className="w-full h-0.5 bg-slate-200"></div>
-            <Button sx={{ width: "150px", color: color.darkGray }}>Edit</Button>
+            <Button className="w-[150px] text-darkGray">Edit</Button>
           </div>
         </Popover>
       </div>

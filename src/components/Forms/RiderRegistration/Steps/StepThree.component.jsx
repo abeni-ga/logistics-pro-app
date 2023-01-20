@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import { IconButton, Typography, Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Vector from "../../../../assets/svg/Vector.svg";
-import { color } from "../../../../constants/Theme.js";
 
 const StepThree = ({ handlePrev }) => {
   const [files, setFiles] = useState(null);
@@ -42,16 +41,10 @@ const StepThree = ({ handlePrev }) => {
           className="flex flex-col justify-center items-center rounded-2xl border-2 border-gray-200 p-2 w-[50%]"
         >
           <img className="w-[10%]" src={Vector} alt="" />
-          <Typography
-            sx={{
-              color: color.lightGray,
-              fontWeight: "bold",
-              textAlign: "center",
-            }}
-          >
+          <Typography clasName="text-lightGray font-bold text-center">
             Drag and drop your NIN Registration Slip Here
           </Typography>
-          <Typography sx={{ color: color.lightGray }}>or</Typography>
+          <Typography className="text-lightGray">or</Typography>
           <input
             type="file"
             multiple
@@ -62,16 +55,12 @@ const StepThree = ({ handlePrev }) => {
             ref={inputRef}
           />
           <Button
+            className="bg-lightGray rounded-lg font-bold"
             onClick={() => {
               inputRef.current.click();
             }}
             variant="contained"
             size="large"
-            sx={{
-              backgroundColor: color.lightGray,
-              borderRadius: "10px",
-              fontWeight: "bold",
-            }}
           >
             Select Files
           </Button>
@@ -82,16 +71,10 @@ const StepThree = ({ handlePrev }) => {
           className="flex flex-col justify-center items-center rounded-2xl border-2  p-2 w-[50%]"
         >
           <img className="w-[10%]" src={Vector} alt="" />
-          <Typography
-            sx={{
-              color: color.lightGray,
-              fontWeight: "bold",
-              textAlign: "center",
-            }}
-          >
+          <Typography clasName="text-lightGray font-bold text-center">
             Drag and drop your NIN Registration Slip Here
           </Typography>
-          <Typography sx={{ color: color.lightGray }}>or</Typography>
+          <Typography className="text-lightGray">or</Typography>
           <input
             type="file"
             multiple
@@ -105,7 +88,7 @@ const StepThree = ({ handlePrev }) => {
             onClick={() => {
               inputRef.current.click();
             }}
-            sx={{ backgroundColor: color.darkIndigo }}
+            className="bg-darkIndigo"
             variant="contained"
             size="large"
           >

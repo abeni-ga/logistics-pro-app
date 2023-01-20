@@ -1,6 +1,5 @@
 import { Avatar, Button, Typography } from "@mui/material";
 import { useState } from "react";
-import { color } from "../../../constants/Theme";
 import RegistrationDocument from "./RegistrationDocument/RegistrationDocument.component";
 
 const CompanyAccountDetail = (props) => {
@@ -9,7 +8,7 @@ const CompanyAccountDetail = (props) => {
     <div className="flex flex-col w-11/12 items-center bg-white rounded-2xl -mt-10 pt-14">
       <div className="flex flex-col w-4/5 mb-3">
         <div className="bg-gray-50 p-4 rounded-lg">
-          <Typography sx={{ color: color.lightGray }}>
+          <Typography className="text-lightGray">
             FZ Deliveries is a company focused on pickup and deliveries of goods
             of customers within Lagos, Ibadan, Kano, Abuja and Port Harcourt
           </Typography>
@@ -18,108 +17,72 @@ const CompanyAccountDetail = (props) => {
       <div className="flex w-4/5 justify-between mb-3">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>Reg No</Typography>
-            <Typography sx={{ fontSize: "16px" }}>#012345678</Typography>
+            <Typography className="text-lightGray">Reg No</Typography>
+            <Typography className="text-base">#012345678</Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
-              Date Registered
-            </Typography>
-            <Typography sx={{ fontSize: "16px" }}>07 Nov.2019 </Typography>
+            <Typography className="text-lightGray">Date Registered</Typography>
+            <Typography className="text-base">07 Nov.2019 </Typography>
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
-              Subscription
-            </Typography>
-            <Typography sx={{ fontSize: "16px" }}>Annual Package</Typography>
+            <Typography className="text-lightGray">Subscription</Typography>
+            <Typography className="text-base">Annual Package</Typography>
           </div>
         </div>
         <div className="flex flex-col justify-between">
           <div className="flex items-center gap-4">
             <Typography
+              className="px-[6px] py-[12px] text-2xl text-white bg-darkIndigo rounded-xl font-bold"
               variant="h2"
-              sx={{
-                padding: "6px 12px",
-                fontSize: "28px",
-                color: "white",
-                backgroundColor: color.darkIndigo,
-                borderRadius: "12px",
-                fontWeight: "bold",
-              }}
             >
               540
             </Typography>
             {props.retail ? (
-              <Typography sx={{ fontWeight: "700", fontSize: "20px" }}>
+              <Typography className="text-xl font-bold">
                 Orders Requests
               </Typography>
             ) : (
-              <Typography sx={{ fontWeight: "700", fontSize: "20px" }}>
+              <Typography className="text-xl font-bold">
                 Pool <br />
                 Orders Picked
               </Typography>
             )}
           </div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>
+            <Typography className="text-lightGray">
               Reference Contact
             </Typography>
             <div className="flex gap-4 mb-2">
               <Avatar />
               <div>
-                <Typography sx={{ fontWeight: "700" }}>09162289232</Typography>
-                <Typography sx={{ color: color.lightGray }}>
+                <Typography className="font-bold">09162289232</Typography>
+                <Typography className="text-lightGray">
                   Ibrahim Williams
                 </Typography>
               </div>
-              <Typography sx={{ color: color.lightGray, alignSelf: "end" }}>
-                CEO
-              </Typography>
+              <Typography className="text-lightGray self-end">CEO</Typography>
             </div>
           </div>
         </div>
       </div>
       <div className="w-4/5 flex justify-between mb-3">
         <Button
+          className="bg-lightBlue text-darkIndigo capitalize font-bold hover:bg-lightBlue"
           size="small"
           variant="contained"
-          sx={{
-            backgroundColor: color.lightBlue,
-            color: color.darkIndigo,
-            textTransform: "capitalize",
-            fontWeight: "bold",
-            ":hover": {
-              backgroundColor: color.lightBlue,
-            },
-          }}
         >
           view payment
         </Button>
         <div className="flex gap-4">
           <Button
+            className="capitalize text-darkIndigo border-darkIndigo rounded-lg"
             variant="outlined"
-            sx={{
-              textTransform: "capitalize",
-              color: color.darkIndigo,
-              borderColor: color.darkIndigo,
-              borderRadius: "10px",
-            }}
           >
             View Riders
           </Button>
           <Button
+            className="capitalize bg-white round border-darkIndigo text-darkIndigo focus:bg-darkIndigo focus:text-white"
             variant="outlined"
-            sx={{
-              textTransform: "capitalize",
-              backgroundColor: "white",
-              borderRadius: "10px",
-              borderColor: color.darkIndigo,
-              color: color.darkIndigo,
-              ":focus": {
-                backgroundColor: color.darkIndigo,
-                color: "white",
-              },
-            }}
           >
             View Orders
           </Button>
@@ -129,19 +92,9 @@ const CompanyAccountDetail = (props) => {
         onClick={() => {
           setDoc(!doc);
         }}
+        className="w-full bg-white rounded-lg text-lightGray hover:text-lightGray hover:bg-white"
         size="large"
         variant="contained"
-        sx={{
-          width: "100%",
-          textTransform: "capitalize",
-          backgroundColor: "white",
-          borderRadius: "8px",
-          color: color.lightGray,
-          ":hover": {
-            color: color.lightGray,
-            backgroundColor: "white",
-          },
-        }}
       >
         Registration Documents
       </Button>

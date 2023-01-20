@@ -29,6 +29,23 @@ const InternalOrderSummary = Loadable(
     )
   )
 );
+const ExchangePoolOrderList = Loadable(
+  lazy(() =>
+    import("../pages/SuperAdmin/Orders/ExchangePool/ExchangePoolOrderList.jsx")
+  )
+);
+const ExchangePoolOrderSummary = Loadable(
+  lazy(() =>
+    import(
+      "../pages/SuperAdmin/Orders/ExchangePool/ExchangeOrderPoolSummary.page"
+    )
+  )
+);
+const EchangePoolOrderHistory = Loadable(
+  lazy(() =>
+    import("../pages/SuperAdmin/Orders/ExchangePool/ExchangeOrderHistory.page")
+  )
+);
 const OrderHistory = Loadable(
   lazy(() => import("../pages/CompanyAdmin/OrderHistory/OrderHistory.page"))
 );

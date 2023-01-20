@@ -167,19 +167,19 @@ const DirectCustomerOrderPool = Loadable(
     )
   )
 );
-const RetailCompanyOrderPool = Loadable(
+const ExchangePoolOrderList = Loadable(
   lazy(() =>
     import("../pages/SuperAdmin/Orders/ExchangePool/ExchangePoolOrderList.jsx")
   )
 );
-const DirectCustomerOrderPoolSummary = Loadable(
+const ExchangePoolOrderSummary = Loadable(
   lazy(() =>
     import(
       "../pages/SuperAdmin/Orders/ExchangePool/ExchangeOrderPoolSummary.page"
     )
   )
 );
-const DirectCustomerOrderHistory = Loadable(
+const EchangePoolOrderHistory = Loadable(
   lazy(() =>
     import("../pages/SuperAdmin/Orders/ExchangePool/ExchangeOrderHistory.page")
   )
@@ -318,20 +318,20 @@ const AdminRoutes = {
       element: <Orders />,
       children: [
         { path: "order-now", element: <OrderNow /> },
-        { path: "in-orders", element: <RetailCompanyOrderPool /> },
+        { path: "in-orders", element: <ExchangePoolOrderList /> },
         {
           path: "exch-pool",
-          element: <RetailCompanyOrderPool />,
+          element: <ExchangePoolOrderList />,
         },
         { path: "direct-customer", element: <DirectCustomerOrderPool /> },
-        { path: "retail-company", element: <RetailCompanyOrderPool /> },
+        { path: "retail-company", element: <ExchangePoolOrderList /> },
         {
           path: "order-summary",
-          element: <DirectCustomerOrderPoolSummary />,
+          element: <ExchangePoolOrderSummary />,
         },
         {
           path: "order-history",
-          element: <DirectCustomerOrderHistory />,
+          element: <EchangePoolOrderHistory />,
         },
       ],
     },

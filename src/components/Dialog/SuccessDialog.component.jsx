@@ -16,11 +16,9 @@ const SuccessDialog = (props) => {
     >
       <DialogContent>
         <div className="flex flex-col items-center gap-5 justify-center">
-          <Typography sx={{ fontWeight: "700", fontSize: "20px" }}>
-            Success!
-          </Typography>
+          <Typography className="text-xl font-bold">Success!</Typography>
           <img src={FormComplete} alt="" />
-          <Typography sx={{ fontWeight: "700", fontSize: "20px" }}>
+          <Typography className="text-xl font-bold">
             Order Was Successful
           </Typography>
         </div>

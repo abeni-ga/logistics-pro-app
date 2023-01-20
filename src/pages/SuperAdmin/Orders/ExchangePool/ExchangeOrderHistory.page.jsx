@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import CompaniesOrderHistroyComp from "../../../../components/OrderPool/CompaniesOrderHistoryComp.component";
 
-const DirectCustomerOrderHistory = () => {
+const ExchangePoolOrderHistory = () => {
   return (
     <div className="flex flex-col w-full h-full">
       <div className="h-[15%] pl-12">
@@ -12,4 +12,4 @@ const DirectCustomerOrderHistory = () => {
   );
 };
 
-export default DirectCustomerOrderHistory;
+export default ExchangePoolOrderHistory;

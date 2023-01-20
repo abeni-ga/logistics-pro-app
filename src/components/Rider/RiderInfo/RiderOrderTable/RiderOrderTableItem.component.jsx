@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import CheckIcon from "@mui/icons-material/Check";
 import { routes } from "../../../../routes/siteRoutes.routes";
-import { color } from "../../../../constants/Theme.js";
+
 const RiderOrderTableItem = () => {
   const navigate = useNavigate();
   return (
@@ -14,18 +14,13 @@ const RiderOrderTableItem = () => {
         }}
       >
         <div className=" w-[5%] flex justify-center">
-          <Typography
-            sx={{ color: "white" }}
-            className="w-fit h-fit bg-[#4339F2] rounded ml-4 px-1"
-          >
-            <CheckIcon sx={{ fontSize: "small" }} />
+          <Typography className="text-white w-fit h-fit bg-[#4339F2] rounded ml-4 px-1">
+            <CheckIcon className="text-sm" />
           </Typography>
         </div>
-        <Typography sx={{ width: "15%", color: color.lightGray }}>
-          #003232
-        </Typography>
+        <Typography className="w-[15%] text-lightGray">#003232</Typography>
         <div className="flex flex-col w-[30%]">
-          <Typography sx={{ color: color.lightGray }}>
+          <Typography className="text-lightGray">
             10 Mar. 2021 01:37PM
           </Typography>
           <Typography sx={{ fontWeight: "700" }}>
@@ -33,7 +28,7 @@ const RiderOrderTableItem = () => {
           </Typography>
         </div>
         <div className="flex flex-col w-[30%]">
-          <Typography sx={{ color: color.lightGray }}>
+          <Typography className="text-lightGray">
             10 Mar. 2021 01:37PM
           </Typography>
           <Typography sx={{ fontWeight: "700" }}>
@@ -41,21 +36,9 @@ const RiderOrderTableItem = () => {
           </Typography>
         </div>
 
-        <Typography sx={{ width: "10%", color: color.lightGray }}>
-          No
-        </Typography>
+        <Typography className="w-[10%] text-lightGray">No</Typography>
         <div className="w-[10%]">
-          <Typography
-            sx={{
-              padding: "4px",
-              borderRadius: "8px",
-              width: "fit-content",
-              backgroundColor: color.darkIndigo,
-              alignItems: "center",
-              color: "white",
-              fontWeight: "700",
-            }}
-          >
+          <Typography className="p-1 rounded-lg w-min bg-darkIndigo items-center text-white font-bold">
             N5,900
           </Typography>
         </div>

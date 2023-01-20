@@ -18,7 +18,7 @@ const CompanyDetail = (props) => {
         >
           <ArrowBackIcon />
         </IconButton>
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h6" className="font-bold">
           {props.title}
         </Typography>
       </div>

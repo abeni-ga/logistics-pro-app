@@ -1,7 +1,6 @@
 import { InputLabel, MenuItem, Typography } from "@mui/material";
 import { useState } from "react";
 import TextFieldWrapper from "../../TextFieldWrapper/TextFieldWrapper";
-import { color } from "../../../constants/Theme.js";
 
 const FormOne = () => {
   const [orderType, setOrderType] = useState("");
@@ -11,21 +10,12 @@ const FormOne = () => {
     <div className="flex items-center justify-center h-full w-full">
       <div className="flex flex-col h-full w-[90%] gap-4 bg-white rounded-2xl">
         <div className="border-b-2 w-full h-20 flex items-center justify-center">
-          <Typography
-            variant="h6"
-            sx={{
-              width: "90%",
-              fontWeight: "700",
-              color: color.darGray,
-            }}
-          >
+          <Typography variant="h6" className="w-[90%] font-bold text-darkGray">
             New Order
           </Typography>
         </div>
         <div className="flex flex-col gap-4 w-full items-center">
-          <Typography sx={{ fontWeight: "bold", width: "90%" }}>
-            Pick Up
-          </Typography>
+          <Typography className="w-[90%] font-bold">Pick Up</Typography>
           <div className="flex gap-4 w-[90%]">
             <div className="w-full flex flex-col gap-2">
               <InputLabel htmlFor="order-type">Order Type</InputLabel>

@@ -13,7 +13,6 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../routes/siteRoutes.routes";
-import { color } from "../../constants/Theme";
 
 const CreatePassword = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,10 +20,7 @@ const CreatePassword = () => {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col w-[30%]  rounded-xl	bg-white p-16 gap-10">
-      <Typography
-        variant="h1"
-        sx={{ fontWeight: "700", fontSize: "24px", color: color.darkGray }}
-      >
+      <Typography variant="h1" className="text-2xl text-darkGray font-bold">
         Create New Password
       </Typography>
       <Typography>Use an easy to remember but secure password</Typography>
@@ -51,13 +47,7 @@ const CreatePassword = () => {
         />
       </FormControl>
       <Button
-        sx={{
-          width: "fit-content",
-          textTransform: "capitalize",
-          fontWeight: "700",
-          backgroundColor: color.darkIndigo,
-          borderRadius: "10px",
-        }}
+        className="w-min font-bold bg-darkIndigo rounded-lg"
         variant="contained"
         size="large"
         onClick={() => navigate(routes.company.vertify)}

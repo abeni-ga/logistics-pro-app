@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import { Avatar, IconButton, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Profile from "../../../assets/svg/Profile.svg";
-import { color } from "../../../constants/Theme.js";
 const UserListItem = (prop) => {
   return (
     <NavLink to={prop.route}>
@@ -16,47 +15,29 @@ const UserListItem = (prop) => {
           />
         </div>
         <div className="w-[20%]">
-          <Typography
-            className="text-xs xl:text-sm"
-            sx={{ fontWeight: "bold" }}
-          >
+          <Typography className="text-xs xl:text-sm font-bold">
             FZ Deliveries
           </Typography>
-          <Typography
-            className="text-xs xl:text-sm"
-            sx={{ color: color.lightGray }}
-          >
+          <Typography className="text-xs xl:text-sm text-lightGray">
             46, Alade Road, Allen Avenue Lagos
           </Typography>
         </div>
-        <Typography className="text-xs xl:text-sm" sx={{ width: "10%" }}>
+        <Typography className="text-xs xl:text-sm w-[10%]">
           #001234567
         </Typography>
         <div className="flex flex-col pl-1 w-[15%]">
-          <Typography
-            className="text-xs xl:text-sm"
-            sx={{ fontWeight: "bold" }}
-          >
+          <Typography className="text-xs xl:text-sm font-bold">
             09162289232
           </Typography>
-          <Typography
-            className="text-xs xl:text-sm"
-            sx={{ color: color.lightGray }}
-          >
+          <Typography className="text-xs xl:text-sm text-lightGray">
             Ibrahim Williams
           </Typography>
         </div>
         <div className="w-[15%]">
-          <Typography
-            className="text-xs xl:text-sm"
-            sx={{ fontWeight: "bold" }}
-          >
+          <Typography className="text-xs xl:text-sm font-bold">
             Annual
           </Typography>
-          <Typography
-            className="text-xs xl:text-sm"
-            sx={{ color: color.lightGray }}
-          >
+          <Typography className="text-xs xl:text-sm text-lightGray">
             21 Oct 2021 - 22 Oct 2022
           </Typography>
         </div>
@@ -66,16 +47,8 @@ const UserListItem = (prop) => {
           N390,000.00
         </Typography>
         <div className="w-[6%] xl:w-[8%]">
-          <Typography
-            className="text-xs xl:text-sm"
-            sx={{ fontWeight: "bold" }}
-          >
-            200
-          </Typography>
-          <Typography
-            className="text-xs xl:text-sm"
-            sx={{ color: color.lightGray }}
-          >
+          <Typography className="text-xs xl:text-sm font-bold">200</Typography>
+          <Typography className="text-xs xl:text-sm text-lightGray">
             Active
           </Typography>
         </div>

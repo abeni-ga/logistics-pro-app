@@ -71,28 +71,16 @@ const RiderDetail = () => {
             <div className="flex items-center w-[98%] flex-col gap-2">
               <FilterAndActionButton btnName="Search" />
               <div className="flex justify-between items-center w-full">
-                <Typography
-                  sx={{
-                    fontWeight: "700",
-                    fontSize: "20px",
-                    alignSelf: "flex-end",
-                  }}
-                >
+                <Typography className="font-bold text-lg self-end">
                   Order Histor
                 </Typography>
                 <div className="flex bg-[#4339F2] items-center rounded-2xl px-4 py-2 gap-2">
                   <img src={Pulse} alt="" />
                   <div>
-                    <Typography
-                      sx={{
-                        color: "white",
-                        fontWeight: "700",
-                        fontSize: "12px",
-                      }}
-                    >
+                    <Typography className="text-white font-bold text-xs">
                       Total
                     </Typography>
-                    <Typography sx={{ color: "white" }}>N234,500:00</Typography>
+                    <Typography className="text-white">N234,500:00</Typography>
                   </div>
                 </div>
               </div>

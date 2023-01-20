@@ -4,23 +4,14 @@ const EarningCompanyTableItem = () => {
   return (
     <div className="flex w-full border-b-2 py-4">
       <div className="flex flex-col items-start w-[25%] ">
-        <Typography sx={{ fontWeight: "700", color: color.darkGray }}>
-          Mon
-        </Typography>
-        <Typography sx={{ color: color.lightGray }}>02/03/21 10:25</Typography>
+        <Typography className="text-darkGray font-bold">Mon</Typography>
+        <Typography className="text-lightGray">02/03/21 10:25</Typography>
       </div>
       <div className="w-[20%]">
-        <Typography sx={{ color: color.darkGray }}>4 Orders</Typography>
+        <Typography className="text-darkGray">4 Orders</Typography>
       </div>
       <div className="flex flex-col w-[20%] items-start">
-        <Typography
-          sx={{
-            color: color.darkIndigo,
-            backgroundColor: color.lightBlue,
-            borderRadius: "6px",
-            paddingX: "10px",
-          }}
-        >
+        <Typography className="text-darkIndigo bg-lightBlue rounded-md px-2">
           N16,400
         </Typography>
       </div>
@@ -30,11 +21,7 @@ const EarningCompanyTableItem = () => {
       </div>
       <div className="flex items-center justify-end w-[15%]">
         <Button
-          sx={{
-            color: color.lightGray,
-            borderColor: color.lightGray,
-            borderRadius: "8px",
-          }}
+          className="text-lightGray border-lightGray rounded-lg"
           variant="outlined"
         >
           View

@@ -1,4 +1,3 @@
-import { color } from "../../constants/Theme.js";
 import OrderViewHeader from "../PageFilterAndButton/OrderViewHeader.jsx";
 import { IconButton } from "@mui/material";
 
@@ -10,26 +9,12 @@ const ListViewHeader = (props) => {
     <div>
       <div className="flex items-center w-full">
         <div className="flex items-center gap-4 w-[35%] ">
-          <IconButton
-            sx={{
-              backgroundColor: "white",
-              borderRadius: "12px",
-              padding: "11px",
-            }}
-          >
+          <IconButton className="bg-white rounded-xl p-3">
             <img src={Menu} alt="" />
           </IconButton>
           <IconButton
+            className="bg-darkIndigo rounded-xl p-2 text-white hover:bg-darkIndigo"
             variant="contained"
-            sx={{
-              backgroundColor: color.darkIndigo,
-              borderRadius: "12px",
-              padding: "10px",
-              color: "white",
-              ":hover": {
-                backgroundColor: color.darkIndigo,
-              },
-            }}
           >
             <img src={List} alt="" />
           </IconButton>
@@ -41,11 +26,3 @@ const ListViewHeader = (props) => {
 };
 
 export default ListViewHeader;
-
-// <Button
-//   variant="contained"
-//   size="large"
-//   sx={{ backgroundColor: color.darkIndigo }}
-// >
-//   Add New Company
-// </Button>

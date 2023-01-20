@@ -1,5 +1,4 @@
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { color } from "../../constants/Theme.js";
 import { Button, IconButton, Popover, Typography } from "@mui/material";
 import CollectionCenter from "../../assets/svg/CollectionCenter.svg";
 import { useState } from "react";
@@ -40,34 +39,21 @@ const DeliveryPlan = () => {
         <img src={CollectionCenter} alt="" />
       </div>
       <div className="flex flex-col w-[60%]">
-        <Typography sx={{ fontWeight: "700", color: color.darkGray }}>
+        <Typography clasName="text-darkGray font-bold">
           Express Delivery Service
         </Typography>
-        <Typography sx={{ fontSize: "8px", color: color.darkGray }}>
+        <Typography className="text-[8px] text-darkGray">
           Delivery within 3 hours
         </Typography>
       </div>
       <div className="w-[30%] flex justify-start">
-        <Typography
-          sx={{
-            fontWeight: "700",
-            color: color.darkIndigo,
-            backgroundColor: color.lightBlue,
-            paddingX: "15px",
-            borderRadius: "4px",
-          }}
-        >
+        <Typography className="font-bold text-darkIndigo bg-lightBlue px-4 rounded-md">
           Active
         </Typography>
       </div>
       <IconButton
+        className="w-[5%] hover:bg-white"
         aria-describedby={id}
-        sx={{
-          width: "5%",
-          ":hover": {
-            backgroundColor: "white",
-          },
-        }}
         onClick={handleClick}
       >
         <MoreHorizIcon />
@@ -83,24 +69,18 @@ const DeliveryPlan = () => {
         }}
       >
         <div className="flex flex-col">
-          <Button
-            onClick={handleEdit}
-            sx={{ width: "150px", color: color.darkGray }}
-          >
+          <Button onClick={handleEdit} className="w-[150px] text-darkGray">
             Edit Details
           </Button>
           <div className="w-full h-0.5 bg-slate-200"></div>
           <Button
             onClick={handleDeactivate}
-            sx={{ width: "150px", color: color.darkGray }}
+            className="w-[150px] text-darkGray"
           >
             Deactivate
           </Button>
           <div className="w-full h-0.5 bg-slate-200"></div>
-          <Button
-            onClick={handleDelete}
-            sx={{ width: "150px", color: color.darkGray }}
-          >
+          <Button onClick={handleDelete} className="w-[150px] text-darkGray">
             Delete
           </Button>
         </div>

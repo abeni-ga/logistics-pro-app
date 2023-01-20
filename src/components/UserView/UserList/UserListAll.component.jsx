@@ -8,7 +8,7 @@ const ListAllUsers = (props) => {
   return (
     <div className=" w-full h-screen bg-transparent p-10 flex flex-col">
       <div className="flex flex-col h-[20%] w-full">
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h5" className="font-bold">
           {props.title}
         </Typography>
         <ListViewHeader

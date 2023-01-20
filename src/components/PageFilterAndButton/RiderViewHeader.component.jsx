@@ -1,4 +1,3 @@
-import { color } from "../../constants/Theme.js";
 import OrderViewHeader from "../PageFilterAndButton/OrderViewHeader.jsx";
 import { IconButton, Radio, TextField, Typography } from "@mui/material";
 
@@ -20,25 +19,13 @@ const RiderViewHeader = (props) => {
     <div className="flex items-center w-full h-full gap-2 2xl:gap-10">
       <div className="flex w-[50%] md:w-[50%] lg:w-[41%] xl:w-[50%] gap-2 items-center">
         <div className="flex h-full items-center gap-2 xl:gap-4 w-[20%]">
-          <IconButton
-            sx={{
-              backgroundColor: "white",
-              borderRadius: "12px",
-              width: "40px",
-              height: "40px",
-            }}
-          >
+          <IconButton className="bg-white rounded-xl w-[40px] h-[40px]">
             <img src={Menu} alt="" />
           </IconButton>
           <IconButton
+            className="bg-darkIndigo rounded-xl w-[40px] h-[40px]"
             variant="contained"
             color="primary"
-            sx={{
-              backgroundColor: color.darkIndigo,
-              borderRadius: "12px",
-              width: "40px",
-              height: "40px",
-            }}
           >
             <img src={List} alt="" />
           </IconButton>
@@ -52,7 +39,7 @@ const RiderViewHeader = (props) => {
               name="date-radio-buttons"
               inputProps={{ "aria-label": "All Time" }}
             />
-            <Typography sx={{ fontWeight: "700" }}>All Time</Typography>
+            <Typography className="font-bold">All Time</Typography>
           </div>
           <div className="flex items-center rounded-lg">
             <Radio
@@ -63,7 +50,7 @@ const RiderViewHeader = (props) => {
               inputProps={{ "aria-label": "other" }}
             />
             <div className="flex flex-col gap-1">
-              <Typography sx={{ fontWeight: "700" }}>Change period</Typography>
+              <Typography className="font-bold">Change period</Typography>
               <div className="flex gap-1 bg-blue-100 p-1 rounded-lg">
                 <TextField
                   variant="standard"

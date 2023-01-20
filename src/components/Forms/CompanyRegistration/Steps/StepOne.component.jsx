@@ -17,10 +17,10 @@ const StepOne = () => {
         <span className="h-2 w-1/2 bg-gray-300 rounded-md"></span>
       </div>
       <div>
-        <Typography variant="h2" sx={{ fontSize: "28px", fontWeight: "700" }}>
+        <Typography variant="h2" className="text-2xl font-bold">
           Basic Information
         </Typography>
-        <Typography sx={{ fontSize: "12px" }}>
+        <Typography className="text=xs">
           Enter the following information below
         </Typography>
       </div>
@@ -41,7 +41,7 @@ const StepOne = () => {
       <TextFieldWrapper
         name="companyName"
         label="Company Name"
-        sx={{ borderRadius: "10px" }}
+        className="rounded-lg"
       />
       <div className="flex flex-row gap-4">
         <TextFieldWrapper
@@ -102,7 +102,7 @@ const StepOne = () => {
             ),
           }}
         />
-        <Typography sx={{ fontSize: "14px" }}>
+        <Typography>
           By clicking "Next" you agree to our
           <a
             href="/#"

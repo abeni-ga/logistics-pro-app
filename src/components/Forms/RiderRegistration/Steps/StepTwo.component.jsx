@@ -9,7 +9,7 @@ const StepTwo = ({ handlePrev }) => {
         <IconButton aria-label="back" onClick={handlePrev}>
           <ArrowBackIcon />
         </IconButton>
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h5" className="font-bold">
           Add Rider
         </Typography>
       </div>

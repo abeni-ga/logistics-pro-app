@@ -46,7 +46,7 @@ const TablePagination = () => {
           </span>
         </div>
 
-        <KeyboardArrowRight onClick={handleNext} sx={{ color: "blue" }} />
+        <KeyboardArrowRight onClick={handleNext} className="text-blue-500" />
       </div>
     </div>
   );

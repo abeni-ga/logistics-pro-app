@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import Cargo from "../../assets/svg/Cargo.svg";
-import { color } from "../../constants/Theme.js";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ProfileCard from "./ProfileCard.component.jsx/ProfileCard.component.jsx";
@@ -35,14 +34,14 @@ const CompaniesOrderPoolSummary = () => {
           >
             <ArrowBackIcon />
           </IconButton>
-          <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+          <Typography variant="h6" className="font-bold">
             Order Summary
           </Typography>
           <img src={Cargo} alt="" />
         </div>
         <div>
           <Typography>Order No:</Typography>
-          <Typography sx={{ fontWeight: "bold" }}>#00112233</Typography>
+          <Typography className="font-bold">#00112233</Typography>
         </div>
       </div>
 
@@ -55,26 +54,22 @@ const CompaniesOrderPoolSummary = () => {
                 <Avatar />
                 <div className="">
                   <Typography>Olaniyi Ojo David</Typography>
-                  <Typography sx={{ color: color.lightGray }}>
+                  <Typography className="text-lightGray">
                     091612891010
                   </Typography>
                 </div>
               </div>
-              <Typography sx={{ color: color.lightGray }}>
-                10/10/2021{" "}
-              </Typography>
-              <Typography sx={{ color: color.lightGray }}>01:37PM</Typography>
+              <Typography className="text-lightGray">10/10/2021 </Typography>
+              <Typography className="text-lightGray">01:37PM</Typography>
             </div>
             <div className="flex flex-col justify-center bg-red-500 px-4 h-full w-[30%] rounded-xl">
               <div className="flex">
-                <Typography sx={{ color: "white" }}>Items:</Typography>
-                <Typography sx={{ color: "white", fontWeight: "700" }}>
-                  Books
-                </Typography>
+                <Typography className="text-white">Items:</Typography>
+                <Typography className="text-white font-bold">Books</Typography>
               </div>
               <div className="flex">
-                <Typography sx={{ color: "white" }}>Notes:</Typography>
-                <Typography sx={{ color: "white", fontWeight: "700" }}>
+                <Typography className="text-white">Notes:</Typography>
+                <Typography className="text-white font-bold">
                   The books are about 36 in numbers
                 </Typography>
               </div>
@@ -92,13 +87,8 @@ const CompaniesOrderPoolSummary = () => {
           <div className="w-full h-[35%] mb-4 bg-white rounded-xl bg-[url('/src/assets/svg/Map1.svg')]"></div>
           <div className="w-full h-[35%] bg-white rounded-xl flex flex-col items-center justify-center gap-2">
             <Typography
+              className="text-start text-xl font-bold w-full"
               variant="h3"
-              sx={{
-                textAlign: "start",
-                fontSize: "20px",
-                fontWeight: "700",
-                width: "100%",
-              }}
             >
               Delivery Estimate
             </Typography>
@@ -106,32 +96,28 @@ const CompaniesOrderPoolSummary = () => {
             <div className="flex flex-col w-[90%] gap-2">
               <div className="flex justify-between">
                 <Typography>Basic fair/Km</Typography>
-                <Typography sx={{ color: color.lightGray }}>N420.00</Typography>
+                <Typography className="text-lightGray">N420.00</Typography>
               </div>
               <div className="flex justify-between">
                 <Typography>Est. Distance to pick-up</Typography>
-                <Typography sx={{ color: color.lightGray }}>4.2Km</Typography>
+                <Typography className="text-lightGray">4.2Km</Typography>
               </div>
               <div className="flex justify-between">
                 <Typography>Est. Distance to delivery</Typography>
-                <Typography sx={{ color: color.lightGray }}>4.2Km</Typography>
+                <Typography className="text-lightGray">4.2Km</Typography>
               </div>
               <div className="flex justify-between">
                 <Typography>Est. Fair Total</Typography>
-                <Typography sx={{ color: color.lightGray }}>
-                  N14,320.00
-                </Typography>
+                <Typography className="text-lightGray">N14,320.00</Typography>
               </div>
               <div className="flex justify-between">
                 <Typography>Tax</Typography>
-                <Typography sx={{ color: color.lightGray }}>N250</Typography>
+                <Typography className="text-lightGray">N250</Typography>
               </div>
               <div className="h-0.5 bg-gray-200 w-full"></div>
               <div className="flex justify-between">
                 <Typography>Total</Typography>
-                <Typography sx={{ color: color.lightGray }}>
-                  N14,150.00
-                </Typography>
+                <Typography className="text-lightGray">N14,150.00</Typography>
               </div>
             </div>
           </div>
@@ -144,15 +130,13 @@ const CompaniesOrderPoolSummary = () => {
                 <Avatar />
                 <div className="">
                   <Typography>Olaniyi Ojo David</Typography>
-                  <Typography sx={{ color: color.lightGray }}>
+                  <Typography className="text-lightGray">
                     091612891010
                   </Typography>
                 </div>
               </div>
-              <Typography sx={{ color: color.lightGray }}>
-                10/10/2021{" "}
-              </Typography>
-              <Typography sx={{ color: color.lightGray }}>01:37PM</Typography>
+              <Typography className="text-lightGray">10/10/2021 </Typography>
+              <Typography className="text-lightGray">01:37PM</Typography>
             </div>
           </div>
           <div className="flex w-full items-center justify-center my-0">
@@ -166,19 +150,11 @@ const CompaniesOrderPoolSummary = () => {
           <div className="w-full h-[35%] mb-4 bg-white rounded-xl bg-[url('/src/assets/svg/Map2.svg')]"></div>
           <div className="flex flex-col gap-3 w-full h-[35%] pt-2 bg-white rounded-xl items-center">
             <div className="flex w-[90%] items-center justify-center h-[15%]">
-              <Typography
-                sx={{
-                  fontWeight: "bold",
-                  width: "40%",
-                }}
-              >
+              <Typography className="w-[40%] font-bold">
                 Push To Company
               </Typography>
               <SearchBox
-                sx={{
-                  width: "60%",
-                  borderRadius: "10px",
-                }}
+                className="w-[60%] rounded-lg"
                 variant="outlined"
                 placeholder="search company here"
                 InputProps={{

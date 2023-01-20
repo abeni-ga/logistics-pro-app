@@ -7,7 +7,7 @@ const StepOne = () => {
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h5" className="font-bold">
           Add Rider
         </Typography>
       </div>

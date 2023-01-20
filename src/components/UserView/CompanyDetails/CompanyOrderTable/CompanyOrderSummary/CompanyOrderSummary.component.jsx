@@ -12,7 +12,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import PPic from "../../../../../assets/svg/PPic.svg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { NavLink } from "react-router-dom";
-import { color } from "../../../../../constants/Theme.js";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 
 const CompanyOrderSummary = () => {
@@ -177,13 +176,7 @@ const CompanyOrderSummary = () => {
           <div className="w-full h-[35%] mb-4 bg-white rounded-xl bg-[url('/src/assets/svg/Map2.svg')]"></div>
           <div className="flex flex-col gap-3 w-full h-[20%]  bg-white rounded-xl items-center justify-center">
             <div className="flex w-[90%] justify-between items-center">
-              <Typography
-                sx={{
-                  fontWeight: "bold",
-                  fontSize: "20px",
-                  color: color.darkGray,
-                }}
-              >
+              <Typography className="font-bold text-xl text-darkGray">
                 Rider
               </Typography>
               <SearchBox
@@ -204,9 +197,7 @@ const CompanyOrderSummary = () => {
               <div className="flex gap-4">
                 <Avatar src={PPic} />
                 <div className="">
-                  <Typography sx={{ fontWeight: "bold" }}>
-                    Bolade Davies
-                  </Typography>
+                  <Typography className="font-bold">Bolade Davies</Typography>
                   <div className="flex">
                     <LocationOnOutlinedIcon className="text-lightGray" />
                     <Typography className="text-lightGray">Ikeja </Typography>
@@ -214,14 +205,8 @@ const CompanyOrderSummary = () => {
                 </div>
               </div>
               <Button
+                className="text-lightGray capitalize text-base rounded-xl border-lightGray"
                 size="small"
-                sx={{
-                  color: color.lightGray,
-                  textTransform: "capitalize",
-                  fontSize: "16px",
-                  borderRadius: "12px",
-                  borderColor: color.lightGray,
-                }}
                 variant="outlined"
               >
                 View

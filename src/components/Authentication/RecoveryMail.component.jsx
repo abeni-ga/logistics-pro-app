@@ -1,7 +1,6 @@
 import { Button, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../routes/siteRoutes.routes";
-import { color } from "../../constants/Theme";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Mail from "../../assets/svg/Mail.svg";
 
@@ -10,10 +9,7 @@ const RecoveryMail = () => {
   return (
     <div className="flex flex-col w-[30%]  rounded-xl	bg-white p-16 gap-10">
       <img src={Mail} alt="" width="100px" height="100px" />
-      <Typography
-        variant="h1"
-        sx={{ fontWeight: "700", fontSize: "24px", color: color.darkGray }}
-      >
+      <Typography variant="h1" className="text-2xl text-darkGray font-bold">
         A Password Recovery Mail Has Been Sent to you
       </Typography>
       <Typography>
@@ -25,20 +21,13 @@ const RecoveryMail = () => {
       </Typography>
       <TextField name="email" label="Email Address" type="email" />
       <div className="flex justify-between">
-        <Typography
-          sx={{ fontWeight: "600", lineHeight: "18px", color: color.darkGray }}
-        >
+        <Typography className="text-darkGray font-bold">
           <a href="/company/signin">
             <ArrowBackIosIcon /> Back to Login
           </a>
         </Typography>
         <Button
-          sx={{
-            textTransform: "capitalize",
-            fontWeight: "700",
-            backgroundColor: color.darkIndigo,
-            borderRadius: "10px",
-          }}
+          className="font-bold bg-darkIndigo rounded-lg"
           variant="contained"
           size="large"
           onClick={() => navigate(routes.company.vertify)}

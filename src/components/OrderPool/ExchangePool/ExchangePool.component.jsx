@@ -13,7 +13,7 @@ import AddIcon from "@mui/icons-material/Add";
 import SearchIcon from "@mui/icons-material/Search";
 import PulseRed from "../../../assets/svg/PulseRed.svg";
 import Pulse from "../../../assets/svg/Pulse.svg";
-import { color } from "../../../constants/Theme.js";
+import Reload from "../../../assets/svg/Reload.svg";
 import { useState } from "react";
 import Current from "../../../assets/svg/Current.svg";
 import CompaniesOrderPoolTable from "../../../components/OrderPool/CompaniesOrderTable.component";
@@ -39,22 +39,15 @@ const ExchangePool = () => {
   return (
     <div className="flex flex-col gap-4 w-full h-screen items-center justify-center ">
       <div className=" w-[95%] flex flex-col">
-        <div className="flex">
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: "bold",
-              paddingY: "20px",
-              textAlign: "start",
-              width: "100%",
-            }}
-          >
+        <div className="flex items-center">
+          <Typography className="font-bold py-3 xl:py-5 text-xl xl:text-2xl">
             Order Exchange Pool
           </Typography>
+          <img src={Reload} alt="" className="w-5 xl:w-7" />
         </div>
         <div className="flex w-full justify-between">
-          <div className="flex w-[35%]">
-            <div className="flex items-center rounded-lg w-[35%]">
+          <div className="flex w-[49%] xl:w-[40%]">
+            <div className="flex items-center rounded-lg w-[22%] xl:w-[30%]">
               <Radio
                 checked={dateSelector === "all-time"}
                 onChange={handleDateSelection}
@@ -62,9 +55,11 @@ const ExchangePool = () => {
                 name="date-radio-buttons"
                 inputProps={{ "aria-label": "All Time" }}
               />
-              <Typography sx={{ fontWeight: "bold" }}>Today</Typography>
+              <Typography className="font-bold text-xs xl:text-sm">
+                Today
+              </Typography>
             </div>
-            <div className="flex items-center  bg-violet-500 w-[70%] rounded-lg px-4">
+            <div className="flex items-center  bg-violet-500 w-[77] xl:w-[70%] rounded-lg px-2">
               <Radio
                 checked={dateSelector === "other"}
                 onChange={handleDateSelection}
@@ -77,9 +72,21 @@ const ExchangePool = () => {
                 }}
               />
               <div className="flex flex-col gap-1">
-                <Typography sx={{ color: "white" }}>Change period</Typography>
+                <Typography className="text-white text-xs xl:text-sm ">
+                  Change period
+                </Typography>
                 <div className="flex gap-2">
                   <TextField
+                    sx={{
+                      "& .MuiInputBase-input": {
+                        fontSize: {
+                          sm: "12px",
+                          lg: "12px",
+                          xl: "14px",
+                        },
+                      },
+                    }}
+                    className="text-xs"
                     variant="standard"
                     size="small"
                     type="date"
@@ -92,6 +99,15 @@ const ExchangePool = () => {
                     }}
                   />
                   <TextField
+                    sx={{
+                      "& .MuiInputBase-input": {
+                        fontSize: {
+                          sm: "12px",
+                          lg: "12px",
+                          xl: "14px",
+                        },
+                      },
+                    }}
                     variant="standard"
                     type="date"
                     size="small"
@@ -109,15 +125,11 @@ const ExchangePool = () => {
           </div>
           <div className="flex self-end items-center gap-8">
             <Button
+              className="bg-darkIndigo text-white rounded-lg text-xs xl:text-sm"
               onClick={() => {
                 navigate("/admin/orders/order-now");
               }}
               variant="contained"
-              sx={{
-                backgroundColor: color.darkIndigo,
-                color: "white",
-                borderRadius: "10px",
-              }}
               startIcon={<AddIcon />}
             >
               Create Order
@@ -126,16 +138,10 @@ const ExchangePool = () => {
               <div className="flex bg-[#053079] items-center rounded-l-2xl px-4 py-2 gap-2">
                 <img src={Pulse} alt="" />
                 <div>
-                  <Typography
-                    sx={{
-                      color: color.bgWhiteSmoke,
-                      fontSize: "12px",
-                      fontWeight: "700",
-                    }}
-                  >
+                  <Typography className="text-bgWhiteSmoke text-xs font-bold">
                     Total
                   </Typography>
-                  <Typography sx={{ color: "white", fontWeight: "700" }}>
+                  <Typography className="text-white font-bold text:xs xl:text-sm">
                     N234,500:00
                   </Typography>
                 </div>
@@ -143,18 +149,10 @@ const ExchangePool = () => {
               <div className="flex bg-white items-center rounded-r-2xl px-4 py-2 gap-2">
                 <img src={PulseRed} alt="" />
                 <div>
-                  <Typography
-                    sx={{
-                      color: color.lightGray,
-                      fontSize: "12px",
-                      fontWeight: "700",
-                    }}
-                  >
+                  <Typography className="text-lightGray font-bold text-xs">
                     Total
                   </Typography>
-                  <Typography
-                    sx={{ color: color.lightGray, fontWeight: "700" }}
-                  >
+                  <Typography className="text-lightGray font-bold text:xs xl:text-sm">
                     N234,500:00
                   </Typography>
                 </div>
@@ -162,57 +160,53 @@ const ExchangePool = () => {
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-between">
-          <div className="w-[40%]">
-            <div className="h-[15%] rounded-lg p-2">
-              <div className="flex items-center gap-2 bg-white p-4 rounded-lg">
-                <Typography>Order Options</Typography>
-                <div className="flex items-center w-[50%] pr-1 rounded-lg justify-between">
-                  <div className="flex items-center">
-                    <Radio
-                      checked={selectedValue === "current"}
-                      onChange={handleChange}
-                      value="current"
-                      name="radio-buttons"
-                      inputProps={{ "aria-label": "Current" }}
-                    />
-                    <Typography>Pushed From Companies</Typography>
-                  </div>
-                  <img src={Current} alt="" />
-                </div>
-                <div className="flex items-center w-[18%] border-2 rounded-lg">
-                  <Radio
-                    checked={selectedValue === "new"}
-                    onChange={handleChange}
-                    value="new"
-                    name="radio-buttons"
-                    inputProps={{ "aria-label": "New" }}
-                  />
-                  <Typography>New</Typography>
-                </div>
-                <div className="flex items-center w-[18%] border-2 rounded-lg">
-                  <Radio
-                    checked={selectedValue === "done"}
-                    onChange={handleChange}
-                    value="done"
-                    name="radio-buttons"
-                    inputProps={{ "aria-label": "Done" }}
-                  />
-                  <Typography>Done</Typography>
-                </div>
+        <div className="w-full flex justify-between mt-2">
+          <div className="w-[49%] xl:w-[40%] flex items-center gap-2 bg-white p-4 rounded-lg justify-between">
+            <Typography className="text-xs xl:text-sm">
+              Order <br /> Options
+            </Typography>
+            <div className="flex items-center w-[40%] bg-bgWhiteSmoke pr-1 rounded-lg justify-between">
+              <div className="flex items-center">
+                <Radio
+                  checked={selectedValue === "current"}
+                  onChange={handleChange}
+                  value="current"
+                  name="radio-buttons"
+                  inputProps={{ "aria-label": "Current" }}
+                />
+                <Typography className="text-xs xl:text-sm">
+                  Pushed From Companies
+                </Typography>
               </div>
+              <img src={Current} alt="" />
+            </div>
+            <div className="flex items-center w-[18%] border-2 rounded-lg">
+              <Radio
+                checked={selectedValue === "new"}
+                onChange={handleChange}
+                value="new"
+                name="radio-buttons"
+                inputProps={{ "aria-label": "New" }}
+              />
+              <Typography className="text-xs xl:text-sm">New</Typography>
+            </div>
+            <div className="flex items-center w-[18%] border-2 rounded-lg">
+              <Radio
+                checked={selectedValue === "done"}
+                onChange={handleChange}
+                value="done"
+                name="radio-buttons"
+                inputProps={{ "aria-label": "Done" }}
+              />
+              <Typography className="text-xs xl:text-sm">Done</Typography>
             </div>
           </div>
           <div className=" flex items-center w-[40%]">
-            <FormControl
-              sx={{
-                width: "15%",
-              }}
-            >
+            <FormControl className="w-[15%]">
               <Select
                 id="size"
                 value={size}
-                sx={{ backgroundColor: "white", borderRadius: "10px" }}
+                className="bg-white rounded-lg"
                 onChange={(e) => {
                   setSize(e.target.value);
                 }}
@@ -225,11 +219,7 @@ const ExchangePool = () => {
               </Select>
             </FormControl>
             <SearchBox
-              sx={{
-                backgroundColor: "white",
-                width: "60%",
-                borderRadius: "10px",
-              }}
+              className="bg-white w-[60%] rounded-lg"
               variant="outlined"
               placeholder="search company here"
               InputProps={{

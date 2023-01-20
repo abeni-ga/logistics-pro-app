@@ -5,7 +5,6 @@ import {
   DialogContent,
   Typography,
 } from "@mui/material";
-import { color } from "../../constants/Theme.js";
 import FormComplete from "../../assets/svg/Form_Complete.svg";
 const SuccessDialogWithAction = (props) => {
   return (
@@ -23,11 +22,9 @@ const SuccessDialogWithAction = (props) => {
     >
       <DialogContent>
         <div className="flex flex-col items-center gap-5 justify-center">
-          <Typography sx={{ fontWeight: "700", fontSize: "20px" }}>
-            Success!
-          </Typography>
+          <Typography className="text-xl font-bold">Success!</Typography>
           <img src={FormComplete} alt="" />
-          <Typography sx={{ fontWeight: "700", fontSize: "20px" }}>
+          <Typography className="text-xl font-bold">
             Order Was Successful
           </Typography>
         </div>
@@ -36,16 +33,7 @@ const SuccessDialogWithAction = (props) => {
         <div className="flex w-full justify-center">
           <Button
             onClick={props.handleClose}
-            sx={{
-              color: "white",
-              backgroundColor: color.darkIndigo,
-              borderRadius: "10px",
-              marginBottom: "20px",
-              ":hover": {
-                color: "white",
-                backgroundColor: color.darkIndigo,
-              },
-            }}
+            className="text-white bg-darkIndigo rounded-lg mb-5 hover:text-white hover:bg-darkIndigo"
           >
             Continue
           </Button>

@@ -18,7 +18,6 @@ import Check from "../../../../assets/svg/Check.svg";
 import HistoryTrackerCard from "../../HistoryTrackerCard/HistoryTrackerCard.component.jsx";
 import Current from "../../../../assets/svg/Current.svg";
 import Bajaj from "../../../../assets/svg/Bajaj.svg";
-import { color } from "../../../../constants/Theme.js";
 
 const RiderJobHistroyComp = () => {
   const [selectedValue, setSelectedValue] = useState("current");
@@ -50,7 +49,7 @@ const RiderJobHistroyComp = () => {
               name="date-radio-buttons"
               inputProps={{ "aria-label": "Today" }}
             />
-            <Typography sx={{ fontWeight: "bold" }}>Today</Typography>
+            <Typography className="font-bold">Today</Typography>
           </div>
           <div className="flex items-center rounded-lg bg-gray-200 px-2">
             <Radio
@@ -138,16 +137,11 @@ const RiderJobHistroyComp = () => {
           </div>
         </div>
         <div className="h-[10%] flex items-center rounded-lg">
-          <FormControl
-            sx={{
-              m: 1,
-              width: "40%",
-            }}
-          >
+          <FormControl className="w-[40%]">
             <Select
+              className="bg-white rounded-lg"
               id="company"
               value={company}
-              sx={{ backgroundColor: "white", borderRadius: "10px" }}
               onChange={(e) => {
                 setCompany(e.target.value);
               }}
@@ -158,11 +152,7 @@ const RiderJobHistroyComp = () => {
             </Select>
           </FormControl>
           <SearchBox
-            sx={{
-              backgroundColor: "white",
-              width: "55%",
-              borderRadius: "10px",
-            }}
+            className="bg-white w-[55%] rounded-lg"
             variant="outlined"
             placeholder="search company here"
             InputProps={{
@@ -179,27 +169,16 @@ const RiderJobHistroyComp = () => {
             <div className=" flex h-[40%] border-b-2 px-4 justify-between items-center">
               <div className=" flex flex-col h-full justify-center  ">
                 <div className="flex  w-full items-center gap-4">
-                  <Typography sx={{ color: "white" }}>#00112233</Typography>
-                  <Typography
-                    sx={{
-                      fontWeight: "700",
-                      backgroundColor: color.brightGreen,
-                      padding: "4px",
-                      fontSize: "12px",
-                      borderRadius: "5px",
-                      color: "white",
-                    }}
-                  >
+                  <Typography className="text-white ">#00112233</Typography>
+                  <Typography className="font-bold bg-brightGreen p-1 text-xs rounded-md text-white">
                     In Transit
                   </Typography>
                 </div>
-                <Typography sx={{ fontWeight: "700", color: "white" }}>
+                <Typography className="font-bold text-white">
                   DELIVERY OF BOOKS
                 </Typography>
               </div>
-              <Typography
-                sx={{ color: "white", fontWeight: "700", fontSize: "20px" }}
-              >
+              <Typography className="text-white font-bold text-xl">
                 N36,899.00
               </Typography>
             </div>
@@ -207,32 +186,22 @@ const RiderJobHistroyComp = () => {
               <div className="flex flex-col gap-1">
                 <div className="flex gap-1">
                   <div>
-                    <FiberManualRecordIcon
-                      sx={{
-                        fontSize: "small",
-                        color: "white",
-                      }}
-                    />
+                    <FiberManualRecordIcon className="text-sm text-white" />
                   </div>
                   <div className="flex flex-col">
-                    <Typography sx={{ color: "white" }}>From</Typography>
-                    <Typography sx={{ color: "white", fontWeight: "700" }}>
+                    <Typography classNa="text-white">From</Typography>
+                    <Typography className="text-white font-bold">
                       14, Kumolu Street. Ikeja, Lagos
                     </Typography>
                   </div>
                 </div>
                 <div className="flex gap-1">
                   <div>
-                    <FiberManualRecordIcon
-                      sx={{
-                        fontSize: "small",
-                        color: "white",
-                      }}
-                    />
+                    <FiberManualRecordIcon className="text-sm text-white" />
                   </div>
                   <div className="flex flex-col">
-                    <Typography sx={{ color: "white" }}>To</Typography>
-                    <Typography sx={{ color: "white", fontWeight: "700" }}>
+                    <Typography classNa="text-white">To</Typography>
+                    <Typography className="text-white font-bold">
                       14, Kumolu Street. Ikeja, Lagos
                     </Typography>
                   </div>
@@ -240,12 +209,8 @@ const RiderJobHistroyComp = () => {
               </div>
               <div className="self-end">
                 <Button
+                  className="bg-white text-darkIndigo"
                   variant="contained"
-                  sx={{
-                    backgroundColor: "white",
-                    color: color.darkIndigo,
-                    alignSelf: "end",
-                  }}
                 >
                   View Tracking
                 </Button>
@@ -266,23 +231,12 @@ const RiderJobHistroyComp = () => {
             <Typography>Order Track History</Typography>
             <div className="flex gap-8">
               <div>
-                <Typography sx={{ color: color.lightGray }}>
-                  Order No
-                </Typography>
-                <Typography sx={{ color: color.darkIndigo }}>
-                  #00112233
-                </Typography>
+                <Typography className="text-lightGray">Order No</Typography>
+                <Typography className="text-darkIndigo">#00112233</Typography>
               </div>
               <div>
-                <Typography sx={{ color: color.lightGray }}>Status:</Typography>
-                <Typography
-                  sx={{
-                    color: color.darkIndigo,
-                    backgroundColor: color.lightBlue,
-                    padding: "4px",
-                    borderRadius: "5px",
-                  }}
-                >
+                <Typography className="text-lightGray">Status:</Typography>
+                <Typography className="text-darkIndigo bg-lightBlue p-1 rounded-md">
                   Delivered
                 </Typography>
               </div>
@@ -295,44 +249,29 @@ const RiderJobHistroyComp = () => {
                 <div className="flex items-center gap-4">
                   <Avatar src={PPic} />
                   <div className="flex flex-col gap-1">
-                    <Typography sx={{ fontWeight: "700" }}>
-                      Bola Davies
-                    </Typography>
-                    <Typography sx={{ color: color.lightGray }}>
+                    <Typography className="font-bold">Bola Davies</Typography>
+                    <Typography className="text-lightGray">
                       08121212122 | boladavies@gmail.com
                     </Typography>
                   </div>
                 </div>
                 <Button
+                  className="w-min ml-6 capitalize text-lightGray border-lightGray rounded-lg hover:text-lightGray hover:border-lightGray"
                   variant="outlined"
-                  sx={{
-                    width: "fit-content",
-                    marginLeft: "24px",
-                    textTransform: "capitalize",
-                    color: color.lightGray,
-                    borderColor: color.lightGray,
-                    borderRadius: "10px",
-                    ":hover": {
-                      color: color.lightGray,
-                      borderColor: color.lightGray,
-                    },
-                  }}
                 >
                   View Rider
                 </Button>
               </div>
               <div className="w-full h-0.5 bg-gray-200"></div>
               <div className=" flex flex-col gap-2 px-10 h-[39%] justify-center w-full">
-                <Typography sx={{ fontWeight: "bold", fontSize: "14px" }}>
-                  RIde Information
-                </Typography>
+                <Typography className="font-bold ">RIde Information</Typography>
                 <div className="flex gap-2">
                   <Avatar src={Bajaj} />
                   <div>
-                    <Typography sx={{ color: color.lightGray }}>
+                    <Typography className="text-lightGray ">
                       BAJAJ (White)
                     </Typography>
-                    <Typography sx={{ color: color.lightGray }}>
+                    <Typography className="text-lightGray">
                       4323AB LAGOS
                     </Typography>
                   </div>
@@ -342,57 +281,32 @@ const RiderJobHistroyComp = () => {
             <div className="flex flex-col  w-[45%] h-full pl-10">
               <div className="flex flex-col gap-4 pt-10 h-[80%]">
                 <div className="flex items-center">
-                  <FiberManualRecordIcon
-                    sx={{
-                      fontSize: "small",
-                      color: color.lightGray,
-                    }}
-                  />
-                  <Typography sx={{ color: color.lightGray }}>
+                  <FiberManualRecordIcon className="text-sm text-lightGray " />
+                  <Typography className="text-lightGray">
                     14, Kumolu Street. Ikeja, Lagos
                   </Typography>
                 </div>
                 <div className="flex items-center">
-                  <FiberManualRecordIcon
-                    sx={{
-                      fontSize: "small",
-                      color: color.lightGray,
-                    }}
-                  />
-                  <Typography sx={{ color: color.lightGray }}>
+                  <FiberManualRecordIcon className="text-sm text-lightGray " />
+                  <Typography className="text-lightGray">
                     14, Kumolu Street. Ikeja, Lagos
                   </Typography>
                 </div>
                 <div className="flex items-center">
-                  <FiberManualRecordIcon
-                    sx={{
-                      fontSize: "small",
-                      color: color.lightGray,
-                    }}
-                  />
-                  <Typography sx={{ color: color.lightGray }}>
+                  <FiberManualRecordIcon className="text-sm text-lightGray " />
+                  <Typography className="text-lightGray">
                     14, Kumolu Street. Ikeja, Lagos
                   </Typography>
                 </div>
                 <div className="flex items-center">
-                  <FiberManualRecordIcon
-                    sx={{
-                      fontSize: "small",
-                      color: color.lightGray,
-                    }}
-                  />
-                  <Typography sx={{ color: color.lightGray }}>
+                  <FiberManualRecordIcon className="text-sm text-lightGray " />
+                  <Typography className="text-lightGray">
                     14, Kumolu Street. Ikeja, Lagos
                   </Typography>
                 </div>
                 <div className="flex items-center">
-                  <FiberManualRecordIcon
-                    sx={{
-                      fontSize: "small",
-                      color: color.lightGray,
-                    }}
-                  />
-                  <Typography sx={{ color: color.lightGray }}>
+                  <FiberManualRecordIcon className="text-sm text-lightGray " />
+                  <Typography className="text-lightGray">
                     14, Kumolu Street. Ikeja, Lagos
                   </Typography>
                 </div>
@@ -400,11 +314,7 @@ const RiderJobHistroyComp = () => {
               <Button
                 size="small"
                 variant="contained"
-                sx={{
-                  color: color.darkIndigo,
-                  backgroundColor: color.lightGray,
-                  width: "25%",
-                }}
+                className="text-darkIndigo bg-lightGray font-bold w-[25%]"
               >
                 Delivered
               </Button>
@@ -414,40 +324,38 @@ const RiderJobHistroyComp = () => {
         <div className="bg-[url('/src/assets/svg/Map1.svg')] h-[40%] w-full flex items-end justify-center">
           <div className="w-[90%] bg-white flex justify-between p-4 mb-4">
             <div className="flex flex-col">
-              <Typography sx={{ color: color.lightGray }}>
+              <Typography className="text-lightGray">
                 Current Location
               </Typography>
               <div className="flex gap-1">
-                <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                <Typography className="text-lightGray font-bold">
                   Palm Groove
                 </Typography>
                 <img src={Check} alt="" />
               </div>
             </div>
             <div className="flex flex-col">
-              <Typography sx={{ color: color.lightGray }}>
-                Last Location
-              </Typography>
+              <Typography className="text-lightGray">Last Location</Typography>
               <div className="flex gap-1">
-                <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                <Typography className="text-lightGray font-bold">
                   15 Mins ago
                 </Typography>
                 <img src={Check} alt="" />
               </div>
             </div>
             <div className="flex flex-col">
-              <Typography sx={{ color: color.lightGray }}>Speed</Typography>
+              <Typography className="text-lightGray">Speed</Typography>
               <div className="flex gap-1">
-                <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                <Typography className="text-lightGray font-bold">
                   63 Km/hr
                 </Typography>
                 <img src={Check} alt="" />
               </div>
             </div>
             <div className="flex flex-col">
-              <Typography sx={{ color: color.lightGray }}>Distance</Typography>
+              <Typography className="text-lightGray">Distance</Typography>
               <div className="flex gap-1">
-                <Typography sx={{ color: color.lightGray, fontWeight: "bold" }}>
+                <Typography className="text-lightGray font-bold">
                   103 Km
                 </Typography>
                 <img src={Check} alt="" />

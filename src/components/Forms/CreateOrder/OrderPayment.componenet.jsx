@@ -1,6 +1,5 @@
 import { Button, MenuItem, Radio, Select, Typography } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { color } from "../../../constants/Theme.js";
 import { useState } from "react";
 import SuccessDialog from "../../Dialog/SuccessDialog.component.jsx";
 import { useNavigate } from "react-router-dom";
@@ -23,31 +22,24 @@ const OrderPayment = () => {
     <div className="flex w-[90%] h-[80%] justify-center">
       <div className="flex justify-center w-full h-[70%] items-center">
         <div className="flex flex-col bg-white rounded-xl w-[30%] h-[80%] px-6 justify-center gap-1">
-          <Typography
-            sx={{
-              fontSize: "16px",
-              fontWeight: "700",
-              marginBottom: "15px",
-              color: color.lightGray,
-            }}
-          >
+          <Typography className="text-base font-bold mb-4 text-lightGray">
             Order Payment Summary
           </Typography>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>Pick-up:</Typography>
+            <Typography className="text-lightGray">Pick-up:</Typography>
             <div className="flex">
-              <LocationOnIcon sx={{ color: "orange" }} />
-              <Typography sx={{ fontWeight: "700", color: color.darkGray }}>
+              <LocationOnIcon className="text-orange-700" />
+              <Typography className="text-darkGray font-bold">
                 14, Kumolu Street. Ikeja, Lagos
               </Typography>
             </div>
           </div>
           <div className="w-full h-[30%] bg-slate-100 rounded-xl"></div>
           <div className="flex flex-col">
-            <Typography sx={{ color: color.lightGray }}>To:</Typography>
+            <Typography className="text-lightGray">To:</Typography>
             <div className="flex">
-              <LocationOnIcon sx={{ color: "orange" }} />
-              <Typography sx={{ fontWeight: "700", color: color.darkGray }}>
+              <LocationOnIcon className="text-orange-700" />
+              <Typography className="text-darkGray font-bold">
                 14, Kumolu Street. Ikeja, Lagos
               </Typography>
             </div>
@@ -55,44 +47,38 @@ const OrderPayment = () => {
           <div className="flex gap-4 flex-col">
             <div className="flex flex-col gap-2">
               <div className="flex justify-between">
-                <Typography sx={{ fontWeight: "700", color: color.lightGray }}>
+                <Typography className="text-lightGray font-bold">
                   Avr. Distance to Pick-up
                 </Typography>
-                <Typography sx={{ color: color.lightGray }}>4.2km</Typography>
+                <Typography className="text-lightGray">4.2km</Typography>
               </div>
               <div className="flex justify-between">
-                <Typography sx={{ fontWeight: "700", color: color.lightGray }}>
+                <Typography className="text-lightGray font-bold">
                   Est. Distance to delivery
                 </Typography>
-                <Typography sx={{ color: color.lightGray }}>4.2km</Typography>
+                <Typography className="text-lightGray">4.2km</Typography>
               </div>
               <div className="flex justify-between">
-                <Typography sx={{ fontWeight: "700", color: color.lightGray }}>
+                <Typography className="text-lightGray font-bold">
                   Est. Fair Total
                 </Typography>
-                <Typography sx={{ color: color.lightGray }}>
-                  N14,320.00
-                </Typography>
+                <Typography className="text-lightGray">N14,320.00</Typography>
               </div>
             </div>
             <div className="flex justify-between">
-              <Typography sx={{ fontWeight: "700", color: color.darkGray }}>
-                TOTAL
-              </Typography>
-              <Typography sx={{ color: color.darkGray }}>N14,150.00</Typography>
+              <Typography className="text-darkGray font-bold">TOTAL</Typography>
+              <Typography className="text-darkGray">N14,150.00</Typography>
             </div>
           </div>
         </div>
         <div className="flex flex-col bg-white rounded-xl w-[30%] h-full justify-center gap-20">
           <div className="flex flex-col w-full px-10 gap-5">
             <div className="flex flex-col gap-5">
-              <Typography sx={{ fontWeight: "700", color: color.lightGray }}>
+              <Typography className="text-lightGray font-bold">
                 Select Payment Type
               </Typography>
               <Select
-                sx={{
-                  backgroundColor: color.bgWhiteSmoke,
-                }}
+                className="bg-bgWhiteSmoke"
                 id="quantity"
                 value={deliveryDate}
                 placeholder="show"
@@ -106,7 +92,7 @@ const OrderPayment = () => {
               </Select>
             </div>
             <div className="flex flex-col gap-3">
-              <Typography sx={{ fontWeight: "700", color: color.lightGray }}>
+              <Typography className="text-lightGray font-bold">
                 Select Payment Type
               </Typography>
 
@@ -120,9 +106,7 @@ const OrderPayment = () => {
                       name="date-radio-buttons"
                       inputProps={{ "aria-label": "Cash on Delivery" }}
                     />
-                    <Typography
-                      sx={{ fontWeight: "bold", color: color.darkGray }}
-                    >
+                    <Typography className="text-darkGray font-bold">
                       Cash on Delivery
                     </Typography>
                   </div>
@@ -134,9 +118,7 @@ const OrderPayment = () => {
                       name="date-radio-buttons"
                       inputProps={{ "aria-label": "Card Payment" }}
                     />
-                    <Typography
-                      sx={{ fontWeight: "bold", color: color.darkGray }}
-                    >
+                    <Typography className="text-darkGray font-bold">
                       Card Payment
                     </Typography>
                   </div>
@@ -150,9 +132,7 @@ const OrderPayment = () => {
                       name="date-radio-buttons"
                       inputProps={{ "aria-label": "Wallet" }}
                     />
-                    <Typography
-                      sx={{ fontWeight: "bold", color: color.darkGray }}
-                    >
+                    <Typography className="text-darkGray font-bold">
                       Wallet
                     </Typography>
                   </div>
@@ -164,9 +144,7 @@ const OrderPayment = () => {
                       name="date-radio-buttons"
                       inputProps={{ "aria-label": "Bank Tramsfer" }}
                     />
-                    <Typography
-                      sx={{ fontWeight: "bold", color: color.darkGray }}
-                    >
+                    <Typography className="text-darkGray font-bold">
                       Bank Transfer
                     </Typography>
                   </div>
@@ -177,24 +155,16 @@ const OrderPayment = () => {
           <div className="flex w-full justify-between pl-10 pr-6">
             <Button
               variant="outlined"
-              sx={{
-                color: color.darkIndigo,
-                borderColor: color.darkIndigo,
-                borderRadius: "10px",
-              }}
+              className="text-darkIndigo border-darkIndigo rounded-lg"
             >
               Cancel
             </Button>
             <Button
+              className="text-white bg-darkIndigo rounded-lg"
               onClick={() => {
                 setOpen(true);
               }}
               variant="outlined"
-              sx={{
-                color: "white",
-                backgroundColor: color.darkIndigo,
-                borderRadius: "10px",
-              }}
             >
               Finish
             </Button>
