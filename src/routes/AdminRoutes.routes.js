@@ -169,23 +169,19 @@ const DirectCustomerOrderPool = Loadable(
 );
 const RetailCompanyOrderPool = Loadable(
   lazy(() =>
-    import(
-      "../pages/SuperAdmin/Orders/ExchangePool/RetailCompanyOrderPool/RetailCompanyOrderPool.page.jsx"
-    )
+    import("../pages/SuperAdmin/Orders/ExchangePool/ExchangePoolOrderList.jsx")
   )
 );
 const DirectCustomerOrderPoolSummary = Loadable(
   lazy(() =>
     import(
-      "../pages/SuperAdmin/Orders/ExchangePool/DirectCustomerOrderPool/DirectCustomerOrderPoolSummary.page"
+      "../pages/SuperAdmin/Orders/ExchangePool/ExchangeOrderPoolSummary.page"
     )
   )
 );
 const DirectCustomerOrderHistory = Loadable(
   lazy(() =>
-    import(
-      "../pages/SuperAdmin/Orders/ExchangePool/DirectCustomerOrderPool/DirectCustomerOrderHistory.page"
-    )
+    import("../pages/SuperAdmin/Orders/ExchangePool/ExchangeOrderHistory.page")
   )
 );
 const DirectCustomerOrderSummary = Loadable(

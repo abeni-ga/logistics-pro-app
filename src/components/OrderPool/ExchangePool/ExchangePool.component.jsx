@@ -11,16 +11,16 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import SearchIcon from "@mui/icons-material/Search";
-import PulseRed from "../../../../../assets/svg/PulseRed.svg";
-import Pulse from "../../../../../assets/svg/Pulse.svg";
-import { color } from "../../../../../constants/Theme.js";
+import PulseRed from "../../../assets/svg/PulseRed.svg";
+import Pulse from "../../../assets/svg/Pulse.svg";
+import { color } from "../../../constants/Theme.js";
 import { useState } from "react";
-import Current from "../../../../../assets/svg/Current.svg";
-import CompaniesOrderPoolTable from "../../../../../components/OrderPool/CompaniesOrderTable.component";
+import Current from "../../../assets/svg/Current.svg";
+import CompaniesOrderPoolTable from "../../../components/OrderPool/CompaniesOrderTable.component";
 import { useNavigate } from "react-router-dom";
-import TablePagination from "../../../../../components/Pagination/TablePagination.component";
+import TablePagination from "../../../components/Pagination/TablePagination.component";
 
-const RetailCompanyOrderPool = () => {
+const ExchangePool = () => {
   const [selectedValue, setSelectedValue] = useState("current");
   const [dateSelector, setDateSelector] = useState("today");
   const [size, setSize] = useState(7);
@@ -62,7 +62,7 @@ const RetailCompanyOrderPool = () => {
                 name="date-radio-buttons"
                 inputProps={{ "aria-label": "All Time" }}
               />
-              <Typography sx={{ fontWeight: "bold" }}>All Time</Typography>
+              <Typography sx={{ fontWeight: "bold" }}>Today</Typography>
             </div>
             <div className="flex items-center  bg-violet-500 w-[70%] rounded-lg px-4">
               <Radio
@@ -206,7 +206,6 @@ const RetailCompanyOrderPool = () => {
           <div className=" flex items-center w-[40%]">
             <FormControl
               sx={{
-                m: 1,
                 width: "15%",
               }}
             >
@@ -254,4 +253,4 @@ const RetailCompanyOrderPool = () => {
   );
 };
 
-export default RetailCompanyOrderPool;
+export default ExchangePool;
