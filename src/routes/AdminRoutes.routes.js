@@ -16,16 +16,6 @@ const Dashboard = Loadable(
 const OrderNow = Loadable(
   lazy(() => import("../pages/SuperAdmin/Orders/OrderNow/OrderNow.page"))
 );
-// const ExchangePool = Loadable(
-//   lazy(() =>
-//     import("../pages/SuperAdmin/Orders/ExchangePool/ExchangePool.page")
-//   )
-// );
-// const InternalOrders = Loadable(
-//   lazy(() =>
-//     import("../pages/SuperAdmin/Orders/InternalOrders/InternalOrders.page")
-//   )
-// );
 const OrderHistory = Loadable(
   lazy(() => import("../pages/SuperAdmin/OrderHistory/OrderHistory.page"))
 );
@@ -157,13 +147,6 @@ const RetailCompanyOrderSummary = Loadable(
   lazy(() =>
     import(
       "../pages/SuperAdmin/RetailCompany/RetailCompanyOrderSummary/RetailCompanyOrderSummary.page.jsx"
-    )
-  )
-);
-const DirectCustomerOrderPool = Loadable(
-  lazy(() =>
-    import(
-      "../pages/SuperAdmin/Orders/ExchangePool/DirectCustomerOrderPool/DirectCusomerOrderPool.page.jsx"
     )
   )
 );
@@ -323,8 +306,6 @@ const AdminRoutes = {
           path: "exch-pool",
           element: <ExchangePoolOrderList />,
         },
-        { path: "direct-customer", element: <DirectCustomerOrderPool /> },
-        { path: "retail-company", element: <ExchangePoolOrderList /> },
         {
           path: "order-summary",
           element: <ExchangePoolOrderSummary />,

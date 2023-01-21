@@ -1,5 +1,4 @@
 import React from "react";
-
 import { color } from "../../../constants/Theme";
 import Logo from "../../../assets/svg/Logo.svg";
 import Scooter from "../../../assets/svg/Scooter.svg";

@@ -11,11 +11,11 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 
 import { useState } from "react";
-import Current from "../../../../../assets/svg/Current.svg";
-import CompaniesOrderPoolTable from "../../../../../components/OrderPool/CompaniesOrderTable.component";
-import TablePagination from "../../../../../components/Pagination/TablePagination.component";
+import Reload from "../../../../assets/svg/Reload.svg";
+import Current from "../../../../assets/svg/Current.svg";
+import CompaniesOrderPoolTable from "../../../../components/OrderPool/CompaniesOrderTable.component";
 
-const DirectCustomerOrderPool = () => {
+const ExchangePool = () => {
   const [selectedValue, setSelectedValue] = useState("current");
   const [dateSelector, setDateSelector] = useState("today");
   const [size, setSize] = useState(7);
@@ -34,18 +34,18 @@ const DirectCustomerOrderPool = () => {
   return (
     <div className="flex flex-col gap-4 w-full h-screen items-center justify-center ">
       <div className="h-[20%] w-[95%] flex flex-col">
-        <div className="flex">
+        <div className="flex gap-2 w-full">
           <Typography
             variant="h5"
             sx={{
               fontWeight: "bold",
               paddingY: "20px",
               textAlign: "start",
-              width: "100%",
             }}
           >
             Order Exchange Pool
           </Typography>
+          <img src={Reload} alt="" />
         </div>
         <div className="flex w-[35%]">
           <div className="flex items-center rounded-lg w-[35%]">
@@ -56,21 +56,47 @@ const DirectCustomerOrderPool = () => {
               name="date-radio-buttons"
               inputProps={{ "aria-label": "All Time" }}
             />
-            <Typography sx={{ fontWeight: "bold" }}>All Time</Typography>
+            <Typography sx={{ fontWeight: "bold" }}>Today</Typography>
           </div>
-          <div className="flex items-center bg-white border-2 w-[65%] rounded-lg">
+          <div className="flex items-center  bg-violet-500 w-[70%] rounded-lg px-4">
             <Radio
               checked={dateSelector === "other"}
               onChange={handleDateSelection}
               value="other"
               name="date-radio-buttons"
-              inputProps={{ "aria-label": "other" }}
+              inputProps={{
+                style: {
+                  color: "white",
+                },
+              }}
             />
-            <div className="flex flex-col">
-              <Typography>Change period</Typography>
-              <div className="flex flex-wrap">
-                <TextField type="date" />
-                <TextField type="date" />
+            <div className="flex flex-col gap-1">
+              <Typography sx={{ color: "white" }}>Change period</Typography>
+              <div className="flex gap-2">
+                <TextField
+                  variant="standard"
+                  size="small"
+                  type="date"
+                  InputProps={{
+                    disableUnderline: true,
+                    style: {
+                      height: "15px",
+                      color: "white",
+                    },
+                  }}
+                />
+                <TextField
+                  variant="standard"
+                  type="date"
+                  size="small"
+                  InputProps={{
+                    style: {
+                      color: "white",
+                      height: "15px",
+                    },
+                    disableUnderline: true,
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -157,14 +183,11 @@ const DirectCustomerOrderPool = () => {
           </div>
         </div>
       </div>
-      <div className="w-[95%] h-[70%]">
+      <div className="w-[95%] h-[80%]">
         <CompaniesOrderPoolTable />
-      </div>
-      <div className="w-[95%] h-[10%]">
-        <TablePagination />
       </div>
     </div>
   );
 };
 
-export default DirectCustomerOrderPool;
+export default ExchangePool;

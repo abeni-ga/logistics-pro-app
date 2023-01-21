@@ -22,19 +22,25 @@ const DeactiveDialog = (props) => {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogContent>
-        <div className="flex flex-col items-center gap-5 justify-center">
-          <Typography className="text-xl font-bold">
-            Confirm deactivation
-          </Typography>
-          <IconButton className="absolute top-0 right-0">
-            <CloseIcon />
-          </IconButton>
-          <img src={Deactive} alt="" />
-          <Typography className="text-xl font-bold">
-            Are you sure you want to deactive plan?
-          </Typography>
-        </div>
+      <DialogContent
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Typography className="text-xl font-bold">
+          Confirm deactivation
+        </Typography>
+        <IconButton className="absolute top-0 right-0">
+          <CloseIcon />
+        </IconButton>
+        <img src={Deactive} alt="" />
+        <Typography className="text-xl font-bold">
+          Are you sure you want to deactive plan?
+        </Typography>
       </DialogContent>
       <DialogActions>
         <div className="flex w-full justify-center">

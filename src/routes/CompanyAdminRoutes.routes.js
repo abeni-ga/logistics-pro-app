@@ -10,11 +10,6 @@ const Dashboard = Loadable(
 const OrderNow = Loadable(
   lazy(() => import("../pages/CompanyAdmin/Orders/OrderNow/OrderNow.page"))
 );
-const ExchangePool = Loadable(
-  lazy(() =>
-    import("../pages/CompanyAdmin/Orders/ExchangePool/ExchangePool.page")
-  )
-);
 const InternalOrders = Loadable(
   lazy(() =>
     import(
@@ -22,28 +17,25 @@ const InternalOrders = Loadable(
     )
   )
 );
-const InternalOrderSummary = Loadable(
-  lazy(() =>
-    import(
-      "../pages/CompanyAdmin/Orders/InternalOrders/InternalOrderPoolSummary.page"
-    )
-  )
-);
 const ExchangePoolOrderList = Loadable(
   lazy(() =>
-    import("../pages/SuperAdmin/Orders/ExchangePool/ExchangePoolOrderList.jsx")
+    import(
+      "../pages/CompanyAdmin/Orders/ExchangePool/ExchangePoolOrderList.jsx"
+    )
   )
 );
 const ExchangePoolOrderSummary = Loadable(
   lazy(() =>
     import(
-      "../pages/SuperAdmin/Orders/ExchangePool/ExchangeOrderPoolSummary.page"
+      "../pages/CompanyAdmin/Orders/ExchangePool/ExchangeOrderPoolSummary.page"
     )
   )
 );
 const EchangePoolOrderHistory = Loadable(
   lazy(() =>
-    import("../pages/SuperAdmin/Orders/ExchangePool/ExchangeOrderHistory.page")
+    import(
+      "../pages/CompanyAdmin/Orders/ExchangePool/ExchangeOrderHistory.page"
+    )
   )
 );
 const OrderHistory = Loadable(
@@ -131,10 +123,20 @@ const CompanyAdminRoutes = {
       path: "orders",
       element: <Orders />,
       children: [
-        { path: "new", element: <OrderNow /> },
-        { path: "in", element: <InternalOrders /> },
-        { path: "pool", element: <ExchangePool /> },
-        { path: "in-summary", element: <InternalOrderSummary /> },
+        { path: "order-now", element: <OrderNow /> },
+        { path: "in-orders", element: <InternalOrders /> },
+        {
+          path: "exch-pool",
+          element: <ExchangePoolOrderList />,
+        },
+        {
+          path: "order-summary",
+          element: <ExchangePoolOrderSummary />,
+        },
+        {
+          path: "order-history",
+          element: <EchangePoolOrderHistory />,
+        },
       ],
     },
     {

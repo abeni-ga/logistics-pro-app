@@ -64,17 +64,17 @@ export const COMPANYADMINMENUITEMS = [
     active: false,
     children: [
       {
-        path: "/company-admin/orders/in",
+        path: "/company-admin/orders/in-orders",
         title: "In-Orders",
         type: "link",
       },
       {
-        path: "/company-admin/orders/pool",
+        path: "/company-admin/orders/exch-pool",
         title: "Order Exch. Pool",
         type: "link",
       },
       {
-        path: "/company-admin/orders/new",
+        path: "/company-admin/orders/order-now",
         title: "Create",
         type: "link",
       },

@@ -96,7 +96,7 @@ const RiderAccountDetail = (props) => {
               <ArrowBackIosIcon className="text-sm" />
             </IconButton>
             <IconButton
-              className="absolute top-[45%] left-2 text-darkGray"
+              className="absolute top-[45%] right-2 text-darkGray"
               onClick={handleNextComment}
             >
               <ArrowForwardIosIcon className="text-sm" />
