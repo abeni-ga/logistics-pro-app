@@ -12,10 +12,34 @@ import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { login } from "../../utils/apis";
+import { toast } from "react-toastify";
+import UseLocalStorage from "../../hooks/useLocalStorage";
+import { ROLE } from "../../constants/enum";
+import { routes } from "../../routes/siteRoutes.routes";
 
 const LogInForm = (props) => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const handleLogIn = async (values) => {
+    const header = {
+      type: "application/json",
+    };
+
+    await login(header, values)
+      .then((data) => {
+        toast.success("Successfully Logged in!");
+        UseLocalStorage("token", data.token);
+        if (data.role === ROLE.ADMIN) {
+          navigate(routes.admin.dashboard);
+        } else {
+          navigate(routes.company.dashboard);
+        }
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
   return (
     <div className="flex flex-col w-2/6 h-3/5  rounded-xl	bg-white p-16 justify-around gap-10">
       <div>
