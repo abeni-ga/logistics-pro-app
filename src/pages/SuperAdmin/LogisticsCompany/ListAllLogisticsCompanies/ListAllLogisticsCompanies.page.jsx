@@ -1,18 +1,25 @@
 import { useNavigate } from "react-router-dom";
-import ListAllCompanies from "../../../../components/UserView/UserList/UserListAll.component";
+import PageHeader from "../../../../components/Header/PageHeader.component";
+import ListViewHeader from "../../../../components/PageFilterAndButton/ListViewHeader.component";
+import TablePagination from "../../../../components/Pagination/TablePagination.component";
+import UserListTable from "../../../../components/UserView/UserList/UserListTable.component";
 const ListAllLogisticsCompanies = () => {
   const navigate = useNavigate();
   const handleAction = () => {
     navigate("/admin/logistics-company/register");
   };
   return (
-    <div>
-      <ListAllCompanies
-        action={handleAction}
-        route="/admin/logistics-company/detail"
-        title={"Logistic Companies"}
-        btnName="Register Company"
-      />
+    <div className=" w-full h-screen bg-transparent p-10 flex flex-col">
+      <div className="flex flex-col h-[20%] w-full">
+        <PageHeader title="Logistic Companies" />
+        <ListViewHeader btnName="Register Company" action={handleAction} />
+      </div>
+      <div className="flex flex-col h-[75%] w-full overflow-auto">
+        <UserListTable route="/admin/logistics-company/detail" />
+      </div>
+      <div className="h-[5%]">
+        <TablePagination />
+      </div>
     </div>
   );
 };

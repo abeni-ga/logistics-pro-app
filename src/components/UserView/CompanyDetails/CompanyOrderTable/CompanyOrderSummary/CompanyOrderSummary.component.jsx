@@ -1,17 +1,13 @@
 import {
   Avatar,
   Button,
-  IconButton,
   InputAdornment,
   styled,
   TextField,
   Typography,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import PPic from "../../../../../assets/svg/PPic.svg";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { NavLink } from "react-router-dom";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 
 const CompanyOrderSummary = () => {
@@ -21,33 +17,9 @@ const CompanyOrderSummary = () => {
       backgroundColor: "rgba(220,220,220,0.5)",
     },
   }));
-  const history = useNavigate();
   return (
-    <div className="flex m-8 flex-col h-screen">
-      <div className="h-[15%]">
-        <div className="flex items-center gap-2">
-          <NavLink>
-            <IconButton
-              onClick={() => {
-                history(-1);
-              }}
-            >
-              <ArrowBackIcon />
-            </IconButton>
-          </NavLink>
-          <Typography className="font-bold" variant="h6">
-            Order Summary
-          </Typography>
-        </div>
-        <div>
-          <Typography className="text-darkGray ">Order No:</Typography>
-          <Typography className="font-bold text-darkGray" variant="h6">
-            #00112233
-          </Typography>
-        </div>
-      </div>
-
-      <div className="flex w-full h-full justify-around ">
+    <div className="flex flex-col h-full">
+      <div className="flex w-full h-full justify-between ">
         <div className="flex flex-col w-[48%] py-4 gap-1">
           <div className="flex flex-col justify-center px-4 bg-white rounded-xl w-full h-[15%]">
             <div className="flex gap-4">

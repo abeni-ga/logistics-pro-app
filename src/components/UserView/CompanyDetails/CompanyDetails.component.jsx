@@ -1,27 +1,13 @@
 import CompanyAccountDetail from "./CompanyAccountDetail.component";
 import CompanyInfoDetail from "./CompanyInfoDetail.component";
 import CompanyOrdersList from "./CompanyOrderTable/CompanyOrdersList.component";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { IconButton, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import RetailTableHeader from "../../PageFilterAndButton/RetailCompanyTableHeader.component";
 import LogisticTableHeader from "../../PageFilterAndButton/LogisticCompanyTableHeader.component";
+import PageHeader from "../../Header/PageHeader.component";
 const CompanyDetail = (props) => {
-  const history = useNavigate();
   return (
     <div className="flex flex-col w-full h-screen">
-      <div className="h-[10%] flex items-center gap-2 ml-8">
-        <IconButton
-          onClick={() => {
-            history(-1);
-          }}
-        >
-          <ArrowBackIcon />
-        </IconButton>
-        <Typography variant="h6" className="font-bold">
-          {props.title}
-        </Typography>
-      </div>
+      <PageHeader title="Logistic Companies" backBtn className="h-[10%]" />
       <div className="flex w-full h-[85%] pt-4">
         <div className="flex flex-col w-[35%] h-full items-center">
           <CompanyInfoDetail user={props.user ? true : false} />

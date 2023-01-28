@@ -1,16 +1,14 @@
-import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import PageHeader from "../../Header/PageHeader.component.jsx";
 import ListViewHeader from "../../PageFilterAndButton/ListViewHeader.component.jsx";
 import TablePagination from "../../Pagination/TablePagination.component.jsx";
 import UserListTable from "./UserListTable.component.jsx";
 const ListAllUsers = (props) => {
   const navigate = useNavigate();
   return (
-    <div className=" w-full h-screen bg-transparent p-10 flex flex-col">
-      <div className="flex flex-col h-[20%] w-full">
-        <Typography variant="h5" className="font-bold">
-          {props.title}
-        </Typography>
+    <div className=" w-full h-screen bg-transparent px-10 flex flex-col">
+      <div className="flex flex-col w-full">
+        <PageHeader title="" />
         <ListViewHeader
           btnName={props.btnName}
           action={() => {

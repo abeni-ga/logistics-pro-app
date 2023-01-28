@@ -1,11 +1,26 @@
-import ListAllUser from "../../../../components/UserView/UserList/UserListAll.component";
+import { useNavigate } from "react-router-dom";
+import PageHeader from "../../../../components/Header/PageHeader.component";
+import ListViewHeader from "../../../../components/PageFilterAndButton/ListViewHeader.component";
+import TablePagination from "../../../../components/Pagination/TablePagination.component";
+import UserListTable from "../../../../components/UserView/UserList/UserListTable.component";
 const ActiveDirectCustomer = () => {
+  const navigate = useNavigate();
+  const handleAction = () => {
+    navigate("/admin/logistics-company/register");
+  };
   return (
-    <ListAllUser
-      route="/admin/direct-customer/detail"
-      title="Active Direct Customer"
-      btnName="Search"
-    />
+    <div className=" w-full h-screen bg-transparent px-10 flex flex-col">
+      <div className="flex flex-col w-full">
+        <PageHeader title="Active Direct Customers" />
+        <ListViewHeader btnName="Search" action={handleAction} />
+      </div>
+      <div className="flex flex-col h-[75%] w-full overflow-auto">
+        <UserListTable route="/admin/direct-customer/detail" />
+      </div>
+      <div className="h-[5%]">
+        <TablePagination />
+      </div>
+    </div>
   );
 };
 
