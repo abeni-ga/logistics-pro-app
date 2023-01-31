@@ -2,12 +2,31 @@
 import axios from "axios";
 
 const httpRequest = async (method, url, request) => {
-  try {
-    const response = await axios[method](url, request);
-    return response;
-  } catch (error) {
-    console.error(error);
-  }
+  var config = {
+    method: method,
+    url: url,
+    headers: {
+      Authorization: "Bearer null",
+      "Content-Type": "application/json",
+    },
+    data: request,
+  };
+  const result = await axios(config)
+    .then(function (response) {
+      return response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+      return error;
+    });
+  console.log("result", result);
+  return result;
+  // try {
+  //   const response = await axios[method](url, request);
+  //   return response;
+  // } catch (error) {
+  //   console.error(error);
+  // }
 };
 
 /**
@@ -41,6 +60,8 @@ const deleter = async (url, request) => {
  */
 const post = async (url, request) => {
   const resp = await httpRequest("POST", url, request);
+  console.log("res", resp);
+
   return resp;
 };
 /**

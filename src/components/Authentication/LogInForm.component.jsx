@@ -17,8 +17,19 @@ import { toast } from "react-toastify";
 import UseLocalStorage from "../../hooks/useLocalStorage";
 import { ROLE } from "../../constants/enum";
 import { routes } from "../../routes/siteRoutes.routes";
+import { useFormik } from "formik";
 
 const LogInForm = (props) => {
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+    },
+    onSubmit: (values) => {
+      handleLogIn(values);
+    },
+  });
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const handleLogIn = async (values) => {
@@ -48,58 +59,86 @@ const LogInForm = (props) => {
         </h1>
         <h6>Enter the following information below</h6>
       </div>
-      <div className="flex flex-col gap-6">
-        <TextField label="Email Address" type="email" />
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">
-            Password
-          </InputLabel>
-          <OutlinedInput
-            label="Password"
-            id="outlined-adornment-password"
-            type={showPassword ? "text" : "password"}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={() => {
-                    setShowPassword(!showPassword);
-                  }}
-                  onMouseDown={() => {}}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                </IconButton>
-              </InputAdornment>
-            }
+      <form onSubmit={formik.handleSubmit}>
+        <div className="flex flex-col gap-6">
+          <TextField
+            label="Email Address"
+            id="password"
+            name="email"
+            type="email"
           />
-        </FormControl>
-        <a
-          href="/company/forgot"
-          className="text-center text-blue-800 hover:text-blue-600 visited:text-purple-600 self-end"
-        >
-          Forgot Password?
-        </a>
-      </div>
-      <div className="flex justify-between">
-        <div className="flex items-center">
-          <h6>Just joining us here?</h6>
+          <TextField
+            name="password"
+            label="Password"
+            id="password"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={() => {
+                      setShowPassword(!showPassword);
+                    }}
+                    onMouseDown={() => {}}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+          <FormControl variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-password">
+              Password
+            </InputLabel>
+            <OutlinedInput
+              label="Password"
+              id="outlined-adornment-password"
+              type={showPassword ? "text" : "password"}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={() => {
+                      setShowPassword(!showPassword);
+                    }}
+                    onMouseDown={() => {}}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+          </FormControl>
           <a
-            href="/company/signup"
-            className="ml-2 text-center text-blue-800 hover:text-blue-600 visited:text-purple-600"
+            href="/company/forgot"
+            className="text-center text-blue-800 hover:text-blue-600 visited:text-purple-600 self-end"
           >
-            Register Now
+            Forgot Password?
           </a>
         </div>
-        <Button
-          className="bg-darkIndigo"
-          variant="contained"
-          size="large"
-          onClick={() => navigate(props.route)}
-        >
-          Login
-        </Button>
-      </div>
+        <div className="flex justify-between">
+          <div className="flex items-center">
+            <h6>Just joining us here?</h6>
+            <a
+              href="/company/signup"
+              className="ml-2 text-center text-blue-800 hover:text-blue-600 visited:text-purple-600"
+            >
+              Register Now
+            </a>
+          </div>
+          <Button
+            className="bg-darkIndigo"
+            variant="contained"
+            size="large"
+            onClick={() => navigate(props.route)}
+          >
+            Login
+          </Button>
+        </div>
+      </form>
     </div>
   );
 };

@@ -1,15 +1,11 @@
+import axios from "axios";
 import { account } from "../constants/ApiEndpoints";
 import UseLocalStorage from "../hooks/useLocalStorage";
 import { get, post } from "./fetch";
 
 export const login = async (header, body) => {
-  const response = await post(account.logIn, {
-    header: {
-      ...header,
-      Authorization: `Bearer ${UseLocalStorage("token")}`,
-    },
-    body,
-  });
+  const response = await post(account.logIn, body);
+  console.log("response", response);
   return response;
 };
 
