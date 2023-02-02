@@ -5,10 +5,7 @@ const httpRequest = async (method, url, request) => {
   var config = {
     method: method,
     url: url,
-    headers: {
-      Authorization: "Bearer null",
-      "Content-Type": "application/json",
-    },
+    headers: {},
     data: request,
   };
   const result = await axios(config)

@@ -12,7 +12,7 @@ import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
-import { routes } from "../../routes/siteRoutes.routes";
+import { routes } from "../../../routes/siteRoutes.routes";
 
 const CreatePassword = () => {
   const [showPassword, setShowPassword] = useState(false);

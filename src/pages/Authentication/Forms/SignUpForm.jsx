@@ -1,8 +1,8 @@
 import { Button, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
-import StepOne from "../Forms/CompanyRegistration/Steps/StepOne.component";
+import StepOne from "../../../components/Forms/CompanyRegistration/Steps/StepOne.component";
 import { useNavigate } from "react-router-dom";
-import { routes } from "../../routes/siteRoutes.routes";
+import { routes } from "../../../routes/siteRoutes.routes";
 
 const SignUpForm = () => {
   const navigate = useNavigate();

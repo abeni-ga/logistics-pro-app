@@ -1,4 +1,3 @@
-import axios from "axios";
 import { account } from "../constants/ApiEndpoints";
 import UseLocalStorage from "../hooks/useLocalStorage";
 import { get, post } from "./fetch";

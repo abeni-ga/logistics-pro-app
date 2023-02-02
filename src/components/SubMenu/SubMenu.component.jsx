@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { color } from "../../constants/Theme";
 import NavButton from "../Buttons/NavButton/NavButton";
 
 const SubMenu = ({ item, isOpen, toggle }) => {
+  const location = useLocation();
   const [subNav, setSubNav] = useState(false);
   const showSubNav = () => {
     if (!isOpen && item.children) {
@@ -40,7 +41,7 @@ const SubMenu = ({ item, isOpen, toggle }) => {
         <div className="flex flex-col gap-1">
           {!isOpen
             ? null
-            : item.children && subNav
+            : item.children && location.pathname?.includes(item.path)
             ? item.children.map((child, index) => {
                 return (
                   <NavLink

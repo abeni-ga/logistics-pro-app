@@ -1,10 +1,10 @@
 import React from "react";
-import Like from "../../../assets/svg/Like.svg";
-import { color } from "../../../constants/Theme";
-import Logo from "../../../assets/svg/Logo.svg";
+import Like from "../../assets/svg/Like.svg";
+import { color } from "../../constants/Theme";
+import Logo from "../../assets/svg/Logo.svg";
 import { Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { routes } from "../../../routes/siteRoutes.routes.js";
+import { routes } from "../../routes/siteRoutes.routes.js";
 const RegistrationConfirmation = (props) => {
   const navigate = useNavigate();
   return (

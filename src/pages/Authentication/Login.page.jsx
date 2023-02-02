@@ -1,13 +1,11 @@
-import React from "react";
-import { color } from "../../../constants/Theme";
-import Logo from "../../../assets/svg/Logo.svg";
-import Scooter from "../../../assets/svg/Scooter.svg";
-import LogInForm from "../../../components/Authentication/LogInForm.component";
-import SignUpForm from "../../../components/Authentication/SignUpForm.component";
-import ForgotPassword from "../../../components/Authentication/ForgotPassword.component";
-import CreatePassword from "../../../components/Authentication/CreatePassword.component";
-import RecoveryMail from "../../../components/Authentication/RecoveryMail.component";
-import { routes } from "../../../routes/siteRoutes.routes";
+import LogInForm from "./Forms/LogInForm";
+import SignUpForm from "./Forms/SignUpForm";
+import ForgotPassword from "./Forms/ForgotPassword";
+import CreatePassword from "./Forms/CreatePassword";
+import RecoveryMail from "./Forms/RecoveryMail";
+import { color } from "../../constants/Theme";
+import Logo from "../../assets/svg/Logo.svg";
+import Scooter from "../../assets/svg/Scooter.svg";
 
 const LogIn = (props) => {
   return (
@@ -41,7 +39,7 @@ const LogIn = (props) => {
       ) : props.recovery ? (
         <RecoveryMail />
       ) : (
-        <LogInForm route={routes.company.dashboard} />
+        <LogInForm />
       )}
     </div>
   );
