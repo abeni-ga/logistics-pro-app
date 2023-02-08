@@ -4,29 +4,37 @@ import RiderAccountDetail from "../RiderInfo/RiderAccountDetail.component";
 import RiderListTable from "../RIderListView/RiderListTable.component";
 import RiderInfoDetail from "../RiderInfo/RiderInfoDetail.component";
 import TablePagination from "../../Pagination/TablePagination.component";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getUsers } from "../../../utils/apis";
 import { toast } from "react-toastify";
+
 const RiderList = () => {
   const [fullScreen, setFullScreen] = useState(false);
   const [riders, setRiders] = useState([]);
-  const handleGetUsers = async () => {
-    try {
-      const response = await getUsers();
-      setRiders(response.data);
-      console.log(response.data);
-    } catch (error) {
-      toast.error(error);
+  const [offset, setOffset] = useState(1); //attach this to pagination
+
+  const handleGetUsers = useCallback(async () => {
+    const params = new URLSearchParams({
+      limit: 10,
+      offset: offset,
+      populate: "detail",
+      filterBy: "role", // if you want to add another filter lets say active riders pass role,accountStatus here
+      filterValue: "Rider", // then here pass Rider,Active
+    });
+    const response = await getUsers({}, `?${params.toString()}`);
+    if (response.status < 300) {
+      setRiders(response.data?.data?.data);
+    } else {
+      toast.error(response.statusText);
     }
-  };
-  const params = new URLSearchParams({
-    limit: 10,
-    offset: 1,
-  });
-  console.log(params.toString());
+  }, [offset]);
+
+  console.table(riders);
+
   useEffect(() => {
     handleGetUsers();
-  }, []);
+  }, [handleGetUsers]);
+
   return (
     <div className="flex flex-col w-full h-full items-center">
       <div className="flex flex-col w-[95%] h-full items-center">

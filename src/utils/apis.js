@@ -1,23 +1,27 @@
 import { account } from "../constants/ApiEndpoints";
-import UseLocalStorage from "../hooks/useLocalStorage";
-import { apiAuth, apiNoAuth, get } from "./fetch";
+import { apiAuth, apiNoAuth } from "./fetch";
+import { clearLocalStorage, getToken } from "./tokenHandler";
 
 export const login = async (header, body) => {
   const response = await apiNoAuth().post(account.logIn, body);
-  console.log("response", response);
   return response;
 };
+
 export const logout = () => {
-  localStorage.clear();
+  clearLocalStorage();
   window.open("/", "_self");
 };
+
 export const getUsers = async (header, params) => {
-  console.log("getUsers function", params);
-  const head = {
-    ...header,
-    Authorization: `Bearer ${UseLocalStorage("token")}`,
-  };
-  const response = await apiAuth(head).get(account.getUsers + params);
-  console.log("res", response);
-  return response;
+  try {
+    const head = {
+      ...header,
+      Authorization: `Bearer ${getToken("pool_token")}`,
+    };
+    console.log(head);
+    const response = await apiAuth(head).get(account.getUsers + params);
+    return response;
+  } catch (error) {
+    console.log("Error", error);
+  }
 };

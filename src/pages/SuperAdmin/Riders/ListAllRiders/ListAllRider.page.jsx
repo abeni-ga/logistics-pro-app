@@ -8,16 +8,16 @@ import { useEffect, useState } from "react";
 import { getUsers } from "../../../../utils/apis";
 import { toast } from "react-toastify";
 const ListRiders = () => {
-  const header = {};
-  const params = new URLSearchParams({
-    limit: 10,
-    offset: 1,
-  });
   const [fullScreen, setFullScreen] = useState(false);
   const [riders, setRiders] = useState([]);
+
   const handleGetUsers = async () => {
     try {
-      const response = await getUsers(header, params.toString());
+      const params = new URLSearchParams({
+        limit: 10,
+        offset: 1,
+      });
+      const response = await getUsers({}, `?${params.toString()}`);
       setRiders(response);
       console.log(response);
     } catch (error) {
@@ -25,11 +25,10 @@ const ListRiders = () => {
     }
   };
 
-  console.log(params.toString());
   useEffect(() => {
-    console.log("useEffect");
     handleGetUsers();
   }, []);
+
   return (
     <div className="flex flex-col w-full h-full items-center">
       <div className="flex flex-col w-[95%] h-full items-center">

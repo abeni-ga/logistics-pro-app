@@ -1,32 +1,34 @@
-import { Avatar, Typography } from "@mui/material";
+import { Avatar, Tooltip, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import PPic from "../../../assets/svg/PPic.svg";
 
-const RiderListItem = () => {
+const RiderListItem = ({ rider }) => {
   return (
-    <div className="flex w-full h-24 bg-white rounded-xl items-center">
+    <div className="flex w-full h-24 bg-white rounded-xl items-center py-2">
       <div className="w-[10%] flex justify-center">
-        <Avatar size="large" src={PPic} />
+        <Avatar size="large" src={rider.detail?.profilePhoto || PPic} />
       </div>
       <div className="flex flex-col w-[20%]">
-        <Typography className="font-bold">Bolade Davies</Typography>
-        <Typography>Reg 001234567</Typography>
+        <Typography className="font-bold">{`${rider.detail?.firstName} ${rider.detail?.lastName}`}</Typography>
+        <Tooltip title={rider._id}>
+          <Typography>{rider._id.substring(0, 9)}...</Typography>
+        </Tooltip>
       </div>
       <div className="flex flex-col w-[25%]">
-        <Typography className="text-lightGray">+2340101010110</Typography>
-        <Typography>Boladavies@gmail.com</Typography>
+        <Typography className="text-lightGray">{rider.phone}</Typography>
+        <Typography>{rider.email}</Typography>
       </div>
       <div className="flex flex-col w-[25%]">
-        <Typography className="text-darkIndigo font-bold">
+        {/* <Typography className="text-darkIndigo font-bold">
           N390,000.00
-        </Typography>
+        </Typography> */}
         <Typography className="text-lightGray font-bold">
-          200 Deliveries
+          {`${rider.detail?.orderCount.length} Deliveries`}
         </Typography>
       </div>
       <div className="w-[15%]">
         <Typography className="bg-lightGreen text-brightGreen w-min p-1 rounded-md font-bold">
-          Active
+          {rider.accountStatus}
         </Typography>
       </div>
       <Typography>

@@ -3,9 +3,9 @@ import dayjs from "dayjs";
 import jwt_decode from "jwt-decode";
 import { BASEURL } from "../constants/ApiEndpoints";
 import { logout } from "./apis";
+import { getToken } from "./tokenHandler";
 
 export function apiAuth(headers) {
-  console.log("apiAuth function");
   const instance = axios.create({
     baseURL: BASEURL,
     headers: {
@@ -13,7 +13,7 @@ export function apiAuth(headers) {
     },
   });
   instance.interceptors.response.use(async (request) => {
-    const user = jwt_decode(localStorage.getItem("token"));
+    const user = jwt_decode(getToken("pool_token"));
     const isExpired = dayjs.unix(user.exp).diff(dayjs()) < 1;
     if (isExpired) {
       logout();

@@ -1,5 +1,6 @@
 import { SearchRounded } from "@mui/icons-material";
 import { Avatar, InputAdornment, TextField } from "@mui/material";
+import { logout } from "../../utils/apis";
 
 const TopBar = ({ image, name }) => {
   return (
@@ -18,10 +19,10 @@ const TopBar = ({ image, name }) => {
           size="small"
         />
       </div>
-
       <div className="flex flex-row p-2 mr-10 gap-3 items-center">
         <Avatar src={image ?? ""} />
         <h3>{name ?? "Lorem Ipsum"}</h3>
+        <button onClick={() => logout()}>logout</button>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import RiderListItem from "./RiderListItem.component";
 
-const RiderListTable = () => {
+const RiderListTable = ({ riders }) => {
   return (
     <div className="flex flex-col h-full w-full">
       <div className="py-4 w-full flex items-center">
@@ -12,14 +12,10 @@ const RiderListTable = () => {
         <Typography className="w-[15%] text-lightGray">Detail</Typography>
       </div>
       <div className="flex flex-col gap-2 h-full w-full">
-        <RiderListItem />
-        <RiderListItem />
-        <RiderListItem />
-        <RiderListItem />
-        <RiderListItem />
-        <RiderListItem />
-        <RiderListItem />
-        <RiderListItem />
+        {Array.isArray(riders) &&
+          riders.map((rider, index) => (
+            <RiderListItem key={index} rider={rider} />
+          ))}
       </div>
     </div>
   );

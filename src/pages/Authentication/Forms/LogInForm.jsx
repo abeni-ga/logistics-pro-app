@@ -10,28 +10,23 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { Form, Formik } from "formik";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
+import { setToken } from "../../../utils/tokenHandler";
 
 const LogInForm = (props) => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogIn = async (values) => {
-    const header = {
-      Authorization: "Bearer null",
-      "Content-Type": "application/json",
-    };
     try {
-      const result = await login(header, values);
+      const result = await login({}, values);
       toast.success("Successfully Logged in!");
-      console.log(result);
       if (result.data.data.account?.role === ROLE.ADMIN) {
+        setToken("pool_token", result.data.data?.token);
         navigate(routes.admin.dashboard);
       } else {
         navigate(routes.company.dashboard);
       }
-      console.log("resultttt", result.data.account);
     } catch (error) {
-      console.log("error", error);
       toast.error(error.message);
     }
   };
