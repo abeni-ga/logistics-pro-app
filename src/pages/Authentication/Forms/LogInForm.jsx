@@ -8,7 +8,7 @@ import { ROLE } from "../../../constants/enum";
 import { routes } from "../../../routes/siteRoutes.routes";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { Formik } from "formik";
+import { Form, Formik } from "formik";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
 
 const LogInForm = (props) => {
@@ -23,8 +23,8 @@ const LogInForm = (props) => {
     try {
       const result = await login(header, values);
       toast.success("Successfully Logged in!");
-      // UseLocalStorage("token", result.data.token);
-      if (result.data.account.role === ROLE.ADMIN) {
+      console.log(result);
+      if (result.data.data.account?.role === ROLE.ADMIN) {
         navigate(routes.admin.dashboard);
       } else {
         navigate(routes.company.dashboard);
@@ -58,73 +58,67 @@ const LogInForm = (props) => {
           handleLogIn(values);
         }}
       >
-        {(props) => (
-          <form onSubmit={props.handleSubmit}>
-            <div className="flex flex-col gap-6">
-              <TextFieldWrapper
-                label="Email Address"
-                id="email"
-                type="email"
-                name="email"
-                onChange={props.handleChange}
-                value={props.values.email}
-              />
-              <TextFieldWrapper
-                label="Password"
-                onChange={props.handleChange}
-                value={props.values.password}
-                id="password"
-                name="password"
-                type={showPassword ? "text" : "password"}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={() => {
-                          setShowPassword(!showPassword);
-                        }}
-                        onMouseDown={() => {}}
-                        edge="end"
-                      >
-                        {showPassword ? (
-                          <VisibilityOffIcon />
-                        ) : (
-                          <VisibilityIcon />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
+        <Form>
+          <div className="flex flex-col gap-6">
+            <TextFieldWrapper
+              label="Email Address"
+              id="email"
+              type="email"
+              name="email"
+            />
+            <TextFieldWrapper
+              label="Password"
+              id="password"
+              name="password"
+              type={showPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={() => {
+                        setShowPassword(!showPassword);
+                      }}
+                      onMouseDown={() => {}}
+                      edge="end"
+                    >
+                      {showPassword ? (
+                        <VisibilityOffIcon />
+                      ) : (
+                        <VisibilityIcon />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <a
+              href="/company/forgot"
+              className="text-center text-blue-800 hover:text-blue-600 visited:text-purple-600 self-end"
+            >
+              Forgot Password?
+            </a>
+          </div>
+          <div className="flex justify-between">
+            <div className="flex items-center">
+              <h6>Just joining us here?</h6>
               <a
-                href="/company/forgot"
-                className="text-center text-blue-800 hover:text-blue-600 visited:text-purple-600 self-end"
+                href="/company/signup"
+                className="ml-2 text-center text-blue-800 hover:text-blue-600 visited:text-purple-600"
               >
-                Forgot Password?
+                Register Now
               </a>
             </div>
-            <div className="flex justify-between">
-              <div className="flex items-center">
-                <h6>Just joining us here?</h6>
-                <a
-                  href="/company/signup"
-                  className="ml-2 text-center text-blue-800 hover:text-blue-600 visited:text-purple-600"
-                >
-                  Register Now
-                </a>
-              </div>
-              <Button
-                type="submit"
-                className="bg-darkIndigo"
-                variant="contained"
-                size="large"
-              >
-                Login
-              </Button>
-            </div>
-          </form>
-        )}
+            <Button
+              type="submit"
+              className="bg-darkIndigo"
+              variant="contained"
+              size="large"
+            >
+              Login
+            </Button>
+          </div>
+        </Form>
       </Formik>
     </div>
   );

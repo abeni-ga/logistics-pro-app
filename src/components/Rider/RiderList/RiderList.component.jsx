@@ -4,9 +4,29 @@ import RiderAccountDetail from "../RiderInfo/RiderAccountDetail.component";
 import RiderListTable from "../RIderListView/RiderListTable.component";
 import RiderInfoDetail from "../RiderInfo/RiderInfoDetail.component";
 import TablePagination from "../../Pagination/TablePagination.component";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getUsers } from "../../../utils/apis";
+import { toast } from "react-toastify";
 const RiderList = () => {
   const [fullScreen, setFullScreen] = useState(false);
+  const [riders, setRiders] = useState([]);
+  const handleGetUsers = async () => {
+    try {
+      const response = await getUsers();
+      setRiders(response.data);
+      console.log(response.data);
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+  const params = new URLSearchParams({
+    limit: 10,
+    offset: 1,
+  });
+  console.log(params.toString());
+  useEffect(() => {
+    handleGetUsers();
+  }, []);
   return (
     <div className="flex flex-col w-full h-full items-center">
       <div className="flex flex-col w-[95%] h-full items-center">
@@ -25,7 +45,7 @@ const RiderList = () => {
             }`}
           >
             <div className="w-full h-[80%] overflow-auto">
-              <RiderListTable />
+              <RiderListTable riders={riders} />
             </div>
             <div className="w-full h-[5%]">
               <TablePagination />
