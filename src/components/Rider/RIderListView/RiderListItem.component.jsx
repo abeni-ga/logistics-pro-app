@@ -2,9 +2,12 @@ import { Avatar, Tooltip, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import PPic from "../../../assets/svg/PPic.svg";
 
-const RiderListItem = ({ rider }) => {
+const RiderListItem = ({ rider, onClick }) => {
   return (
-    <div className="flex w-full h-24 bg-white rounded-xl items-center py-2">
+    <div
+      className="flex w-full h-24 bg-white rounded-xl items-center py-2"
+      onClick={onClick}
+    >
       <div className="w-[10%] flex justify-center">
         <Avatar size="large" src={rider.detail?.profilePhoto || PPic} />
       </div>

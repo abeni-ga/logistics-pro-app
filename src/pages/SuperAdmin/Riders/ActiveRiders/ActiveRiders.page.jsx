@@ -10,13 +10,12 @@ import { getUsers } from "../../../../utils/apis";
 import { toast } from "react-toastify";
 
 const ActiveRiderList = () => {
-  const [fullScreen, setFullScreen] = useState(true);
   const [userDetail, setUserDetail] = useState(null);
   const [riders, setRiders] = useState([]);
   const [pageSize, setPageSize] = useState(1);
   const [offset, setOffset] = useState(1); //attach this to pagination
   const [pageLimit, setPageLimit] = useState(10);
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
 
   const handleGetUsers = useCallback(async () => {
     const params = new URLSearchParams({
@@ -30,18 +29,18 @@ const ActiveRiderList = () => {
     if (response.status < 300) {
       if (
         Number.isInteger(
-          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit
+          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit,
         )
       ) {
         setPageSize(
-          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit
+          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit,
         );
       } else {
         setPageSize(
           parseInt(
             response?.data?.data?.meta?.total /
-              response?.data?.data?.meta?.limit
-          ) + 1
+              response?.data?.data?.meta?.limit,
+          ) + 1,
         );
       }
       setRiders(response.data?.data?.data);
@@ -59,16 +58,23 @@ const ActiveRiderList = () => {
       prev.filter(
         (rider) =>
           rider.detail.firstName.includes(key) ||
-          rider.detail.lastName.includes(key)
-      )
+          rider.detail.lastName.includes(key),
+      ),
     );
   };
-  const handleUserDetail = (user) => {
-    setUserDetail(riders[user]);
-    setFullScreen(false);
-    console.log("user", riders[user]);
+
+  // This is wrong I don't even know what you planned to do here
+
+  // const handleUserDetail = (user) => {
+  //   setUserDetail(riders[user]);
+  //   setFullScreen(false);
+  //   console.log("user", riders[user]);
+  // };
+
+  const handleUserDetail = (rider) => {
+    setUserDetail(rider);
   };
-  console.table(riders);
+
   const handlePageLimit = (limit) => {
     setPageLimit(limit);
   };
@@ -77,6 +83,7 @@ const ActiveRiderList = () => {
     handleGetUsers();
   }, [handleGetUsers, pageLimit, offset]);
   // handleSearch(search);
+
   return (
     <div className="flex flex-col w-full h-screen items-center px-3">
       <div className="flex items-start w-full h-[5%]">
@@ -89,9 +96,7 @@ const ActiveRiderList = () => {
       </div>
       <div className="flex w-full h-[80%]">
         <div
-          className={` flex flex-col h-full gap-5 ${
-            fullScreen ? "w-full" : "w-[65%]"
-          }`}
+          className={` flex flex-col h-full gap-5 w-full`}
         >
           <div className="w-full h-[80%] overflow-auto">
             <RiderListTable
