@@ -19,7 +19,7 @@ const ListRiders = () => {
       });
       const response = await getUsers({}, `?${params.toString()}`);
       setRiders(response);
-      console.log(response);
+      console.log("riders", response);
     } catch (error) {
       toast.error(error);
     }

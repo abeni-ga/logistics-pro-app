@@ -1,14 +1,32 @@
-import OrderViewHeader from "../PageFilterAndButton/OrderViewHeader.jsx";
-import { IconButton, Radio, TextField, Typography } from "@mui/material";
-
-import Menu from "../../assets/svg/Menu.svg";
-import List from "../../assets/svg/List.svg";
+import SearchIcon from "@mui/icons-material/Search";
+import {
+  FormControl,
+  IconButton,
+  InputAdornment,
+  MenuItem,
+  Radio,
+  Select,
+  styled,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import StandardButton from "../Buttons/StandardButton.component";
+import Menu from "../../assets/svg/Menu.svg";
+import List from "../../assets/svg/List.svg";
 
 const RiderViewHeader = (props) => {
   const navigate = useNavigate();
+  const [action, setAction] = useState("export");
+  const [size, setSize] = useState(7);
+
   const [dateSelector, setDateSelector] = useState("today");
+  const SearchBox = styled(TextField)(() => ({
+    "& fieldset": {
+      borderRadius: "10px",
+    },
+  }));
   const handleDateSelection = (e) => {
     setDateSelector(e.target.value);
   };
@@ -80,7 +98,62 @@ const RiderViewHeader = (props) => {
         </div>
       </div>
       <div className="md:w-[50%] lg:w-[58%] xl:w-[50%] flex items-center">
-        <OrderViewHeader btnName={props.btnName} action={handleAction} />
+        <div className="flex flex-col md:flex-row items-center w-full gap-1 2xl:gap-4 ">
+          <div className="flex w-full md:w-[35%] gap-1 items-center">
+            <FormControl className="w-[40%]">
+              <Select
+                className="bg-white rounded-lg"
+                id="quantity"
+                value={action}
+                placeholder="show"
+                label=""
+                onChange={(e) => {
+                  setAction(e.target.value);
+                }}
+              >
+                <MenuItem value={"export"}>Export</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl className="w-[60%]">
+              <Select
+                id="size"
+                value={size}
+                className="bg-white rounded-lg"
+                onChange={(e) => {
+                  setSize(e.target.value);
+                }}
+              >
+                <MenuItem default value={7}>
+                  7
+                </MenuItem>
+                <MenuItem value={8}>9</MenuItem>
+                <MenuItem value={9}>9</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
+          <div className="flex w-full md:w-[64%] items-center gap-1">
+            <SearchBox
+              className="bg-white w-[69%] rounded-lg"
+              variant="outlined"
+              placeholder="search company here"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+
+            <StandardButton
+              className="w-[30%]"
+              variant="contained"
+              onClick={handleAction}
+            >
+              {props.btnName}
+            </StandardButton>
+          </div>
+        </div>
       </div>
     </div>
   );

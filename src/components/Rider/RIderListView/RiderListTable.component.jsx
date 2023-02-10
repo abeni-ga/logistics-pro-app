@@ -1,7 +1,13 @@
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
 import RiderListItem from "./RiderListItem.component";
 
-const RiderListTable = ({ riders }) => {
+const RiderListTable = ({ riders, handleUserDetail }) => {
+  const [userIndex, setUserIndex] = useState(null);
+  useEffect(() => {
+    handleUserDetail(userIndex);
+    console.log("userIndex", userIndex);
+  }, [handleUserDetail, userIndex]);
   return (
     <div className="flex flex-col h-full w-full">
       <div className="py-4 w-full flex items-center">
@@ -14,7 +20,15 @@ const RiderListTable = ({ riders }) => {
       <div className="flex flex-col gap-2 h-full w-full">
         {Array.isArray(riders) &&
           riders.map((rider, index) => (
-            <RiderListItem key={index} rider={rider} />
+            <Button
+              key={index}
+              onClick={() => {
+                console.log(index);
+                setUserIndex(index);
+              }}
+            >
+              <RiderListItem rider={rider} />
+            </Button>
           ))}
       </div>
     </div>
