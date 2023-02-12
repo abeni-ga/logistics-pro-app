@@ -8,7 +8,7 @@ const RiderInfoDetail = ({ user }) => {
     <div
       className="flex h-56 gap-4 px-4 w-4/5 items-center rounded-xl drop-shadow-lg bg-white z-10"
       onClick={() => {
-        navigate(routes.admin.riderDetail);
+        navigate(routes.admin.riderDetail, { state: { ...user } });
       }}
     >
       <div className="flex flex-col w-[30%] h-full pt-7">

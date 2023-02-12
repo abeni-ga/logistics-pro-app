@@ -15,7 +15,7 @@ const ActiveRiderList = () => {
   const [pageSize, setPageSize] = useState(1);
   const [offset, setOffset] = useState(1); //attach this to pagination
   const [pageLimit, setPageLimit] = useState(10);
-  // const [search, setSearch] = useState("");
+  const [keyWord, setKeyWord] = useState("");
 
   const handleGetUsers = useCallback(async () => {
     const params = new URLSearchParams({
@@ -24,52 +24,40 @@ const ActiveRiderList = () => {
       populate: "detail",
       filterBy: "role", // if you want to add another filter lets say active riders pass role,accountStatus here
       filterValue: "Rider", // then here pass Rider,Active
+      searchBy: "firstName",
+      keyword: keyWord,
     });
     const response = await getUsers({}, `?${params.toString()}`);
-    if (response.status < 300) {
+    if (response?.status < 300) {
       if (
         Number.isInteger(
-          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit,
+          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit
         )
       ) {
         setPageSize(
-          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit,
+          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit
         );
       } else {
         setPageSize(
           parseInt(
             response?.data?.data?.meta?.total /
-              response?.data?.data?.meta?.limit,
-          ) + 1,
+              response?.data?.data?.meta?.limit
+          ) + 1
         );
       }
       setRiders(response.data?.data?.data);
       // handleSearch(search);
     } else {
-      toast.error(response.statusText);
+      toast.error(response?.statusText);
     }
-  }, [offset, pageLimit]);
+  }, [offset, pageLimit, keyWord]);
 
   const handleOffset = (pageOffSet) => {
     setOffset(pageOffSet);
   };
   const handleSearch = (key) => {
-    setRiders((prev) =>
-      prev.filter(
-        (rider) =>
-          rider.detail.firstName.includes(key) ||
-          rider.detail.lastName.includes(key),
-      ),
-    );
+    setKeyWord(key);
   };
-
-  // This is wrong I don't even know what you planned to do here
-
-  // const handleUserDetail = (user) => {
-  //   setUserDetail(riders[user]);
-  //   setFullScreen(false);
-  //   console.log("user", riders[user]);
-  // };
 
   const handleUserDetail = (rider) => {
     setUserDetail(rider);
@@ -82,7 +70,6 @@ const ActiveRiderList = () => {
   useEffect(() => {
     handleGetUsers();
   }, [handleGetUsers, pageLimit, offset]);
-  // handleSearch(search);
 
   return (
     <div className="flex flex-col w-full h-screen items-center px-3">
@@ -92,11 +79,17 @@ const ActiveRiderList = () => {
         </Typography>
       </div>
       <div className="w-full flex h-[15%]">
-        <RiderViewHeader btnName={"New Rider"} handleSearch={handleSearch} />
+        <RiderViewHeader
+          btnName={"New Rider"}
+          handleSearch={handleSearch}
+          handlePageLimit={handlePageLimit}
+        />
       </div>
       <div className="flex w-full h-[80%]">
         <div
-          className={` flex flex-col h-full gap-5 w-full`}
+          className={` flex flex-col h-full gap-5 ${
+            !userDetail ? "w-full" : "w-[65%]"
+          }`}
         >
           <div className="w-full h-[80%] overflow-auto">
             <RiderListTable

@@ -16,6 +16,7 @@ const RiderListTable = ({ riders, handleUserDetail }) => {
         {Array.isArray(riders) &&
           riders.map((rider, index) => (
             <RiderListItem
+              key={index}
               rider={rider}
               onClick={() => handleUserDetail(rider)}
             />

@@ -8,9 +8,9 @@ import Pulse from "../../../assets/svg/Pulse.svg";
 import RiderInfoDetail from "../RiderInfo/RiderInfoDetail.component";
 import ViewRiderAccountDetail from "../RiderInfo/ViewRiderAccountDetail.component";
 import RiderPersonalInfo from "../RiderInfo/RiderPersonalInfo.component";
-import TablePagination from "../../Pagination/TablePagination.component";
+// import TablePagination from "../../Pagination/TablePagination.component";
 
-const RiderDetail = () => {
+const RiderDetail = ({ user }) => {
   const [display, setDisplay] = useState("order-history");
   const navigate = useNavigate();
   return (
@@ -64,8 +64,8 @@ const RiderDetail = () => {
         <div className="flex w-full">
           <div className="w-[35%] h-full flex flex-col items-center">
             {}
-            <RiderInfoDetail />
-            <ViewRiderAccountDetail />
+            <RiderInfoDetail user={user} />
+            <ViewRiderAccountDetail user={user} />
           </div>
           <div className="w-[65%] flex justify-center h-min">
             <div className="flex items-center w-[98%] flex-col gap-2">
@@ -85,7 +85,7 @@ const RiderDetail = () => {
                 </div>
               </div>
               <RiderOrderTable />
-              <TablePagination />
+              {/* <TablePagination /> */}
             </div>
           </div>
         </div>

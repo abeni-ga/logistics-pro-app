@@ -1,12 +1,10 @@
 import SearchIcon from "@mui/icons-material/Search";
 import {
-  FormControl,
   IconButton,
   InputAdornment,
   MenuItem,
   Radio,
   Select,
-  styled,
   TextField,
   Typography,
 } from "@mui/material";
@@ -16,17 +14,13 @@ import StandardButton from "../Buttons/StandardButton.component";
 import Menu from "../../assets/svg/Menu.svg";
 import List from "../../assets/svg/List.svg";
 
-const RiderViewHeader = (props) => {
+const RiderViewHeader = ({ btnName, handleSearch, handlePageLimit }) => {
   const navigate = useNavigate();
   const [action, setAction] = useState("export");
   const [size, setSize] = useState(7);
+  const [search, setSearch] = useState("");
 
   const [dateSelector, setDateSelector] = useState("today");
-  const SearchBox = styled(TextField)(() => ({
-    "& fieldset": {
-      borderRadius: "10px",
-    },
-  }));
   const handleDateSelection = (e) => {
     setDateSelector(e.target.value);
   };
@@ -100,42 +94,48 @@ const RiderViewHeader = (props) => {
       <div className="md:w-[50%] lg:w-[58%] xl:w-[50%] flex items-center">
         <div className="flex flex-col md:flex-row items-center w-full gap-1 2xl:gap-4 ">
           <div className="flex w-full md:w-[35%] gap-1 items-center">
-            <FormControl className="w-[40%]">
-              <Select
-                className="bg-white rounded-lg"
-                id="quantity"
-                value={action}
-                placeholder="show"
-                label=""
-                onChange={(e) => {
-                  setAction(e.target.value);
-                }}
-              >
-                <MenuItem value={"export"}>Export</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl className="w-[60%]">
-              <Select
-                id="size"
-                value={size}
-                className="bg-white rounded-lg"
-                onChange={(e) => {
-                  setSize(e.target.value);
-                }}
-              >
-                <MenuItem default value={7}>
-                  7
-                </MenuItem>
-                <MenuItem value={8}>9</MenuItem>
-                <MenuItem value={9}>9</MenuItem>
-              </Select>
-            </FormControl>
+            <Select
+              className="bg-white rounded-lg w-[40%]"
+              id="quantity"
+              value={action}
+              placeholder="show"
+              label=""
+              onChange={(e) => {
+                setAction(e.target.value);
+              }}
+            >
+              <MenuItem value={"export"}>Export</MenuItem>
+            </Select>
+            <Select
+              className="bg-white rounded-lg w-[60%]"
+              id="size"
+              value={size}
+              onChange={(e) => {
+                handlePageLimit(e.target.value);
+                setSize(e.target.value);
+              }}
+            >
+              <MenuItem default value={7}>
+                7
+              </MenuItem>
+              <MenuItem value={10}>10</MenuItem>
+              <MenuItem value={9}>20</MenuItem>
+            </Select>
           </div>
           <div className="flex w-full md:w-[64%] items-center gap-1">
-            <SearchBox
+            <TextField
               className="bg-white w-[69%] rounded-lg"
-              variant="outlined"
-              placeholder="search company here"
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch(e.target.value);
+                  console.log(e.target.value);
+                }
+              }}
+              value={search}
+              placeholder="search here"
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -150,7 +150,7 @@ const RiderViewHeader = (props) => {
               variant="contained"
               onClick={handleAction}
             >
-              {props.btnName}
+              {btnName}
             </StandardButton>
           </div>
         </div>

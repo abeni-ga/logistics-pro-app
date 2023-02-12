@@ -4,7 +4,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import RegistrationDocument from "../RegistrationDocument/RegistrationDocument.component";
 import { useState } from "react";
 
-const RiderAccountDetail = (props) => {
+const RiderAccountDetail = ({ user, review }) => {
   const [doc, setDoc] = useState(false);
   const [current, setCurrent] = useState(0);
 
@@ -42,7 +42,7 @@ const RiderAccountDetail = (props) => {
         <div className="flex flex-col gap-4">
           <div className="flex flex-col">
             <Typography className="text-lightGray">Reg No</Typography>
-            <Typography>#012345678</Typography>
+            <Typography>{user.id}</Typography>
           </div>
           <div className="flex flex-col">
             <Typography className="text-lightGray">Date Registered</Typography>
@@ -86,7 +86,7 @@ const RiderAccountDetail = (props) => {
           </div>
         </div>
       </div>
-      {props.review ? (
+      {review ? (
         <div className="h-30 w-full flex justify-center">
           <div className="relative h-full flex items-center justify-center w-[80%]">
             <IconButton
