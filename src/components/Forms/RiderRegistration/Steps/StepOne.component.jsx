@@ -1,9 +1,12 @@
 import { useState } from "react";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { InputLabel, MenuItem, Typography } from "@mui/material";
 import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
+import { googleApiKey } from "../../../../constants/ApiKey";
 
 const StepOne = () => {
   const [asset, setAsset] = useState(null);
+  const [address, setAddress] = useState("");
   return (
     <div className="flex flex-col gap-4">
       <div>
@@ -37,10 +40,25 @@ const StepOne = () => {
           placeholder="Type Last Name"
         />
         <InputLabel htmlFor="riderAddress">Address</InputLabel>
-        <TextFieldWrapper
-          id="riderAddress"
-          name="riderAddress"
-          placeholder="24, Gbolahan Street..."
+        <GooglePlacesAutocomplete
+          apiKey={googleApiKey}
+          selectProps={{
+            address,
+            onChange: setAddress,
+            placeholder: "",
+            styles: {
+              input: (provided) => ({
+                ...provided,
+                height: "50px",
+              }),
+              option: (provided) => ({
+                ...provided,
+              }),
+              singleValue: (provided) => ({
+                ...provided,
+              }),
+            },
+          }}
         />
         <InputLabel htmlFor="preferredAsset">Preferred Asset</InputLabel>
         <TextFieldWrapper

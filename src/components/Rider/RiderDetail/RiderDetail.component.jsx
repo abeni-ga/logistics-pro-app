@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { IconButton, Typography } from "@mui/material";
 import FilterAndActionButton from "../../PageFilterAndButton/OrderViewHeader";
 import RiderOrderTable from "../RiderInfo/RiderOrderTable/RiderOrderTable.compnent";
@@ -8,9 +8,22 @@ import Pulse from "../../../assets/svg/Pulse.svg";
 import RiderInfoDetail from "../RiderInfo/RiderInfoDetail.component";
 import ViewRiderAccountDetail from "../RiderInfo/ViewRiderAccountDetail.component";
 import RiderPersonalInfo from "../RiderInfo/RiderPersonalInfo.component";
+import { toast } from "react-toastify";
+import { getUser } from "../../../utils/apis";
 // import TablePagination from "../../Pagination/TablePagination.component";
 
-const RiderDetail = ({ user }) => {
+const RiderDetail = ({ userId }) => {
+  const handleGetUser = useCallback(async () => {
+    const response = await getUser(userId);
+    if (response?.status < 300) {
+      console.log(response);
+    } else {
+      toast.error(response?.statusText);
+    }
+  }, [userId]);
+  useEffect(() => {
+    handleGetUser();
+  }, [handleGetUser]);
   const [display, setDisplay] = useState("order-history");
   const navigate = useNavigate();
   return (
@@ -64,8 +77,8 @@ const RiderDetail = ({ user }) => {
         <div className="flex w-full">
           <div className="w-[35%] h-full flex flex-col items-center">
             {}
-            <RiderInfoDetail user={user} />
-            <ViewRiderAccountDetail user={user} />
+            <RiderInfoDetail />
+            <ViewRiderAccountDetail />
           </div>
           <div className="w-[65%] flex justify-center h-min">
             <div className="flex items-center w-[98%] flex-col gap-2">

@@ -6,7 +6,7 @@ export const login = async (header, body) => {
   const response = await apiNoAuth().post(account.logIn, body);
   return response;
 };
-
+export const register = async () => {};
 export const logout = () => {
   clearLocalStorage();
   window.open("/", "_self");
@@ -18,9 +18,20 @@ export const getUsers = async (header, params) => {
       ...header,
       Authorization: `Bearer ${getToken("pool_token")}`,
     };
-    console.log(head);
     const response = await apiAuth(head).get(account.getUsers + params);
     return response;
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
+
+export const getUser = async (userId) => {
+  try {
+    const head = {
+      Authorization: `Bearer ${getToken("pool_token")}`,
+    };
+    const response = await apiAuth(head).get(`${account.getUser}/${userId}`);
+    console.log(response);
   } catch (error) {
     console.log("Error", error);
   }

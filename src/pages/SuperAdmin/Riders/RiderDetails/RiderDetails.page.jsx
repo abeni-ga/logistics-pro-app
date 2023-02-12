@@ -3,8 +3,8 @@ import RiderDetail from "../../../../components/Rider/RiderDetail/RiderDetail.co
 
 const RiderDetails = () => {
   const { state } = useLocation();
-  console.log("user", state);
-  return <RiderDetail user={state} />;
+  const { userId } = state;
+  return <RiderDetail userId={userId} />;
 };
 
 export default RiderDetails;

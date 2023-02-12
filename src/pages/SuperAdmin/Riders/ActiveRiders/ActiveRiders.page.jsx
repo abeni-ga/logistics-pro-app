@@ -46,7 +46,6 @@ const ActiveRiderList = () => {
         );
       }
       setRiders(response.data?.data?.data);
-      // handleSearch(search);
     } else {
       toast.error(response?.statusText);
     }
