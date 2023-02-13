@@ -1,8 +1,12 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { InputLabel, Typography, IconButton } from "@mui/material";
-import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
+import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
+import { googleApiKey } from "../../../../constants/ApiKey";
+import { useState } from "react";
 const StepTwo = ({ handlePrev }) => {
+  const [address, setAddress] = useState("");
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-3">
@@ -27,14 +31,14 @@ const StepTwo = ({ handlePrev }) => {
       <div className="flex flex-col gap-2">
         <InputLabel htmlFor="riderEmail">Email Address</InputLabel>
         <TextFieldWrapper
-          id="riderEmail"
-          name="riderEmail"
+          id="email"
+          name="email"
           placeholder="companyabc@xyz.com"
         />
-        <InputLabel htmlFor="riderPhoneNumber">Phone Number</InputLabel>
+        <InputLabel htmlFor="phoneNumber">Phone Number</InputLabel>
         <TextFieldWrapper
-          id="riderPhoneNumber"
-          name="riderPhoneNumber"
+          id="phoneNumber"
+          name="phoneNumber"
           placeholder="123456789"
         />
         <InputLabel htmlFor="contactPerson">Company Person</InputLabel>
@@ -66,15 +70,30 @@ const StepTwo = ({ handlePrev }) => {
           </div>
         </div>
         <InputLabel htmlFor="postalAddress">Postal Address</InputLabel>
+        <GooglePlacesAutocomplete
+          apiKey={googleApiKey}
+          selectProps={{
+            address,
+            onChange: setAddress,
+            placeholder: "",
+            styles: {
+              input: (provided) => ({
+                ...provided,
+                height: "50px",
+              }),
+              option: (provided) => ({
+                ...provided,
+              }),
+              singleValue: (provided) => ({
+                ...provided,
+              }),
+            },
+          }}
+        />
+        <InputLabel htmlFor="postalAddress">P O Box Number</InputLabel>
         <TextFieldWrapper
           id="postalAddress"
           name="postalAddress"
-          placeholder="24, Gbolahan Street..."
-        />
-        <InputLabel htmlFor="postalNumber">P O Box Number</InputLabel>
-        <TextFieldWrapper
-          id="postalNumber"
-          name="postalNumber"
           placeholder="Type in Postal Number"
         />
       </div>

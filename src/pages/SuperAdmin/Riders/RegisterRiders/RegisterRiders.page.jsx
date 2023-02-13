@@ -13,11 +13,21 @@ const RegisterRider = () => {
   const [step, setStep] = useState(1);
   const navigate = useNavigate();
   const INITIAL_VALUES = {
-    userType: "",
+    firstName: "",
+    lastName: "",
+    asset: "",
+    email: "",
+    phoneNumber: "",
+    contactPerson: "",
+    contactPersonPostion: "",
+    contactPersonPhoneNumber: "",
+    postalAddress: "",
   };
 
   const FORM_VALIDATION = Yup.object().shape({
-    userType: Yup.string().required("*Required"),
+    firstName: Yup.string().required("*Required"),
+    lastName: Yup.string().required("*Required"),
+    asset: Yup.string().required("*Required"),
   });
 
   const handlePrev = () => {

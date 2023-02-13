@@ -6,7 +6,10 @@ export const login = async (header, body) => {
   const response = await apiNoAuth().post(account.logIn, body);
   return response;
 };
-export const register = async () => {};
+export const register = async (header, body) => {
+  const response = await apiAuth().post(account.register, body);
+  return response;
+};
 export const logout = () => {
   clearLocalStorage();
   window.open("/", "_self");
