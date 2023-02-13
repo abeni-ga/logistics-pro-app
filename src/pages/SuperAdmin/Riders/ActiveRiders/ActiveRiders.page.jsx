@@ -13,18 +13,18 @@ const ActiveRiderList = () => {
   const [userDetail, setUserDetail] = useState(null);
   const [riders, setRiders] = useState([]);
   const [pageSize, setPageSize] = useState(1);
-  const [offset, setOffset] = useState(1); //attach this to pagination
+  const [offset, setOffset] = useState(0); //attach this to pagination
   const [pageLimit, setPageLimit] = useState(10);
   const [keyWord, setKeyWord] = useState("");
 
   const handleGetUsers = useCallback(async () => {
     const params = new URLSearchParams({
       limit: pageLimit,
-      offset: offset,
+      offset: offset * pageLimit,
       populate: "detail",
       filterBy: "role", // if you want to add another filter lets say active riders pass role,accountStatus here
       filterValue: "Rider", // then here pass Rider,Active
-      searchBy: "firstName",
+      searchBy: "firstName,lastName",
       keyword: keyWord,
     });
     const response = await getUsers({}, `?${params.toString()}`);
@@ -70,7 +70,7 @@ const ActiveRiderList = () => {
     handleGetUsers();
   }, [handleGetUsers, pageLimit, offset]);
 
-  return (
+  return riders ? (
     <div className="flex flex-col w-full h-screen items-center px-3">
       <div className="flex items-start w-full h-[5%]">
         <Typography className="font-bold py-5 text-start">
@@ -86,24 +86,24 @@ const ActiveRiderList = () => {
       </div>
       <div className="flex w-full h-[80%]">
         <div
-          className={` flex flex-col h-full gap-5 ${
+          className={` flex flex-col gap-5 ${
             !userDetail ? "w-full" : "w-[65%]"
           }`}
         >
-          <div className="w-full h-[80%] overflow-auto">
+          <div className="w-full h-[80%]">
             <RiderListTable
               riders={riders}
               userDetail={userDetail}
               handleUserDetail={handleUserDetail}
             />
-          </div>
-          <div className="w-full h-[5%]">
-            <TablePagination
-              handlePageLimit={handlePageLimit}
-              pageSize={pageSize}
-              pageLimit={pageLimit}
-              handleOffSet={handleOffset}
-            />
+            <div className="w-full h-[5%]">
+              <TablePagination
+                handlePageLimit={handlePageLimit}
+                handleOffSet={handleOffset}
+                pageSize={pageSize}
+                pageLimit={pageLimit}
+              />
+            </div>
           </div>
         </div>
         {!userDetail ? null : (
@@ -120,7 +120,7 @@ const ActiveRiderList = () => {
         )}
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default ActiveRiderList;

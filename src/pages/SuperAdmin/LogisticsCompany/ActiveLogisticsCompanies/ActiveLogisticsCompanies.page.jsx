@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import PageHeader from "../../../../components/Header/PageHeader.component";
 import ListViewHeader from "../../../../components/PageFilterAndButton/ListViewHeader.component";
-import TablePagination from "../../../../components/Pagination/TablePagination.component";
+// import TablePagination from "../../../../components/Pagination/TablePagination.component";
 import UserListTable from "../../../../components/UserView/UserList/UserListTable.component";
 const ActiveLogisticsCompanies = () => {
   const navigate = useNavigate();
@@ -17,9 +17,9 @@ const ActiveLogisticsCompanies = () => {
       <div className="flex flex-col h-[75%] w-full overflow-auto">
         <UserListTable route="/admin/logistics-company/detail" />
       </div>
-      <div className="h-[5%]">
+      {/*  <div className="h-[5%]">
         <TablePagination />
-      </div>
+      </div> */}
     </div>
   );
 };

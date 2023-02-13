@@ -30,7 +30,13 @@ const RiderListItem = ({ rider, onClick }) => {
         </Typography>
       </div>
       <div className="w-[15%]">
-        <Typography className="bg-lightGreen text-brightGreen w-min p-1 rounded-md font-bold">
+        <Typography
+          className={` w-min p-1 rounded-md font-bold ${
+            rider.accountStatus === "Active"
+              ? "bg-lightGreen text-brightGreen"
+              : "bg-red-100 text-red-500"
+          }`}
+        >
           {rider.accountStatus}
         </Typography>
       </div>

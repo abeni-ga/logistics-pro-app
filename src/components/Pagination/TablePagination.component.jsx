@@ -14,7 +14,7 @@ const TablePagination = ({
 }) => {
   const [page, setPage] = useState(1);
   const [pageNo, setPageNo] = useState(1);
-  const [offSet, setOffSet] = useState(1);
+  const [offSet, setOffSet] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
   const [limit, setLimit] = useState(pageLimit);
   const open = Boolean(anchorEl);
@@ -32,14 +32,12 @@ const TablePagination = ({
     console.log(page, pageSize);
     setPage((prev) => (pageSize > prev && prev < 3 ? prev + 1 : prev));
     setPageNo((prev) => (page === 3 && prev < pageSize - 2 ? prev + 1 : prev));
-    setOffSet((prev) =>
-      page === 1 ? pageNo : page === 2 ? pageNo + 1 : pageNo + 2
-    );
+    setOffSet((prev) => (pageSize - 1 > prev ? prev + 1 : prev));
   };
   const handlePrev = () => {
     setPage((prev) => (prev > 1 ? prev - 1 : prev));
     setPageNo((prev) => (page === 1 && prev > 1 ? prev - 1 : prev));
-    setOffSet((prev) => (page === 2 ? pageNo + 1 : page === 1 ? pageNo : prev));
+    setOffSet((prev) => (prev > 0 ? prev - 1 : prev));
   };
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

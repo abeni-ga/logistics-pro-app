@@ -1,7 +1,15 @@
 import { Typography } from "@mui/material";
+import TablePagination from "../../Pagination/TablePagination.component";
 import RiderListItem from "./RiderListItem.component";
 
-const RiderListTable = ({ riders, handleUserDetail }) => {
+const RiderListTable = ({
+  riders,
+  handleUserDetail,
+  handlePageLimit,
+  handleOffset,
+  pageSize,
+  pageLimit,
+}) => {
   return (
     <div className="flex flex-col h-full w-full">
       <div className="py-4 w-full flex items-center">
@@ -12,7 +20,7 @@ const RiderListTable = ({ riders, handleUserDetail }) => {
         <Typography className="w-[25%] text-lightGray">Earning</Typography>
         <Typography className="w-[15%] text-lightGray">Detail</Typography>
       </div>
-      <div className="flex flex-col gap-2 h-full w-full">
+      <div className="flex flex-col gap-2 w-full overflow-auto">
         {Array.isArray(riders) &&
           riders.map((rider, index) => (
             <RiderListItem
