@@ -1,8 +1,7 @@
 import { Typography } from "@mui/material";
-import { logisticsCompany } from "../../../data/LogisticsCompany.js";
 import UserListItem from "./UserListItem.component";
 
-const UserListTable = ({ route }) => {
+const UserListTable = ({ route, companies }) => {
   return (
     <div className="w-full h-full">
       <div className="flex p-1 xl:p-4 items-center w-full sticky top-0 gap-1 xl:gap-2">
@@ -22,9 +21,10 @@ const UserListTable = ({ route }) => {
         <Typography className="w-[8%] text-gray-400">Status</Typography>
       </div>
       <div className="flex flex-col gap-4">
-        {logisticsCompany.map((comp, index) => {
-          return <UserListItem key={index} route={route} />;
-        })}
+        {Array.isArray(companies) &&
+          companies?.map((comp, index) => {
+            return <UserListItem company={comp} key={index} route={route} />;
+          })}
       </div>
     </div>
   );

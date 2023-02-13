@@ -2,9 +2,10 @@ import { NavLink } from "react-router-dom";
 import { Avatar, IconButton, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Profile from "../../../assets/svg/Profile.svg";
-const UserListItem = (prop) => {
+const UserListItem = ({ company, route }) => {
+  console.log(company);
   return (
-    <NavLink to={prop.route}>
+    <NavLink to={route}>
       <div className="flex items-center p-1 xl:p-4 bg-white w-full rounded-xl gap-1 xl:gap-2">
         <div className="w-[6%] xl:w-[8%]">
           <Avatar

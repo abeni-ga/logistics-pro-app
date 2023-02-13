@@ -5,7 +5,7 @@ import PPic from "../../../assets/svg/PPic.svg";
 const RiderListItem = ({ rider, onClick }) => {
   return (
     <div
-      className="flex w-full h-24 bg-white rounded-xl items-center py-2"
+      className="flex w-full min-h-[96px] bg-white rounded-xl items-center py-2"
       onClick={onClick}
     >
       <div className="w-[10%] flex justify-center">
