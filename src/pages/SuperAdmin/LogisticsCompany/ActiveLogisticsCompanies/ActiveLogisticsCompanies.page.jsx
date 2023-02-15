@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -22,7 +23,7 @@ const ActiveLogisticsCompanies = () => {
       filterBy: "role",
       filterValue: "DeliveryCompany",
       populate: "detail",
-      searchBy: "firstName,lastName",
+      searchBy: "name",
       keyWord: keyWord,
     });
     const response = await getUsers({}, `?${params.toString()}`);
@@ -43,7 +44,6 @@ const ActiveLogisticsCompanies = () => {
           ) + 1
         );
       }
-      console.log(response?.data?.data);
       setCompanies(response?.data?.data?.data);
     } else {
       Number.isInteger();
@@ -66,22 +66,19 @@ const ActiveLogisticsCompanies = () => {
   useEffect(() => {
     handleGetUsers();
   }, [handleGetUsers]);
-  return (
-    <div className=" w-full h-screen bg-transparent p-10 flex flex-col">
-      <div className="flex flex-col h-[20%] w-full">
+  return companies.length > 0 ? (
+    <div className=" flex flex-col w-full h-screen items-center px-3">
+      <div className="flex flex-col h-[15%] w-full">
         <PageHeader
           handleSearch={handleSearch}
           title="Active Logistic Companies"
         />
         <ListViewHeader btnName="Register Company" action={handleAction} />
       </div>
-      <div className="flex flex-col h-[75%] w-full overflow-auto">
-        <UserListTable
-          companies={companies}
-          route="/admin/logistics-company/detail"
-        />
+      <div className="flex flex-col h-[75%] w-full">
+        <UserListTable companies={companies} />
       </div>
-      <div className="h-[5%]">
+      <div className="h-[5%] w-full">
         <TablePagination
           pageSize={pageSize}
           pageLimit={pageLimit}
@@ -89,6 +86,10 @@ const ActiveLogisticsCompanies = () => {
           handlePageLimit={handlePageLimit}
         />
       </div>
+    </div>
+  ) : (
+    <div className="w-full h-screen flex items-center justify-center">
+      <CircularProgress />
     </div>
   );
 };

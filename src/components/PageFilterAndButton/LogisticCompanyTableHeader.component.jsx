@@ -6,7 +6,7 @@ import FilterAndActionButton from "./OrderViewHeader";
 const LogisticTableHeader = () => {
   return (
     <div className="w-[98%] flex flex-col gap-10">
-      <FilterAndActionButton btnName="New Companys" />
+      <FilterAndActionButton btnName="New Company" />
       <div className="flex justify-between pl-10 w-full">
         <Typography className="self-end text-xl font-bold">
           Pool Order Taken

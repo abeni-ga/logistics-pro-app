@@ -5,7 +5,11 @@ export const routes = {
     riders: "/admin/riders",
     riderDetail: "/admin/riders/detail",
     riderHistory: "/admin/riders/history",
+    deliveryCompany: "/admin/logistics-company",
+    deliveryCompanyDetail: "/admin/logistics-company/detail",
+    retailCompanyDetail: "/admin/retail-company/detail",
     retailCompany: "/admin/retail-company",
+
     orders: "/admin/orders",
     orderHistory: "/admin/order-history",
 

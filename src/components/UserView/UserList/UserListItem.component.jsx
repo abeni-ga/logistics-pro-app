@@ -2,11 +2,17 @@ import { NavLink } from "react-router-dom";
 import { Avatar, IconButton, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Profile from "../../../assets/svg/Profile.svg";
+import { routes } from "../../../routes/siteRoutes.routes";
 const UserListItem = ({ company, route }) => {
-  console.log(company);
   return (
-    <NavLink to={route}>
-      <div className="flex items-center p-1 xl:p-4 bg-white w-full rounded-xl gap-1 xl:gap-2">
+    <NavLink
+      to={`${
+        company.role === "DeliveryCompany"
+          ? routes.admin.deliveryCompanyDetail
+          : routes.admin.retailCompanyDetail
+      }/${company?._id}`}
+    >
+      <div className="flex min-h-[96px] items-center p-1 xl:p-4 bg-white w-full rounded-xl gap-1 xl:gap-2">
         <div className="w-[6%] xl:w-[8%]">
           <Avatar
             className="lg:w-12 lg:h-12 xl:w-16 xl:h-16"
@@ -15,16 +21,18 @@ const UserListItem = ({ company, route }) => {
             variant="rounded"
           />
         </div>
-        <div className="w-[20%]">
+        <div className="w-[18%]">
           <Typography className="text-xs xl:text-sm font-bold">
-            FZ Deliveries
+            {company?.detail?.name
+              ? company?.detail?.name
+              : company?.detail?.companyName}
           </Typography>
           <Typography className="text-xs xl:text-sm text-lightGray">
-            46, Alade Road, Allen Avenue Lagos
+            {company?.detail?.address}
           </Typography>
         </div>
         <Typography className="text-xs xl:text-sm w-[10%]">
-          #001234567
+          {company?._id.substring(0, 9)}
         </Typography>
         <div className="flex flex-col pl-1 w-[15%]">
           <Typography className="text-xs xl:text-sm font-bold">
@@ -54,8 +62,12 @@ const UserListItem = ({ company, route }) => {
           </Typography>
         </div>
         <div className="w-[8%]">
-          <Typography className="text-xs xl:text-sm color w-min bg-green-400 rounded-lg p-2 text-white font-bold">
-            Vertified
+          <Typography
+            className={`text-xs xl:text-sm color w-min rounded-lg p-2 text-white font-bold ${
+              company?.vertified ? "bg-green-400" : "bg-red-400"
+            }`}
+          >
+            {company?.vertified ? "Vertified" : "Pending"}
           </Typography>
         </div>
         <IconButton>

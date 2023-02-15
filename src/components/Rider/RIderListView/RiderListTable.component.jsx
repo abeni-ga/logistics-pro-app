@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import TablePagination from "../../Pagination/TablePagination.component";
 import RiderListItem from "./RiderListItem.component";
 
 const RiderListTable = ({
