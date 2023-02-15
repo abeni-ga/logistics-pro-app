@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import CircularProgress from "@mui/material/CircularProgress";
 import RiderViewHeader from "../../../../components/PageFilterAndButton/RiderViewHeader.component";
 import RiderAccountDetail from "../../../../components/Rider/RiderInfo/RiderAccountDetail.component";
 import RiderListTable from "../../../../components/Rider/RIderListView/RiderListTable.component";
@@ -14,7 +15,7 @@ const ActiveRiderList = () => {
   const [riders, setRiders] = useState([]);
   const [pageSize, setPageSize] = useState(1);
   const [offset, setOffset] = useState(0); //attach this to pagination
-  const [pageLimit, setPageLimit] = useState(10);
+  const [pageLimit, setPageLimit] = useState(7);
   const [keyWord, setKeyWord] = useState("");
 
   const handleGetUsers = useCallback(async () => {
@@ -45,6 +46,7 @@ const ActiveRiderList = () => {
           ) + 1
         );
       }
+      console.log("riders", response.data?.data?.data);
       setRiders(response.data?.data?.data);
     } else {
       toast.error(response?.statusText);
@@ -70,7 +72,7 @@ const ActiveRiderList = () => {
     handleGetUsers();
   }, [handleGetUsers, pageLimit, offset]);
 
-  return riders ? (
+  return riders.length > 0 ? (
     <div className="flex flex-col w-full h-screen items-center px-3">
       <div className="flex items-start w-full h-[5%]">
         <Typography className="font-bold py-5 text-start">
@@ -81,7 +83,9 @@ const ActiveRiderList = () => {
         <RiderViewHeader
           btnName={"New Rider"}
           handleSearch={handleSearch}
+          setRiders={setRiders}
           handlePageLimit={handlePageLimit}
+          pageLimit={pageLimit}
         />
       </div>
       <div className="flex w-full h-[80%]">
@@ -120,7 +124,11 @@ const ActiveRiderList = () => {
         )}
       </div>
     </div>
-  ) : null;
+  ) : (
+    <div className="w-full h-full flex items-center justify-center">
+      <CircularProgress />
+    </div>
+  );
 };
 
 export default ActiveRiderList;

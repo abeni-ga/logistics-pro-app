@@ -8,16 +8,22 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StandardButton from "../Buttons/StandardButton.component";
 import Menu from "../../assets/svg/Menu.svg";
 import List from "../../assets/svg/List.svg";
 
-const RiderViewHeader = ({ btnName, handleSearch, handlePageLimit }) => {
+const RiderViewHeader = ({
+  btnName,
+  handleSearch,
+  handlePageLimit,
+  setRiders,
+  pageLimit,
+}) => {
   const navigate = useNavigate();
   const [action, setAction] = useState("export");
-  const [size, setSize] = useState(7);
+  const [size, setSize] = useState(pageLimit);
   const [search, setSearch] = useState("");
 
   const [dateSelector, setDateSelector] = useState("today");
@@ -27,6 +33,9 @@ const RiderViewHeader = ({ btnName, handleSearch, handlePageLimit }) => {
   const handleAction = () => {
     navigate("/admin/riders/register");
   };
+  useEffect(() => {
+    handlePageLimit(size);
+  }, [handlePageLimit, size]);
   return (
     <div className="flex items-center w-full h-full gap-2 2xl:gap-10">
       <div className="flex w-[50%] md:w-[50%] lg:w-[41%] xl:w-[50%] gap-2 items-center">
@@ -111,7 +120,7 @@ const RiderViewHeader = ({ btnName, handleSearch, handlePageLimit }) => {
               id="size"
               value={size}
               onChange={(e) => {
-                handlePageLimit(e.target.value);
+                console.log("header page limit", e.target.value);
                 setSize(e.target.value);
               }}
             >
@@ -119,7 +128,7 @@ const RiderViewHeader = ({ btnName, handleSearch, handlePageLimit }) => {
                 7
               </MenuItem>
               <MenuItem value={10}>10</MenuItem>
-              <MenuItem value={9}>20</MenuItem>
+              <MenuItem value={20}>20</MenuItem>
             </Select>
           </div>
           <div className="flex w-full md:w-[64%] items-center gap-1">
@@ -131,7 +140,7 @@ const RiderViewHeader = ({ btnName, handleSearch, handlePageLimit }) => {
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   handleSearch(e.target.value);
-                  console.log(e.target.value);
+                  setSearch("");
                 }
               }}
               value={search}

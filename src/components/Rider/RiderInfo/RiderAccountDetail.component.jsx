@@ -121,7 +121,7 @@ const RiderAccountDetail = ({ user, review }) => {
       ) : null}
       <div className="w-4/5 flex justify-between">
         <Button
-          className="bg-bgWhiteSmoke text-darkIndigo capitalize rounded-lg hover:bg-bgWhiteSmoke hover:text-darkIndigo"
+          className="text-[10px] 2xl:text-base bg-bgWhiteSmoke text-darkIndigo capitalize rounded-lg hover:bg-bgWhiteSmoke hover:text-darkIndigo"
           size="small"
           variant="contained"
         >
@@ -130,13 +130,13 @@ const RiderAccountDetail = ({ user, review }) => {
         <div className="flex gap-4">
           <Button
             variant="contained"
-            className="bg-bgWhiteSmoke text-darkIndigo capitalize rounded-lg hover:bg-bgWhiteSmoke hover:text-darkIndigo"
+            className="text-[10px] 2xl:text-base bg-bgWhiteSmoke text-darkIndigo capitalize rounded-lg hover:bg-bgWhiteSmoke hover:text-darkIndigo"
           >
             View Riders
           </Button>
           <Button
             variant="contained"
-            className="bg-bgWhiteSmoke text-darkIndigo capitalize rounded-lg hover:bg-bgWhiteSmoke hover:text-darkIndigo"
+            className="text-[10px] 2xl:text-base bg-bgWhiteSmoke text-darkIndigo capitalize rounded-lg hover:bg-bgWhiteSmoke hover:text-darkIndigo"
           >
             View Orders
           </Button>

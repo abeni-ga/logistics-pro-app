@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { routes } from "../../../routes/siteRoutes.routes";
 const RiderInfoDetail = ({ user }) => {
   const navigate = useNavigate();
+  console.log("user information", user);
   return (
     <div
       className="flex h-56 gap-4 px-4 w-4/5 items-center rounded-xl drop-shadow-lg bg-white z-10"
       onClick={() => {
-        navigate(routes.admin.riderDetail, { state: { user: user } });
+        navigate(`${routes.admin.riderDetail}/${user._id}`, {});
       }}
     >
       <div className="flex flex-col w-[30%] h-full pt-7">

@@ -1,4 +1,4 @@
-import { Button, InputAdornment, IconButton } from "@mui/material";
+import { Button, InputAdornment, IconButton, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import * as Yup from "yup";
@@ -31,9 +31,9 @@ const LogInForm = (props) => {
     }
   };
   return (
-    <div className="flex flex-col w-2/6 h-3/5  rounded-xl	bg-white p-16 justify-around gap-10">
+    <div className="flex flex-col w-2/6 h-3/5  rounded-xl	bg-white p-5 xl:p-10 2xl:p-16 justify-around gap-10">
       <div>
-        <h1 className="text-4xl mb-2 font-semibold text-gray-700">
+        <h1 className="text-2xl xl:text-3xl 2xl:text-4xl mb-2 font-semibold  text-gray-700">
           You're Welcome Back!
         </h1>
         <h6>Enter the following information below</h6>
@@ -89,17 +89,17 @@ const LogInForm = (props) => {
             />
             <a
               href="/company/forgot"
-              className="text-center text-blue-800 hover:text-blue-600 visited:text-purple-600 self-end"
+              className="text-center text-blue-800 hover:text-blue-600 self-end"
             >
               Forgot Password?
             </a>
           </div>
           <div className="flex justify-between">
             <div className="flex items-center">
-              <h6>Just joining us here?</h6>
+              <Typography>Just joining us here?</Typography>
               <a
                 href="/company/signup"
-                className="ml-2 text-center text-blue-800 hover:text-blue-600 visited:text-purple-600"
+                className="ml-2 text-center text-blue-800 hover:text-blue-600"
               >
                 Register Now
               </a>

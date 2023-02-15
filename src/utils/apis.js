@@ -34,13 +34,15 @@ export const getUsers = async (header, params) => {
   }
 };
 
-export const getUser = async (header, params) => {
+export const getUser = async (header, params, userId) => {
   try {
     const head = {
       ...header,
     };
-    const response = await apiAuth(head).get(account.getUser + params);
-    console.log(response);
+    const response = await apiAuth(head).get(
+      `${account.getUser}/${userId}` + params
+    );
+    return response;
   } catch (error) {
     console.log("Error", error);
   }

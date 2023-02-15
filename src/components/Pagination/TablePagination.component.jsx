@@ -19,14 +19,11 @@ const TablePagination = ({
   const [limit, setLimit] = useState(pageLimit);
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
-  console.log("limit", pageLimit);
-  console.log("pageSize", pageSize);
   useEffect(() => {
     handlePageLimit(limit);
   }, [handlePageLimit, limit]);
   useEffect(() => {
     handleOffSet(offSet);
-    console.log("offset", offSet);
   }, [handleOffSet, offSet]);
   const handleNext = () => {
     console.log(page, pageSize);
@@ -49,7 +46,7 @@ const TablePagination = ({
   return (
     <div className="flex w-full justify-between items-center">
       <div className="flex gap-2">
-        <Typography>Show {limit} per pages</Typography>
+        <Typography>Show {pageLimit} per pages</Typography>
         <KeyboardArrowDown onClick={handleClick} />
         <Popover
           id={id}

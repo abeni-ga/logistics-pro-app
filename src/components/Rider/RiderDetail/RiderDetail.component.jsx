@@ -12,20 +12,19 @@ import { toast } from "react-toastify";
 import { getUser } from "../../../utils/apis";
 // import TablePagination from "../../Pagination/TablePagination.component";
 
-const RiderDetail = ({ user }) => {
-  console.log("Rider Detail", user);
+const RiderDetail = ({ userId }) => {
+  const [user, setUser] = useState(undefined);
   const handleGetUser = useCallback(async () => {
     const params = new URLSearchParams({
-      deliveryOf: "Rider",
-      deliveryOfId: user?._id,
+      populate: "detail",
     });
-    const response = await getUser({}, `?${params.toString()}`);
+    const response = await getUser({}, `?${params.toString()}`, userId);
     if (response?.status < 300) {
-      console.log(response);
+      setUser(response.data?.data);
     } else {
       toast.error(response?.statusText);
     }
-  }, [user]);
+  }, [userId]);
   useEffect(() => {
     handleGetUser();
   }, [handleGetUser]);
