@@ -3,8 +3,8 @@ import { IconButton, Typography, Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Vector from "../../../../assets/svg/Vector.svg";
 
-const StepThree = ({ handlePrev }) => {
-  const [files, setFiles] = useState(null);
+const StepThree = ({ handlePrev, setFiles, files }) => {
+  // const [files, setFiles] = useState(undefined);
   const inputRef = useRef();
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ const StepThree = ({ handlePrev }) => {
           className="flex flex-col justify-center items-center rounded-2xl border-2 border-gray-200 p-2 w-[50%]"
         >
           <img className="w-[10%]" src={Vector} alt="" />
-          <Typography clasName="text-lightGray font-bold text-center">
+          <Typography className="text-lightGray font-bold text-center">
             Drag and drop your NIN Registration Slip Here
           </Typography>
           <Typography className="text-lightGray">or</Typography>
@@ -49,7 +49,7 @@ const StepThree = ({ handlePrev }) => {
             type="file"
             multiple
             onChange={(e) => {
-              setFiles(e.target.files);
+              setFiles({ ...files, businessRegistration: e.target.files });
             }}
             hidden
             ref={inputRef}
@@ -79,7 +79,7 @@ const StepThree = ({ handlePrev }) => {
             type="file"
             multiple
             onChange={(e) => {
-              setFiles(e.target.files);
+              setFiles({ ...files, passport: e.target.files });
             }}
             hidden
             ref={inputRef}

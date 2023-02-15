@@ -12,15 +12,20 @@ import { toast } from "react-toastify";
 import { getUser } from "../../../utils/apis";
 // import TablePagination from "../../Pagination/TablePagination.component";
 
-const RiderDetail = ({ userId }) => {
+const RiderDetail = ({ user }) => {
+  console.log("Rider Detail", user);
   const handleGetUser = useCallback(async () => {
-    const response = await getUser(userId);
+    const params = new URLSearchParams({
+      deliveryOf: "Rider",
+      deliveryOfId: user?._id,
+    });
+    const response = await getUser({}, `?${params.toString()}`);
     if (response?.status < 300) {
       console.log(response);
     } else {
       toast.error(response?.statusText);
     }
-  }, [userId]);
+  }, [user]);
   useEffect(() => {
     handleGetUser();
   }, [handleGetUser]);
@@ -77,8 +82,8 @@ const RiderDetail = ({ userId }) => {
         <div className="flex w-full">
           <div className="w-[35%] h-full flex flex-col items-center">
             {}
-            <RiderInfoDetail />
-            <ViewRiderAccountDetail />
+            <RiderInfoDetail user={user} />
+            <ViewRiderAccountDetail user={user} />
           </div>
           <div className="w-[65%] flex justify-center h-min">
             <div className="flex items-center w-[98%] flex-col gap-2">

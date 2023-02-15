@@ -62,16 +62,12 @@ const StepOne = () => {
         />
         <InputLabel htmlFor="preferredAsset">Preferred Asset</InputLabel>
         <TextFieldWrapper
-          value={asset}
           name="asset"
           id="asset"
           select
           placeholder="Select Preferred Asset"
           label="Select Preferred Asset"
           defaultValue="Bike"
-          onChange={(event) => {
-            setAsset(event.target.value);
-          }}
         >
           <MenuItem value={"Bike"}>Bike</MenuItem>
         </TextFieldWrapper>

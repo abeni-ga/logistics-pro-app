@@ -10,6 +10,7 @@ export function apiAuth(headers) {
     baseURL: BASEURL,
     headers: {
       ...headers,
+      Authorization: `Bearer ${getToken("pool_token")}`,
     },
   });
   instance.interceptors.response.use(async (request) => {

@@ -1,6 +1,6 @@
 import { account } from "../constants/ApiEndpoints";
 import { apiAuth, apiNoAuth } from "./fetch";
-import { clearLocalStorage, getToken } from "./tokenHandler";
+import { clearLocalStorage } from "./tokenHandler";
 
 export const login = async (header, body) => {
   const response = await apiNoAuth().post(account.logIn, body);
@@ -14,12 +14,18 @@ export const logout = () => {
   clearLocalStorage();
   window.open("/", "_self");
 };
-
+export const uploadDocument = async (header, body) => {
+  const head = {
+    ...header,
+    "content-type": "multipart/form-data",
+  };
+  const response = await apiAuth(head).post(account.uploadDocuments, body);
+  return response;
+};
 export const getUsers = async (header, params) => {
   try {
     const head = {
       ...header,
-      Authorization: `Bearer ${getToken("pool_token")}`,
     };
     const response = await apiAuth(head).get(account.getUsers + params);
     return response;
@@ -28,12 +34,12 @@ export const getUsers = async (header, params) => {
   }
 };
 
-export const getUser = async (userId) => {
+export const getUser = async (header, params) => {
   try {
     const head = {
-      Authorization: `Bearer ${getToken("pool_token")}`,
+      ...header,
     };
-    const response = await apiAuth(head).get(`${account.getUser}/${userId}`);
+    const response = await apiAuth(head).get(account.getUser + params);
     console.log(response);
   } catch (error) {
     console.log("Error", error);
