@@ -9,7 +9,9 @@ const UserListItem = ({ company, route }) => {
       to={`${
         company.role === "DeliveryCompany"
           ? routes.admin.deliveryCompanyDetail
-          : routes.admin.retailCompanyDetail
+          : company.role === "RetailCompany"
+          ? routes.admin.retailCompanyDetail
+          : routes.admin.customerDetail
       }/${company?._id}`}
     >
       <div className="flex min-h-[96px] items-center p-1 xl:p-4 bg-white w-full rounded-xl gap-1 xl:gap-2">
@@ -25,7 +27,11 @@ const UserListItem = ({ company, route }) => {
           <Typography className="text-xs xl:text-sm font-bold">
             {company?.detail?.name
               ? company?.detail?.name
-              : company?.detail?.companyName}
+              : company?.detail?.companyName
+              ? company?.detail?.companyName
+              : company?.detail?.firstName
+              ? `${company?.detail?.firstName + company?.detail?.lastName}`
+              : company?.username}
           </Typography>
           <Typography className="text-xs xl:text-sm text-lightGray">
             {company?.detail?.address}

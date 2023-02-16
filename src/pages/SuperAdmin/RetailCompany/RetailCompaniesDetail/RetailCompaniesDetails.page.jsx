@@ -32,12 +32,12 @@ const RetailCompanyDetail = () => {
       <PageHeader title="Retail Outlets" backBtn className="h-[10%]" />
       <div className="flex w-full h-[85%] pt-4">
         <div className="flex flex-col w-[35%] h-full items-center">
-          <CompanyInfoDetail customer={false} />
-          <CompanyAccountDetail retail />
+          <CompanyInfoDetail customer={false} user={user} />
+          <CompanyAccountDetail retail user={user} />
         </div>
         <div className=" flex flex-col w-[65%] h-full items-center gap-5">
-          <RetailTableHeader user={user} />
-          <CompanyOrdersList user={user} />
+          <RetailTableHeader />
+          <CompanyOrdersList />
         </div>
       </div>
     </div>

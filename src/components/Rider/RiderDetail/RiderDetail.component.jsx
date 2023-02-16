@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { IconButton, Typography } from "@mui/material";
+import { CircularProgress, IconButton, Typography } from "@mui/material";
 import FilterAndActionButton from "../../PageFilterAndButton/OrderViewHeader";
 import RiderOrderTable from "../RiderInfo/RiderOrderTable/RiderOrderTable.compnent";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -30,7 +30,7 @@ const RiderDetail = ({ userId }) => {
   }, [handleGetUser]);
   const [display, setDisplay] = useState("order-history");
   const navigate = useNavigate();
-  return (
+  return user ? (
     <div className="flex flex-col h-full gap-10 px-5">
       <div className=" flex flex-col gap-5">
         <div className="flex">
@@ -111,6 +111,10 @@ const RiderDetail = ({ userId }) => {
           <RiderPersonalInfo />
         </div>
       )}
+    </div>
+  ) : (
+    <div className="w-full h-screen flex items-center justify-center">
+      <CircularProgress />
     </div>
   );
 };

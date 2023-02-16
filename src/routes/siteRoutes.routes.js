@@ -8,6 +8,7 @@ export const routes = {
     deliveryCompany: "/admin/logistics-company",
     deliveryCompanyDetail: "/admin/logistics-company/detail",
     retailCompanyDetail: "/admin/retail-company/detail",
+    customerDetail: "/admin/direct-customer/detail",
     retailCompany: "/admin/retail-company",
 
     orders: "/admin/orders",
