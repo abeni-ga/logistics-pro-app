@@ -7,6 +7,9 @@ export const account = {
   getUsers: BASEURL + "/account/api/v1/account",
   getUser: BASEURL + "/account/api/v1/account",
 };
+export const pool = {
+  inOrders: BASEURL + "/pool/API/V1/pool",
+};
 export const payment = {
   payBill: BASEURL + "/payment/api/v1/payment/bill",
 };

@@ -18,7 +18,7 @@ import { useState } from "react";
 import Current from "../../../assets/svg/Current.svg";
 import CompaniesOrderPoolTable from "../../../components/OrderPool/CompaniesOrderTable.component";
 import { useNavigate } from "react-router-dom";
-import TablePagination from "../../../components/Pagination/TablePagination.component";
+// import TablePagination from "../../../components/Pagination/TablePagination.component";
 
 const ExchangePool = () => {
   const [selectedValue, setSelectedValue] = useState("current");
@@ -236,9 +236,7 @@ const ExchangePool = () => {
       <div className="w-[95%] h-[90%]">
         <CompaniesOrderPoolTable />
       </div>
-      <div className="w-[95%] h-[90%]">
-        <TablePagination />
-      </div>
+      <div className="w-[95%] h-[90%]">{/*  <TablePagination  />*/}</div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { account } from "../constants/ApiEndpoints";
+import { account, pool } from "../constants/ApiEndpoints";
 import { apiAuth, apiNoAuth } from "./fetch";
 import { clearLocalStorage } from "./tokenHandler";
 
@@ -28,6 +28,17 @@ export const getUsers = async (header, params) => {
       ...header,
     };
     const response = await apiAuth(head).get(account.getUsers + params);
+    return response;
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
+export const getOrders = async (header, params) => {
+  try {
+    const head = {
+      ...header,
+    };
+    const response = await apiAuth(head).get(pool.inOrders + params);
     return response;
   } catch (error) {
     console.log("Error", error);
