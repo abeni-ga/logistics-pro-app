@@ -22,8 +22,8 @@ const TextFieldWrapper = ({ name, ...otherProps }) => {
       <TextField {...textFieldConfig}>
         {otherProps.options.map((option, index) => {
           return (
-            <MenuItem key={index} value={index + 1}>
-              {option}
+            <MenuItem key={index} value={option?.value}>
+              {option?.name}
             </MenuItem>
           );
         })}

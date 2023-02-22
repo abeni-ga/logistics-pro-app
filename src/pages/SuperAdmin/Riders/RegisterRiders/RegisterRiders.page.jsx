@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import * as Yup from "yup";
 import StepOne from "../../../../components/Forms/RiderRegistration/Steps/StepOne.component";
 import StepTwo from "../../../../components/Forms/RiderRegistration/Steps/StepTwo.component";
@@ -8,20 +8,26 @@ import Complete from "../../../../components/Forms/RiderRegistration/Steps/Compl
 import StandardButton from "../../../../components/Buttons/StandardButton.component";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../../routes/siteRoutes.routes";
-import { register, uploadDocument } from "../../../../utils/apis";
+import { getUsers, register, uploadDocument } from "../../../../utils/apis";
 import { toast } from "react-toastify";
+import { CircularProgress } from "@mui/material";
 
 const RegisterRider = () => {
   const [step, setStep] = useState(1);
+  const [address, setAddress] = useState(undefined);
+  const [companies, setCompanies] = useState(undefined);
+  const [postalAddress, setPostalAddress] = useState(undefined);
   const [files, setFiles] = useState(undefined);
   const navigate = useNavigate();
   const INITIAL_VALUES = {
     firstName: "",
     lastName: "",
+    deliveryCompany: "",
     asset: "",
     email: "",
     phoneNumber: "",
     contactPerson: "",
+    address: "",
     contactPersonPostion: "",
     contactPersonPhoneNumber: "",
     postalAddress: "",
@@ -31,7 +37,32 @@ const RegisterRider = () => {
     firstName: Yup.string().required("*Required"),
     lastName: Yup.string().required("*Required"),
     asset: Yup.string().required("*Required"),
+    deliveryCompany: Yup.string().required("*Required"),
+    email: Yup.string().required("*Required"),
+    phoneNumber: Yup.string().required("*Required"),
+    contactPerson: Yup.string().required("*Required"),
+    address: Yup.string().required("*Required"),
+    contactPersonPostion: Yup.string().required("*Required"),
+    contactPersonPhoneNumber: Yup.string().required("*Required"),
+    postalAddress: Yup.string().required("*Required"),
   });
+  const handleGetUsers = useCallback(async () => {
+    const params = new URLSearchParams({
+      limit: 0,
+      filterBy: "role",
+      filterValue: "DeliveryCompany",
+      populate: "detail",
+      searchBy: "name",
+      // keyWord: keyWord,
+    });
+    const response = await getUsers({}, `?${params.toString()}`);
+    if (response?.status < 300) {
+      setCompanies(response?.data?.data?.data);
+    } else {
+      Number.isInteger();
+      toast.error(response?.statusText);
+    }
+  }, []);
   const handleRegister = async (values) => {
     try {
       const result = await register({}, values);
@@ -63,9 +94,21 @@ const RegisterRider = () => {
   const steps = () => {
     switch (step) {
       case 1:
-        return <StepOne />;
+        return (
+          <StepOne
+            address={address}
+            setAddress={setAddress}
+            companies={companies}
+          />
+        );
       case 2:
-        return <StepTwo handlePrev={handlePrev} />;
+        return (
+          <StepTwo
+            handlePrev={handlePrev}
+            postalAddress={postalAddress}
+            setPostalAddress={setPostalAddress}
+          />
+        );
       case 3:
         return (
           <StepThree
@@ -80,8 +123,11 @@ const RegisterRider = () => {
         break;
     }
   };
+  useEffect(() => {
+    handleGetUsers();
+  }, [handleGetUsers]);
 
-  return (
+  return companies ? (
     <div className="bg-blue-50 w-full">
       <div className="flex w-full h-full items-center justify-center pt-6">
         <div className="flex flex-col w-[45%] h-min rounded-2xl bg-white p-16 gap-4">
@@ -89,7 +135,11 @@ const RegisterRider = () => {
             initialValues={INITIAL_VALUES}
             validationSchema={FORM_VALIDATION}
             onSubmit={(values) => {
-              console.log(values);
+              const body = {
+                address: address ? address.label : "",
+                postalAddress: postalAddress ? postalAddress.label : "",
+              };
+              handleRegister(body);
             }}
           >
             <Form>
@@ -115,6 +165,10 @@ const RegisterRider = () => {
           </Formik>
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="w-full h-screen flex items-center justify-center">
+      <CircularProgress />
     </div>
   );
 };

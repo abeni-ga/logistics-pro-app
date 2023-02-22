@@ -1,12 +1,9 @@
-import { useState } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
-import { InputLabel, MenuItem, Typography } from "@mui/material";
+import { Autocomplete, InputLabel, MenuItem, Typography } from "@mui/material";
 import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
 import { googleApiKey } from "../../../../constants/ApiKey";
 
-const StepOne = () => {
-  const [asset, setAsset] = useState(null);
-  const [address, setAddress] = useState("");
+const StepOne = ({ address, setAddress, companies }) => {
   return (
     <div className="flex flex-col gap-4">
       <div>
@@ -41,11 +38,18 @@ const StepOne = () => {
         />
         <InputLabel htmlFor="riderAddress">Address</InputLabel>
         <GooglePlacesAutocomplete
+          name="address"
+          id="address"
           apiKey={googleApiKey}
+          autocompletionRequest={{
+            componentRestrictions: {
+              country: ["ng"],
+            },
+          }}
           selectProps={{
             address,
             onChange: setAddress,
-            placeholder: "",
+            placeholder: "helo",
             styles: {
               input: (provided) => ({
                 ...provided,
@@ -59,6 +63,19 @@ const StepOne = () => {
               }),
             },
           }}
+        />
+        <InputLabel htmlFor="deliveryCompany">Delivery Company</InputLabel>
+        <Autocomplete
+          id="free-solo-demo"
+          freeSolo
+          options={companies.map((option) => option.username)}
+          renderInput={(params) => (
+            <TextFieldWrapper
+              {...params}
+              name="deliveryCompany"
+              id="deliveryCompany"
+            />
+          )}
         />
         <InputLabel htmlFor="preferredAsset">Preferred Asset</InputLabel>
         <TextFieldWrapper

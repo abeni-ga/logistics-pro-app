@@ -4,9 +4,7 @@ import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
 import { googleApiKey } from "../../../../constants/ApiKey";
-import { useState } from "react";
-const StepTwo = ({ handlePrev }) => {
-  const [address, setAddress] = useState("");
+const StepTwo = ({ handlePrev, postalAddress, setPostalAddress }) => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-3">
@@ -72,9 +70,14 @@ const StepTwo = ({ handlePrev }) => {
         <InputLabel htmlFor="postalAddress">Postal Address</InputLabel>
         <GooglePlacesAutocomplete
           apiKey={googleApiKey}
+          autocompletionRequest={{
+            componentRestrictions: {
+              country: ["ng"],
+            },
+          }}
           selectProps={{
-            address,
-            onChange: setAddress,
+            postalAddress,
+            onChange: setPostalAddress,
             placeholder: "",
             styles: {
               input: (provided) => ({

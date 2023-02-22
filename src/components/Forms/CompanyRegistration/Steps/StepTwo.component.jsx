@@ -1,9 +1,13 @@
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { InputLabel, MenuItem, Typography } from "@mui/material";
 import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
-import { useState } from "react";
+import { googleApiKey } from "../../../../constants/ApiKey";
 
-const StepTwo = ({ handlePrev }) => {
-  const [deliveryType, setDeliveryType] = useState(null);
+const StepTwo = ({ handlePrev, address, setAddress }) => {
+  const deliveryType = [
+    { name: "Bike", value: "Bike" },
+    { name: "Bajaj", value: "Bajaj" },
+  ];
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-3 justify-start">
@@ -23,41 +27,54 @@ const StepTwo = ({ handlePrev }) => {
       </div>
       <Typography>Fill in the information below</Typography>
       <div className="flex flex-col gap-4">
-        <InputLabel htmlFor=" companyName">Company Name</InputLabel>
-        <TextFieldWrapper
-          id="companyName"
-          name="companyName"
-          placeholder="Type Company Name"
-        />
+        {/*         <InputLabel htmlFor=" companyNamee">Company Name</InputLabel>
+        <TextFieldWrapper name="companyNamee" placeholder="Type Company Name" /> */}
         <InputLabel htmlFor="companyDescription">
           Company Description
         </InputLabel>
         <TextFieldWrapper
-          id="companyDescription"
           multiline
           rows={4}
           name="companyDescription"
           placeholder="Type in Company Description"
         />
         <InputLabel htmlFor="companyAddress">Company Address</InputLabel>
-        <TextFieldWrapper
-          id="companyAddress"
-          name="companyAddress"
-          placeholder="Company Address"
+        <GooglePlacesAutocomplete
+          name="address"
+          id="address"
+          apiKey={googleApiKey}
+          autocompletionRequest={{
+            componentRestrictions: {
+              country: ["ng"],
+            },
+          }}
+          selectProps={{
+            address,
+            onChange: setAddress,
+            placeholder: "",
+            styles: {
+              input: (provided) => ({
+                ...provided,
+                height: "50px",
+              }),
+              option: (provided) => ({
+                ...provided,
+              }),
+              singleValue: (provided) => ({
+                ...provided,
+              }),
+            },
+          }}
         />
         <InputLabel htmlFor="deliveryTypeOperated">
           Delivery Type Operated
         </InputLabel>
         <TextFieldWrapper
-          value={deliveryType}
-          name="user-type"
-          id="outlined-user-type"
-          label="Select Deliery Type"
+          name="deliveryType"
+          placeholder="Select Deliery Type"
           select
-          defaultValue="logistics"
-          onChange={(event) => {
-            setDeliveryType(event.target.value);
-          }}
+          options={deliveryType}
+          defaultValue="Bike"
         >
           <MenuItem value={"Bike"}>Bike</MenuItem>
         </TextFieldWrapper>

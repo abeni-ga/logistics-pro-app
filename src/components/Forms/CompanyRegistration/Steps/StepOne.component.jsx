@@ -1,14 +1,20 @@
 import { useState } from "react";
-import { MenuItem, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { InputAdornment, IconButton } from "@mui/material";
+import { googleApiKey } from "../../../../constants/ApiKey";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
-const StepOne = () => {
+const StepOne = ({ address, setAddress }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [userType, setUserType] = useState(null);
+  const type = [
+    { name: "Delivery Company", value: "DeliveryCompany" },
+    { name: "Retail Company", value: "RetailCompany" },
+    { name: "Directe Customer", value: "Direct Customer" },
+  ];
 
   return (
     <div className="flex flex-col gap-4">
@@ -25,38 +31,54 @@ const StepOne = () => {
         </Typography>
       </div>
       <TextFieldWrapper
-        value={userType}
-        name="user-type"
-        id="user-type"
+        options={type}
         select
+        name="role"
         placeholder="Select User Type"
         label="Select User Type"
-        defaultValue="Logistics"
-        onChange={(event) => {
-          setUserType(event.target.value);
-        }}
-      >
-        <MenuItem value={"Logistics"}>Logistics</MenuItem>
-      </TextFieldWrapper>
+        defaultValue="DeliveryCompany"
+      ></TextFieldWrapper>
       <TextFieldWrapper
         name="companyName"
         label="Company Name"
         className="rounded-lg"
       />
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-2">
         <TextFieldWrapper
           name="firstName"
           label="First Name"
-          className="w-2/5"
+          className="w-1/2"
         />
-        <TextFieldWrapper name="lastName" label="Last Name" className="w-2/5" />
+        <TextFieldWrapper name="lastName" label="Last Name" className="w-1/2" />
       </div>
-      <TextFieldWrapper name="companyAddress" label="Company Address" />
-      <TextFieldWrapper name="companyPhoneNumber" label="Phone Number" />
-      <TextFieldWrapper
-        name="companyEmailAddress"
-        label="Company Email Address"
+      <GooglePlacesAutocomplete
+        name="address"
+        apiKey={googleApiKey}
+        autocompletionRequest={{
+          componentRestrictions: {
+            country: ["ng"],
+          },
+        }}
+        selectProps={{
+          address,
+          onChange: setAddress,
+          placeholder: "",
+          styles: {
+            input: (provided) => ({
+              ...provided,
+              height: "50px",
+            }),
+            option: (provided) => ({
+              ...provided,
+            }),
+            singleValue: (provided) => ({
+              ...provided,
+            }),
+          },
+        }}
       />
+      <TextFieldWrapper name="phoneNumber" label="Phone Number" />
+      <TextFieldWrapper name="email" label="Company Email Address" />
       <div className="flex flex-col gap-4">
         <TextFieldWrapper
           name="password"

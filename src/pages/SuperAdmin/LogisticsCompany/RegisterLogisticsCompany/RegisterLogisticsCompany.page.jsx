@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import StepOne from "../../../../components/Forms/CompanyRegistration/Steps/StepOne.component";
 import StepTwo from "../../../../components/Forms/CompanyRegistration/Steps/StepTwo.component";
@@ -10,18 +10,70 @@ import StandardButton from "../../../../components/Buttons/StandardButton.compon
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../../routes/siteRoutes.routes";
 import { Typography } from "@mui/material";
+import { toast } from "react-toastify";
+import { register } from "../../../../utils/apis";
 
 const RegisterLogisticsCompany = () => {
+  const [address, setAddress] = useState(undefined);
+  const [postalAddress, setPostalAddress] = useState(undefined);
   const [step, setStep] = useState(1);
   const navigate = useNavigate();
   const INITIAL_VALUES = {
-    userType: "",
+    role: "",
+    companyName: "",
+    firstName: "",
+    lastName: "",
+    companyAddress: "",
+    phoneNumber: "",
+    companyEmailAddress: "",
+    password: "",
+    confirmPassword: "",
+    companyDescription: "",
+    deliveryType: "",
+    contactPerson: "",
+    contactPersonPosition: "",
+    contactPersonPhoneNumber: "",
+    postalAddress: "",
+    postalNumber: "",
   };
 
   const FORM_VALIDATION = Yup.object().shape({
-    userType: Yup.string().required("*Required"),
+    role: Yup.string().required("*Required"),
+    companyName: Yup.string().required("*Required"),
+    firstName: Yup.string().required("*Required"),
+    lastName: Yup.string().required("*Required"),
+    password: Yup.string().required("*Required"),
+    confirmPassword: Yup.string().when("password", {
+      is: (val) => (val && val.length > 0 ? true : false),
+      then: Yup.string().oneOf(
+        [Yup.ref("password")],
+        "Both password need to be the same"
+      ),
+    }),
+    // companyAddress: Yup.string().required("*Required"),
+    phoneNumber: Yup.string().required("*Required"),
+    email: Yup.string().required("*Required").email("invalid email"),
+    companyDescription: Yup.string().required("*Required"),
+    deliveryType: Yup.string().required("*Required"),
+    contactPerson: Yup.string().required("*Required"),
+    contactPersonPosition: Yup.string().required("*Required"),
+    contactPersonPhoneNumber: Yup.string().required("*Required"),
+    // postalAddress: Yup.string().required("*Required"),
+    postalNumber: Yup.string().required("*Required"),
   });
+  useEffect(() => {
+    console.log("address", address);
+    console.log("postalAddress", postalAddress);
+  }, [address, postalAddress]);
 
+  const handleRegister = async (values) => {
+    try {
+      const result = await register({}, values);
+      console.log(result);
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
   const handlePrev = () => {
     setStep((prev) => (prev > 1 ? prev - 1 : prev));
   };
@@ -33,19 +85,28 @@ const RegisterLogisticsCompany = () => {
   };
 
   const steps = () => {
-    switch (step) {
-      case 1:
-        return <StepOne />;
-      case 2:
-        return <StepTwo handlePrev={handlePrev} />;
-      case 3:
-        return <StepThree handlePrev={handlePrev} />;
-      case 4:
-        return <StepFour handlePrev={handlePrev} />;
-      case 5:
-        return <StepFive handlePrev={handlePrev} />;
-      default:
-        break;
+    if (step === 1) {
+      return <StepOne address={address} setAddress={setAddress} />;
+    } else if (step === 2) {
+      return (
+        <StepTwo
+          handlePrev={handlePrev}
+          address={address}
+          setAddress={setAddress}
+        />
+      );
+    } else if (step === 3) {
+      return (
+        <StepThree
+          handlePrev={handlePrev}
+          postalAddress={postalAddress}
+          setPostalAddress={setPostalAddress}
+        />
+      );
+    } else if (step === 4) {
+      return <StepFour handlePrev={handlePrev} />;
+    } else if (step === 5) {
+      return <StepFive handlePrev={handlePrev} />;
     }
   };
 
@@ -67,6 +128,16 @@ const RegisterLogisticsCompany = () => {
           <Formik
             initialValues={INITIAL_VALUES}
             validationSchema={FORM_VALIDATION}
+            onSubmit={(values) => {
+              const newValues = {
+                ...values,
+                username: `${values.firstName} ${values.lastName}`,
+                companyAddress: address ? address.label : "",
+                postalAddress: postalAddress ? postalAddress.label : "",
+              };
+              handleRegister(newValues);
+              console.log(newValues);
+            }}
           >
             <Form>
               {steps()}
@@ -87,6 +158,7 @@ const RegisterLogisticsCompany = () => {
 
                 <StandardButton
                   size="large"
+                  type={step === 4 ? "submit" : "button"}
                   variant="contained"
                   onClick={handleNext}
                 >
