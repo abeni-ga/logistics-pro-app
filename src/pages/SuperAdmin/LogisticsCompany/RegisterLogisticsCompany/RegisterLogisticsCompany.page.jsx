@@ -11,11 +11,12 @@ import { useNavigate } from "react-router-dom";
 import { routes } from "../../../../routes/siteRoutes.routes";
 import { Typography } from "@mui/material";
 import { toast } from "react-toastify";
-import { register } from "../../../../utils/apis";
+import { register, uploadDocument } from "../../../../utils/apis";
 
 const RegisterLogisticsCompany = () => {
   const [address, setAddress] = useState(undefined);
   const [postalAddress, setPostalAddress] = useState(undefined);
+  const [files, setFiles] = useState(undefined);
   const [step, setStep] = useState(1);
   const navigate = useNavigate();
   const INITIAL_VALUES = {
@@ -74,14 +75,30 @@ const RegisterLogisticsCompany = () => {
       toast.error(error.message);
     }
   };
+  const handleFiles = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("documentType", "BusinessRegistration");
+      formData.append("documents", files.businessRegistration);
+
+      const result = await uploadDocument({}, formData);
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handlePrev = () => {
     setStep((prev) => (prev > 1 ? prev - 1 : prev));
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     setStep((prev) =>
       prev < 5 ? prev + 1 : prev === 5 ? navigate(routes.admin.dashboard) : prev
     );
+    if (step === 4) {
+      handleFiles();
+      console.log("finish");
+    }
   };
 
   const steps = () => {
@@ -104,7 +121,7 @@ const RegisterLogisticsCompany = () => {
         />
       );
     } else if (step === 4) {
-      return <StepFour handlePrev={handlePrev} />;
+      return <StepFour handlePrev={handlePrev} setFiles={setFiles} />;
     } else if (step === 5) {
       return <StepFive handlePrev={handlePrev} />;
     }

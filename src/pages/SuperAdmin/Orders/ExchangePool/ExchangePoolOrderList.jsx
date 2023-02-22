@@ -1,11 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import ExchangePool from "../../../../components/OrderPool/ExchangePool/ExchangePool.component";
 import { getOrders } from "../../../../utils/apis";
 
 const ExchangeOrderPool = () => {
-  const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
   const [pageLimit, setPageLimit] = useState(10);
   const [offset, setOffset] = useState(0);
@@ -46,15 +44,12 @@ const ExchangeOrderPool = () => {
       Number.isInteger();
       toast.error(response?.statusText);
     }
-  }, [pageLimit, offset]);
+  }, [pageLimit, offset, keyWord]);
   const handlePageLimit = (limit) => {
     setPageLimit(limit);
   };
   const handleOffset = (offSet) => {
     setOffset(offSet);
-  };
-  const handleAction = () => {
-    navigate("/admin/logistics-company/register");
   };
   const handleSearch = (keyword) => {
     setKeyWord(keyword);

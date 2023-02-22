@@ -1,10 +1,9 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { IconButton, Typography, Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Vector from "../../../../assets/svg/Vector.svg";
 
 const StepThree = ({ handlePrev, setFiles, files }) => {
-  // const [files, setFiles] = useState(undefined);
   const inputRef = useRef();
   const handleDragOver = (e) => {
     e.preventDefault();
