@@ -39,7 +39,7 @@ const DeliveryPlan = () => {
         <img src={CollectionCenter} alt="" />
       </div>
       <div className="flex flex-col w-[60%]">
-        <Typography clasName="text-darkGray font-bold">
+        <Typography className="text-darkGray font-bold">
           Express Delivery Service
         </Typography>
         <Typography className="text-[8px] text-darkGray">

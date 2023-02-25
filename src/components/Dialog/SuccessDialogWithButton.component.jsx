@@ -1,12 +1,12 @@
 import {
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
   Typography,
 } from "@mui/material";
 import FormComplete from "../../assets/svg/Form_Complete.svg";
-const SuccessDialogWithAction = (props) => {
+import StandardButton from "../Buttons/StandardButton.component";
+const SuccessDialogWithAction = ({ open, handleClose, content }) => {
   return (
     <Dialog
       PaperProps={{
@@ -15,35 +15,38 @@ const SuccessDialogWithAction = (props) => {
           height: "35%",
         },
       }}
-      open={props.open}
-      onClose={props.handleClose}
+      open={open}
+      onClose={handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogContent>
-        sx=
-        {{
+      <DialogContent
+        sx={{
           display: "flex",
           flexDirection: "column",
           gap: "10px",
           alignItems: "center",
           justifyContent: "center",
         }}
-        <Typography className="text-xl font-bold">Success!</Typography>
+      >
+        <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>
+          Success!
+        </Typography>
         <img src={FormComplete} alt="" />
-        <Typography className="text-xl font-bold">
-          Order Was Successful
+        <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>
+          {content}
         </Typography>
       </DialogContent>
-      <DialogActions>
-        <div className="flex w-full justify-center">
-          <Button
-            onClick={props.handleClose}
-            className="text-white bg-darkIndigo rounded-lg mb-5 hover:text-white hover:bg-darkIndigo"
-          >
-            Continue
-          </Button>
-        </div>
+      <DialogActions
+        sx={{
+          display: "flex",
+          width: "100%",
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: "10px",
+        }}
+      >
+        <StandardButton onClick={handleClose}>Continue</StandardButton>
       </DialogActions>
     </Dialog>
   );

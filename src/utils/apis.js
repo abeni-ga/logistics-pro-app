@@ -1,4 +1,4 @@
-import { account, pool } from "../constants/ApiEndpoints";
+import { account, configuration, pool } from "../constants/ApiEndpoints";
 import { apiAuth, apiNoAuth } from "./fetch";
 import { clearLocalStorage } from "./tokenHandler";
 
@@ -8,6 +8,17 @@ export const login = async (header, body) => {
 };
 export const register = async (header, body) => {
   const response = await apiAuth().post(account.register, body);
+  return response;
+};
+export const addDeliveryPlan = async (header, body) => {
+  const response = await apiAuth().post(
+    configuration.deliveryPlan.addDeliveryPlan,
+    body
+  );
+  return response;
+};
+export const recoveryPassword = async (header, body) => {
+  const response = await apiNoAuth().post(account.recoveryPassword, body);
   return response;
 };
 export const logout = () => {

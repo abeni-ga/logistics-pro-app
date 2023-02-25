@@ -9,6 +9,7 @@ const StandardButton = styled(Button)(({ theme }) => ({
   },
   textTransform: "capitalize",
   borderRadius: "10px",
+  padding: "5px 20px",
 }));
 
 export default StandardButton;

@@ -46,7 +46,6 @@ const ActiveLogisticsCompanies = () => {
       }
       setCompanies(response?.data?.data?.data);
     } else {
-      Number.isInteger();
       toast.error(response?.statusText);
     }
   }, [pageLimit, offset, keyWord]);

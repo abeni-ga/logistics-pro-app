@@ -1,20 +1,8 @@
-import { useRef } from "react";
-import { IconButton, Typography, Button } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
+import Dropzone from "../../../../components/Dropzone/Dropzone.component";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Vector from "../../../../assets/svg/Vector.svg";
 
 const StepThree = ({ handlePrev, setFiles, files }) => {
-  const inputRef = useRef();
-  const handleDragOver = (e) => {
-    e.preventDefault();
-  };
-
-  const handleDrop = (e) => {
-    e.preventDefault();
-    setFiles(e.dataTransfer.files);
-    console.log(files);
-  };
-
   return (
     <div className="flex flex-col gap-4 h-full">
       <div className="flex items-center gap-3">
@@ -34,66 +22,8 @@ const StepThree = ({ handlePrev, setFiles, files }) => {
         <Typography>Upload Company Documents</Typography>
       </div>
       <div className="flex flex-col gap-4 items-center justify-center h-full">
-        <div
-          onDragOver={handleDragOver}
-          onDrop={handleDrop}
-          className="flex flex-col justify-center items-center rounded-2xl border-2 border-gray-200 p-2 w-[50%]"
-        >
-          <img className="w-[10%]" src={Vector} alt="" />
-          <Typography className="text-lightGray font-bold text-center">
-            Drag and drop your NIN Registration Slip Here
-          </Typography>
-          <Typography className="text-lightGray">or</Typography>
-          <input
-            type="file"
-            multiple
-            onChange={(e) => {
-              setFiles({ ...files, businessRegistration: e.target.files });
-            }}
-            hidden
-            ref={inputRef}
-          />
-          <Button
-            className="bg-lightGray rounded-lg font-bold"
-            onClick={() => {
-              inputRef.current.click();
-            }}
-            variant="contained"
-            size="large"
-          >
-            Select Files
-          </Button>
-        </div>
-        <div
-          onDragOver={handleDragOver}
-          onDrop={handleDrop}
-          className="flex flex-col justify-center items-center rounded-2xl border-2  p-2 w-[50%]"
-        >
-          <img className="w-[10%]" src={Vector} alt="" />
-          <Typography clasName="text-lightGray font-bold text-center">
-            Drag and drop your NIN Registration Slip Here
-          </Typography>
-          <Typography className="text-lightGray">or</Typography>
-          <input
-            type="file"
-            multiple
-            onChange={(e) => {
-              setFiles({ ...files, passport: e.target.files });
-            }}
-            hidden
-            ref={inputRef}
-          />
-          <Button
-            onClick={() => {
-              inputRef.current.click();
-            }}
-            className="bg-darkIndigo"
-            variant="contained"
-            size="large"
-          >
-            Select Files
-          </Button>
-        </div>
+        <Dropzone setFiles={setFiles} files={files} />
+        <Dropzone setFiles={setFiles} files={files} />
       </div>
     </div>
   );

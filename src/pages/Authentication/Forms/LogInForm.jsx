@@ -10,7 +10,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { Form, Formik } from "formik";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
-import { setToken } from "../../../utils/tokenHandler";
+import { setId, setToken } from "../../../utils/tokenHandler";
 
 const LogInForm = (props) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,10 +20,13 @@ const LogInForm = (props) => {
     try {
       const result = await login({}, values);
       toast.success("Successfully Logged in!");
-      if (result.data.data.account?.role === ROLE.ADMIN) {
-        setToken("pool_token", result.data.data?.token);
+      if (result.data?.data?.account?.role === ROLE.ADMIN) {
+        setToken("pool_token", result.data?.data?.token);
+
         navigate(routes.admin.dashboard);
       } else {
+        console.log(result.data?.data?.account?._id);
+        setId("company_id", result.data?.data?.account?._id);
         navigate(routes.company.dashboard);
       }
     } catch (error) {
@@ -88,7 +91,7 @@ const LogInForm = (props) => {
               }}
             />
             <a
-              href="/company/forgot"
+              href="/forgot"
               className="text-center text-blue-800 hover:text-blue-600 self-end"
             >
               Forgot Password?
@@ -98,7 +101,7 @@ const LogInForm = (props) => {
             <div className="flex items-center">
               <Typography>Just joining us here?</Typography>
               <a
-                href="/company/signup"
+                href="/signup"
                 className="ml-2 text-center text-blue-800 hover:text-blue-600"
               >
                 Register Now

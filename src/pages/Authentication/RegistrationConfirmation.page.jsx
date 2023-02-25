@@ -29,7 +29,7 @@ const RegistrationConfirmation = (props) => {
               <img className="w-40" src={Like} alt="" />
               <Typography sx={{ textAlign: "center" }}>
                 A verification mail has been sent to your email address, kindly
-                click on the link therein to complete your registration.
+                click on the link there in to complete your registration.
               </Typography>
             </div>
           ) : (

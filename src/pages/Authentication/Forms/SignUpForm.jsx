@@ -1,28 +1,222 @@
-import { Button, Typography } from "@mui/material";
+import { Button, IconButton, InputAdornment, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
-import StepOne from "../../../components/Forms/CompanyRegistration/Steps/StepOne.component";
+import * as Yup from "yup";
+import { useState } from "react";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { useNavigate } from "react-router-dom";
+import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
+import { googleApiKey } from "../../../constants/ApiKey";
 import { routes } from "../../../routes/siteRoutes.routes";
+import { register } from "../../../utils/apis";
+import { toast } from "react-toastify";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
+  const [address, setAddress] = useState(undefined);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const type = [
+    { name: "Delivery Company", value: "DeliveryCompany" },
+    { name: "Retail Company", value: "RetailCompany" },
+    { name: "Direct Customer", value: "Customer" },
+  ];
+  const handleRegister = async (values) => {
+    try {
+      const result = await register({}, values);
+      console.log(result);
+      if (result.status < 300) {
+        navigate(routes.auth.confirm);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+  const INITIAL_VALUES = {
+    role: "",
+    companyName: "",
+    firstName: "",
+    lastName: "",
+    address: "",
+    phone: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+
+  const FORM_VALIDATION = Yup.object().shape({
+    role: Yup.string().required("*Required"),
+    companyName: Yup.string().required("*Required"),
+    firstName: Yup.string().required("*Required"),
+    lastName: Yup.string().required("*Required"),
+    // address: Yup.string().required("*Required"),
+    phone: Yup.string().required("*Required"),
+    email: Yup.string().required("*Required").email("invalid email"),
+    password: Yup.string().required("*Required"),
+    confirmPassword: Yup.string()
+      .required("*Required")
+      .when("password", {
+        is: (val) => (val && val.length > 0 ? true : false),
+        then: Yup.string().oneOf(
+          [Yup.ref("password")],
+          "Both password need to be the same"
+        ),
+      }),
+  });
   return (
     <div className="flex flex-col w-2/6 rounded-xl	bg-white p-16 justify-around gap-10">
-      <Formik>
+      <Formik
+        initialValues={INITIAL_VALUES}
+        validationSchema={FORM_VALIDATION}
+        onSubmit={(values) => {
+          const newValues = {
+            ...values,
+            username: values.companyName,
+            address: address ? address.label : "",
+          };
+          console.log(values);
+          handleRegister(newValues);
+        }}
+      >
         <Form>
-          <StepOne />
+          <div className="flex flex-col gap-4">
+            <div className="flex w-full">
+              <span className="h-2 w-1/2 bg-blue-900 rounded-md"></span>
+              <span className="h-2 w-1/2 bg-gray-300 rounded-md"></span>
+            </div>
+            <div>
+              <Typography variant="h2" className="text-2xl font-bold">
+                Basic Information
+              </Typography>
+              <Typography className="text=xs">
+                Enter the following information below
+              </Typography>
+            </div>
+            <TextFieldWrapper
+              options={type}
+              select
+              name="role"
+              placeholder="Select User Type"
+              label="Select User Type"
+              defaultValue="DeliveryCompany"
+            ></TextFieldWrapper>
+            <TextFieldWrapper
+              name="companyName"
+              label="Company Name"
+              className="rounded-lg"
+            />
+            <div className="flex flex-row gap-2">
+              <TextFieldWrapper
+                name="firstName"
+                label="First Name"
+                className="w-1/2"
+              />
+              <TextFieldWrapper
+                name="lastName"
+                label="Last Name"
+                className="w-1/2"
+              />
+            </div>
+            <GooglePlacesAutocomplete
+              apiKey={googleApiKey}
+              autocompletionRequest={{
+                componentRestrictions: {
+                  country: ["ng"],
+                },
+              }}
+              selectProps={{
+                name: "address",
+                address,
+                onChange: setAddress,
+                placeholder: "Address",
+                styles: {
+                  input: (provided) => ({
+                    ...provided,
+                    height: "50px",
+                  }),
+                  option: (provided) => ({
+                    ...provided,
+                  }),
+                  singleValue: (provided) => ({
+                    ...provided,
+                  }),
+                },
+              }}
+            />
+            <TextFieldWrapper name="phone" label="Phone Number" />
+            <TextFieldWrapper name="email" label="Company Email Address" />
+            <div className="flex flex-col gap-4">
+              <TextFieldWrapper
+                name="password"
+                label="Password"
+                type={showPassword ? "text" : "password"}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={() => {
+                          setShowPassword(!showPassword);
+                        }}
+                        onMouseDown={() => {}}
+                        edge="end"
+                      >
+                        {showPassword ? (
+                          <VisibilityOffIcon />
+                        ) : (
+                          <VisibilityIcon />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <TextFieldWrapper
+                name="confirmPassword"
+                label="Confirm Password"
+                type={showConfirmPassword ? "text" : "password"}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={() => {
+                          setShowConfirmPassword(!showConfirmPassword);
+                        }}
+                        onMouseDown={() => {}}
+                        edge="end"
+                      >
+                        {showConfirmPassword ? (
+                          <VisibilityOffIcon />
+                        ) : (
+                          <VisibilityIcon />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <Typography>
+                By clicking "Next" you agree to our
+                <a
+                  href="/#"
+                  className=" ml-1 text-blue-800 hover:text-blue-600 visited:text-purple-600"
+                >
+                  Terms of Service,Privacy Policy,
+                </a>{" "}
+                and to receive marketing communications from Envoy.
+              </Typography>
+            </div>
+          </div>
           <div className="flex w-full justify-between pl-10 pt-10 items-center">
             <Typography>
               Got an account?
-              <a href="/company/signin" className="text-blue-900">
+              <a href="/" className="text-blue-900">
                 Sign in
               </a>
             </Typography>
             <Button
-              className="bg-darkIndigo text-white rounded-lg hover:bg-darkIndigo text-white"
-              onClick={() => {
-                navigate(routes.company.confirm);
-              }}
+              className="bg-darkIndigo rounded-lg hover:bg-darkIndigo text-white"
+              type="submit"
               size="large"
             >
               Register

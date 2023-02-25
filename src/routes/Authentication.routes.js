@@ -22,7 +22,7 @@ const AuthenticationRoutes = {
       path: "signup",
       element: <LogIn signup />,
     },
-    { path: "confirm", element: <RegistrationConfirmation confirm /> },
+    { path: "signup/confirm", element: <RegistrationConfirmation confirm /> },
     { path: "vertify", element: <RegistrationConfirmation /> },
     { path: "forgot", element: <LogIn forgot /> },
     { path: "new", element: <LogIn create /> },

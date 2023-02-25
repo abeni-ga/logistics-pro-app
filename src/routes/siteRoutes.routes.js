@@ -10,14 +10,21 @@ export const routes = {
     retailCompanyDetail: "/admin/retail-company/detail",
     customerDetail: "/admin/direct-customer/detail",
     retailCompany: "/admin/retail-company",
-
     orders: "/admin/orders",
     orderHistory: "/admin/order-history",
-
     earning: "/admin/earning",
     report: "/admin/report",
     setting: "/admin/setting",
     support: "/admin/support",
+  },
+  auth: {
+    login: "/",
+    sign: "/signup",
+    confirm: "/signup/confirm",
+    vertify: "/vertify",
+    forgot: "/forgot",
+    new: "/new",
+    recovery: "/recovery",
   },
   company: {
     confirm: "/company/confirm",

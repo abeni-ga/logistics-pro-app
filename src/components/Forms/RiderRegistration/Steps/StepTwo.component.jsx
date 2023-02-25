@@ -28,20 +28,11 @@ const StepTwo = ({ handlePrev, postalAddress, setPostalAddress }) => {
       <Typography>Fill in the contact below</Typography>
       <div className="flex flex-col gap-2">
         <InputLabel htmlFor="riderEmail">Email Address</InputLabel>
-        <TextFieldWrapper
-          id="email"
-          name="email"
-          placeholder="companyabc@xyz.com"
-        />
+        <TextFieldWrapper name="email" placeholder="companyabc@xyz.com" />
         <InputLabel htmlFor="phoneNumber">Phone Number</InputLabel>
+        <TextFieldWrapper name="phone" placeholder="123456789" />
+        <InputLabel htmlFor="contactPerson">Contact Person</InputLabel>
         <TextFieldWrapper
-          id="phoneNumber"
-          name="phoneNumber"
-          placeholder="123456789"
-        />
-        <InputLabel htmlFor="contactPerson">Company Person</InputLabel>
-        <TextFieldWrapper
-          id="contactPerson"
           name="contactPerson"
           placeholder="Type in name of Contact Person for company"
         />
@@ -51,18 +42,14 @@ const StepTwo = ({ handlePrev, postalAddress, setPostalAddress }) => {
               Contact Person Position
             </InputLabel>
             <TextFieldWrapper
-              id="contactPersonPosition"
               name="contactPersonPosition"
               placeholder="Type in position of contact person"
             />
           </div>
           <div className="flex flex-col gap-2 w-[48%]">
-            <InputLabel htmlFor="contactPersonPhoneNumber">
-              Phone Number
-            </InputLabel>
+            <InputLabel htmlFor="contactPersonPhone">Phone Number</InputLabel>
             <TextFieldWrapper
-              id="contactPersonPhoneNumber"
-              name="contactPersonPhoneNumber"
+              name="contactPersonPhone"
               placeholder="Contact Person's Phone Number"
             />
           </div>
@@ -78,7 +65,7 @@ const StepTwo = ({ handlePrev, postalAddress, setPostalAddress }) => {
           selectProps={{
             postalAddress,
             onChange: setPostalAddress,
-            placeholder: "",
+            placeholder: "24, Gbolahan Street, Ajah, Lagos",
             styles: {
               input: (provided) => ({
                 ...provided,
@@ -94,11 +81,7 @@ const StepTwo = ({ handlePrev, postalAddress, setPostalAddress }) => {
           }}
         />
         <InputLabel htmlFor="postalAddress">P O Box Number</InputLabel>
-        <TextFieldWrapper
-          id="postalAddress"
-          name="postalAddress"
-          placeholder="Type in Postal Number"
-        />
+        <TextFieldWrapper name="poBOX" placeholder="Type in Postal Number" />
       </div>
     </div>
   );

@@ -1,9 +1,13 @@
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
-import { Autocomplete, InputLabel, MenuItem, Typography } from "@mui/material";
+import { InputLabel, Typography } from "@mui/material";
 import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
 import { googleApiKey } from "../../../../constants/ApiKey";
 
 const StepOne = ({ address, setAddress, companies }) => {
+  const assetType = [
+    { name: "BIKE", value: "Bike" },
+    { name: "BAJAJ", value: "Bajaj" },
+  ];
   return (
     <div className="flex flex-col gap-4">
       <div>
@@ -49,7 +53,7 @@ const StepOne = ({ address, setAddress, companies }) => {
           selectProps={{
             address,
             onChange: setAddress,
-            placeholder: "helo",
+            placeholder: "24, Gbolahan Street, Ajah, Lagos",
             styles: {
               input: (provided) => ({
                 ...provided,
@@ -64,30 +68,15 @@ const StepOne = ({ address, setAddress, companies }) => {
             },
           }}
         />
-        <InputLabel htmlFor="deliveryCompany">Delivery Company</InputLabel>
-        <Autocomplete
-          id="free-solo-demo"
-          freeSolo
-          options={companies.map((option) => option.username)}
-          renderInput={(params) => (
-            <TextFieldWrapper
-              {...params}
-              name="deliveryCompany"
-              id="deliveryCompany"
-            />
-          )}
-        />
         <InputLabel htmlFor="preferredAsset">Preferred Asset</InputLabel>
         <TextFieldWrapper
+          options={assetType}
           name="asset"
           id="asset"
           select
           placeholder="Select Preferred Asset"
           label="Select Preferred Asset"
-          defaultValue="Bike"
-        >
-          <MenuItem value={"Bike"}>Bike</MenuItem>
-        </TextFieldWrapper>
+        ></TextFieldWrapper>
       </div>
     </div>
   );

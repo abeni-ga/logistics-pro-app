@@ -1,14 +1,27 @@
-import { color } from "../../../constants/Theme.js";
-import { Button, IconButton, InputLabel, Typography } from "@mui/material";
+import { IconButton, InputLabel, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
-import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
+import * as Yup from "yup";
 import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import SuccessDialogWithAction from "../../../components/Dialog/SuccessDialogWithButton.component.jsx";
 import { useState } from "react";
+import StandardButton from "../../../components/Buttons/StandardButton.component";
+import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
+import SuccessDialogWithAction from "../../../components/Dialog/SuccessDialogWithButton.component.jsx";
+import { addDeliveryPlan } from "../../../utils/apis";
+import { toast } from "react-toastify";
 const AddDeliveryPlan = () => {
-  const [open, setOpen] = useState();
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const handleaddDeliveryPlan = async (values) => {
+    try {
+      const result = await addDeliveryPlan({}, values);
+      toast.success("Successfully Logged in!");
+      console.log(result);
+      setOpen(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="flex flex-col w-full h-full px-10 pt-5">
       <div className="flex h-[20%] w-full">
@@ -31,120 +44,105 @@ const AddDeliveryPlan = () => {
         </div>
       </div>
       <div className="flex flex-col w-full h-[80%] gap-3">
-        <Formik>
+        <Formik
+          initialValues={{
+            name: "",
+            baseFare: "",
+            perKm: "",
+            flatRate: "",
+            description: "",
+          }}
+          validationSchema={Yup.object({
+            name: Yup.string().required("Required"),
+            baseFare: Yup.number("Base Fare must be number").required(
+              "Required"
+            ),
+            perKm: Yup.number("Fare per Km must be number").required(
+              "Required"
+            ),
+            flatRate: Yup.number("Flat Rate must be number").required(
+              "Required"
+            ),
+            description: Yup.string().required("Required"),
+          })}
+          onSubmit={(values) => {
+            handleaddDeliveryPlan(values);
+          }}
+        >
           <Form className="w-full h-full">
             <div className="flex flex-col w-[70%] h-[90%] bg-white rounded-xl px-10 justify-center gap-4">
               <div className="flex flex-col gap-2">
-                <InputLabel
-                  htmlFor="serviceName"
-                  sx={{
-                    color: color.darkGray,
-                    fontSize: "21px",
-                  }}
-                >
+                <InputLabel className="text-darkGray text-xl" htmlFor="name">
                   Service name
                 </InputLabel>
                 <TextFieldWrapper
-                  normal
-                  id="serviceName"
+                  id="name"
                   label="Serice Name"
-                  name="serviceName"
+                  name="name"
                   placeholder="Same day delivery"
                 />
               </div>
               <div className="flex justify-between">
                 <div className="flex flex-col gap-2 w-[48%]">
                   <InputLabel
-                    htmlFor="serviceName"
-                    sx={{
-                      color: color.darkGray,
-                      fontSize: "21px",
-                    }}
+                    className="text-darkGray text-xl"
+                    htmlFor="baseFare"
                   >
                     Base Fare
                   </InputLabel>
                   <TextFieldWrapper
-                    normal
-                    id="serviceName"
-                    name="serviceName"
+                    id="baseFare"
+                    name="baseFare"
                     placeholder="400"
                   />
                 </div>
                 <div className="flex flex-col gap-2 w-[48%]">
-                  <InputLabel
-                    htmlFor="serviceName"
-                    sx={{
-                      color: color.darkGray,
-                      fontSize: "21px",
-                    }}
-                  >
+                  <InputLabel className="text-darkGray text-xl" htmlFor="perKm">
                     Fare per Km
                   </InputLabel>
-                  <TextFieldWrapper
-                    normal
-                    id="serviceName"
-                    name="serviceName"
-                    placeholder="400"
-                  />
+                  <TextFieldWrapper id="perKm" name="perKm" placeholder="400" />
                 </div>
               </div>
               <div className="flex flex-col gap-2 w-[48%]">
                 <InputLabel
-                  htmlFor="serviceName"
-                  sx={{
-                    color: color.darkGray,
-                    fontSize: "21px",
-                  }}
+                  className="text-darkGray text-xl"
+                  htmlFor="flatRate"
                 >
                   Flat Rate
                 </InputLabel>
                 <TextFieldWrapper
-                  normal
-                  id="serviceName"
-                  name="serviceName"
+                  id="flatRate"
+                  name="flatRate"
                   placeholder="400"
                 />
               </div>
               <div className="flex flex-col gap-2">
                 <InputLabel
-                  htmlFor="serviceName"
-                  sx={{
-                    color: color.darkGray,
-                    fontSize: "21px",
-                  }}
+                  className="text-darkGray text-xl"
+                  htmlFor="description"
                 >
                   Description
                 </InputLabel>
                 <TextFieldWrapper
-                  normal
-                  sx={{ borderRadius: "0px" }}
                   multiline
                   rows={4}
-                  id="serviceName"
-                  name="serviceName"
+                  id="description"
+                  name="description"
                   placeholder="Delivery within 45 mins"
                 />
               </div>
-              <Button
+              <StandardButton
+                className="self-start"
                 variant="contained"
-                onClick={() => {
-                  setOpen(true);
-                }}
-                sx={{
-                  marginTop: "10px",
-                  color: "white",
-                  fontWeight: "700",
-                  backgroundColor: color.darkIndigo,
-                  alignSelf: "flex-start",
-                  borderRadius: "8px",
-                }}
+                type="submit"
               >
                 Add plan
-              </Button>
+              </StandardButton>
             </div>
           </Form>
         </Formik>
         <SuccessDialogWithAction
+          content="Delivery plan was created successfully"
           open={open}
           handleClose={() => {
             setOpen(false);
