@@ -5,9 +5,11 @@ import { useState } from "react";
 import DeleteDialog from "../Dialog/DeleteDialog.component.jsx";
 import DeactiveDialog from "../Dialog/Deactivate.component.jsx";
 import { useNavigate } from "react-router-dom";
-const DeliveryPlan = () => {
+const DeliveryPlanItem = ({ plan }) => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
+  const { _id, description, name } = plan;
+  console.log(_id);
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [deactiveDialog, setDeactiveDialog] = useState(false);
 
@@ -18,9 +20,9 @@ const DeliveryPlan = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleEdit = () => {
+  const handleEdit = (id) => {
     setAnchorEl(null);
-    navigate("/admin/delivery/edit");
+    navigate("/admin/delivery/edit", { state: { id: _id } });
   };
   const handleDeactivate = () => {
     setAnchorEl(null);
@@ -39,11 +41,9 @@ const DeliveryPlan = () => {
         <img src={CollectionCenter} alt="" />
       </div>
       <div className="flex flex-col w-[60%]">
-        <Typography className="text-darkGray font-bold">
-          Express Delivery Service
-        </Typography>
+        <Typography className="text-darkGray font-bold">{name}</Typography>
         <Typography className="text-[8px] text-darkGray">
-          Delivery within 3 hours
+          {description}
         </Typography>
       </div>
       <div className="w-[30%] flex justify-start">
@@ -69,7 +69,12 @@ const DeliveryPlan = () => {
         }}
       >
         <div className="flex flex-col">
-          <Button onClick={handleEdit} className="w-[150px] text-darkGray">
+          <Button
+            onClick={() => {
+              handleEdit();
+            }}
+            className="w-[150px] text-darkGray"
+          >
             Edit Details
           </Button>
           <div className="w-full h-0.5 bg-slate-200"></div>
@@ -101,4 +106,4 @@ const DeliveryPlan = () => {
   );
 };
 
-export default DeliveryPlan;
+export default DeliveryPlanItem;

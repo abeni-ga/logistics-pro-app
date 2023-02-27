@@ -1,11 +1,27 @@
 import AddIcon from "@mui/icons-material/Add";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { color } from "../../../constants/Theme.js";
 import { Button, Typography } from "@mui/material";
-import DeliveryPlan from "../../../components/Delivery/DeliveryPlanItem.component.jsx";
 import { useNavigate } from "react-router-dom";
-const AddCollectionCenter = () => {
+import { useCallback, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { color } from "../../../constants/Theme.js";
+import { getDeliveryPlans } from "../../../utils/apis.js";
+import DeliveryPlanItem from "../../../components/Delivery/DeliveryPlanItem.component.jsx";
+const DeliveryPlan = () => {
   const navigate = useNavigate();
+  const [deliveryPlans, setDeliveryPlans] = useState([]);
+  const handleGetDeliveryPlans = useCallback(async () => {
+    const response = await getDeliveryPlans({});
+    if (response?.status < 300) {
+      setDeliveryPlans(response?.data?.data?.data);
+      console.log(response?.data?.data?.data);
+    } else {
+      toast.error(response?.statusText);
+    }
+  }, []);
+  useEffect(() => {
+    handleGetDeliveryPlans();
+  }, [handleGetDeliveryPlans]);
   return (
     <div className="flex flex-col w-full h-full items-center px-10 pt-5">
       <div className="flex h-[20%] w-full">
@@ -53,8 +69,10 @@ const AddCollectionCenter = () => {
           </div>
         </div>
         <div className="flex w-full h-full">
-          <div className="flex flex-col w-[80%] pr-2">
-            <DeliveryPlan />
+          <div className="flex flex-col w-[80%] gap-2 pr-2">
+            {deliveryPlans.map((plan, index) => {
+              return <DeliveryPlanItem plan={plan} key={index} />;
+            })}
           </div>
           <div className="flex flex-col w-[20%] h-[50%] px-5 py-10 bg-white rounded-lg gap-2">
             <div className="flex justify-between items-center">
@@ -115,4 +133,4 @@ const AddCollectionCenter = () => {
   );
 };
 
-export default AddCollectionCenter;
+export default DeliveryPlan;

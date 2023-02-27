@@ -16,6 +16,8 @@ export const payment = {
 };
 export const configuration = {
   deliveryPlan: {
-    addDeliveryPlan: BASEURL + "pool/API/V1/deliveryPlan/addDeliveryPlan",
+    getDeliveryPlan: BASEURL + "/pool/API/V1/deliveryPlan",
+    addDeliveryPlan: BASEURL + "/pool/API/V1/deliveryPlan/addDeliveryPlan",
+    editDeliveryPlan: BASEURL + "/pool/API/V1/deliveryPlan/updateDeliveryPlan",
   },
 };

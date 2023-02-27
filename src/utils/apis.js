@@ -10,6 +10,19 @@ export const register = async (header, body) => {
   const response = await apiAuth().post(account.register, body);
   return response;
 };
+export const getDeliveryPlans = async (header) => {
+  try {
+    const head = {
+      ...header,
+    };
+    const response = await apiAuth(head).get(
+      configuration.deliveryPlan.getDeliveryPlan
+    );
+    return response;
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
 export const addDeliveryPlan = async (header, body) => {
   const response = await apiAuth().post(
     configuration.deliveryPlan.addDeliveryPlan,
@@ -17,6 +30,14 @@ export const addDeliveryPlan = async (header, body) => {
   );
   return response;
 };
+export const editDeliveryPlan = async (header, body) => {
+  const response = await apiAuth().patch(
+    configuration.deliveryPlan.editDeliveryPlan,
+    body
+  );
+  return response;
+};
+
 export const recoveryPassword = async (header, body) => {
   const response = await apiNoAuth().post(account.recoveryPassword, body);
   return response;

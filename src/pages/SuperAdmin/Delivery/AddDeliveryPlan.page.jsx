@@ -8,14 +8,13 @@ import StandardButton from "../../../components/Buttons/StandardButton.component
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
 import SuccessDialogWithAction from "../../../components/Dialog/SuccessDialogWithButton.component.jsx";
 import { addDeliveryPlan } from "../../../utils/apis";
-import { toast } from "react-toastify";
+
 const AddDeliveryPlan = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const handleaddDeliveryPlan = async (values) => {
     try {
       const result = await addDeliveryPlan({}, values);
-      toast.success("Successfully Logged in!");
       console.log(result);
       setOpen(true);
     } catch (error) {

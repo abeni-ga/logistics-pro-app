@@ -1,12 +1,25 @@
 import AddIcon from "@mui/icons-material/Add";
 import { color } from "../../../constants/Theme.js";
+import * as Yup from "yup";
 import { Button, IconButton, InputLabel, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
 import { ArrowBack } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { editDeliveryPlan } from "../../../utils/apis.js";
 const EditDeliveryPlan = () => {
+  const handleEditDeliveryPlan = async (values) => {
+    try {
+      const result = await editDeliveryPlan({}, values);
+      navigate("/admin/delivery/all");
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const navigate = useNavigate();
+  const location = useLocation();
+
   return (
     <div className="flex flex-col w-full h-full px-10 pt-5">
       <div className="flex h-[20%] w-full">
@@ -40,12 +53,37 @@ const EditDeliveryPlan = () => {
         </div>
       </div>
       <div className="flex flex-col w-full h-[80%] gap-3">
-        <Formik>
+        <Formik
+          initialValues={{
+            name: "",
+            baseFare: "",
+            perKm: "",
+            flatRate: "",
+            description: "",
+          }}
+          validationSchema={Yup.object({
+            name: Yup.string().required("Required"),
+            baseFare: Yup.number("Base Fare must be number").required(
+              "Required"
+            ),
+            perKm: Yup.number("Fare per Km must be number").required(
+              "Required"
+            ),
+            flatRate: Yup.number("Flat Rate must be number").required(
+              "Required"
+            ),
+            description: Yup.string().required("Required"),
+          })}
+          onSubmit={(values) => {
+            const newValue = { ...values, id: location.state.id };
+            handleEditDeliveryPlan(newValue);
+          }}
+        >
           <Form className="w-full h-full">
             <div className="flex flex-col w-[70%] h-[90%] bg-white rounded-xl px-10 justify-center gap-4">
               <div className="flex flex-col gap-2">
                 <InputLabel
-                  htmlFor="serviceName"
+                  htmlFor="name"
                   sx={{
                     color: color.darkGray,
                     fontSize: "21px",
@@ -54,90 +92,79 @@ const EditDeliveryPlan = () => {
                   Service name
                 </InputLabel>
                 <TextFieldWrapper
-                  normal
-                  id="serviceName"
+                  id="name"
                   label="Serice Name"
-                  name="serviceName"
+                  name="name"
                   placeholder="Same day delivery"
                 />
               </div>
               <div className="flex justify-between">
                 <div className="flex flex-col gap-2 w-[48%]">
                   <InputLabel
-                    htmlFor="serviceName"
+                    htmlFor="baseFare"
                     sx={{
                       color: color.darkGray,
                       fontSize: "21px",
                     }}
                   >
-                    Service name
+                    Base Fare
                   </InputLabel>
                   <TextFieldWrapper
-                    normal
-                    id="serviceName"
-                    name="serviceName"
+                    id="baseFare"
+                    name="baseFare"
                     placeholder="400"
                   />
                 </div>
                 <div className="flex flex-col gap-2 w-[48%]">
                   <InputLabel
-                    htmlFor="serviceName"
+                    htmlFor="perKm"
                     sx={{
                       color: color.darkGray,
                       fontSize: "21px",
                     }}
                   >
-                    Service name
+                    Fare per Km
                   </InputLabel>
-                  <TextFieldWrapper
-                    normal
-                    id="serviceName"
-                    name="serviceName"
-                    placeholder="400"
-                  />
+                  <TextFieldWrapper id="perKm" name="perKm" placeholder="400" />
                 </div>
               </div>
               <div className="flex flex-col gap-2 w-[48%]">
                 <InputLabel
-                  htmlFor="serviceName"
+                  htmlFor="flatRate"
                   sx={{
                     color: color.darkGray,
                     fontSize: "21px",
                   }}
                 >
-                  Service name
+                  Flat Rate
                 </InputLabel>
                 <TextFieldWrapper
-                  normal
-                  id="serviceName"
-                  name="serviceName"
+                  id="flatRate"
+                  name="flatRate"
                   placeholder="400"
                 />
               </div>
               <div className="flex flex-col gap-2">
                 <InputLabel
-                  htmlFor="serviceName"
+                  htmlFor="description"
                   sx={{
                     color: color.darkGray,
                     fontSize: "21px",
                   }}
                 >
-                  Service name
+                  Description
                 </InputLabel>
                 <TextFieldWrapper
-                  normal
                   sx={{ borderRadius: "0px" }}
                   multiline
                   rows={4}
-                  id="serviceName"
-                  name="serviceName"
+                  id="description"
+                  name="description"
                   placeholder="Delivery within 45 mins"
                 />
               </div>
               <Button
-                onClick={() => {
-                  navigate("/admin/delivery/all");
-                }}
+                type="submit"
                 variant="contained"
                 sx={{
                   marginTop: "10px",
