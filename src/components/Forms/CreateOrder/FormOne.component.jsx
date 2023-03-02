@@ -1,11 +1,12 @@
-import { InputLabel, MenuItem, Typography } from "@mui/material";
-import { useState } from "react";
+import { InputLabel, Typography } from "@mui/material";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import { googleApiKey } from "../../../constants/ApiKey";
 import TextFieldWrapper from "../../TextFieldWrapper/TextFieldWrapper";
 
-const FormOne = () => {
-  const [orderType, setOrderType] = useState("");
-  const [deliveryType, setDeliveryType] = useState("");
-  const [itemType, setItemType] = useState("");
+const FormOne = ({ pickupAddress, setPickupAddress }) => {
+  const orderType = [{ name: "Order Type", value: "orderType" }];
+  const deliveryType = [{ name: "Delivery Type", value: "deliveryType" }];
+  const itemType = [{ name: "Item Type", value: "itemType" }];
   return (
     <div className="flex items-center justify-center h-full w-full">
       <div className="flex flex-col h-full w-[90%] gap-4 bg-white rounded-2xl">
@@ -18,63 +19,45 @@ const FormOne = () => {
           <Typography className="w-[90%] font-bold">Pick Up</Typography>
           <div className="flex gap-4 w-[90%]">
             <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="order-type">Order Type</InputLabel>
+              <InputLabel htmlFor="orderType">Order Type</InputLabel>
               <TextFieldWrapper
-                value={orderType}
-                name="order-type"
-                id="order-type"
+                options={orderType}
+                name="orderType"
+                id="orderType"
                 select
                 placeholder="Select Order Type"
                 label="Select Order Type"
-                defaultValue="order-type"
-                onChange={(event) => {
-                  setOrderType(event.target.value);
-                }}
-              >
-                <MenuItem value={"order-type"}>OrderType</MenuItem>
-              </TextFieldWrapper>
+              ></TextFieldWrapper>
             </div>
             <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="delivery-type">Delivery Type</InputLabel>
+              <InputLabel htmlFor="deliveryType">Delivery Type</InputLabel>
               <TextFieldWrapper
-                value={deliveryType}
-                name="delivery-type"
-                id="delivery-type"
+                options={deliveryType}
+                name="deliveryType"
+                id="deliveryType"
                 select
                 placeholder="Select Delivery Type"
                 label="Select Delivery Type"
-                defaultValue="delivery-type"
-                onChange={(event) => {
-                  setDeliveryType(event.target.value);
-                }}
-              >
-                <MenuItem value={"delivery-type"}>DeliveryType</MenuItem>
-              </TextFieldWrapper>
+              ></TextFieldWrapper>
             </div>
           </div>
           <div className="flex gap-8 w-[90%]">
             <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="item-type">Item Type</InputLabel>
+              <InputLabel htmlFor="itemType">Item Type</InputLabel>
               <TextFieldWrapper
-                value={itemType}
-                name="item-type"
-                id="item-type"
+                options={itemType}
+                name="itemType"
+                id="itemType"
                 select
                 placeholder="Select Item Type"
                 label="Select Item Type"
-                defaultValue="item-type"
-                onChange={(event) => {
-                  setItemType(event.target.value);
-                }}
-              >
-                <MenuItem value={"item-type"}>ItemType</MenuItem>
-              </TextFieldWrapper>
+              ></TextFieldWrapper>
             </div>
             <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="item-amount">Item Amount</InputLabel>
+              <InputLabel htmlFor="itemAmount">Item Amount</InputLabel>
               <TextFieldWrapper
-                name="item-amount"
-                id="item-amount"
+                name="itemAmount"
+                id="itemAmount"
                 placeholder="Type in Amount of Items"
                 label="Type in Amount of Items"
               />
@@ -82,32 +65,28 @@ const FormOne = () => {
           </div>
           <div className="flex gap-8 w-[90%]">
             <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="customer-name">Customer Name</InputLabel>
+              <InputLabel htmlFor="customerName">Customer Name</InputLabel>
               <TextFieldWrapper
-                name="customer-name"
-                id="customer-name"
+                name="customerName"
+                id="customerName"
                 placeholder="Type in Customer Name"
               />
             </div>
             <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="customer-phone-number">
-                Phone Number
-              </InputLabel>
+              <InputLabel htmlFor="phone">Phone Number</InputLabel>
               <TextFieldWrapper
-                name="customer-phone-number"
-                id="customer-phone-number"
+                name="phone"
+                id="phone"
                 placeholder="Type in Customer Phone Number"
               />
             </div>
           </div>
           <div className="flex gap-8 w-[90%]">
             <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="customer-email-address">
-                Email Address
-              </InputLabel>
+              <InputLabel htmlFor="email">Email Address</InputLabel>
               <TextFieldWrapper
-                name="customer-email-address"
-                id="customer-email-address"
+                name="email"
+                id="email"
                 placeholder="Type in Customer Email Addrss"
               />
             </div>
@@ -115,11 +94,32 @@ const FormOne = () => {
           </div>
           <div className="flex gap-8 w-[90%]">
             <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="pick-up-address">Pick Up Address</InputLabel>
-              <TextFieldWrapper
-                name="pick-up-address"
-                id="pick-up-address"
-                placeholder="24, Gbolahan Street..."
+              <InputLabel htmlFor="pickupAddress">Pick Up Address</InputLabel>
+              <GooglePlacesAutocomplete
+                name="address"
+                apiKey={googleApiKey}
+                autocompletionRequest={{
+                  componentRestrictions: {
+                    country: ["ng"],
+                  },
+                }}
+                selectProps={{
+                  pickupAddress,
+                  onChange: setPickupAddress,
+                  placeholder: "",
+                  styles: {
+                    input: (provided) => ({
+                      ...provided,
+                      height: "50px",
+                    }),
+                    option: (provided) => ({
+                      ...provided,
+                    }),
+                    singleValue: (provided) => ({
+                      ...provided,
+                    }),
+                  },
+                }}
               />
             </div>
           </div>

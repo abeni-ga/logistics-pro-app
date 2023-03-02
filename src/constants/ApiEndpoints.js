@@ -7,6 +7,7 @@ export const account = {
   getUsers: BASEURL + "/account/api/v1/account",
   getUser: BASEURL + "/account/api/v1/account",
   recoveryPassword: BASEURL + "/account/API/V1/account/recover-password",
+  activityLog: BASEURL + "/account/API/V1/activityLog",
 };
 export const pool = {
   inOrders: BASEURL + "/pool/API/V1/pool",
