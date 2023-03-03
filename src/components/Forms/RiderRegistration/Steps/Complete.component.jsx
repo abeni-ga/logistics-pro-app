@@ -7,7 +7,7 @@ const Complete = () => {
         Success!
       </Typography>
       <img className="w-40" src={FormCompleted} alt="" />
-      <Typography className="font-bold">Registeration Complete</Typography>
+      <Typography className="font-bold">Registration Complete</Typography>
     </div>
   );
 };

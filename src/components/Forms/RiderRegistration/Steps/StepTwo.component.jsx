@@ -49,7 +49,7 @@ const StepTwo = ({ handlePrev, postalAddress, setPostalAddress }) => {
           <div className="flex flex-col gap-2 w-[48%]">
             <InputLabel htmlFor="contactPersonPhone">Phone Number</InputLabel>
             <TextFieldWrapper
-              name="contactPersonPhone"
+              name="contactPersonPhoneNumber"
               placeholder="Contact Person's Phone Number"
             />
           </div>
@@ -81,7 +81,7 @@ const StepTwo = ({ handlePrev, postalAddress, setPostalAddress }) => {
           }}
         />
         <InputLabel htmlFor="postalAddress">P O Box Number</InputLabel>
-        <TextFieldWrapper name="poBOX" placeholder="Type in Postal Number" />
+        <TextFieldWrapper name="postalAddress" placeholder="Type in Postal Number" />
       </div>
     </div>
   );

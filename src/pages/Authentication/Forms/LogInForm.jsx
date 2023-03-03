@@ -30,7 +30,7 @@ const LogInForm = (props) => {
         navigate(routes.company.dashboard);
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.response?.data?.message);
     }
   };
   return (
