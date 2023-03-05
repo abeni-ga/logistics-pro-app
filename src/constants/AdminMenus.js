@@ -3,13 +3,17 @@ import PersonIcon from "@mui/icons-material/Person";
 import Person2Icon from "@mui/icons-material/Person2";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import SettingsIcon from "@mui/icons-material/Settings";
+import AddBoxIcon from "@mui/icons-material/AddBox";
 import PaymentsIcon from "@mui/icons-material/Payments";
+import DiscountIcon from "@mui/icons-material/Discount";
+import DirectionsBikeIcon from "@mui/icons-material/DirectionsBike";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import { BusinessRounded } from "@mui/icons-material";
 import WarehouseIcon from "@mui/icons-material/Warehouse";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import ReceiptIcon from "@mui/icons-material/Receipt";
+import EngineeringIcon from "@mui/icons-material/Engineering";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 export const ADMINMENUITEMS = [
   {
@@ -23,7 +27,7 @@ export const ADMINMENUITEMS = [
   {
     path: "/admin/riders",
     title: "Riders",
-    icon: <PersonIcon />,
+    icon: <DirectionsBikeIcon />,
     type: "sub",
     active: false,
     children: [
@@ -80,6 +84,30 @@ export const ADMINMENUITEMS = [
       {
         path: "/admin/retail-company/all",
         title: "All Retail Companies",
+        type: "link",
+      },
+    ],
+  },
+  {
+    path: "/admin/direct-customer",
+    title: "Customer",
+    icon: <PersonIcon />,
+    type: "sub",
+    active: false,
+    children: [
+      {
+        path: "/admin/direct-customer/active",
+        title: "Active Today",
+        type: "link",
+      },
+      {
+        path: "/admin/direct-customer/register",
+        title: "Create New",
+        type: "link",
+      },
+      {
+        path: "/admin/direct-customer/all",
+        title: "All Customers",
         type: "link",
       },
     ],
@@ -182,10 +210,62 @@ export const ADMINMENUITEMS = [
     icon: <SettingsIcon />,
     type: "link",
     active: false,
+  },
+  {
+    path: "/admin/coupon",
+    title: "coupon",
+    icon: <DiscountIcon />,
+    type: "link",
+    active: false,
     children: [
-      { path: "/admin/setting/coupon", title: "Coupon", type: "link" },
-      { path: "/admin/setting/markup", title: "Markup", type: "link" },
-      { path: "/admin/setting/staff", title: "staff", type: "link" },
+      {
+        path: "/admin/coupon/all",
+        title: "Coupons",
+        type: "link",
+      },
+      {
+        path: "/admin/coupon/add",
+        title: "Add New",
+        type: "link",
+      },
+    ],
+  },
+  {
+    path: "/admin/markup",
+    title: "markup",
+    icon: <AddBoxIcon />,
+    type: "link",
+    active: false,
+    children: [
+      {
+        path: "/admin/markup/all",
+        title: "Markups",
+        type: "link",
+      },
+      {
+        path: "/admin/markup/add",
+        title: "Add New",
+        type: "link",
+      },
+    ],
+  },
+  {
+    path: "/admin/staff",
+    title: "staff",
+    icon: <EngineeringIcon />,
+    type: "link",
+    active: false,
+    children: [
+      {
+        path: "/admin/staff/all",
+        title: "Staffs",
+        type: "link",
+      },
+      {
+        path: "/admin/staff/add",
+        title: "Add New",
+        type: "link",
+      },
     ],
   },
   {

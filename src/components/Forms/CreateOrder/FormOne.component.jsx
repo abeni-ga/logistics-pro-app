@@ -4,9 +4,8 @@ import { googleApiKey } from "../../../constants/ApiKey";
 import TextFieldWrapper from "../../TextFieldWrapper/TextFieldWrapper";
 
 const FormOne = ({ pickupAddress, setPickupAddress }) => {
-  const orderType = [{ name: "Order Type", value: "orderType" }];
   const deliveryType = [{ name: "Delivery Type", value: "deliveryType" }];
-  const itemType = [{ name: "Item Type", value: "itemType" }];
+
   return (
     <div className="flex items-center justify-center h-full w-full">
       <div className="flex flex-col h-full w-[90%] gap-4 bg-white rounded-2xl">
@@ -18,17 +17,6 @@ const FormOne = ({ pickupAddress, setPickupAddress }) => {
         <div className="flex flex-col gap-4 w-full items-center">
           <Typography className="w-[90%] font-bold">Pick Up</Typography>
           <div className="flex gap-4 w-[90%]">
-            <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="orderType">Order Type</InputLabel>
-              <TextFieldWrapper
-                options={orderType}
-                name="orderType"
-                id="orderType"
-                select
-                placeholder="Select Order Type"
-                label="Select Order Type"
-              ></TextFieldWrapper>
-            </div>
             <div className="w-full flex flex-col gap-2">
               <InputLabel htmlFor="deliveryType">Delivery Type</InputLabel>
               <TextFieldWrapper
@@ -43,14 +31,12 @@ const FormOne = ({ pickupAddress, setPickupAddress }) => {
           </div>
           <div className="flex gap-8 w-[90%]">
             <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="itemType">Item Type</InputLabel>
+              <InputLabel htmlFor="itemName">Item Name</InputLabel>
               <TextFieldWrapper
-                options={itemType}
-                name="itemType"
-                id="itemType"
-                select
-                placeholder="Select Item Type"
-                label="Select Item Type"
+                name="itemName"
+                id="itemName"
+                placeholder="Type Item Name"
+                label="Item Name"
               ></TextFieldWrapper>
             </div>
             <div className="w-full flex flex-col gap-2">
@@ -124,14 +110,6 @@ const FormOne = ({ pickupAddress, setPickupAddress }) => {
             </div>
           </div>
           <div className="flex gap-8 w-[90%]">
-            <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="landmark">Landmark</InputLabel>
-              <TextFieldWrapper
-                name="landmark"
-                id="landmark"
-                placeholder="Type in any landmark"
-              />
-            </div>
             <div className="w-full flex flex-col gap-2">
               <InputLabel htmlFor="note">Add Note</InputLabel>
               <TextFieldWrapper

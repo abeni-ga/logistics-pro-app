@@ -1,11 +1,14 @@
-import { color } from "../../../constants/Theme.js";
 import { Button, IconButton, InputLabel, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Formik, Form } from "formik";
+import { useState } from "react";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import SuccessDialogWithAction from "../../../components/Dialog/SuccessDialogWithButton.component";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
-import { useState } from "react";
+import { color } from "../../../constants/Theme.js";
+import { googleApiKey } from "../../../constants/ApiKey";
 const AddCollectionCenter = () => {
+  const [address, setAddress] = useState(undefined);
   const [open, setOpen] = useState(false);
   return (
     <div className="flex flex-col w-full h-full items-center px-10 pt-5">
@@ -38,10 +41,32 @@ const AddCollectionCenter = () => {
                       placeholder="Enter center Name"
                     />
                   </div>
-                  <TextFieldWrapper
-                    id="centerName"
-                    name="centerName"
-                    placeholder="Enter center Name"
+                  <GooglePlacesAutocomplete
+                    name="address"
+                    id="address"
+                    apiKey={googleApiKey}
+                    autocompletionRequest={{
+                      componentRestrictions: {
+                        country: ["ng"],
+                      },
+                    }}
+                    selectProps={{
+                      address,
+                      onChange: setAddress,
+                      placeholder: "24, Gbolahan Street, Ajah, Lagos",
+                      styles: {
+                        input: (provided) => ({
+                          ...provided,
+                          height: "50px",
+                        }),
+                        option: (provided) => ({
+                          ...provided,
+                        }),
+                        singleValue: (provided) => ({
+                          ...provided,
+                        }),
+                      },
+                    }}
                   />
                   <div className="w-[50%] flex flex-col gap-1">
                     <InputLabel

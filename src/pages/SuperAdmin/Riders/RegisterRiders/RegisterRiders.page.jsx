@@ -23,13 +23,13 @@ const RegisterRider = () => {
   const INITIAL_VALUES = {
     firstName: "",
     lastName: "",
-    deliveryCompany: "",
     asset: "",
     email: "",
-    phoneNumber: "",
+    phone: "",
+    company: "",
     contactPerson: "",
     address: "",
-    contactPersonPostion: "",
+    contactPersonPosition: "",
     contactPersonPhoneNumber: "",
     postalAddress: "",
   };
@@ -40,7 +40,8 @@ const RegisterRider = () => {
     asset: Yup.string().required("*Required"),
     // deliveryCompany: Yup.string().required("*Required"),
     email: Yup.string().required("*Required"),
-    // phoneNumber: Yup.string().required("*Required"),
+    phone: Yup.string().required("*Required"),
+    company: Yup.string().required("*Required"),
     contactPerson: Yup.string().required("*Required"),
     // address: Yup.string().required("*Required"),
     contactPersonPosition: Yup.string().required("*Required"),
@@ -89,11 +90,7 @@ const RegisterRider = () => {
 
   const handleNext = () => {
     setStep((prev) =>
-      prev < 4
-        ? prev + 1
-        : prev === 4
-        ? navigate(routes.admin.dashboard)
-        : prev,
+      prev < 4 ? prev + 1 : prev === 4 ? navigate(routes.admin.dashboard) : prev
     );
   };
 
@@ -144,9 +141,12 @@ const RegisterRider = () => {
               const body = {
                 role: ROLE.RIDER,
                 address: address ? address.label : "",
+                username: `${values.firstName} ${values.lastName}`,
+                deliveryCompany: "63f394e16514bb00d013275d",
                 postalAddress: postalAddress ? postalAddress.label : "",
                 ...values,
               };
+              console.log(body);
               handleRegister(body);
             }}
           >
@@ -154,7 +154,7 @@ const RegisterRider = () => {
               // Object.keys(errors).map(
               //   (error) => error && toast.error(`${error} - ${errors[error]}`),
               // );
-              console.log(errors);
+              // console.log(errors);
               return (
                 <Form>
                   {steps()}

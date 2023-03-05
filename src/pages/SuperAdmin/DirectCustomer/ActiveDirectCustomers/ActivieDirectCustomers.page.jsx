@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -64,7 +65,7 @@ const ActiveDirectCustomer = () => {
   useEffect(() => {
     handleGetUsers();
   }, [handleGetUsers]);
-  return (
+  return companies.length > 0 ? (
     <div className=" w-full h-screen bg-transparent px-10 flex flex-col">
       <div className="flex flex-col w-full">
         <PageHeader
@@ -84,6 +85,10 @@ const ActiveDirectCustomer = () => {
           handlePageLimit={handlePageLimit}
         />
       </div>
+    </div>
+  ) : (
+    <div className="w-full h-full flex items-center justify-center">
+      <CircularProgress />
     </div>
   );
 };

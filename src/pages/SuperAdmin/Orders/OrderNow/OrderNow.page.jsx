@@ -36,7 +36,6 @@ const OrderNow = () => {
         <Form className="h-full">
           {step === 1 ? (
             <div className="flex w-full h-full">
-              {step}
               <div className="flex flex-co w-[50%] h-full">
                 <FormOne />
               </div>

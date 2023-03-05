@@ -1,10 +1,23 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { InputLabel, Typography, IconButton } from "@mui/material";
+import {
+  InputLabel,
+  Typography,
+  IconButton,
+  Autocomplete,
+  TextField,
+} from "@mui/material";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 import TextFieldWrapper from "../../../TextFieldWrapper/TextFieldWrapper";
 import { googleApiKey } from "../../../../constants/ApiKey";
+
 const StepTwo = ({ handlePrev, postalAddress, setPostalAddress }) => {
+  const companies = [
+    { title: "comp 1", id: "56yhjihghuytgy6t5t" },
+    { title: "comp 2", id: "56yhjihghuytgy6t5tfds" },
+    { title: "comp 3", id: "56yhjihghuytgy6t5tfd" },
+  ];
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-3">
@@ -29,8 +42,19 @@ const StepTwo = ({ handlePrev, postalAddress, setPostalAddress }) => {
       <div className="flex flex-col gap-2">
         <InputLabel htmlFor="riderEmail">Email Address</InputLabel>
         <TextFieldWrapper name="email" placeholder="companyabc@xyz.com" />
-        <InputLabel htmlFor="phoneNumber">Phone Number</InputLabel>
+        <InputLabel htmlFor="phone">Phone Number</InputLabel>
         <TextFieldWrapper name="phone" placeholder="123456789" />
+        <InputLabel htmlFor="company">Company</InputLabel>
+        <Autocomplete
+          id="combo-box-demo"
+          options={companies}
+          getOptionLabel={(option) => option.title}
+          isOptionEqualToValue={(option) => option.id}
+          autoHighlight
+          renderInput={(params) => (
+            <TextField {...params} name="company" label="Select Company" />
+          )}
+        />
         <InputLabel htmlFor="contactPerson">Contact Person</InputLabel>
         <TextFieldWrapper
           name="contactPerson"
@@ -81,7 +105,10 @@ const StepTwo = ({ handlePrev, postalAddress, setPostalAddress }) => {
           }}
         />
         <InputLabel htmlFor="postalAddress">P O Box Number</InputLabel>
-        <TextFieldWrapper name="postalAddress" placeholder="Type in Postal Number" />
+        <TextFieldWrapper
+          name="postalAddress"
+          placeholder="Type in Postal Number"
+        />
       </div>
     </div>
   );

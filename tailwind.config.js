@@ -2,6 +2,7 @@
 module.exports = {
   content: ["./src/**/*.{html, js, ts, vue}", "./src/**/*"],
   important: "#root",
+  plugins: [require("tailwind-scrollbar-hide")],
   theme: {
     extend: {
       colors: {

@@ -11,7 +11,7 @@ const SideBar = (props) => {
   };
   return (
     <div
-      className={`bg-white sticky top-0 h-screen flex justify-center${
+      className={`bg-white sticky top-0 h-screen flex justify-center overflow-scroll scrollbar-hide ${
         isOpen
           ? "min-w-[30%] md:min-w-[29%] lg:min-w-[25%] xl:min-w-[20%] 2xl:min-w-[17%]"
           : "min-w-20"
