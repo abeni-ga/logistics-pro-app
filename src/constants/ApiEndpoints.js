@@ -22,3 +22,9 @@ export const configuration = {
     editDeliveryPlan: BASEURL + "/pool/API/V1/deliveryPlan/updateDeliveryPlan",
   },
 };
+export const collectionCenter = {
+  getCollectionCenters: BASEURL + "/pool/API/V1/collectionCenter",
+  getCollectionCenter: BASEURL + "/pool/API/V1/collectionCenter/:id",
+  addCollectionCenter:
+    BASEURL + "/pool/API/V1/collectionCenter/addCollectionCenter",
+};

@@ -8,8 +8,7 @@ import { useNavigate } from "react-router-dom";
 const DeliveryPlanItem = ({ plan }) => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
-  const { _id, description, name } = plan;
-  console.log(_id);
+  const { description, name } = plan;
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [deactiveDialog, setDeactiveDialog] = useState(false);
 
@@ -20,9 +19,9 @@ const DeliveryPlanItem = ({ plan }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleEdit = (id) => {
+  const handleEdit = () => {
     setAnchorEl(null);
-    navigate("/admin/delivery/edit", { state: { id: _id } });
+    navigate("/admin/delivery/edit", { state: { plan: plan } });
   };
   const handleDeactivate = () => {
     setAnchorEl(null);

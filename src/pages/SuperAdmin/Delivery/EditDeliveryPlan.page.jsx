@@ -55,11 +55,11 @@ const EditDeliveryPlan = () => {
       <div className="flex flex-col w-full h-[80%] gap-3">
         <Formik
           initialValues={{
-            name: "",
-            baseFare: "",
-            perKm: "",
-            flatRate: "",
-            description: "",
+            name: location.state.plan.name,
+            baseFare: location.state.plan.baseFare,
+            perKm: location.state.plan.perKm,
+            flatRate: location.state.plan.flatRate,
+            description: location.state.plan.description,
           }}
           validationSchema={Yup.object({
             name: Yup.string().required("Required"),
@@ -75,7 +75,7 @@ const EditDeliveryPlan = () => {
             description: Yup.string().required("Required"),
           })}
           onSubmit={(values) => {
-            const newValue = { ...values, id: location.state.id };
+            const newValue = { ...values, id: location.state.plan._id };
             handleEditDeliveryPlan(newValue);
           }}
         >

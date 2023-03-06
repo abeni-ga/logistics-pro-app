@@ -5,17 +5,58 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import FormTwo from "../../../../components/Forms/CreateOrder/FormTwo.component";
 import { Button, IconButton, Typography } from "@mui/material";
 import { color } from "../../../../constants/Theme.js";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import OrderPayment from "../../../../components/Forms/CreateOrder/OrderPayment.componenet";
 import { useNavigate } from "react-router-dom";
+import { getDeliveryPlans } from "../../../../utils/apis";
+import { toast } from "react-toastify";
 const OrderNow = () => {
+  const [deliveryPlans, setDeliveryPlans] = useState([]);
+  const [plans, setPlans] = useState([]);
+  const handleGetDeliveryPlans = useCallback(async () => {
+    const response = await getDeliveryPlans({});
+    if (response?.status < 300) {
+      setDeliveryPlans(response?.data?.data?.data);
+      const plan = deliveryPlans.map((plan) => ({
+        name: plan.name,
+        value: plan._id,
+      }));
+      setPlans(plan);
+      console.log(response?.data?.data?.data);
+    } else {
+      toast.error(response?.statusText);
+    }
+  }, [deliveryPlans]);
+  useEffect(() => {
+    handleGetDeliveryPlans();
+  }, [handleGetDeliveryPlans]);
   const history = useNavigate();
   const INITIAL_VALUES = {
-    userType: "",
+    deliveryPlan: "",
+    itemName: "",
+    quantity: "",
+    customerName: "",
+    customerPhone: "",
+    customerEmail: "",
+    deliveryDescription: "",
+    recieverName: "",
+    recieverPhone: "",
+    deliveryDate: "",
+    deliveryTime: "",
   };
 
   const FORM_VALIDATION = Yup.object().shape({
-    userType: Yup.string().required("*Required"),
+    deliveryPlan: Yup.string().required("*Required"),
+    itemName: Yup.string().required("*Required"),
+    quantity: Yup.number("invalid input").required("*Required"),
+    customerName: Yup.string().required("*Required"),
+    customerPhone: Yup.string().required("*Required"),
+    customerEmail: Yup.string().required("*Required"),
+    deliveryDescription: Yup.string().required("*Required"),
+    recieverName: Yup.string().required("*Required"),
+    recieverPhone: Yup.string().required("*Required"),
+    deliveryDate: Yup.date().required("*Required"),
+    deliveryTime: Yup.string().required("*Required"),
   });
   const [step, setStep] = useState(1);
   return (
@@ -37,7 +78,7 @@ const OrderNow = () => {
           {step === 1 ? (
             <div className="flex w-full h-full">
               <div className="flex flex-co w-[50%] h-full">
-                <FormOne />
+                <FormOne plans={plans} />
               </div>
               <div className="flex flex-col items-center gap-8 w-[50%] h-full">
                 <FormTwo />

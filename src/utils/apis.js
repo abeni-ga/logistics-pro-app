@@ -1,4 +1,9 @@
-import { account, configuration, pool } from "../constants/ApiEndpoints";
+import {
+  account,
+  collectionCenter,
+  configuration,
+  pool,
+} from "../constants/ApiEndpoints";
 import { apiAuth, apiNoAuth } from "./fetch";
 import { clearLocalStorage } from "./tokenHandler";
 
@@ -26,6 +31,26 @@ export const getDeliveryPlans = async (header) => {
 export const addDeliveryPlan = async (header, body) => {
   const response = await apiAuth().post(
     configuration.deliveryPlan.addDeliveryPlan,
+    body
+  );
+  return response;
+};
+export const getCollectionCenters = async (header) => {
+  try {
+    const head = {
+      ...header,
+    };
+    const response = await apiAuth(head).get(
+      collectionCenter.getCollectionCenters
+    );
+    return response;
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
+export const addCollectionCenters = async (header, body) => {
+  const response = await apiAuth().post(
+    collectionCenter.addCollectionCenter,
     body
   );
   return response;

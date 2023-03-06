@@ -2,9 +2,9 @@ import { Button, IconButton, Popover, Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import DeleteDialog from "../../components/Dialog/DeleteDialog.component";
-import CollectionCenter from "../../assets/svg/CollectionCenter.svg";
+import CollectionCenterIcon from "../../assets/svg/CollectionCenter.svg";
 import { useState } from "react";
-const CollectionItem = () => {
+const CollectionItem = ({ collectionCenter }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [dialog, setDialog] = useState(false);
 
@@ -22,31 +22,42 @@ const CollectionItem = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+  console.log(collectionCenter);
 
   return (
-    <div className="flex flex-col w-full h-[80%]">
+    <div className="flex flex-col w-full">
       <div className="flex w-full min-h-[10%] bg-white rounded-lg items-center">
         <div className="w-[4%] flex justify-center">
           <CheckIcon className="bg-bolow text-sm px-0.5 text-white rounded-md" />
         </div>
 
         <Typography className="text-darkIndigo w-[10%] font-bold">
-          #003232
+          {`${collectionCenter._id.substring(0, 9)}...`}
         </Typography>
         <div className="flex items-center gap-2 w-[15%]">
-          <img src={CollectionCenter} alt="" />
+          <img src={CollectionCenterIcon} alt="" />
           <Typography className="text-darkGray font-bold">
-            Lekki collection center
+            {collectionCenter.name}
           </Typography>
         </div>
         <Typography className="w-[15%] font-bold text-darkGray">
-          14, Kumolu Street. Ikeja, Lagos
+          {collectionCenter.location}
         </Typography>
-        <Typography className="w-[10%]">20 Drop-offs</Typography>
-        <Typography className="w-[10%]">12 pick-ups</Typography>
+        <Typography className="w-[10%]">{`${
+          collectionCenter.pickUpOrders ? collectionCenter.pickUpOrders : 0
+        } Drop-offs`}</Typography>
+        <Typography className="w-[10%]">{`${
+          collectionCenter.dropOffOrders ? collectionCenter.dropOffOrders : 0
+        } Drop-offs`}</Typography>
         <div className="flex w-[10%]">
-          <Typography className="text-darkIndigo bg-bgWhiteSmoke text-center rounded-md font-bold px-1">
-            Active
+          <Typography
+            className={`bg-bgWhiteSmoke text-center rounded-md font-bold px-1 ${
+              collectionCenter.status === "Active"
+                ? "text-darkIndigo"
+                : "text-red-300"
+            }`}
+          >
+            {collectionCenter.status}
           </Typography>
         </div>
         <IconButton

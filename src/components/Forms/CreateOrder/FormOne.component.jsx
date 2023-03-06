@@ -3,8 +3,8 @@ import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { googleApiKey } from "../../../constants/ApiKey";
 import TextFieldWrapper from "../../TextFieldWrapper/TextFieldWrapper";
 
-const FormOne = ({ pickupAddress, setPickupAddress }) => {
-  const deliveryType = [{ name: "Delivery Type", value: "deliveryType" }];
+const FormOne = ({ pickupAddress, setPickupAddress, plans }) => {
+  // const deliveryType = [{ name: "Delivery Type", value: "deliveryType" }];
 
   return (
     <div className="flex items-center justify-center h-full w-full">
@@ -18,11 +18,11 @@ const FormOne = ({ pickupAddress, setPickupAddress }) => {
           <Typography className="w-[90%] font-bold">Pick Up</Typography>
           <div className="flex gap-4 w-[90%]">
             <div className="w-full flex flex-col gap-2">
-              <InputLabel htmlFor="deliveryType">Delivery Type</InputLabel>
+              <InputLabel htmlFor="deliveryPlan">Delivery Type</InputLabel>
               <TextFieldWrapper
-                options={deliveryType}
-                name="deliveryType"
-                id="deliveryType"
+                options={plans}
+                name="deliveryPlan"
+                id="deliveryPlan"
                 select
                 placeholder="Select Delivery Type"
                 label="Select Delivery Type"

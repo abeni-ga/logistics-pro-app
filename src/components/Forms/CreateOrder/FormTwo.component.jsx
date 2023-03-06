@@ -77,7 +77,6 @@ const FormTwo = ({ deliveryAddress, setDeliveryAddress }) => {
                 name="deliveryDate"
                 id="deliveryDate"
                 type="date"
-                defaultValue="2017-05-24"
               />
             </div>
             <div className="w-full flex flex-col gap-2">
