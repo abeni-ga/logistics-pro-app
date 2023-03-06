@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import StandardButton from "../Buttons/StandardButton.component";
 import Menu from "../../assets/svg/Menu.svg";
 import List from "../../assets/svg/List.svg";
+import { routes } from "../../routes/siteRoutes.routes";
 
 const RiderViewHeader = ({
   btnName,
@@ -31,7 +32,7 @@ const RiderViewHeader = ({
     setDateSelector(e.target.value);
   };
   const handleAction = () => {
-    navigate("/admin/riders/register");
+    navigate(routes.admin.registerRider);
   };
   useEffect(() => {
     handlePageLimit(size);

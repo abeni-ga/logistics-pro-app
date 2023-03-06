@@ -6,6 +6,7 @@ import PageHeader from "../../../../components/Header/PageHeader.component";
 import ListViewHeader from "../../../../components/PageFilterAndButton/ListViewHeader.component";
 import TablePagination from "../../../../components/Pagination/TablePagination.component";
 import UserListTable from "../../../../components/UserView/UserList/UserListTable.component";
+import { routes } from "../../../../routes/siteRoutes.routes";
 import { getUsers } from "../../../../utils/apis";
 const ActiveLogisticsCompanies = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const ActiveLogisticsCompanies = () => {
     setOffset(offSet);
   };
   const handleAction = () => {
-    navigate("/admin/logistics-company/register");
+    navigate(routes.admin.registerDeliveryCompany);
   };
   const handleSearch = (keyword) => {
     setKeyWord(keyword);

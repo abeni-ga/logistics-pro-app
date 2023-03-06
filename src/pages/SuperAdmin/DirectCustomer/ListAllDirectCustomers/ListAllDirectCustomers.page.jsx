@@ -6,6 +6,7 @@ import PageHeader from "../../../../components/Header/PageHeader.component";
 import ListViewHeader from "../../../../components/PageFilterAndButton/ListViewHeader.component";
 import TablePagination from "../../../../components/Pagination/TablePagination.component";
 import UserListTable from "../../../../components/UserView/UserList/UserListTable.component";
+import { routes } from "../../../../routes/siteRoutes.routes";
 import { getUsers } from "../../../../utils/apis";
 const ListDirectCustomer = () => {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ const ListDirectCustomer = () => {
     setOffset(offSet);
   };
   const handleAction = () => {
-    navigate("/admin/direct-customer/register");
+    navigate(routes.admin.registerCustomer);
   };
   const handleSearch = (keyword) => {
     setKeyWord(keyword);

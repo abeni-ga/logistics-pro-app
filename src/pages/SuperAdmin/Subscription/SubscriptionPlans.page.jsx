@@ -2,6 +2,7 @@ import { Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { color } from "../../../constants/Theme.js";
 import SubscriptionPlanItem from "../../../components/Subscription/SubscriptionPlanItem.component.jsx";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 const SubscriptionPlan = () => {
   const navigate = useNavigate();
   return (
@@ -12,7 +13,7 @@ const SubscriptionPlan = () => {
         </Typography>
         <Button
           onClick={() => {
-            navigate("/admin/subscription/add");
+            navigate(routes.admin.addSubscription);
           }}
           variant="outlined"
           sx={{ color: color.darkIndigo, borderColor: color.darkIndigo }}

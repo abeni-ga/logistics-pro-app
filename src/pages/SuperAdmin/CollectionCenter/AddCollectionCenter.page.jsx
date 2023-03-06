@@ -10,6 +10,7 @@ import { color } from "../../../constants/Theme.js";
 import { googleApiKey } from "../../../constants/ApiKey";
 import { addCollectionCenter } from "../../../utils/apis";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes";
 const AddCollectionCenter = () => {
   const [address, setAddress] = useState(undefined);
   const navigate = useNavigate();
@@ -139,7 +140,7 @@ const AddCollectionCenter = () => {
           content="Collection center was successfully added"
           open={open}
           handleClose={() => {
-            navigate("/admin/collection-center");
+            navigate(routes.admin.collectionCenter);
           }}
         />
       </div>

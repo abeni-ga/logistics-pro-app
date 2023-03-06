@@ -349,27 +349,27 @@ const AdminRoutes = {
       element: <EditDelivery />,
     },
     {
-      path: "setting/coupon",
+      path: "coupon/all",
       element: <Coupon />,
     },
     {
-      path: "setting/coupon/add",
+      path: "coupon/add",
       element: <AddCoupon />,
     },
     {
-      path: "setting/markup",
+      path: "markup/all",
       element: <Markup />,
     },
     {
-      path: "setting/markup/add",
+      path: "markup/add",
       element: <AddMarkup />,
     },
     {
-      path: "setting/staff",
+      path: "staff/all",
       element: <Staff />,
     },
     {
-      path: "setting/staff/add",
+      path: "staff/add",
       element: <AddStaff />,
     },
 

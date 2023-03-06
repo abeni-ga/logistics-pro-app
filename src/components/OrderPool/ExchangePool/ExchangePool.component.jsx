@@ -18,6 +18,7 @@ import { useState } from "react";
 import Current from "../../../assets/svg/Current.svg";
 import CompaniesOrderPoolTable from "../../../components/OrderPool/CompaniesOrderTable.component";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes";
 // import TablePagination from "../../../components/Pagination/TablePagination.component";
 
 const ExchangePool = () => {
@@ -127,7 +128,7 @@ const ExchangePool = () => {
             <Button
               className="bg-darkIndigo text-white rounded-lg text-xs xl:text-sm"
               onClick={() => {
-                navigate("/admin/orders/order-now");
+                navigate(routes.admin.createOrder);
               }}
               variant="contained"
               startIcon={<AddIcon />}

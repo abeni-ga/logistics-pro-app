@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../../../routes/siteRoutes.routes";
 const CompanyOrderItem = () => {
   const navigate = useNavigate();
   return (
@@ -8,7 +9,7 @@ const CompanyOrderItem = () => {
       <div
         className="flex w-[99%] items-center bg-white rounded-lg py-4 gap-2"
         onClick={() => {
-          navigate("/admin/retail-company/order-summary");
+          navigate(routes.admin.retailCompanyOrderSummary);
         }}
       >
         <div className=" w-[5%]">

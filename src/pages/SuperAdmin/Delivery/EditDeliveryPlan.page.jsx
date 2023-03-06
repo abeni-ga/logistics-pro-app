@@ -7,11 +7,12 @@ import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrap
 import { ArrowBack } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 import { editDeliveryPlan } from "../../../utils/apis.js";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 const EditDeliveryPlan = () => {
   const handleEditDeliveryPlan = async (values) => {
     try {
       const result = await editDeliveryPlan({}, values);
-      navigate("/admin/delivery/all");
+      navigate(routes.admin.deliveryPlan);
       console.log(result);
     } catch (error) {
       console.log(error);
@@ -41,7 +42,7 @@ const EditDeliveryPlan = () => {
           </div>
           <Button
             onClick={() => {
-              navigate("/admin/delivery/add");
+              navigate(routes.admin.addDeliveryPlan);
             }}
             sx={{ color: color.darkIndigo, borderColor: color.darkIndigo }}
             variant="outlined"

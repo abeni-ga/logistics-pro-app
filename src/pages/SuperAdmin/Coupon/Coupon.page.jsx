@@ -3,6 +3,7 @@ import { color } from "../../../constants/Theme.js";
 import AddIcon from "@mui/icons-material/Add";
 import CouponItem from "./CouponItem.pagecomp.jsx";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 const Coupon = () => {
   const navigate = useNavigate();
   return (
@@ -13,7 +14,7 @@ const Coupon = () => {
         </Typography>
         <Button
           onClick={() => {
-            navigate("/admin/setting/coupon/add");
+            navigate(routes.admin.addCoupon);
           }}
           variant="outlined"
           sx={{

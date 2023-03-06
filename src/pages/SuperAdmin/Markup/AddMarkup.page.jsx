@@ -5,6 +5,7 @@ import { Button, IconButton, InputLabel, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 const AddMarkup = () => {
   const navigate = useNavigate();
   return (
@@ -28,7 +29,7 @@ const AddMarkup = () => {
           </div>
           <Button
             onClick={() => {
-              navigate("/admin/setting/staff/add");
+              navigate(routes.admin.addStaff);
             }}
             sx={{ color: color.mainRed, borderColor: color.mainRed }}
             variant="outlined"

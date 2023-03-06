@@ -1,9 +1,10 @@
-import { Button, Typography } from "@mui/material";
+import { Button, CircularProgress, Typography } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import CollectionItem from "../../../components/Collection/CollectionItem.component.jsx";
 import { color } from "../../../constants/Theme.js";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 import { getCollectionCenters } from "../../../utils/apis.js";
 const CollectionCenter = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const CollectionCenter = () => {
   useEffect(() => {
     handleGetCollectionCenters();
   }, [handleGetCollectionCenters]);
-  return (
+  return collectionCenters.length > 0 ? (
     <div className="flex flex-col w-full h-full items-center px-10">
       <div className="flex h-[15%] w-full items-center justify-between">
         <Typography variant="h2" sx={{ fontSize: "28px", fontWeight: "700" }}>
@@ -29,7 +30,7 @@ const CollectionCenter = () => {
           variant="outlined"
           sx={{ color: color.darkIndigo, borderColor: color.darkIndigo }}
           onClick={() => {
-            navigate("/admin/collection-center/add");
+            navigate(routes.admin.addCollectionCenter);
           }}
         >
           Add New
@@ -40,6 +41,10 @@ const CollectionCenter = () => {
           <CollectionItem collectionCenter={collectionCenter} key={index} />
         ))}
       </div>
+    </div>
+  ) : (
+    <div className="w-full h-full flex items-center justify-center">
+      <CircularProgress />
     </div>
   );
 };

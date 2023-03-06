@@ -3,6 +3,7 @@ import PageHeader from "../../../../components/Header/PageHeader.component";
 import ListViewHeader from "../../../../components/PageFilterAndButton/ListViewHeader.component";
 import TablePagination from "../../../../components/Pagination/TablePagination.component";
 import UserListTable from "../../../../components/UserView/UserList/UserListTable.component";
+import { routes } from "../../../../routes/siteRoutes.routes";
 
 const ListAllRetailCompanies = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const ListAllRetailCompanies = () => {
         <ListViewHeader
           btnName="New Company"
           action={() => {
-            navigate("/admin/retail-company/register");
+            navigate(routes.admin.registerRetailCompany);
           }}
         />
       </div>

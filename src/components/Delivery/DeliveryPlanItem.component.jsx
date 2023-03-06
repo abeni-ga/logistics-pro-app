@@ -5,6 +5,7 @@ import { useState } from "react";
 import DeleteDialog from "../Dialog/DeleteDialog.component.jsx";
 import DeactiveDialog from "../Dialog/Deactivate.component.jsx";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../routes/siteRoutes.routes";
 const DeliveryPlanItem = ({ plan }) => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -21,7 +22,7 @@ const DeliveryPlanItem = ({ plan }) => {
   };
   const handleEdit = () => {
     setAnchorEl(null);
-    navigate("/admin/delivery/edit", { state: { plan: plan } });
+    navigate(routes.admin.editDeliveryPlan, { state: { plan: plan } });
   };
   const handleDeactivate = () => {
     setAnchorEl(null);

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 import PageHeader from "../../Header/PageHeader.component.jsx";
 import ListViewHeader from "../../PageFilterAndButton/ListViewHeader.component.jsx";
 import TablePagination from "../../Pagination/TablePagination.component.jsx";
@@ -12,7 +13,7 @@ const ListAllUsers = (props) => {
         <ListViewHeader
           btnName={props.btnName}
           action={() => {
-            navigate("/admin/logistics-company/register");
+            navigate(routes.admin.registerDeliveryCompany);
           }}
         />
       </div>

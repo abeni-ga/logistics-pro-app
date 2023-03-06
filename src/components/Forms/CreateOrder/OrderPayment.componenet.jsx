@@ -3,6 +3,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useState } from "react";
 import SuccessDialog from "../../Dialog/SuccessDialog.component.jsx";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 
 const OrderPayment = () => {
   const [open, setOpen] = useState(false);
@@ -15,7 +16,7 @@ const OrderPayment = () => {
   };
   const handleClose = () => {
     setOpen(false);
-    navigate("/admin/dashboard");
+    navigate(routes.admin.dashboard);
     console.log("closed");
   };
   return (

@@ -1,12 +1,13 @@
 import AddIcon from "@mui/icons-material/Add";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { Button, Typography } from "@mui/material";
+import { Button, CircularProgress, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { color } from "../../../constants/Theme.js";
 import { getDeliveryPlans } from "../../../utils/apis.js";
 import DeliveryPlanItem from "../../../components/Delivery/DeliveryPlanItem.component.jsx";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 const DeliveryPlan = () => {
   const navigate = useNavigate();
   const [deliveryPlans, setDeliveryPlans] = useState([]);
@@ -22,7 +23,8 @@ const DeliveryPlan = () => {
   useEffect(() => {
     handleGetDeliveryPlans();
   }, [handleGetDeliveryPlans]);
-  return (
+
+  return deliveryPlans.length > 0 ? (
     <div className="flex flex-col w-full h-full items-center px-10 pt-5">
       <div className="flex h-[20%] w-full">
         <div className="flex w-full items-center  justify-between">
@@ -31,7 +33,7 @@ const DeliveryPlan = () => {
           </Typography>
           <Button
             onClick={() => {
-              navigate("/admin/delivery/add");
+              navigate(routes.admin.addDeliveryPlan);
             }}
             sx={{ color: color.darkIndigo, borderColor: color.darkIndigo }}
             variant="outlined"
@@ -129,6 +131,10 @@ const DeliveryPlan = () => {
           </div>
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="w-full h-full flex items-center justify-center">
+      <CircularProgress />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { color } from "../../../constants/Theme.js";
 import AddIcon from "@mui/icons-material/Add";
 import StaffItem from "../Staff/StaffItem.pagecomp.jsx";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 const Staff = () => {
   const navigate = useNavigate();
 
@@ -14,7 +15,7 @@ const Staff = () => {
         </Typography>
         <Button
           onClick={() => {
-            navigate("/admin/setting/staff/add");
+            navigate(routes.admin.addStaff);
           }}
           variant="outlined"
           sx={{

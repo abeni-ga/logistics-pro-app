@@ -1,13 +1,14 @@
 import { Avatar, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { routes } from "../../routes/siteRoutes.routes";
 const CompaniesOrderPoolTableItem = () => {
   const navigate = useNavigate();
   return (
     <div
       className="flex w-full h-24 items-center bg-white rounded-lg justify-between"
       onClick={() => {
-        navigate("/admin/orders/order-summary");
+        navigate(routes.admin.orderSummary);
       }}
     >
       <Typography className=" text-xs xl:text-sm text-lightGray w-[3%] text-center ">

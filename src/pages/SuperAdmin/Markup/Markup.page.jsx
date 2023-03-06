@@ -6,6 +6,7 @@ import MarkupItem from "../Markup/MarkupItem.pagecomp.jsx";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
 import { Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 const Markup = () => {
   const navigate = useNavigate();
   return (
@@ -16,7 +17,7 @@ const Markup = () => {
         </Typography>
         <Button
           onClick={() => {
-            navigate("/admin/setting/markup/add");
+            navigate(routes.admin.addMarkup);
           }}
           variant="outlined"
           sx={{
