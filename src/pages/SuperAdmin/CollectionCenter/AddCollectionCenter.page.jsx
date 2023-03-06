@@ -1,4 +1,5 @@
 import { Button, IconButton, InputLabel, Typography } from "@mui/material";
+import * as Yup from "yup";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Formik, Form } from "formik";
 import { useState } from "react";
@@ -7,9 +8,21 @@ import SuccessDialogWithAction from "../../../components/Dialog/SuccessDialogWit
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
 import { color } from "../../../constants/Theme.js";
 import { googleApiKey } from "../../../constants/ApiKey";
+import { addCollectionCenter } from "../../../utils/apis";
+import { useNavigate } from "react-router-dom";
 const AddCollectionCenter = () => {
   const [address, setAddress] = useState(undefined);
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const handleAddCollectionCenter = async (values) => {
+    try {
+      await addCollectionCenter({}, values);
+      setOpen(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="flex flex-col w-full h-full items-center px-10 pt-5">
       <div className="flex h-[20%] w-full">
@@ -23,7 +36,19 @@ const AddCollectionCenter = () => {
         </div>
       </div>
       <div className="flex flex-col w-full h-[80%]">
-        <Formik>
+        <Formik
+          initialValues={{
+            name: "",
+            landmark: "",
+          }}
+          validationSchema={Yup.object({
+            name: Yup.string().required("Required"),
+          })}
+          onSubmit={(values) => {
+            const newValue = { ...values, location: address.label };
+            handleAddCollectionCenter(newValue);
+          }}
+        >
           <Form className="w-full h-full">
             <div className="flex flex-col gap-10 w-full h-full">
               <div className="flex flex-col bg-white rounded-xl h-[60%] w-[35%] px-10 justify-center">
@@ -36,8 +61,8 @@ const AddCollectionCenter = () => {
                       Center Name
                     </InputLabel>
                     <TextFieldWrapper
-                      id="centerName"
-                      name="centerName"
+                      id="name"
+                      name="name"
                       placeholder="Enter center Name"
                     />
                   </div>
@@ -96,9 +121,7 @@ const AddCollectionCenter = () => {
                   Cancel
                 </Button>
                 <Button
-                  onClick={() => {
-                    setOpen(true);
-                  }}
+                  type="submit"
                   sx={{
                     color: "white",
                     backgroundColor: color.darkIndigo,
@@ -113,9 +136,10 @@ const AddCollectionCenter = () => {
           </Form>
         </Formik>
         <SuccessDialogWithAction
+          content="Collection center was successfully added"
           open={open}
           handleClose={() => {
-            setOpen(false);
+            navigate("/admin/collection-center");
           }}
         />
       </div>

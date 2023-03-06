@@ -14,8 +14,7 @@ const AddDeliveryPlan = () => {
   const navigate = useNavigate();
   const handleaddDeliveryPlan = async (values) => {
     try {
-      const result = await addDeliveryPlan({}, values);
-      console.log(result);
+      await addDeliveryPlan({}, values);
       setOpen(true);
     } catch (error) {
       console.log(error);

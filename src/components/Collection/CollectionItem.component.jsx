@@ -4,6 +4,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import DeleteDialog from "../../components/Dialog/DeleteDialog.component";
 import CollectionCenterIcon from "../../assets/svg/CollectionCenter.svg";
 import { useState } from "react";
+
 const CollectionItem = ({ collectionCenter }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [dialog, setDialog] = useState(false);
@@ -22,7 +23,6 @@ const CollectionItem = ({ collectionCenter }) => {
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
-  console.log(collectionCenter);
 
   return (
     <div className="flex flex-col w-full">
@@ -82,7 +82,6 @@ const CollectionItem = ({ collectionCenter }) => {
               Delete
             </Button>
             <div className="w-full h-0.5 bg-slate-200"></div>
-            <Button className="w-[150px] text-darkGray">Edit</Button>
           </div>
         </Popover>
       </div>

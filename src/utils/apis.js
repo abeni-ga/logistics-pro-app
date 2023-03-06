@@ -48,7 +48,7 @@ export const getCollectionCenters = async (header) => {
     console.log("Error", error);
   }
 };
-export const addCollectionCenters = async (header, body) => {
+export const addCollectionCenter = async (header, body) => {
   const response = await apiAuth().post(
     collectionCenter.addCollectionCenter,
     body

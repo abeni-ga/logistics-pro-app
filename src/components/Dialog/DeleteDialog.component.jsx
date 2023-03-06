@@ -1,18 +1,13 @@
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Dialog, DialogContent, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import Delete from "../../assets/svg/Delete.svg";
+import StandardButton from "../Buttons/StandardButton.component";
 const DeleteDialog = (props) => {
   return (
     <Dialog
       PaperProps={{
         sx: {
+          display: "flex",
           width: "25%",
           height: "35%",
         },
@@ -29,27 +24,26 @@ const DeleteDialog = (props) => {
           gap: "10px",
           alignItems: "center",
           justifyContent: "center",
+          position: "relative",
         }}
       >
-        <Typography className="text-xl font-bold">Confirm delete</Typography>
-        <IconButton className="absolute top-0 right-0">
-          <CloseIcon />
-        </IconButton>
+        <CloseIcon
+          onClick={props.handleClose}
+          sx={{
+            position: "absolute",
+            right: "2px",
+            top: "2px",
+          }}
+        />
+        <Typography sx={{ fontWeight: "bold", fontSize: "20px" }}>
+          Confirm delete
+        </Typography>
         <img src={Delete} alt="" />
-        <Typography className="text-xl font-bold">
+        <Typography sx={{ fontWeight: "bold", fontSize: "20px" }}>
           Are you sure you want to delete plan?
         </Typography>
+        <StandardButton onClick={props.handleClose}>Delete</StandardButton>
       </DialogContent>
-      <DialogActions>
-        <div className="flex w-full justify-center">
-          <Button
-            onClick={props.handleClose}
-            className="text-white bg-darkIndigo rounded-lg mb-5 hover:text-white hover:bg-darkIndigo"
-          >
-            Delete
-          </Button>
-        </div>
-      </DialogActions>
     </Dialog>
   );
 };
