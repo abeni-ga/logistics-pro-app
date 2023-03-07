@@ -14,9 +14,6 @@ const ExchangeOrderPool = () => {
     const params = new URLSearchParams({
       limit: pageLimit,
       offset: offset * pageLimit,
-      // filterBy: "role",
-      // filterValue: "DeliveryCompany",
-      // populate: "detail",
       searchBy: "name",
       keyWord: keyWord,
     });
@@ -65,6 +62,7 @@ const ExchangeOrderPool = () => {
       handlePageLimit={handlePageLimit}
       handleSearch={handleSearch}
       pageSize={pageSize}
+      pageLimit={pageLimit}
     />
   );
 };

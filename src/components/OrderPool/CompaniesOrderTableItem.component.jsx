@@ -2,8 +2,33 @@ import { Avatar, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { routes } from "../../routes/siteRoutes.routes";
-const CompaniesOrderPoolTableItem = () => {
+import getAddress from "../../utils/getAddress";
+import { useEffect, useState } from "react";
+const CompaniesOrderPoolTableItem = ({ order }) => {
   const navigate = useNavigate();
+  const [pickUpAddress, setPickUpAddress] = useState(undefined);
+  const [destinationAddress, setDestinationAddress] = useState(undefined);
+  console.log(order);
+  useEffect(() => {
+    const address = async () => {
+      const pickUpAddress = await getAddress(
+        order?.pickUpLocation[0],
+        order?.pickUpLocation[1]
+      );
+      setPickUpAddress(pickUpAddress);
+      console.log(pickUpAddress);
+      const destinationAddress = await getAddress(
+        order?.destinationLocation[0],
+        order?.destinationLocation[1]
+      );
+      setDestinationAddress(destinationAddress);
+      return {
+        pickUpLocation: pickUpAddress,
+        destinationLocation: destinationAddress,
+      };
+    };
+    address();
+  }, [order]);
   return (
     <div
       className="flex w-full h-24 items-center bg-white rounded-lg justify-between"
@@ -16,23 +41,23 @@ const CompaniesOrderPoolTableItem = () => {
       </Typography>
       <div className="flex flex-col w-[7%] items-start">
         <Typography className=" text-xs xl:text-sm text-darkIndigo font-bold ">
-          #00112244
+          {`#${order._id.substring(0, 9)}`}
         </Typography>
         <Typography className=" text-xs xl:text-sm text-darkIndigo ">
           TC Riders pushed this
         </Typography>
       </div>
       <Typography className=" text-xs xl:text-sm text-lightGray w-[7%] ">
-        Book Delivery
+        {order.itemName}
       </Typography>
       <div className="flex gap-2 w-[14%]">
         <Avatar size="small" />
         <div className="flex flex-col">
           <Typography className="text-xs xl:text-sm">
-            Olaniyi Ojo David
+            {order?.customer?.name}
           </Typography>
           <Typography className=" text-xs xl:text-sm text-lightGray ">
-            091612891010
+            {order?.customer?.phone}
           </Typography>
         </div>
       </div>
@@ -40,18 +65,16 @@ const CompaniesOrderPoolTableItem = () => {
         <Typography className=" text-xs xl:text-sm text-lightGray ">
           10/10/2021 01:37PM
         </Typography>
-        <Typography className="text-xs xl:text-sm">
-          14 Kumolu Street. Ikeja Lagos
-        </Typography>
+        <Typography className="text-xs xl:text-sm">{pickUpAddress}</Typography>
       </div>
       <div className="flex gap-2 w-[14%]  ">
         <Avatar />
         <div className="flex flex-col">
           <Typography className="text-xs xl:text-sm">
-            Olaniyi Ojo David
+            {order?.receiver?.name}
           </Typography>
           <Typography className=" text-xs xl:text-sm text-lightGray ">
-            091612891010
+            {order?.receiver?.phone}
           </Typography>
         </div>
       </div>
@@ -60,7 +83,7 @@ const CompaniesOrderPoolTableItem = () => {
           10/10/2021 01:37PM
         </Typography>
         <Typography className="text-xs xl:text-sm">
-          14 Kumolu Street. Ikeja Lagos
+          {destinationAddress}
         </Typography>
       </div>
       <Typography className=" text-xs xl:text-sm text-lightGray w-[9%] ">

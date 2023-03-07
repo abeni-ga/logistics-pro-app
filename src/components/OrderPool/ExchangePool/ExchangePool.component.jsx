@@ -19,9 +19,17 @@ import Current from "../../../assets/svg/Current.svg";
 import CompaniesOrderPoolTable from "../../../components/OrderPool/CompaniesOrderTable.component";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../routes/siteRoutes.routes";
+import TablePagination from "../../Pagination/TablePagination.component";
 // import TablePagination from "../../../components/Pagination/TablePagination.component";
 
-const ExchangePool = () => {
+const ExchangePool = ({
+  orders,
+  handleOffset,
+  handlePageLimit,
+  handleSearch,
+  pageLimit,
+  pageSize,
+}) => {
   const [selectedValue, setSelectedValue] = useState("current");
   const [dateSelector, setDateSelector] = useState("today");
   const [size, setSize] = useState(7);
@@ -235,9 +243,16 @@ const ExchangePool = () => {
         </div>
       </div>
       <div className="w-[95%] h-[90%]">
-        <CompaniesOrderPoolTable />
+        <CompaniesOrderPoolTable orders={orders} />
       </div>
-      <div className="w-[95%] h-[90%]">{/*  <TablePagination  />*/}</div>
+      <div className="w-[95%] h-[90%]">
+        <TablePagination
+          handlePageLimit={handlePageLimit}
+          handleOffSet={handleOffset}
+          pageSize={pageSize}
+          pageLimit={pageLimit}
+        />
+      </div>
     </div>
   );
 };
