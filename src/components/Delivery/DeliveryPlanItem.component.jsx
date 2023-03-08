@@ -1,5 +1,5 @@
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { Button, IconButton, Popover, Typography } from "@mui/material";
+import { Button, Popover, Typography } from "@mui/material";
 import CollectionCenter from "../../assets/svg/CollectionCenter.svg";
 import { useState } from "react";
 import DeleteDialog from "../Dialog/DeleteDialog.component.jsx";
@@ -51,13 +51,11 @@ const DeliveryPlanItem = ({ plan }) => {
           Active
         </Typography>
       </div>
-      <IconButton
+      <MoreHorizIcon
         className="w-[5%] hover:bg-white"
         aria-describedby={id}
         onClick={handleClick}
-      >
-        <MoreHorizIcon />
-      </IconButton>
+      />
       <Popover
         id={id}
         open={open}

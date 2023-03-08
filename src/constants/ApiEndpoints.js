@@ -21,6 +21,13 @@ export const configuration = {
     addDeliveryPlan: BASEURL + "/pool/API/V1/deliveryPlan/addDeliveryPlan",
     editDeliveryPlan: BASEURL + "/pool/API/V1/deliveryPlan/updateDeliveryPlan",
   },
+  markUp: {
+    getMarkups: BASEURL + "/pool/API/V1/markup",
+    getGeneralMarkups: BASEURL + "/pool/API/V1/markup/viewGeneralMarkup",
+    getSpecificMarkups: BASEURL + "/pool/API/V1/markup/viewSpecificMarkup",
+    addMarkups: BASEURL + "/pool/API/V1/markup/addMarkUp",
+    editMarkups: BASEURL + "/pool/API/V1/markup/updateMarkup",
+  },
 };
 export const collectionCenter = {
   getCollectionCenters: BASEURL + "/pool/API/V1/collectionCenter",

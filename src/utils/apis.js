@@ -35,6 +35,21 @@ export const addDeliveryPlan = async (header, body) => {
   );
   return response;
 };
+export const getMarkups = async (header) => {
+  try {
+    const head = {
+      ...header,
+    };
+    const response = await apiAuth(head).get(configuration.markUp.getMarkups);
+    return response;
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
+export const addMarkup = async (header, body) => {
+  const response = await apiAuth().post(configuration.markUp.addMarkups, body);
+  return response;
+};
 export const getCollectionCenters = async (header) => {
   try {
     const head = {
@@ -58,6 +73,13 @@ export const addCollectionCenter = async (header, body) => {
 export const editDeliveryPlan = async (header, body) => {
   const response = await apiAuth().patch(
     configuration.deliveryPlan.editDeliveryPlan,
+    body
+  );
+  return response;
+};
+export const editMarkup = async (header, body) => {
+  const response = await apiAuth().patch(
+    configuration.markUp.editMarkups,
     body
   );
   return response;
