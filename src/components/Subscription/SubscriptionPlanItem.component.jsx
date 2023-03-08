@@ -4,7 +4,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import CollectionCenter from "../../assets/svg/CollectionCenter.svg";
 import { useState } from "react";
 import DeleteDialog from "../Dialog/DeleteDialog.component.jsx";
-const SubscriptionPlanItem = () => {
+const SubscriptionPlanItem = ({ subscription }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [dialog, setDialog] = useState(false);
 
@@ -31,11 +31,11 @@ const SubscriptionPlanItem = () => {
         <div className="flex items-center gap-2 w-[30%]">
           <img src={CollectionCenter} alt="" />
           <Typography className="font-bold text-darkGray">
-            Plane name
+            {subscription.name}
           </Typography>
         </div>
         <Typography className="w-[10%] font-bold text-darkGray">
-          ₦390,000
+          {`₦${subscription.amount}`}
         </Typography>
         <div className="flex w-[10%]">
           <Typography className="font-bold px-1 text-darkIndigo bg-bgWhiteSmoke text-center rounded-sm">

@@ -14,6 +14,9 @@ export const pool = {
 };
 export const payment = {
   payBill: BASEURL + "/payment/api/v1/payment/bill",
+  subscription: {
+    getSubscriptions: BASEURL + "/payment/API/V1/subscription",
+  },
 };
 export const configuration = {
   deliveryPlan: {

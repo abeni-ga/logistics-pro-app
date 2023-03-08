@@ -2,6 +2,7 @@ import {
   account,
   collectionCenter,
   configuration,
+  payment,
   pool,
 } from "../constants/ApiEndpoints";
 import { apiAuth, apiNoAuth } from "./fetch";
@@ -49,6 +50,19 @@ export const getMarkups = async (header) => {
 export const addMarkup = async (header, body) => {
   const response = await apiAuth().post(configuration.markUp.addMarkups, body);
   return response;
+};
+export const getSubscriptions = async (header) => {
+  try {
+    const head = {
+      ...header,
+    };
+    const response = await apiAuth(head).get(
+      payment.subscription.getSubscriptions
+    );
+    return response;
+  } catch (error) {
+    console.log("Error", error);
+  }
 };
 export const getCollectionCenters = async (header) => {
   try {
