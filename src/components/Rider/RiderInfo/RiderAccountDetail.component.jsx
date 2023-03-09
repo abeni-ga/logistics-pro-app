@@ -8,26 +8,7 @@ const RiderAccountDetail = ({ user, review }) => {
   const [doc, setDoc] = useState(false);
   const [current, setCurrent] = useState(0);
 
-  const comments = [
-    {
-      userName: "Mike Umar",
-      userType: "Customer",
-      comment:
-        "1 I like the way he related with me throughout my delivery request surely one of the best",
-    },
-    {
-      userName: "Mike Umar",
-      userType: "guest",
-      comment:
-        "2 like the way he related with me throughout my delivery request surely one of the best",
-    },
-    {
-      userName: "Mike",
-      userType: "Customer",
-      comment:
-        "3 I like the way he related with me throughout my delivery request surely one of the best",
-    },
-  ];
+  const comments = [];
   const handleNextComment = () => {
     current < comments.length ? setCurrent((prev) => prev + 1) : setCurrent(0);
   };
@@ -42,19 +23,23 @@ const RiderAccountDetail = ({ user, review }) => {
         <div className="flex flex-col gap-4">
           <div className="flex flex-col">
             <Typography className="text-lightGray">Reg No</Typography>
-            <Typography>{user.id}</Typography>
+            <Typography>{user?._id.substring(0, 9)}</Typography>
           </div>
           <div className="flex flex-col">
             <Typography className="text-lightGray">Date Registered</Typography>
-            <Typography className="font-bold">07 Nov.2019 </Typography>
+            <Typography className="font-bold">
+              {user?.createdAt.substring(0, 10)}{" "}
+            </Typography>
           </div>
           <div className="flex flex-col">
             <Typography className="text-lightGray">Reviews</Typography>
-            <Typography className="font-bold">60</Typography>
+            <Typography className="font-bold">{user?.review}</Typography>
           </div>
           <div className="flex flex-col">
             <Typography className="text-lightGray">Orders Delivered</Typography>
-            <Typography className="font-bold">250</Typography>
+            <Typography className="font-bold">
+              {user?.deliveredOrders}
+            </Typography>
           </div>
         </div>
         <div className="flex flex-col gap-4">
@@ -63,7 +48,7 @@ const RiderAccountDetail = ({ user, review }) => {
               className="px-3 py-1 bg-lightGray text-darkIndigo rounded-xl font-bold"
               variant="h6"
             >
-              540
+              {user?.totalOrder}
             </Typography>
             <Typography className="font-bold">
               Total <br />
@@ -73,16 +58,20 @@ const RiderAccountDetail = ({ user, review }) => {
           <div className="flex flex-col">
             <Typography className="text-lightGray">Total Earnings</Typography>
             <Typography className="text-darkIndigo font-bold">
-              N390,000.00{" "}
+              {user?.totalEarning}
             </Typography>
           </div>
           <div className="flex flex-col">
             <Typography className="text-lightGray">Order Delivered</Typography>
-            <Typography className="font-bold">200 </Typography>
+            <Typography className="font-bold">
+              {user?.deliveredOrders}
+            </Typography>
           </div>
           <div className="flex flex-col">
             <Typography className="text-lightGray">Orders Cancelled</Typography>
-            <Typography className="font-bold">686 </Typography>
+            <Typography className="font-bold">
+              {user?.cancelledOrders}{" "}
+            </Typography>
           </div>
         </div>
       </div>
@@ -104,15 +93,15 @@ const RiderAccountDetail = ({ user, review }) => {
             <div className="flex flex-col gap-4 w-[70%]">
               <div>
                 <Typography className="text-darkGray">
-                  {comments[current].comment}
+                  {comments[current]?.comment}
                 </Typography>
               </div>
               <div className="flex flex-col">
                 <Typography className="text-darkIndigo font-bold">
-                  {comments[current].userName}
+                  {comments[current]?.userName}
                 </Typography>
                 <Typography className="text-lightGray">
-                  {comments[current].userType}
+                  {comments[current]?.userType}
                 </Typography>
               </div>
             </div>

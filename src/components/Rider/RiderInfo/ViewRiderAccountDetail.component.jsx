@@ -4,30 +4,11 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import RegistrationDocument from "../RegistrationDocument/RegistrationDocument.component";
 import { useState } from "react";
 
-const ViewRiderAccountDetail = (props) => {
+const ViewRiderAccountDetail = ({ user, review }) => {
   const [doc, setDoc] = useState(false);
   const [current, setCurrent] = useState(0);
 
-  const comments = [
-    {
-      userName: "Mike Umar",
-      userType: "Customer",
-      comment:
-        "1 I like the way he related with me throughout my delivery request surely one of the best",
-    },
-    {
-      userName: "Mike Umar",
-      userType: "guest",
-      comment:
-        "2 like the way he related with me throughout my delivery request surely one of the best",
-    },
-    {
-      userName: "Mike",
-      userType: "Customer",
-      comment:
-        "3 I like the way he related with me throughout my delivery request surely one of the best",
-    },
-  ];
+  const comments = [];
   const handleNextComment = () => {
     current < comments.length ? setCurrent((prev) => prev + 1) : setCurrent(0);
   };
@@ -42,20 +23,24 @@ const ViewRiderAccountDetail = (props) => {
         <div className="flex flex-col xl:gap-4">
           <div className="flex flex-col">
             <Typography className="text-lightGray">Reg No</Typography>
-            <Typography>#012345678</Typography>
+            <Typography>{user?._id.substring(0, 9)}</Typography>
           </div>
           <div className="flex flex-col">
             <Typography className="text-lightGray">Date Registered</Typography>
-            <Typography className="font-bold">07 Nov.2019 </Typography>
+            <Typography className="font-bold">
+              {user?.createdAt.substring(0, 10)}
+            </Typography>
           </div>
           <div className="flex flex-col">
             <Typography className="text-lightGray">Asset</Typography>
-            <Typography className="font-bold">Bike | BAJAJ</Typography>
-            <Typography className="text-lightGray">4323AB LAGOS</Typography>
+            <Typography className="font-bold">
+              {user?.asset ? user?.asset : ""}
+            </Typography>
+            {/* <Typography className="text-lightGray">4323AB LAGOS</Typography> */}
           </div>
           <div className="flex flex-col">
             <Typography className="text-lightGray">Email Address</Typography>
-            <Typography className="font-bold">abcd@gmail.com</Typography>
+            <Typography className="font-bold">{user?.email}</Typography>
           </div>
         </div>
         <div className="flex flex-col gap-4">
@@ -64,7 +49,7 @@ const ViewRiderAccountDetail = (props) => {
               className="px-3 py-1 text-darkIndigo bg-lightGray rounded-xl font-bold"
               variant="h6"
             >
-              540
+              {user?.orderPicked}
             </Typography>
             <Typography className="font-bold">
               Total <br />
@@ -74,20 +59,24 @@ const ViewRiderAccountDetail = (props) => {
           <div className="flex flex-col">
             <Typography className="text-lightGray">Total Earnings</Typography>
             <Typography className="text-darkIndigo font-bold">
-              N390,000.00
+              {user?.totalEarning}
             </Typography>
           </div>
           <div className="flex flex-col">
             <Typography className="text-lightGray">Order Delivered</Typography>
-            <Typography className="font-bold">200 </Typography>
+            <Typography className="font-bold">
+              {user?.deliveredOrder}{" "}
+            </Typography>
           </div>
           <div className="flex flex-col">
             <Typography className="text-lightGray">Orders Cancelled</Typography>
-            <Typography className="font-bold">686 </Typography>
+            <Typography className="font-bold">
+              {user?.cancelledOrder}{" "}
+            </Typography>
           </div>
         </div>
       </div>
-      {props.review ? (
+      {review ? (
         <div className="h-30 w-full flex justify-center">
           <div className="relative h-full flex items-center justify-center w-[80%]">
             <IconButton

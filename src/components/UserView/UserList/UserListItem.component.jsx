@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Avatar, IconButton, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import Profile from "../../../assets/svg/Profile.svg";
 import { routes } from "../../../routes/siteRoutes.routes";
 const UserListItem = ({ company, route }) => {
   return (
@@ -18,7 +17,7 @@ const UserListItem = ({ company, route }) => {
         <div className="w-[6%] xl:w-[8%]">
           <Avatar
             className="lg:w-12 lg:h-12 xl:w-16 xl:h-16"
-            src={Profile}
+            src={company?.detail?.profilePhoto || ""}
             alt=""
             variant="rounded"
           />
@@ -42,27 +41,31 @@ const UserListItem = ({ company, route }) => {
         </Typography>
         <div className="flex flex-col pl-1 w-[15%]">
           <Typography className="text-xs xl:text-sm font-bold">
-            09162289232
+            {company?.phone}
           </Typography>
           <Typography className="text-xs xl:text-sm text-lightGray">
-            Ibrahim Williams
+            {company?.refrenceName}
           </Typography>
         </div>
         <div className="w-[15%]">
           <Typography className="text-xs xl:text-sm font-bold">
-            Annual
+            {company?.subscription?.interval}
           </Typography>
           <Typography className="text-xs xl:text-sm text-lightGray">
-            21 Oct 2021 - 22 Oct 2022
+            {company?.subscription
+              ? `${company?.subscription?.startDate} - ${company?.subscription?.expireDate}`
+              : ""}
           </Typography>
         </div>
         <Typography
           className={`text-xs xl:text-sm w-[12%] xl:w-[10%] font-bold text-[#053079]`}
         >
-          N390,000.00
+          {company.totalEarning ? `${company?.totalEarning}` : ""}
         </Typography>
         <div className="w-[6%] xl:w-[8%]">
-          <Typography className="text-xs xl:text-sm font-bold">200</Typography>
+          <Typography className="text-xs xl:text-sm font-bold">
+            {company?.rider ? company?.rider.length : ""}
+          </Typography>
           <Typography className="text-xs xl:text-sm text-lightGray">
             Active
           </Typography>

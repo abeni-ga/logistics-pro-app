@@ -1,6 +1,5 @@
 import { Avatar, Tooltip, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import PPic from "../../../assets/svg/PPic.svg";
 
 const RiderListItem = ({ rider, onClick }) => {
   return (
@@ -9,7 +8,7 @@ const RiderListItem = ({ rider, onClick }) => {
       onClick={onClick}
     >
       <div className="w-[10%] flex justify-center">
-        <Avatar size="large" src={rider.detail?.profilePhoto || PPic} />
+        <Avatar size="large" src={rider.detail?.profilePhoto || ""} />
       </div>
       <div className="flex flex-col w-[20%]">
         <Typography className="font-bold">{`${rider.detail?.firstName} ${rider.detail?.lastName}`}</Typography>

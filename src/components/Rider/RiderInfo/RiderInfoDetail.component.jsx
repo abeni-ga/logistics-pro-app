@@ -34,7 +34,9 @@ const RiderInfoDetail = ({ user }) => {
           >
             {user?.verified ? "Vertified" : "Pending"}
           </Typography>
-          <Typography className="text-gray-400">* Bike</Typography>{" "}
+          <Typography className="text-gray-400">
+            {user?.asset ? user?.asset : ""}
+          </Typography>
         </div>
         <div className="flex justify-between ">
           <Typography className="text-gray-400 lg:text-sm xl:text-base">

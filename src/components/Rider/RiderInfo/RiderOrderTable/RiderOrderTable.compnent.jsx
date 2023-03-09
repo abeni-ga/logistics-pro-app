@@ -17,11 +17,6 @@ const CompanyOrdersTable = () => {
         </div>
       </div>
       <RiderOrderTableItem />
-      <RiderOrderTableItem />
-      <RiderOrderTableItem />
-      <RiderOrderTableItem />
-      <RiderOrderTableItem />
-      <RiderOrderTableItem />
     </div>
   );
 };
