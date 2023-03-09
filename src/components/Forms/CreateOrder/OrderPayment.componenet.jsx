@@ -163,7 +163,8 @@ const OrderPayment = () => {
             <Button
               className="text-white bg-darkIndigo rounded-lg"
               onClick={() => {
-                setOpen(true);
+                // setOpen(true);
+                navigate("/admin/component");
               }}
               variant="outlined"
             >
