@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import { color } from "../../constants/Theme.js";
+
 const EarningCompanyTableItem = () => {
   return (
     <div className="flex w-full border-b-2 py-4">

@@ -11,11 +11,6 @@ const EarningTable = () => {
         <div className="w-[20%]"></div>
       </div>
       <EarningTableItem />
-      <EarningTableItem />
-      <EarningTableItem />
-      <EarningTableItem />
-      <EarningTableItem />
-      <EarningTableItem />
     </div>
   );
 };

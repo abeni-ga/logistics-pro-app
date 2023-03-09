@@ -151,7 +151,7 @@ const ExchangePool = ({
                     Total
                   </Typography>
                   <Typography className="text-white font-bold text:xs xl:text-sm">
-                    N234,500:00
+                    {orders?.totalEarning}
                   </Typography>
                 </div>
               </div>
@@ -159,10 +159,10 @@ const ExchangePool = ({
                 <img src={PulseRed} alt="" />
                 <div>
                   <Typography className="text-lightGray font-bold text-xs">
-                    Total
+                    Current Orders
                   </Typography>
                   <Typography className="text-lightGray font-bold text:xs xl:text-sm">
-                    N234,500:00
+                    {orders?.currentEarning}
                   </Typography>
                 </div>
               </div>

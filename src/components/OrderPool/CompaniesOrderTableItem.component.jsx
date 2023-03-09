@@ -37,15 +37,13 @@ const CompaniesOrderPoolTableItem = ({ order }) => {
       }}
     >
       <Typography className=" text-xs xl:text-sm text-lightGray w-[3%] text-center ">
-        01
+        {order?.serialNumber}
       </Typography>
       <div className="flex flex-col w-[7%] items-start">
         <Typography className=" text-xs xl:text-sm text-darkIndigo font-bold ">
           {`#${order._id.substring(0, 9)}`}
         </Typography>
-        <Typography className=" text-xs xl:text-sm text-darkIndigo ">
-          TC Riders pushed this
-        </Typography>
+        <Typography className=" text-xs xl:text-sm text-darkIndigo "></Typography>
       </div>
       <Typography className=" text-xs xl:text-sm text-lightGray w-[7%] ">
         {order.itemName}
@@ -63,7 +61,7 @@ const CompaniesOrderPoolTableItem = ({ order }) => {
       </div>
       <div className="w-[15%]">
         <Typography className=" text-xs xl:text-sm text-lightGray ">
-          10/10/2021 01:37PM
+          {order?.createdAt.substring(0, 10)}
         </Typography>
         <Typography className="text-xs xl:text-sm">{pickUpAddress}</Typography>
       </div>
@@ -80,14 +78,16 @@ const CompaniesOrderPoolTableItem = ({ order }) => {
       </div>
       <div className="w-[15%]">
         <Typography className=" text-xs xl:text-sm text-lightGray ">
-          10/10/2021 01:37PM
+          {order?.createdAt.substring(0, 10)}
         </Typography>
         <Typography className="text-xs xl:text-sm">
           {destinationAddress}
         </Typography>
       </div>
       <Typography className=" text-xs xl:text-sm text-lightGray w-[9%] ">
-        Books (2 Dozens)
+        {`${order?.itemType ? order?.itemType : ""} (${parseInt(
+          order?.amount
+        )} Dozens)`}
       </Typography>
       <div className="flex flex-col gap-2 w-[6%]">
         <Typography
@@ -100,9 +100,11 @@ const CompaniesOrderPoolTableItem = ({ order }) => {
             text-darkIndigo
           "
         >
-          N5900
+          {order?.charge}
         </Typography>
-        <Typography className=" text-xs xl:text-sm font-bold ">Cash</Typography>
+        <Typography className=" text-xs xl:text-sm font-bold ">
+          {order?.paymentMethod}
+        </Typography>
       </div>
       <Typography className=" text-xs xl:text-sm w-[3%] ">
         <MoreHorizIcon />

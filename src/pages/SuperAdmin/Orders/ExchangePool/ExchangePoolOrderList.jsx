@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import ExchangePool from "../../../../components/OrderPool/ExchangePool/ExchangePool.component";
@@ -55,7 +56,7 @@ const ExchangeOrderPool = () => {
   useEffect(() => {
     handleGetOrders();
   }, [handleGetOrders]);
-  return (
+  return orders.length > 0 ? (
     <ExchangePool
       orders={orders}
       handleOffset={handleOffset}
@@ -64,6 +65,10 @@ const ExchangeOrderPool = () => {
       pageSize={pageSize}
       pageLimit={pageLimit}
     />
+  ) : (
+    <div className="w-full h-full flex items-center justify-center">
+      <CircularProgress />
+    </div>
   );
 };
 

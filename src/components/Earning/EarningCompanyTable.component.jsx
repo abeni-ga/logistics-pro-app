@@ -12,11 +12,6 @@ const EarningCompanyTable = () => {
         <div className="w-[15%]"></div>
       </div>
       <EarningCompanyTableItem />
-      <EarningCompanyTableItem />
-      <EarningCompanyTableItem />
-      <EarningCompanyTableItem />
-      <EarningCompanyTableItem />
-      <EarningCompanyTableItem />
     </div>
   );
 };
