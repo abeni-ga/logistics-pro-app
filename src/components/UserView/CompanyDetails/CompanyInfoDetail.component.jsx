@@ -29,12 +29,12 @@ const CompanyInfoDetail = ({ customer, user }) => {
             {user?.vertified ? "Vertified" : "Pending"}
           </Typography>
           <div className="flex gap-4 items-center">
-            <Typography className="text-lightGray text-xs 2xl:text-base">
+            {/* <Typography className="text-lightGray text-xs 2xl:text-base">
               * Bike
             </Typography>
             <Typography className="text-lightGray text-xs 2xl:text-base">
               * Bus
-            </Typography>
+            </Typography> */}
           </div>
         </div>
         <div className="flex justify-between gap-4">

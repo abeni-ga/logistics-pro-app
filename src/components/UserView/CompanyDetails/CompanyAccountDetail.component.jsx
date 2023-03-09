@@ -2,15 +2,14 @@ import { Avatar, Button, Typography } from "@mui/material";
 import { useState } from "react";
 import RegistrationDocument from "./RegistrationDocument/RegistrationDocument.component";
 
-const CompanyAccountDetail = (props) => {
+const CompanyAccountDetail = ({ user, retail }) => {
   const [doc, setDoc] = useState(false);
   return (
     <div className="flex flex-col w-11/12 items-center bg-white rounded-2xl -mt-10 pt-14">
       <div className="flex flex-col w-4/5 mb-3">
         <div className="bg-gray-50 p-4 rounded-lg">
           <Typography className="text-lightGray text-xs xl:text-sm 2xl:text-base">
-            FZ Deliveries is a company focused on pickup and deliveries of goods
-            of customers within Lagos, Ibadan, Kano, Abuja and Port Harcourt
+            {user?.description}
           </Typography>
         </div>
       </div>
@@ -21,7 +20,7 @@ const CompanyAccountDetail = (props) => {
               Reg No
             </Typography>
             <Typography className="text-xs xl:text-sm 2xl:text-base">
-              #012345678
+              {user?._id.substring(0, 9)}
             </Typography>
           </div>
           <div className="flex flex-col">
@@ -29,7 +28,7 @@ const CompanyAccountDetail = (props) => {
               Date Registered
             </Typography>
             <Typography className="text-xs xl:text-sm 2xl:text-base">
-              07 Nov.2019{" "}
+              {user?.createdAt.substring(0, 10)}
             </Typography>
           </div>
           <div className="flex flex-col">
@@ -37,7 +36,9 @@ const CompanyAccountDetail = (props) => {
               Subscription
             </Typography>
             <Typography className="text-xs xl:text-sm 2xl:text-base">
-              Annual Package
+              {user?.subscription
+                ? `${user?.subscription?.interval} Package`
+                : ""}
             </Typography>
           </div>
         </div>
@@ -47,9 +48,9 @@ const CompanyAccountDetail = (props) => {
               className="px-[6px] py-[12px] text-lg xl:text-xl 2xl:text-2xl text-white bg-darkIndigo rounded-xl font-bold "
               variant="h2"
             >
-              540
+              {user?.totalOrders}
             </Typography>
-            {props.retail ? (
+            {retail ? (
               <Typography className="text-lg 2xl:text-xl font-bold">
                 Orders Requests
               </Typography>
@@ -68,14 +69,14 @@ const CompanyAccountDetail = (props) => {
               <Avatar />
               <div>
                 <Typography className="font-bold text-xs xl:text-sm 2xl:text-base">
-                  09162289232
+                  {user?.phone}
                 </Typography>
                 <Typography className="text-lightGray text-xs xl:text-sm 2xl:text-base">
-                  Ibrahim Williams
+                  {user?.referenceName}
                 </Typography>
               </div>
               <Typography className="text-lightGray self-end text-xs xl:text-sm 2xl:text-base">
-                CEO
+                {user?.referencePosition}
               </Typography>
             </div>
           </div>
