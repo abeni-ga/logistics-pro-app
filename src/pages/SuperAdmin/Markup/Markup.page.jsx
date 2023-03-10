@@ -18,6 +18,7 @@ import { useCallback, useEffect, useState } from "react";
 import { editMarkup, getMarkups } from "../../../utils/apis.js";
 import { toast } from "react-toastify";
 const Markup = () => {
+  const [isGeneral, setIsGeneral] = useState(true);
   const [markupDetail, setMarkupDetail] = useState(null);
   const navigate = useNavigate();
   const [markups, setMarkups] = useState([]);
@@ -69,50 +70,126 @@ const Markup = () => {
           Add New
         </Button>
       </div>
-      <div className="flex w-full h-[90%] justify-between">
-        <div
-          className={`flex flex-col gap-5 ${
-            markupDetail ? "w-[68%]" : "w-full"
+      <div className="flex w-full gap-4">
+        <Button
+          className={`${
+            isGeneral
+              ? "text-white bg-darkIndigo w-32"
+              : "text-darkIndigo border-lightGray w-32 border-2"
           }`}
+          onClick={() => {
+            setIsGeneral(true);
+          }}
+          variant="Contained"
+          size="large"
         >
-          <div className="flex min-h-[10%] bg-blue-100 rounded-xl items-center">
-            <div className="flex w-[10%] h-2"></div>
-            <Typography
-              sx={{
-                fontSize: "24px",
-                fontWeight: "700",
-                color: color.darkGray,
-                width: "80%",
-              }}
-            >
-              Company
-            </Typography>
-            <Typography
-              sx={{
-                width: "15%",
-                fontSize: "24px",
-                fontWeight: "700",
-                color: color.darkGray,
-              }}
-            >
-              Manage
-            </Typography>
-          </div>
+          General
+        </Button>
+        <Button
+          className={`${
+            !isGeneral
+              ? "text-white bg-darkIndigo w-32"
+              : "text-darkIndigo border-lightGray w-32"
+          }`}
+          onClick={() => {
+            setIsGeneral(false);
+          }}
+          variant="outlined"
+          size="large"
+        >
+          Specific
+        </Button>
+      </div>
+      <div className="flex w-full h-[90%] justify-between">
+        {isGeneral ? (
+          <div
+            className={`flex flex-col gap-5 ${
+              markupDetail ? "w-[68%]" : "w-full"
+            }`}
+          >
+            <div className="flex min-h-[10%] bg-blue-100 rounded-xl items-center">
+              <div className="flex w-[10%] h-2"></div>
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  fontWeight: "700",
+                  color: color.darkGray,
+                  width: "80%",
+                }}
+              >
+                Markup
+              </Typography>
+              <Typography
+                sx={{
+                  width: "15%",
+                  fontSize: "24px",
+                  fontWeight: "700",
+                  color: color.darkGray,
+                }}
+              >
+                Manage
+              </Typography>
+            </div>
 
-          <div className="flex flex-col w-full h-full gap-2">
-            {markups.map((markup, index) => {
-              return (
-                <MarkupItem
-                  markup={markup}
-                  onClick={() => {
-                    handleMarkupDetail(markup);
-                  }}
-                  key={index}
-                />
-              );
-            })}
+            <div className="flex flex-col w-full h-full gap-2">
+              {markups.map((markup, index) => {
+                return (
+                  <MarkupItem
+                    markup={markup}
+                    onClick={() => {
+                      handleMarkupDetail(markup);
+                    }}
+                    key={index}
+                  />
+                );
+              })}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div
+            className={`flex flex-col gap-5 ${
+              markupDetail ? "w-[68%]" : "w-full"
+            }`}
+          >
+            <div className="flex min-h-[10%] bg-blue-100 rounded-xl items-center">
+              <div className="flex w-[10%] h-2"></div>
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  fontWeight: "700",
+                  color: color.darkGray,
+                  width: "80%",
+                }}
+              >
+                Company
+              </Typography>
+              <Typography
+                sx={{
+                  width: "15%",
+                  fontSize: "24px",
+                  fontWeight: "700",
+                  color: color.darkGray,
+                }}
+              >
+                Manage
+              </Typography>
+            </div>
+
+            <div className="flex flex-col w-full h-full gap-2">
+              {markups.map((markup, index) => {
+                return (
+                  <MarkupItem
+                    markup={markup}
+                    onClick={() => {
+                      handleMarkupDetail(markup);
+                    }}
+                    key={index}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {markupDetail ? (
           <div className="flex flex-col w-[30%] bg-white h-[60%] px-10 gap-5 justify-center relative">

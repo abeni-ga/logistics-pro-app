@@ -234,8 +234,6 @@ const Report = () => {
             </Typography>
           </div>
           <ReportItem />
-          <ReportItem />
-          <ReportItem />
         </div>
         <div className="flex flex-col w-[25%] bg-white h-full rounded-t-lg px-10 pt-10">
           <MoreVertIcon sx={{ alignSelf: "end" }} />

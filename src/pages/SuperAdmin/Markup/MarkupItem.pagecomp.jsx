@@ -29,7 +29,7 @@ const MarkupItem = ({ markup, onClick }) => {
       onClick={onClick}
     >
       <div className="flex justify-center w-[10%] ">
-        <Avatar sx={{ height: "70px", width: "65px" }} />
+        {/* <Avatar sx={{ height: "70px", width: "65px" }} /> */}
       </div>
       <div className="flex flex-col w-[80%]">
         <Typography sx={{ fontSize: "24px", color: color.darkGray }}>
