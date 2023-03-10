@@ -41,7 +41,7 @@ const RegisterRider = () => {
     // deliveryCompany: Yup.string().required("*Required"),
     email: Yup.string().required("*Required"),
     phone: Yup.string().required("*Required"),
-    company: Yup.string().required("*Required"),
+    // company: Yup.string().required("*Required"),
     contactPerson: Yup.string().required("*Required"),
     // address: Yup.string().required("*Required"),
     contactPersonPosition: Yup.string().required("*Required"),

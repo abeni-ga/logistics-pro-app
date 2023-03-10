@@ -156,9 +156,15 @@ const Earning = (props) => {
         </div>
       </div>
       <div className="flex w-[90%] h-full justify-between">
-        <div className="w-[49%]">
+        <div className="w-[49%] bg-white rounded">
           {earning.map((transaction, index) => {
-            return <EarningTable transaction={transaction} key={index} />;
+            return (
+              <EarningTable
+                transaction={transaction}
+                key={index}
+                index={index}
+              />
+            );
           })}
         </div>
         <div className="w-[49%] h-full">

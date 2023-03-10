@@ -1,14 +1,18 @@
 import { Button, Typography } from "@mui/material";
 
-const EarningTableItem = () => {
+const EarningTableItem = ({ transaction, index }) => {
   return (
     <div className="flex w-full justify-between border-b-2 py-4">
       <div className="flex flex-col items-start w-[20%] ">
         <Typography className="bg-bgWhiteSmoke py-0.5 px-2 rounded-md ">
-          1
+          {index + 1}
         </Typography>
-        <Typography className="text-darkIndigo">#011211211</Typography>
-        <Typography className="text-lightGray">02/03/21 10:25</Typography>
+        <Typography className="text-darkIndigo">
+          {transaction._id.substring(0, 9)}
+        </Typography>
+        <Typography className="text-lightGray">
+          {transaction.createdAt.substring(0, 10)}
+        </Typography>
       </div>
       <div className="flex flex-col w-[20%] items-center">
         <Typography className="text-bolow text-center">Cash</Typography>
@@ -16,15 +20,21 @@ const EarningTableItem = () => {
           N110,100,500.00
         </Typography>
         <Typography className="text-center w-[75%] text-darkIndigo bg-lightBlue rounded-md">
-          N150.00
+          {`N${transaction.amount}`}
         </Typography>
       </div>
       <div className="flex flex-col items-center w-[20%]">
         <Typography className="text-center text-black">
-          FZ <br /> Deliveries
+          {transaction.partner}
         </Typography>
-        <Typography className="text-center w-[75%] text-brightGreen bg-lightGreen rounded-md">
-          Completed
+        <Typography
+          className={`text-center w-[75%]   rounded-md ${
+            transaction.status === "Completed"
+              ? "text-brightGreen bg-lightGreen"
+              : "text-red-500 bg-red-200"
+          }`}
+        >
+          {transaction.status}
         </Typography>
       </div>
       <div className="flex items-center justify-end w-[20%]">

@@ -156,9 +156,15 @@ const Transaction = (props) => {
         </div>
       </div>
       <div className="flex w-[90%] h-full justify-between">
-        <div className="w-[49%]">
+        <div className="w-[49%] bg-white rounded">
           {transactions.map((transaction, index) => {
-            return <EarningTable transaction={transaction} key={index} />;
+            return (
+              <EarningTable
+                transaction={transaction}
+                index={index}
+                key={index}
+              />
+            );
           })}
         </div>
         <div className="w-[49%] h-full">
