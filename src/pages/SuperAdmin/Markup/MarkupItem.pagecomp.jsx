@@ -1,10 +1,10 @@
-import { Avatar, Button, Popover, Typography } from "@mui/material";
+import { Button, Popover, Typography } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { color } from "../../../constants/Theme.js";
 import { useState } from "react";
 import DeactiveDialog from "../../../components/Dialog/Deactivate.component.jsx";
 import DeleteDialog from "../../../components/Dialog/DeleteDialog.component.jsx";
-const MarkupItem = ({ markup, onClick }) => {
+const MarkupItem = ({ markup, onClick, general }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [deactiveDialog, setDeactiveDialog] = useState(false);
@@ -16,7 +16,10 @@ const MarkupItem = ({ markup, onClick }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  const handleEdit = () => {
+    setAnchorEl(null);
+    onClick();
+  };
   const handleDelete = () => {
     setAnchorEl(null);
     setDeleteDialog(true);
@@ -24,14 +27,18 @@ const MarkupItem = ({ markup, onClick }) => {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
   return (
-    <div
-      className="flex w-full min-h-[13%] bg-white rounded-lg items-center"
-      onClick={onClick}
-    >
+    <div className="flex w-full min-h-[13%] bg-white rounded-lg items-center">
       <div className="flex justify-center w-[10%] ">
         {/* <Avatar sx={{ height: "70px", width: "65px" }} /> */}
       </div>
-      <div className="flex flex-col w-[80%]">
+      {general ? null : (
+        <div className="flex flex-col w-[40%]">
+          <Typography sx={{ fontSize: "24px", color: color.darkGray }}>
+            {markup.companyName || "Company Name"}
+          </Typography>
+        </div>
+      )}
+      <div className={`flex flex-col ${general ? "w-[80%]" : "w-[40%]"}`}>
         <Typography sx={{ fontSize: "24px", color: color.darkGray }}>
           {markup.name}
         </Typography>
@@ -57,6 +64,9 @@ const MarkupItem = ({ markup, onClick }) => {
         <div className="flex flex-col">
           <Button onClick={handleDelete} className="w-[150px] text-darkGray">
             Delete
+          </Button>
+          <Button onClick={handleEdit} className="w-[150px] text-darkGray">
+            Edit
           </Button>
         </div>
       </Popover>

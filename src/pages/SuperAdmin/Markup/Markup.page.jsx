@@ -135,6 +135,7 @@ const Markup = () => {
               {markups.map((markup, index) => {
                 return (
                   <MarkupItem
+                    general={isGeneral}
                     markup={markup}
                     onClick={() => {
                       handleMarkupDetail(markup);
@@ -153,15 +154,27 @@ const Markup = () => {
           >
             <div className="flex min-h-[10%] bg-blue-100 rounded-xl items-center">
               <div className="flex w-[10%] h-2"></div>
+              {!isGeneral ? (
+                <Typography
+                  sx={{
+                    fontSize: "24px",
+                    fontWeight: "700",
+                    color: color.darkGray,
+                    width: isGeneral ? "80%" : "40%",
+                  }}
+                >
+                  Company
+                </Typography>
+              ) : null}
               <Typography
                 sx={{
                   fontSize: "24px",
                   fontWeight: "700",
                   color: color.darkGray,
-                  width: "80%",
+                  width: isGeneral ? "80%" : "40%",
                 }}
               >
-                Company
+                Markup
               </Typography>
               <Typography
                 sx={{
