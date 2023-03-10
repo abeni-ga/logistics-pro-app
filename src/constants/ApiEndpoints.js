@@ -17,6 +17,9 @@ export const payment = {
   subscription: {
     getSubscriptions: BASEURL + "/payment/API/V1/subscription",
   },
+  transaction: {
+    getTransaction: BASEURL + "//payment/API/V1/transaction",
+  },
 };
 export const configuration = {
   deliveryPlan: {

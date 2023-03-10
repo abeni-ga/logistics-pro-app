@@ -64,6 +64,19 @@ export const getSubscriptions = async (header) => {
     console.log("Error", error);
   }
 };
+export const getTransaction = async (header) => {
+  try {
+    const head = {
+      ...header,
+    };
+    const response = await apiAuth(head).get(
+      payment.transaction.getTransaction
+    );
+    return response;
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
 export const getCollectionCenters = async (header) => {
   try {
     const head = {

@@ -225,6 +225,9 @@ const AddStaff = Loadable(
 const Earning = Loadable(
   lazy(() => import("../pages/SuperAdmin/Earning/Earning.page"))
 );
+const Transaction = Loadable(
+  lazy(() => import("../pages/SuperAdmin/Transaction/Transaction.page.jsx"))
+);
 const Report = Loadable(
   lazy(() => import("../pages/SuperAdmin/Report/Report.page"))
 );
@@ -379,7 +382,7 @@ const AdminRoutes = {
     },
     {
       path: "transaction",
-      element: <Earning />,
+      element: <Transaction />,
     },
     {
       path: "report",

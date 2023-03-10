@@ -8,21 +8,38 @@ import {
   Radio,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import EarningTable from "../../../components/Earning/EarningTable.component";
+import { getTransaction } from "../../../utils/apis";
+import { toast } from "react-toastify";
 const Transaction = (props) => {
   const [action, setAction] = useState("export");
   const [size, setSize] = useState(7);
   const [dateSelector, setDateSelector] = useState("today");
-  const handleDateSelection = (event) => {
-    setDateSelector(event.target.value);
-  };
+  const [transactions, setTransactions] = useState([]);
+
+  const handleGetTransactions = useCallback(async () => {
+    const response = await getTransaction({});
+    if (response?.status < 300) {
+      setTransactions(response?.data?.data?.data);
+      console.log(response?.data?.data?.data);
+    } else {
+      toast.error(response?.statusText);
+    }
+  }, []);
+
   const SearchBox = styled(TextField)(() => ({
     "& fieldset": {
       borderRadius: "10px",
     },
   }));
+  useEffect(() => {
+    handleGetTransactions();
+  }, [handleGetTransactions]);
+  const handleDateSelection = (event) => {
+    setDateSelector(event.target.value);
+  };
   return (
     <div className="flex flex-col items-center w-full h-full">
       <div className="flex flex-col w-full h-[20%] justify-center">
@@ -140,10 +157,12 @@ const Transaction = (props) => {
       </div>
       <div className="flex w-[90%] h-full justify-between">
         <div className="w-[49%]">
-          <EarningTable />
+          {transactions.map((transaction, index) => {
+            return <EarningTable transaction={transaction} key={index} />;
+          })}
         </div>
         <div className="w-[49%] h-full">
-          <div className="bg-white w-full p-4 rounded-xl h-[50%]">
+          <div className="bg-white w-full p-4 rounded-xl max-h-[50%]">
             Order Details
           </div>
         </div>
