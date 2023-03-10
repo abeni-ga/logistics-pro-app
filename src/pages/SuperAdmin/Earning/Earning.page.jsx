@@ -8,22 +8,38 @@ import {
   Radio,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import EarningTable from "../../../components/Earning/EarningTable.component";
-
-const Earning = () => {
+import { getTransaction } from "../../../utils/apis";
+import { toast } from "react-toastify";
+const Earning = (props) => {
   const [action, setAction] = useState("export");
   const [size, setSize] = useState(7);
   const [dateSelector, setDateSelector] = useState("today");
-  const handleDateSelection = (event) => {
-    setDateSelector(event.target.value);
-  };
+  const [earning, setEarning] = useState([]);
+
+  const handleGetEarning = useCallback(async () => {
+    const response = await getTransaction({});
+    if (response?.status < 300) {
+      setEarning(response?.data?.data?.data);
+      console.log(response?.data?.data?.data);
+    } else {
+      toast.error(response?.statusText);
+    }
+  }, []);
+
   const SearchBox = styled(TextField)(() => ({
     "& fieldset": {
       borderRadius: "10px",
     },
   }));
+  useEffect(() => {
+    handleGetEarning();
+  }, [handleGetEarning]);
+  const handleDateSelection = (event) => {
+    setDateSelector(event.target.value);
+  };
   return (
     <div className="flex flex-col items-center w-full h-full">
       <div className="flex flex-col w-full h-[20%] justify-center">
@@ -32,7 +48,7 @@ const Earning = () => {
             varaint="h2"
             sx={{ fontSize: "28px", fontWeight: "bold" }}
           >
-            Transaction
+            {props.Earning ? "Earning" : "Transaction"}
           </Typography>
         </div>
         <div className="flex w-full justify-center">
@@ -141,7 +157,9 @@ const Earning = () => {
       </div>
       <div className="flex w-[90%] h-full justify-between">
         <div className="w-[49%]">
-          <EarningTable />
+          {earning.map((transaction, index) => {
+            return <EarningTable transaction={transaction} key={index} />;
+          })}
         </div>
         <div className="w-[49%] h-full">
           <div className="bg-white w-full p-4 rounded-xl h-[50%]">

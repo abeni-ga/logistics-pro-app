@@ -162,7 +162,7 @@ const Transaction = (props) => {
           })}
         </div>
         <div className="w-[49%] h-full">
-          <div className="bg-white w-full p-4 rounded-xl max-h-[50%]">
+          <div className="bg-white w-full p-4 rounded-xl h-[50%]">
             Order Details
           </div>
         </div>
