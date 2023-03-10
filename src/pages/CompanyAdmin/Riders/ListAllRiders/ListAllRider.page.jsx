@@ -26,24 +26,24 @@ const RiderList = () => {
       filterBy: "role", // if you want to add another filter lets say active riders pass role,accountStatus here
       filterValue: "Rider", // then here pass Rider,Active
       searchBy: "firstName,lastName",
-      keyword: keyWord,
+      keyWord,
     });
     const response = await getUsers({}, `?${params.toString()}`);
     if (response?.status < 300) {
       if (
         Number.isInteger(
-          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit
+          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit,
         )
       ) {
         setPageSize(
-          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit
+          response?.data?.data?.meta?.total / response?.data?.data?.meta?.limit,
         );
       } else {
         setPageSize(
           parseInt(
             response?.data?.data?.meta?.total /
-              response?.data?.data?.meta?.limit
-          ) + 1
+              response?.data?.data?.meta?.limit,
+          ) + 1,
         );
       }
       console.log("riders", response.data?.data?.data);

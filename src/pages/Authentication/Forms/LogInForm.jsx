@@ -11,21 +11,24 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { Form, Formik } from "formik";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
 import { setId, setToken } from "../../../utils/tokenHandler";
+import Loader from "../../../components/Load/Loader.component";
 
 const LogInForm = (props) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogIn = async (values) => {
     try {
+      setLoading(true);
       const result = await login({}, values);
       toast.success("Successfully Logged in!");
       if (result.data?.data?.account?.role === ROLE.ADMIN) {
         setToken("pool_token", result.data?.data?.token);
-
+        setLoading(false);
         navigate(routes.admin.dashboard);
       } else {
-        console.log(result.data?.data?.account?._id);
+        setLoading(false);
         setId("company_id", result.data?.data?.account?._id);
         navigate(routes.company.dashboard);
       }
@@ -35,6 +38,7 @@ const LogInForm = (props) => {
   };
   return (
     <div className="flex flex-col w-2/6 h-3/5  rounded-xl	bg-white p-5 xl:p-10 2xl:p-16 justify-around gap-10">
+      {loading && <Loader />}
       <div>
         <h1 className="text-2xl xl:text-3xl 2xl:text-4xl mb-2 font-semibold  text-gray-700">
           You're Welcome Back!
