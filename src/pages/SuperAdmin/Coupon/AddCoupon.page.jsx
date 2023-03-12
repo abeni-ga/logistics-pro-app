@@ -4,7 +4,33 @@ import { color } from "../../../constants/Theme.js";
 import { Button, IconButton, InputLabel, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
+import { addCoupon } from "../../../utils/apis.js";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes/siteRoutes.routes.js";
 const AddCoupon = () => {
+  const navigate = useNavigate();
+
+  const handleAddCoupon = async (values) => {
+    try {
+      await addCoupon({}, values);
+      navigate(routes.admin.coupon);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const INITIAL_VALUES = {
+    couponName: "",
+    couponCode: "",
+    itemCount: "",
+    limit: "",
+    discountType: "",
+    minimumSpend: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+  };
+
   return (
     <div className="flex flex-col w-full h-full px-10 pt-5">
       <div className="flex h-[15%] w-[70%]">
@@ -35,7 +61,13 @@ const AddCoupon = () => {
         </div>
       </div>
       <div className="flex flex-col w-full h-full gap-3">
-        <Formik>
+        <Formik
+          initialValues={INITIAL_VALUES}
+          onSubmit={(values) => {
+            console.log(values);
+            handleAddCoupon(values);
+          }}
+        >
           <Form className="w-full h-full">
             <div className="flex flex-col w-[70%] h-full bg-white rounded-xl px-10 justify-center gap-4">
               <div className="flex flex-col gap-2">
@@ -49,9 +81,8 @@ const AddCoupon = () => {
                   Coupon name
                 </InputLabel>
                 <TextFieldWrapper
-                  normal
                   id="couponName"
-                  label="Serice Name"
+                  label="Coupon Name"
                   name="couponName"
                 />
               </div>
@@ -66,7 +97,7 @@ const AddCoupon = () => {
                   >
                     Coupon Code
                   </InputLabel>
-                  <TextFieldWrapper normal id="couponCode" name="couponCode" />
+                  <TextFieldWrapper id="couponCode" name="couponCode" />
                 </div>
                 <div className="flex flex-col gap-2 w-[48%]">
                   <InputLabel
@@ -78,7 +109,7 @@ const AddCoupon = () => {
                   >
                     Item Count
                   </InputLabel>
-                  <TextFieldWrapper normal id="itemCount" name="itemCount" />
+                  <TextFieldWrapper id="itemCount" name="itemCount" />
                 </div>
               </div>
               <div className="flex justify-between">
@@ -92,7 +123,7 @@ const AddCoupon = () => {
                   >
                     Limit
                   </InputLabel>
-                  <TextFieldWrapper normal id="limit" name="limit" />
+                  <TextFieldWrapper id="limit" name="limit" />
                 </div>
                 <div className="flex flex-col gap-2 w-[48%]">
                   <InputLabel
@@ -106,9 +137,12 @@ const AddCoupon = () => {
                   </InputLabel>
                   <TextFieldWrapper
                     select
-                    normal
                     id="discountType"
                     name="discountType"
+                    options={[
+                      { name: "Fixed", value: "Fixed" },
+                      { name: "Percent", value: "Percent" },
+                    ]}
                   />
                 </div>
               </div>
@@ -123,11 +157,7 @@ const AddCoupon = () => {
                   >
                     Discount Amount
                   </InputLabel>
-                  <TextFieldWrapper
-                    normal
-                    id="discountAmount"
-                    name="discountAmount"
-                  />
+                  <TextFieldWrapper id="discountAmount" name="amount" />
                 </div>
                 <div className="flex flex-col gap-2 w-[48%]">
                   <InputLabel
@@ -139,11 +169,7 @@ const AddCoupon = () => {
                   >
                     Minimum spend
                   </InputLabel>
-                  <TextFieldWrapper
-                    normal
-                    id="minimumSpend"
-                    name="minimumSpend"
-                  />
+                  <TextFieldWrapper id="minimumSpend" name="minimumSpend" />
                 </div>
               </div>
               <div className="flex justify-between">
@@ -157,7 +183,11 @@ const AddCoupon = () => {
                   >
                     Start Date
                   </InputLabel>
-                  <TextFieldWrapper normal id="startDate" name="startDate" />
+                  <TextFieldWrapper
+                    id="startDate"
+                    name="startDate"
+                    type="date"
+                  />
                 </div>
                 <div className="flex flex-col gap-2 w-[48%]">
                   <InputLabel
@@ -169,7 +199,7 @@ const AddCoupon = () => {
                   >
                     End Date
                   </InputLabel>
-                  <TextFieldWrapper normal id="End Date" name="End Date" />
+                  <TextFieldWrapper id="End Date" name="endDate" type="date" />
                 </div>
               </div>
 
@@ -184,7 +214,6 @@ const AddCoupon = () => {
                   Description
                 </InputLabel>
                 <TextFieldWrapper
-                  normal
                   sx={{ borderRadius: "0px" }}
                   multiline
                   rows={4}
@@ -202,8 +231,9 @@ const AddCoupon = () => {
                   alignSelf: "flex-start",
                   borderRadius: "8px",
                 }}
+                type="submit"
               >
-                Credit
+                Add
               </Button>
             </div>
           </Form>

@@ -6,8 +6,28 @@ import { Formik, Form } from "formik";
 import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper.jsx";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../routes/siteRoutes.routes.js";
+import { addStaff } from "../../../utils/apis.js";
 const AddStaff = () => {
   const navigate = useNavigate();
+
+  const INITIAL_VALUE = {
+    account: "",
+    firstName: "",
+    lastName: "",
+    gender: "",
+    dob: "",
+    profilePhoto: "",
+    deliveryCompany: "",
+    role: "",
+  };
+  const handleAddStaff = async (values) => {
+    try {
+      await addStaff({}, values);
+      navigate(routes.admin.staff);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="flex flex-col w-full h-full px-10 pt-5">
       <div className="flex h-[15%] w-full">
@@ -41,7 +61,10 @@ const AddStaff = () => {
         </div>
       </div>
       <div className="flex flex-col w-full h-full gap-3">
-        <Formik>
+        <Formik
+          initialValues={INITIAL_VALUE}
+          onSubmit={(values) => handleAddStaff(values)}
+        >
           <Form className="w-full h-full">
             <div className="flex flex-col w-[60%] h-[60%] bg-white rounded-xl px-10 justify-center gap-4">
               <div className="flex justify-between">
@@ -56,10 +79,13 @@ const AddStaff = () => {
                     Select user Type
                   </InputLabel>
                   <TextFieldWrapper
-                    normal
                     select
                     id="userType"
                     name="userType"
+                    options={[
+                      { name: "Support", value: "Support" },
+                      { name: "Dispatcher", value: "Dispatcher" },
+                    ]}
                   />
                 </div>
                 <div className="flex flex-col gap-2 w-[48%]">
@@ -72,7 +98,15 @@ const AddStaff = () => {
                   >
                     Role
                   </InputLabel>
-                  <TextFieldWrapper select normal id="role" name="role" />
+                  <TextFieldWrapper
+                    select
+                    id="role"
+                    name="role"
+                    options={[
+                      { name: "Support", value: "Support" },
+                      { name: "Dispatcher", value: "Dispatcher" },
+                    ]}
+                  />
                 </div>
               </div>
               <div className="flex justify-between">
@@ -87,7 +121,6 @@ const AddStaff = () => {
                     First Name
                   </InputLabel>
                   <TextFieldWrapper
-                    normal
                     id="firstName"
                     name="firstName"
                     placeholder="Type first name"
@@ -105,7 +138,6 @@ const AddStaff = () => {
                   </InputLabel>
                   <TextFieldWrapper
                     select
-                    normal
                     id="lastName"
                     name="lastName"
                     placeholder="Type last name"
@@ -124,7 +156,6 @@ const AddStaff = () => {
                     Phone Number
                   </InputLabel>
                   <TextFieldWrapper
-                    normal
                     id="phone"
                     name="phone"
                     placeholder="08170000560"
@@ -141,7 +172,6 @@ const AddStaff = () => {
                     E-mail Address
                   </InputLabel>
                   <TextFieldWrapper
-                    normal
                     id="email"
                     name="email"
                     placeholder="you@address.com"
@@ -150,6 +180,7 @@ const AddStaff = () => {
               </div>
               <div className="self-center">
                 <Button
+                  type="submit"
                   variant="contained"
                   sx={{
                     marginTop: "10px",

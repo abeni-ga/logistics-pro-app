@@ -4,9 +4,26 @@ import AddIcon from "@mui/icons-material/Add";
 import StaffItem from "../Staff/StaffItem.pagecomp.jsx";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../routes/siteRoutes.routes.js";
+import { useCallback, useEffect, useState } from "react";
+import { getStaffs } from "../../../utils/apis.js";
+import { toast } from "react-toastify";
 const Staff = () => {
   const navigate = useNavigate();
+  const [staffs, setStaffs] = useState([]);
+  const [selectedStaff, setSelectedStaff] = useState(undefined);
 
+  const handleGetStaff = useCallback(async () => {
+    const response = await getStaffs({});
+    if (response?.status < 300) {
+      setStaffs(response?.data?.data?.data);
+    } else {
+      toast.error(response?.statusText);
+    }
+  }, []);
+
+  useEffect(() => {
+    handleGetStaff();
+  }, [handleGetStaff]);
   return (
     <div className="flex flex-col w-full h-full px-5">
       <div className="flex h-[10%]  w-full py-5 justify-between">
@@ -58,7 +75,16 @@ const Staff = () => {
           </div>
 
           <div className="flex flex-col w-full h-full">
-            <StaffItem />
+            {staffs.map((staff, index) => (
+              <StaffItem
+                onClick={() => {
+                  setSelectedStaff(staff);
+                }}
+                fullName={`${staff.firstName} ${staff.lastName}`}
+                email={staff.email}
+                key={index}
+              />
+            ))}
           </div>
         </div>
         <div className="flex flex-col w-[20%] bg-white h-full rounded-t-lg px-10 gap-20 items-center pt-10">

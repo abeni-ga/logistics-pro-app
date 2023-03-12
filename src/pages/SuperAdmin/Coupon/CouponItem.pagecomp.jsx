@@ -2,7 +2,18 @@ import { MoreVert } from "@mui/icons-material";
 import { Button, IconButton, Popover, Typography } from "@mui/material";
 import { useState } from "react";
 import { color } from "../../../constants/Theme.js";
-const CouponItem = (props) => {
+import { activateCoupon, deactivateCoupon } from "../../../utils/apis.js";
+import { toast } from "react-toastify";
+
+const CouponItem = ({
+  couponId,
+  status,
+  code,
+  name,
+  discountType,
+  amount,
+  onClick,
+}) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -15,40 +26,61 @@ const CouponItem = (props) => {
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+
+  const handleDeactivateCoupon = async (values) => {
+    try {
+      const resp = await deactivateCoupon({}, values);
+      handleClose();
+      toast.success(resp?.data?.message);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleActivateCoupon = async (values) => {
+    try {
+      const resp = await activateCoupon({}, values);
+      handleClose();
+      toast.success(resp?.data?.message);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <div className="flex w-full min-h-[13%] bg-white rounded-lg items-center px-10">
+    <div
+      className="flex w-full min-h-[13%] bg-white rounded-lg items-center px-10"
+      onClick={onClick}
+    >
       <Typography
-        sx={{ fontSize: "24px", color: color.darkGray, width: "15%" }}
+        sx={{ fontSize: "20px", color: color.darkGray, width: "15%" }}
       >
-        VAL021
+        {code}
       </Typography>
       <div className="flex flex-col w-[30%]">
-        <Typography sx={{ fontSize: "24px", color: color.darkGray }}>
-          Valentine Discount
+        <Typography sx={{ fontSize: "20px", color: color.darkGray }}>
+          {name}
         </Typography>
-        <Typography sx={{ color: color.darkGray }}>
-          Valentine discount
-        </Typography>
+        <Typography sx={{ color: color.darkGray }}>{discountType}</Typography>
       </div>
       <div className="w-[30%] flex">
         <Typography
           sx={{
             color: color.darkGray,
-            backgroundColor: props.status === "active" ? "#c4f5e3" : "#fee2e2",
+            backgroundColor: status === "Active" ? "#c4f5e3" : "#fee2e2",
             fontSize: "17px",
             paddingX: "50px",
             borderRadius: "20px",
           }}
         >
-          {props.status === "active" ? "Active" : "Expired"}
+          {status}
         </Typography>
       </div>
       <Typography
-        sx={{ fontSize: "24px", color: color.darkGray, width: "20%" }}
+        sx={{ fontSize: "20px", color: color.darkGray, width: "20%" }}
       >
-        ₦1,500
+        {amount}
       </Typography>
-      {props.status === "active" ? null : (
+      {status === "active" ? null : (
         <IconButton
           aria-describedby={id}
           sx={{
@@ -74,19 +106,19 @@ const CouponItem = (props) => {
       >
         <div className="flex flex-col">
           <Button
-            onClick={handleClose}
+            onClick={() => handleActivateCoupon({ id: couponId })}
             sx={{ width: "150px", color: color.darkGray }}
           >
             Activate
           </Button>
           <div className="w-full h-0.5 bg-slate-200"></div>
           <Button
-            onClick={handleClose}
+            onClick={() => handleDeactivateCoupon({ id: couponId })}
             sx={{ width: "150px", color: color.darkGray }}
           >
             Deactivate
           </Button>
-          <div className="w-full h-0.5 bg-slate-200"></div>
+          {/* <div className="w-full h-0.5 bg-slate-200"></div>
           <Button
             onClick={handleClose}
             sx={{ width: "150px", color: color.darkGray }}
@@ -99,7 +131,7 @@ const CouponItem = (props) => {
             sx={{ width: "150px", color: color.darkGray }}
           >
             Reactivate
-          </Button>
+          </Button> */}
         </div>
       </Popover>
     </div>

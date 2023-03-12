@@ -2,7 +2,7 @@ import { Avatar, Button, IconButton, Popover, Typography } from "@mui/material";
 import { color } from "../../../constants/Theme.js";
 import { MoreVert } from "@mui/icons-material";
 import { useState } from "react";
-const StaffItem = () => {
+const StaffItem = ({ onClick, fullName, email }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -15,16 +15,19 @@ const StaffItem = () => {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
   return (
-    <div className="flex w-full min-h-[13%] bg-white rounded-lg items-center">
+    <div
+      className="flex w-full min-h-[13%] bg-white rounded-lg items-center"
+      onClick={onClick}
+    >
       <div className="flex justify-center w-[10%] ">
         <Avatar sx={{ height: "70px", width: "65px" }} />
       </div>
       <div className="flex flex-col w-[80%]">
         <Typography sx={{ fontSize: "24px", color: color.darkGray }}>
-          Sodiq Alase
+          {fullName}
         </Typography>
         <Typography sx={{ color: color.darkGray, fontWeight: "17px" }}>
-          sodiq@touchcore.com.ng
+          {email}
         </Typography>
       </div>
 

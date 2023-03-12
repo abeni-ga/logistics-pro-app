@@ -19,7 +19,7 @@ export const payment = {
     getSubscriptions: BASEURL + "/payment/API/V1/subscription",
   },
   transaction: {
-    getTransaction: BASEURL + "//payment/API/V1/transaction",
+    getTransaction: BASEURL + "/payment/API/V1/transaction",
   },
 };
 export const configuration = {
@@ -41,4 +41,18 @@ export const collectionCenter = {
   getCollectionCenter: BASEURL + "/pool/API/V1/collectionCenter/:id",
   addCollectionCenter:
     BASEURL + "/pool/API/V1/collectionCenter/addCollectionCenter",
+};
+export const staff = {
+  getStaffs: BASEURL + "/account/API/V1/staff",
+  getStaff: BASEURL + "/account/API/V1/staff/:id",
+  addStaff: BASEURL + "/account/API/V1/staff/addStaff",
+  updateStaff: BASEURL + "/account/API/V1/staff/updateStaff",
+  deactivateStaff: BASEURL + "/account/API/V1/staff/deactivateStaff",
+};
+export const coupon = {
+  getCoupons: BASEURL + "/pool/API/V1/coupon",
+  getCoupon: BASEURL + "/pool/API/V1/coupon/:id",
+  addCoupon: BASEURL + "/pool/API/V1/coupon/addCoupon",
+  updateCoupon: BASEURL + "/pool/API/V1/coupon/updateCoupon",
+  deactivateCoupon: BASEURL + "/pool/API/V1/coupon/deactivateCoupon",
 };

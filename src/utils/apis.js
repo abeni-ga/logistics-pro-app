@@ -2,8 +2,10 @@ import {
   account,
   collectionCenter,
   configuration,
+  coupon,
   payment,
   pool,
+  staff,
 } from "../constants/ApiEndpoints";
 import { apiAuth, apiNoAuth } from "./fetch";
 import { clearLocalStorage } from "./tokenHandler";
@@ -70,7 +72,7 @@ export const getTransaction = async (header) => {
       ...header,
     };
     const response = await apiAuth(head).get(
-      payment.transaction.getTransaction
+      payment.transaction.getTransaction,
     );
     return response;
   } catch (error) {
@@ -176,4 +178,75 @@ export const getUser = async (header, params, userId) => {
   } catch (error) {
     console.log("Error", error);
   }
+};
+export const getCoupons = async (header, params) => {
+  try {
+    const head = {
+      ...header,
+    };
+    const response = await apiAuth(head).get(`${coupon.getCoupons}?` + params);
+    return response;
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
+
+export const addCoupon = async (header, body) => {
+  const head = {
+    ...header,
+  };
+  const response = await apiAuth(head).post(coupon.addCoupon, body);
+  return response;
+};
+
+export const deactivateCoupon = async (header, body) => {
+  const head = {
+    ...header,
+  };
+  const response = await apiAuth(head).post(coupon.deactivateCoupon, body);
+  return response;
+};
+export const activateCoupon = async (header, body) => {
+  const head = {
+    ...header,
+  };
+  const response = await apiAuth(head).patch(coupon.updateCoupon, {
+    ...body,
+    isActive: true,
+  });
+  return response;
+};
+export const updateCoupon = async (header, body) => {
+  const head = {
+    ...header,
+  };
+  const response = await apiAuth(head).patch(coupon.updateCoupon, body);
+  return response;
+};
+export const getStaffs = async (header, params) => {
+  try {
+    const head = {
+      ...header,
+    };
+    const response = await apiAuth(head).get(`${staff.getStaffs}?` + params);
+    return response;
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
+
+export const addStaff = async (header, body) => {
+  const head = {
+    ...header,
+  };
+  const response = await apiAuth(head).post(staff.addStaff, body);
+  return response;
+};
+
+export const updateStaff = async (header, body) => {
+  const head = {
+    ...header,
+  };
+  const response = await apiAuth(head).patch(staff.updateStaff, body);
+  return response;
 };
