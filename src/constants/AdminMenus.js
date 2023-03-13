@@ -171,7 +171,7 @@ export const ADMINMENUITEMS = [
         type: "link",
       },
       {
-        path: "/admin/subscription/add-new",
+        path: "/admin/subscription/add",
         title: "Add New",
         type: "link",
       },

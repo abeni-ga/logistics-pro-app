@@ -1,4 +1,5 @@
 import AddIcon from "@mui/icons-material/Add";
+import * as Yup from "yup";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { color } from "../../../constants/Theme.js";
 import { Button, IconButton, InputLabel, Typography } from "@mui/material";
@@ -11,14 +12,12 @@ const AddStaff = () => {
   const navigate = useNavigate();
 
   const INITIAL_VALUE = {
-    account: "",
+    role: "",
+    userType: "",
     firstName: "",
     lastName: "",
-    gender: "",
-    dob: "",
-    profilePhoto: "",
-    deliveryCompany: "",
-    role: "",
+    phone: "",
+    email: "",
   };
   const handleAddStaff = async (values) => {
     try {
@@ -63,6 +62,14 @@ const AddStaff = () => {
       <div className="flex flex-col w-full h-full gap-3">
         <Formik
           initialValues={INITIAL_VALUE}
+          validationSchema={Yup.object({
+            role: Yup.string().required("Required"),
+            userType: Yup.string().required("Required"),
+            firstName: Yup.string().required("Required"),
+            lastName: Yup.string().required("Required"),
+            phone: Yup.string().required("Required"),
+            email: Yup.string().required("Required"),
+          })}
           onSubmit={(values) => handleAddStaff(values)}
         >
           <Form className="w-full h-full">
@@ -102,10 +109,7 @@ const AddStaff = () => {
                     select
                     id="role"
                     name="role"
-                    options={[
-                      { name: "Support", value: "Support" },
-                      { name: "Dispatcher", value: "Dispatcher" },
-                    ]}
+                    options={[{ name: "Staff", value: "Staff" }]}
                   />
                 </div>
               </div>
@@ -137,7 +141,6 @@ const AddStaff = () => {
                     Last Name
                   </InputLabel>
                   <TextFieldWrapper
-                    select
                     id="lastName"
                     name="lastName"
                     placeholder="Type last name"

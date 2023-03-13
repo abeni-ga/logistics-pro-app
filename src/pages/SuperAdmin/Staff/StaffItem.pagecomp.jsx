@@ -2,8 +2,9 @@ import { Avatar, Button, IconButton, Popover, Typography } from "@mui/material";
 import { color } from "../../../constants/Theme.js";
 import { MoreVert } from "@mui/icons-material";
 import { useState } from "react";
-const StaffItem = ({ onClick, fullName, email }) => {
+const StaffItem = ({ onClick, staff }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  console.log(staff);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -20,14 +21,16 @@ const StaffItem = ({ onClick, fullName, email }) => {
       onClick={onClick}
     >
       <div className="flex justify-center w-[10%] ">
-        <Avatar sx={{ height: "70px", width: "65px" }} />
+        <Avatar sx={{ height: "70px", width: "65px" }}>
+          {staff.username.substring(0, 2).toUpperCase()}
+        </Avatar>
       </div>
       <div className="flex flex-col w-[80%]">
         <Typography sx={{ fontSize: "24px", color: color.darkGray }}>
-          {fullName}
+          {staff.username}
         </Typography>
         <Typography sx={{ color: color.darkGray, fontWeight: "17px" }}>
-          {email}
+          {staff.email}
         </Typography>
       </div>
 

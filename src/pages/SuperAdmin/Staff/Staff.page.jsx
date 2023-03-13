@@ -82,11 +82,10 @@ const Staff = () => {
           <div className="flex flex-col w-full h-full">
             {staffs.map((staff, index) => (
               <StaffItem
+                staff={staff}
                 onClick={() => {
                   setSelectedStaff(staff);
                 }}
-                fullName={`${staff.firstName} ${staff.lastName}`}
-                email={staff.email}
                 key={index}
               />
             ))}
