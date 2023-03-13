@@ -4,7 +4,6 @@ import { MoreVert } from "@mui/icons-material";
 import { useState } from "react";
 const StaffItem = ({ onClick, staff }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  console.log(staff);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

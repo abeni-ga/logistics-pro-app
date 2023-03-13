@@ -51,11 +51,10 @@ const RegisterRider = () => {
   const handleGetUsers = useCallback(async () => {
     const params = new URLSearchParams({
       limit: 0,
-      filterBy: "role",
+      f400ilterBy: "role",
       filterValue: "DeliveryCompany",
       populate: "detail",
       searchBy: "name",
-      // keyWord: keyWord,
     });
     const response = await getUsers({}, `?${params.toString()}`);
     if (response?.status < 300) {
@@ -68,7 +67,8 @@ const RegisterRider = () => {
     try {
       const result = await register({}, values);
       console.log(result);
-      handleFiles(result?.data?.data?.data?._id);
+      console.log(result?.data?.data?._id);
+      handleFiles(result?.data?.data?._id);
       handleNext();
     } catch (error) {
       toast.error(error.response?.data?.message);
