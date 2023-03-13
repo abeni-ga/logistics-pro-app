@@ -1,11 +1,9 @@
-import { Checkbox, Radio, TextField, Typography } from "@mui/material";
+/* import { Checkbox, Radio, Typography } from "@mui/material";
 import { Form, Formik } from "formik";
 import { useState } from "react";
-import TextFieldWrapper from "../../../components/TextFieldWrapper/TextFieldWrapper";
 import Fragile from "../../../assets/svg/fragile.svg";
 import Notepad from "../../../assets/svg/notepad.svg";
 import Sms from "../../../assets/svg/sms.svg";
-import Insurance from "../../../assets/svg/insurance.svg";
 import Credit from "../../../assets/svg/credit-card.svg";
 import Wallet from "../../../assets/svg/wallet.svg";
 import Cash from "../../../assets/svg/cash.svg";
@@ -13,20 +11,20 @@ import Cash from "../../../assets/svg/cash.svg";
 const FinalizeForm = () => {
   const [selectedInsurance, setSelectedInsurance] = useState(undefined);
   const [selectedPayment, setSelectedPayment] = useState(undefined);
-  const handleInsuranceChange = (event) => {
+  // const handleInsuranceChange = (event) => {
     setSelectedInsurance(event.target.value);
   };
   const handlePaymentChange = (event) => {
     setSelectedPayment(event.target.value);
   };
 
-  const controlInsuranceProps = (item) => ({
-    checked: selectedInsurance === item,
-    onChange: handleInsuranceChange,
-    value: item,
-    name: "insurance",
-    inputProps: { "aria-label": item },
-  });
+  // const controlInsuranceProps = (item) => ({
+  //   checked: selectedInsurance === item,
+  //   onChange: handleInsuranceChange,
+  //   value: item,
+  //   name: "insurance",
+  //   inputProps: { "aria-label": item },
+  // });
   const controlPaymentProps = (item) => ({
     checked: selectedPayment === item,
     onChange: handlePaymentChange,
@@ -77,46 +75,7 @@ const FinalizeForm = () => {
               </div>
             </div>
           </div>
-          <Typography className="font-bold">Insurance</Typography>
-          <div className="flex gap-10 bg-white rounded">
-            <div className="flex gap-2 items-center">
-              <Radio {...controlInsuranceProps("Standard")} />
-              <div className="flex items-center gap-2">
-                <img src={Insurance} alt="" />
-                <Typography>Standard Insurance</Typography>
-              </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              <Radio {...controlInsuranceProps("Comprehnsive")} />
-              <div className="flex items-center gap-2">
-                <img src={Insurance} alt="" />
-                <Typography>Comprehnsive Insurance</Typography>
-              </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              <Radio {...controlInsuranceProps("None")} />
-              <div className="flex items-center gap-2">
-                <Typography>None</Typography>
-              </div>
-            </div>
-          </div>
-          <Typography className="font-bold">
-            Extra Notification Contacts
-          </Typography>
-          <div className="flex gap-10 bg-white rounded p-4 items-center">
-            <Checkbox /> <Typography>Contact 1</Typography> <TextField />
-            <a href="#l">Add another</a>
-          </div>
-          <Typography className="font-bold">Delivery Time</Typography>
-          <div className="flex flex-col gap-2 bg-white rounded p-4">
-            <Typography>
-              Choose the delivery time for this package or leave it blank and we
-              will deliver as soon as we can.
-            </Typography>
-            <div className="w-[40%]">
-              <TextFieldWrapper type="date" name="deliveryTime" />
-            </div>
-          </div>
+
           <Typography className="font-bold">Payment Method</Typography>
           <div className="flex gap-10 bg-white rounded">
             <div className="flex gap-2 items-center">
@@ -166,3 +125,4 @@ const FinalizeForm = () => {
 };
 
 export default FinalizeForm;
+ */
