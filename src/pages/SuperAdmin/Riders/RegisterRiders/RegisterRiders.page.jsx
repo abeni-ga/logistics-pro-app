@@ -68,17 +68,18 @@ const RegisterRider = () => {
     try {
       const result = await register({}, values);
       console.log(result);
-      handleFiles();
+      handleFiles(result?.data?.data?.data?._id);
       handleNext();
     } catch (error) {
       toast.error(error.response?.data?.message);
     }
   };
-  const handleFiles = async () => {
+  const handleFiles = async (id) => {
     try {
       const formData = new FormData();
       formData.append("documentType", "BusinessRegistration");
       formData.append("documents", files.businessRegistration);
+      formData.append("userId", id);
 
       const result = await uploadDocument(formData);
       return result;
@@ -151,10 +152,6 @@ const RegisterRider = () => {
             }}
           >
             {({ handleSubmit, errors }) => {
-              // Object.keys(errors).map(
-              //   (error) => error && toast.error(`${error} - ${errors[error]}`),
-              // );
-              // console.log(errors);
               return (
                 <Form>
                   {steps()}

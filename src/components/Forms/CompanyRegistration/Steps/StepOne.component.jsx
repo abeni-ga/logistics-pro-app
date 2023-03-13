@@ -13,7 +13,7 @@ const StepOne = ({ address, setAddress }) => {
   const type = [
     { name: "Delivery Company", value: "DeliveryCompany" },
     { name: "Retail Company", value: "RetailCompany" },
-    { name: "Directe Customer", value: "Direct Customer" },
+    { name: "Direct Customer", value: "DirectCustomer" },
   ];
 
   return (
@@ -39,8 +39,8 @@ const StepOne = ({ address, setAddress }) => {
         defaultValue="DeliveryCompany"
       ></TextFieldWrapper>
       <TextFieldWrapper
-        name="companyName"
-        label="Company Name"
+        name="userName"
+        label="User Name"
         className="rounded-lg"
       />
       <div className="flex flex-row gap-2">
@@ -77,7 +77,7 @@ const StepOne = ({ address, setAddress }) => {
           },
         }}
       />
-      <TextFieldWrapper name="phoneNumber" label="Phone Number" />
+      <TextFieldWrapper name="phone" label="Phone Number" />
       <TextFieldWrapper name="email" label="Company Email Address" />
       <div className="flex flex-col gap-4">
         <TextFieldWrapper

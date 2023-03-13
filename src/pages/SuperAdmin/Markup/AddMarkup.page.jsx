@@ -254,7 +254,7 @@ const AddMarkup = () => {
                     <TextFieldWrapper
                       id="name"
                       name="name"
-                      placeholder="Type or select an existing company"
+                      placeholder="Type Markup title"
                     />
                   </div>
 

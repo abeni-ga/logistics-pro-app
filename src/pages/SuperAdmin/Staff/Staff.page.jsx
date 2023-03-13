@@ -16,6 +16,7 @@ const Staff = () => {
     const response = await getStaffs({});
     if (response?.status < 300) {
       setStaffs(response?.data?.data?.data);
+      console.log(response?.data?.data?.data);
     } else {
       toast.error(response?.statusText);
     }
@@ -49,7 +50,11 @@ const Staff = () => {
         </Button>
       </div>
       <div className="flex w-full h-[90%] justify-between">
-        <div className="flex flex-col w-[78%] gap-5">
+        <div
+          className={`flex flex-col  gap-5 ${
+            selectedStaff ? "w-[78%]" : "w-full"
+          }`}
+        >
           <div className="flex min-h-[10%] bg-blue-100 rounded-xl items-center">
             <div className="flex w-[10%] h-2"></div>
             <Typography
@@ -87,59 +92,61 @@ const Staff = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col w-[20%] bg-white h-full rounded-t-lg px-10 gap-20 items-center pt-10">
-          <div className="flex flex-col gap-5">
-            <Avatar sx={{ width: "100px", height: "100px" }} />
-            <Typography
-              sx={{
-                fontSize: "19px",
-                color: color.darkGray,
-                fontWeight: "700",
-              }}
-            >
-              User Name
-            </Typography>
-          </div>
+        {selectedStaff ? (
+          <div className="flex flex-col w-[20%] bg-white h-full rounded-t-lg px-10 gap-20 items-center pt-10">
+            <div className="flex flex-col gap-5">
+              <Avatar sx={{ width: "100px", height: "100px" }} />
+              <Typography
+                sx={{
+                  fontSize: "19px",
+                  color: color.darkGray,
+                  fontWeight: "700",
+                }}
+              >
+                User Name
+              </Typography>
+            </div>
 
-          <div className="flex flex-col gap-2 w-full">
-            <Typography
-              sx={{
-                fontSize: "18px",
-                color: color.darkGray,
-                fontWeight: "700",
-              }}
-            >
-              First Name: Sodiq
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "18px",
-                color: color.darkGray,
-                fontWeight: "700",
-              }}
-            >
-              Last Name: Alase
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "18px",
-                color: color.darkGray,
-                fontWeight: "700",
-              }}
-            >
-              Email: sodiq@touchcore.com.ng
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "18px",
-                color: color.darkGray,
-                fontWeight: "700",
-              }}
-            >
-              Phone: 0903000000
-            </Typography>
+            <div className="flex flex-col gap-2 w-full">
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: color.darkGray,
+                  fontWeight: "700",
+                }}
+              >
+                {`First Name:${selectedStaff?.firstName}`}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: color.darkGray,
+                  fontWeight: "700",
+                }}
+              >
+                {`Last Name: ${selectedStaff?.lastName}`}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: color.darkGray,
+                  fontWeight: "700",
+                }}
+              >
+                {`Email: ${selectedStaff?.email}`}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: color.darkGray,
+                  fontWeight: "700",
+                }}
+              >
+                {`Phone:${selectedStaff?.phone}`}
+              </Typography>
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
     </div>
   );

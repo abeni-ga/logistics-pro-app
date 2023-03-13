@@ -36,7 +36,7 @@ const StepThree = ({ handlePrev, postalAddress, setPostalAddress }) => {
           Company Phone Number
         </InputLabel>
         <TextFieldWrapper name="companyPhoneNumber" placeholder="123456789" /> */}
-        <InputLabel htmlFor="contactPerson">Company Person</InputLabel>
+        <InputLabel htmlFor="contactPerson">Contact Person</InputLabel>
         <TextFieldWrapper
           name="contactPerson"
           placeholder="Type in name of Contact Person for company"
@@ -52,11 +52,9 @@ const StepThree = ({ handlePrev, postalAddress, setPostalAddress }) => {
             />
           </div>
           <div className="flex flex-col gap-2 w-1/2">
-            <InputLabel htmlFor="contactPersonPhoneNumber">
-              Phone Number
-            </InputLabel>
+            <InputLabel htmlFor="contactPersonPhone">Phone Number</InputLabel>
             <TextFieldWrapper
-              name="contactPersonPhoneNumber"
+              name="contactPersonPhone"
               placeholder="Contact Person's Phone Number"
             />
           </div>

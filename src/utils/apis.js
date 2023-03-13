@@ -24,7 +24,7 @@ export const getDeliveryPlans = async (header) => {
       ...header,
     };
     const response = await apiAuth(head).get(
-      configuration.deliveryPlan.getDeliveryPlan,
+      configuration.deliveryPlan.getDeliveryPlan
     );
     return response;
   } catch (error) {
@@ -34,7 +34,7 @@ export const getDeliveryPlans = async (header) => {
 export const addDeliveryPlan = async (header, body) => {
   const response = await apiAuth().post(
     configuration.deliveryPlan.addDeliveryPlan,
-    body,
+    body
   );
   return response;
 };
@@ -59,7 +59,7 @@ export const getSubscriptions = async (header) => {
       ...header,
     };
     const response = await apiAuth(head).get(
-      payment.subscription.getSubscriptions,
+      payment.subscription.getSubscriptions
     );
     return response;
   } catch (error) {
@@ -72,7 +72,7 @@ export const getTransaction = async (header) => {
       ...header,
     };
     const response = await apiAuth(head).get(
-      payment.transaction.getTransaction,
+      payment.transaction.getTransaction
     );
     return response;
   } catch (error) {
@@ -85,7 +85,7 @@ export const getCollectionCenters = async (header) => {
       ...header,
     };
     const response = await apiAuth(head).get(
-      collectionCenter.getCollectionCenters,
+      collectionCenter.getCollectionCenters
     );
     return response;
   } catch (error) {
@@ -95,21 +95,21 @@ export const getCollectionCenters = async (header) => {
 export const addCollectionCenter = async (header, body) => {
   const response = await apiAuth().post(
     collectionCenter.addCollectionCenter,
-    body,
+    body
   );
   return response;
 };
 export const editDeliveryPlan = async (header, body) => {
   const response = await apiAuth().patch(
     configuration.deliveryPlan.editDeliveryPlan,
-    body,
+    body
   );
   return response;
 };
 export const editMarkup = async (header, body) => {
   const response = await apiAuth().patch(
     configuration.markUp.editMarkups,
-    body,
+    body
   );
   return response;
 };
@@ -147,7 +147,7 @@ export const getRidersByStatus = async (header, params) => {
       ...header,
     };
     const response = await apiAuth(head).get(
-      account.getRidersByStatus + "?" + params,
+      account.getRidersByStatus + "?" + params
     );
     return response;
   } catch (error) {
@@ -172,7 +172,7 @@ export const getUser = async (header, params, userId) => {
       ...header,
     };
     const response = await apiAuth(head).get(
-      `${account.getUser}/${userId}` + params,
+      `${account.getUser}/${userId}` + params
     );
     return response;
   } catch (error) {
@@ -223,12 +223,12 @@ export const updateCoupon = async (header, body) => {
   const response = await apiAuth(head).patch(coupon.updateCoupon, body);
   return response;
 };
-export const getStaffs = async (header, params) => {
+export const getStaffs = async (header) => {
   try {
     const head = {
       ...header,
     };
-    const response = await apiAuth(head).get(`${staff.getStaffs}?` + params);
+    const response = await apiAuth(head).get(`${staff.getStaffs}?`);
     return response;
   } catch (error) {
     console.log("Error", error);
